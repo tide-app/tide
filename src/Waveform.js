@@ -9,13 +9,13 @@ import {
   createColorOpacityMap,
   linearScale
 } from "@colormap/core";
-import { PLASMA } from "@colormap/presets";
+import { plasma } from "@colormap/presets";
 
 let opacities = [1, 1, 1];
 let domain = [0, 100];
 let range = [0, 1];
 let scale = linearScale(domain, range);
-let colorMap = createColorMap(PLASMA, scale);
+let colorMap = createColorMap(plasma, scale);
 let opacityMap = createOpacityMap(opacities, scale);
 let colorOpacityMap = createColorOpacityMap(colorMap, opacityMap);
 

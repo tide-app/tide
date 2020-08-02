@@ -23,11 +23,17 @@
     "wavesurfer.js": "4.0.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "gh-pages": "^3.1.0",
     "typescript": "3.9.7"
+  },
+  "babel": {
+    "plugins": ["@babel/plugin-proposal-class-properties"]
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d dist",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
