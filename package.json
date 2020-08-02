@@ -8,22 +8,22 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@colormap/core": "0.1.0-3",
-    "@colormap/presets": "0.1.0-4",
+    "@colormap/core": "0.2.0",
+    "@colormap/presets": "0.2.0",
     "freesound-client": "0.1.2",
     "lodash": "4.17.19",
     "peaks.js": "0.21.0",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.0.1",
+    "react-scripts": "3.4.1",
     "react-waveform": "0.1.0",
     "react-wavy-audio": "1.0.3",
     "sample-editor-view": "1.0.0-b.2",
     "wavesurfer.js": "4.0.1"
   },
   "devDependencies": {
-    "typescript": "3.8.3"
+    "typescript": "3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
