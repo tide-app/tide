@@ -3,6 +3,10 @@ body {
   color: white;
 }
 
+a {
+  color: white;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -34,4 +38,11 @@ button:hover {
 .controls {
   text-align: left;
   padding: 1em;
+}
+
+.Tag {
+  background: red;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
 }

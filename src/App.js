@@ -1,63 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FreeSound from "freesound-client";
-import Waveform from "./Waveform";
-import PlayList from "./Playlist";
+import { throttle } from "lodash";
+import Sound from "./Sound";
+import Search from "./Search";
+
+// Todolist
+// * Routing
+// * Authentication (OAuth)
+// * UI design
+// * Downloading sounds
+// * Dark Mode (React Context)
+// * Accessibility
+// * Offline
 
 const freeSound = new FreeSound();
 freeSound.setToken("scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp");
 
-class App extends React.Component {
-  state = {
-    sound: undefined,
-    sounds: [],
-    searchValue: "whale"
-  };
-
-  async componentDidMount() {
-    this.search();
-  }
-
-  async handleItem(item) {
-    const sound = await freeSound.getSound(item.id);
-    const url = sound.previews["preview-lq-mp3"];
-    this.setState({
-      sound,
-      url
-    });
-  }
-
-  async search() {
-    const { results: sounds } = await freeSound.textSearch(
-      this.state.searchValue
-    );
-    this.setState({
-      sounds
-    });
-  }
-
-  setSearchValue(e) {
-    this.setState({
-      searchValue: e.target.value
-    });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <input onChange={e => this.setSearchValue(e)} />
-        <button onClick={() => this.search()}>Search</button>
-        {this.state.url && <Waveform url={this.state.url} />}
-        <h1>{this.state.sound?.name}</h1>
-        <h1>{this.state.sound?.description}</h1>
-        {this.state.sound?.tags.join(", ")}
-        <PlayList
-          tracks={this.state.sounds}
-          selectedTrack={this.state.sound?.id || this.state.sounds[0]?.id || 0}
-          setSelectedTrack={track => this.handleItem(track)}
+const App = () => {
+  const [searchValue, setSearchValue] = useState();
+  return (
+    <div className="App">
+      <div className="Search">
+        <input
+          name="search"
+          type="text"
+          placeholder="Search sound..."
+          onChange={e => setSearchValue(e.target.value)}
         />
       </div>
-    );
-  }
-}
+      <Router>
+        <Switch>
+          <Route
+            path="/sound/:id"
+            render={() => <Sound freeSound={freeSound} />}
+          />
+          <Route
+            path="/"
+            render={() => (
+              <Search searchValue={searchValue} freeSound={freeSound} />
+            )}
+          />
+        </Switch>
+      </Router>
+    </div>
+  );
+};
 
 export default App;
