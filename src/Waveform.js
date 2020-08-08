@@ -2,8 +2,8 @@
 //        overflow the container element
 import React, { useEffect, useRef, useState } from "react";
 import WaveSurfer from "wavesurfer.js";
-import TimelinePlugin from "wavesurfer.js/src/plugin/timeline";
-import SpectrogramPlugin from "wavesurfer.js/src/plugin/spectrogram";
+import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline";
+import SpectrogramPlugin from "wavesurfer.js/dist/plugin/wavesurfer.spectrogram";
 import {
   createColorMap,
   createOpacityMap,
