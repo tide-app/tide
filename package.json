@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React example starter project",
   "license": "MIT",
+  "homepage": "https://amilajack.github.io/freesound-player",
   "keywords": [
     "react",
     "starter"
