@@ -1,6 +1,7 @@
+// @TODO: Use CursorPlugin plugin. Previously this had a bug where it would
+//        overflow the container element
 import React, { useEffect, useRef, useState } from "react";
 import WaveSurfer from "wavesurfer.js";
-import CursorPlugin from "wavesurfer.js/src/plugin/cursor";
 import TimelinePlugin from "wavesurfer.js/src/plugin/timeline";
 import SpectrogramPlugin from "wavesurfer.js/src/plugin/spectrogram";
 import {
@@ -19,18 +20,12 @@ let colorMap = createColorMap(plasma, scale);
 let opacityMap = createOpacityMap(opacities, scale);
 let colorOpacityMap = createColorOpacityMap(colorMap, opacityMap);
 
-const colorsFoo = new Array(256).fill(0).map((_, i) => colorOpacityMap(i));
-
 const formWaveSurferOptions = (ref, refSpec, waveTimeline) => ({
   container: ref,
   plugins: [
-    CursorPlugin.create({
-      color: "white",
-      opacity: 1
-    }),
     SpectrogramPlugin.create({
       container: refSpec,
-      colorMap: colorsFoo
+      colorMap: new Array(256).fill(0).map((_, i) => colorOpacityMap(i))
     }),
     TimelinePlugin.create({ container: waveTimeline })
   ],
@@ -69,7 +64,7 @@ export default function Waveform({ url }) {
 
     wavesurfer.current.load(url);
 
-    wavesurfer.current.on("ready", function() {
+    wavesurfer.current.on("ready", function () {
       // https://wavesurfer-js.org/docs/methods.html
       // wavesurfer.current.play();
       // setPlay(true);
@@ -88,7 +83,7 @@ export default function Waveform({ url }) {
     wavesurfer.current.playPause();
   };
 
-  const onVolumeChange = e => {
+  const onVolumeChange = (e) => {
     const { target } = e;
     const newVolume = +target.value;
 
