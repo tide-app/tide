@@ -15,7 +15,6 @@ export default function Sound(props) {
       const sound = await freeSound.getSound(id);
       setSound(sound);
       const { results: similarSounds } = await sound.getSimilar();
-      console.log(similarSounds);
       if (similarSounds) {
         setSimilarSounds(similarSounds);
       }
@@ -25,7 +24,7 @@ export default function Sound(props) {
 
   return (
     <div>
-      <Link to="/">Back</Link>
+      <Link to="/freesound-player">Back</Link>
       <h1>{sound.name}</h1>
       <p>{sound.description}</p>
       {sound.tags?.map(e => (
