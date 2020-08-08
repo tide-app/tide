@@ -20,7 +20,7 @@
     "react-scripts": "3.4.1",
     "react-waveform": "0.1.0",
     "react-wavy-audio": "1.0.3",
-    "sample-editor-view": "1.0.0-b.2",
+    "sample-editor-view": "1.0.0",
     "wavesurfer.js": "4.0.1"
   },
   "devDependencies": {
