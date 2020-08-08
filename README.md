@@ -1,2 +1,2 @@
-# freesound-player
-Created with CodeSandbox
+# freesound-player webpage
+https://amilajack.github.io/freesound-player/
