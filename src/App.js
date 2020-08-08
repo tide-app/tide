@@ -34,7 +34,7 @@ const App = () => {
             render={() => <Sound freeSound={freeSound} />}
           />
           <Route
-            path="/"
+            path={process.env.NODE_ENV === 'development' ? '/' : '/freesound-player'}
             render={() => (
               <Search searchValue={searchValue} freeSound={freeSound} />
             )}
