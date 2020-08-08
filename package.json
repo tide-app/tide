@@ -25,8 +25,8 @@
     "wavesurfer.js": "4.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "gh-pages": "^3.1.0",
+    "@babel/plugin-proposal-class-properties": "7.10.4",
+    "gh-pages": "3.1.0",
     "typescript": "3.9.7"
   },
   "babel": {
