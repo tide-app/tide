@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route }
+from "react-router-dom";
 import FreeSound from "freesound-client";
 // import { throttle } from "lodash";
 import Sound from "./Sound";
@@ -13,10 +14,11 @@ import Search from "./Search";
 // * Offline
 
 const freeSound = new FreeSound();
-freeSound.setToken("scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp");
+const token = 'scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp';
+freeSound.setToken(token);
 
 const App = () => {
-  const [searchValue, setSearchValue] = useState("hello");
+  const [searchValue, setSearchValue] = useState("note");
   return (
     <div className="App">
       <div className="Search">
@@ -34,9 +36,11 @@ const App = () => {
             render={() => <Sound freeSound={freeSound} />}
           />
           <Route
-            path={process.env.NODE_ENV === 'development' ? '/' : '/freesound-player'}
+            path={process.env.NODE_ENV === 'development' ?
+            '/' : '/freesound-player'}
             render={() => (
-              <Search searchValue={searchValue} freeSound={freeSound} />
+              <Search freeSound={freeSound}
+              searchValue={searchValue} />
             )}
           />
         </Switch>
