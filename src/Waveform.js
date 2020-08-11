@@ -38,7 +38,8 @@ const formWaveSurferOptions = (ref, refSpec, waveTimeline) => ({
   height: 150,
   // If true, normalize by the maximum peak instead of 1.0.
   normalize: true,
-  // Use the PeakCache to improve rendering speed of large waveforms.
+  // Use the PeakCache to improve rendering speed of
+  // large waveforms.
   partialRender: true
 });
 
@@ -72,11 +73,12 @@ export default function Waveform({ url }) {
       wavesurfer.current.setVolume(volume);
       setVolume(volume);
     });
-
-    // Removes events, elements and disconnects Web Audio nodes.
+    console.log('useEffect() in Waveform.js is firing');
+    // Removes events, elements and disconnects Web Audio
+    // nodes.
     // when component unmount
     return () => wavesurfer.current.destroy();
-  }, [url]);
+  }, [ url , volume ]);
 
   const handlePlayPause = () => {
     setPlay(!playing);
@@ -97,13 +99,15 @@ export default function Waveform({ url }) {
     <div>
       <div id="waveform" ref={waveformRef} />
       <div className="controls">
-        <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button>
+        <button onClick={handlePlayPause}>
+          {!playing ? "Play" : "Pause"}</button>
         <input
           type="range"
           id="volume"
           name="volume"
           // waveSurfer recognize value of `0` same as `1`
-          //  so we need to set some zero-ish value for silence
+          // so we need to set some zero-ish value for
+          // silence
           min="0.01"
           max="1"
           step=".025"

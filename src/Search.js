@@ -15,7 +15,7 @@ export default function Search({ freeSound, searchValue }) {
       fetchSearchResults();
     }
     console.log('useEffect() in Search.js is firing');
-  }, []);
+  }, [ freeSound , searchValue ]);
 
   return <SoundList tracks={searchResults} />;
 }
