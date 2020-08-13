@@ -14,7 +14,8 @@ export default function Sound(props) {
     const fetchSound = async () => {
       const sound = await freeSound.getSound(id);
       setSound(sound);
-      const { results: similarSounds } = await sound.getSimilar();
+      const { results: similarSounds } =
+      await sound.getSimilar();
       if (similarSounds) {
         setSimilarSounds(similarSounds);
       }
@@ -24,7 +25,7 @@ export default function Sound(props) {
 
   return (
     <div>
-      <Link to="/freesound-player">Back</Link>
+      <br /><Link to="/freesound-player">Home</Link>
       <h1>{sound.name}</h1>
       <p>{sound.description}</p>
       {sound.tags?.map(e => (
@@ -32,11 +33,13 @@ export default function Sound(props) {
           {e}
         </div>
       ))}
-      {sound.previews && <Waveform url={sound.previews["preview-lq-mp3"]} />}
+      {sound.previews && <Waveform url=
+      {sound.previews["preview-lq-mp3"]} />}
       <SoundList
         header="Similar"
         tracks={similarSounds}
-        selectedTrack={sound?.id || similarSounds[0]?.id || 0}
+        selectedTrack=
+        {sound?.id || similarSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
       />
     </div>
