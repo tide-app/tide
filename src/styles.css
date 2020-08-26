@@ -12,10 +12,6 @@ a {
   text-align: center;
 }
 
-button:hover {
-  background: #d63d05;
-}
-
 .playlist {
   text-align: left;
   border-top: 1px solid rgba(0, 0, 0, 0.2);

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route }
-from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FreeSound from "freesound-client";
-// import { throttle } from "lodash";
 import Sound from "./Sound";
 import Search from "./Search";
+import auth, { init } from "./Auth";
 
 // Todolist
 // * Authentication (OAuth) / Downloading sounds
@@ -14,13 +13,35 @@ import Search from "./Search";
 // * Offline
 
 const freeSound = new FreeSound();
-const token = 'scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp';
-freeSound.setToken(token);
 
 const App = () => {
   const [searchValue, setSearchValue] = useState("note");
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  init(freeSound);
+
+  useEffect(() => {
+    auth(
+      freeSound,
+      () => {
+        setLoggedIn(true);
+      },
+      () => {
+        setLoggedIn(false);
+      }
+    );
+  });
+
+  // Navigate the user to the freesound oauth login page
+  const navigateToLogin = () =>
+    window.location.replace(freeSound.getLoginURL());
+
   return (
     <div className="App">
+      {!isLoggedIn && (
+        <button type="button" onClick={navigateToLogin}>
+          Login
+        </button>
+      )}
       <div className="Search">
         <input
           name="search"
@@ -36,11 +57,9 @@ const App = () => {
             render={() => <Sound freeSound={freeSound} />}
           />
           <Route
-            path={process.env.NODE_ENV === 'development' ?
-            '/' : '/freesound-player'}
+            path={"/freesound-player"}
             render={() => (
-              <Search freeSound={freeSound}
-              searchValue={searchValue} />
+              <Search freeSound={freeSound} searchValue={searchValue} />
             )}
           />
         </Switch>

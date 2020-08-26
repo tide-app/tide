@@ -8,26 +8,26 @@ import {
   createColorMap,
   createOpacityMap,
   createColorOpacityMap,
-  linearScale
+  linearScale,
 } from "@colormap/core";
 import { plasma } from "@colormap/presets";
 
-let opacities = [1, 1, 1];
-let domain = [0, 100];
-let range = [0, 1];
-let scale = linearScale(domain, range);
-let colorMap = createColorMap(plasma, scale);
-let opacityMap = createOpacityMap(opacities, scale);
-let colorOpacityMap = createColorOpacityMap(colorMap, opacityMap);
+const opacities = [1, 1, 1];
+const domain = [0, 100];
+const range = [0, 1];
+const scale = linearScale(domain, range);
+const colorMap = createColorMap(plasma, scale);
+const opacityMap = createOpacityMap(opacities, scale);
+const colorOpacityMap = createColorOpacityMap(colorMap, opacityMap);
 
 const formWaveSurferOptions = (ref, refSpec, waveTimeline) => ({
   container: ref,
   plugins: [
     SpectrogramPlugin.create({
       container: refSpec,
-      colorMap: new Array(256).fill(0).map((_, i) => colorOpacityMap(i))
+      colorMap: new Array(256).fill(0).map((_, i) => colorOpacityMap(i)),
     }),
-    TimelinePlugin.create({ container: waveTimeline })
+    TimelinePlugin.create({ container: waveTimeline }),
   ],
   waveColor: "#F1FA22",
   progressColor: "OrangeRed",
@@ -40,7 +40,7 @@ const formWaveSurferOptions = (ref, refSpec, waveTimeline) => ({
   normalize: true,
   // Use the PeakCache to improve rendering speed of
   // large waveforms.
-  partialRender: true
+  partialRender: true,
 });
 
 export default function Waveform({ url }) {
@@ -73,12 +73,11 @@ export default function Waveform({ url }) {
       wavesurfer.current.setVolume(volume);
       setVolume(volume);
     });
-    console.log('useEffect() in Waveform.js is firing');
     // Removes events, elements and disconnects Web Audio
     // nodes.
     // when component unmount
     return () => wavesurfer.current.destroy();
-  }, [ url , volume ]);
+  }, [url, volume]);
 
   const handlePlayPause = () => {
     setPlay(!playing);
@@ -99,8 +98,7 @@ export default function Waveform({ url }) {
     <div>
       <div id="waveform" ref={waveformRef} />
       <div className="controls">
-        <button onClick={handlePlayPause}>
-          {!playing ? "Play" : "Pause"}</button>
+        <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button>
         <input
           type="range"
           id="volume"

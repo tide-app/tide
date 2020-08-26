@@ -5,7 +5,7 @@ const SoundList = ({ tracks, header, selectedTrack, setSelectedTrack }) => {
   return (
     <div className="playlist">
       {header && <h1>{header}</h1>}
-      {tracks.map(track => (
+      {tracks.map((track) => (
         <Link key={track.id} to={`/sound/${track.id}`}>
           <div
             className={
