@@ -12,31 +12,6 @@ const objectKeysToCamelCase = (obj) => {
   );
 };
 
-/**
- * Initialize the freesound client with default token auth.
- * These keys have less priviledge than the access token.
- */
-export const init = (freeSound) => {
-  const token = "scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp";
-
-  // Token login
-  freeSound.setToken(token);
-
-  // @TODO: Extract this to a build-time step
-  const clientId =
-    process.env.NODE_ENV === "production"
-      ? "K6AocfvMZmY2hWUA35dg"
-      : "DTxOWhQnrVNrKqmllJJ9";
-  // @TODO: Extract this to a build-time step
-  const clientSecret =
-    process.env.NODE_ENV === "production"
-      ? "scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp"
-      : "Sxqu9nDcI3BaBPgVIN2Mh1dmBeVXbDmqQEp34dP6";
-
-  // Set your application's client_id and client_secret
-  freeSound.setClientSecrets(clientId, clientSecret);
-};
-
 const accessTokenSuccessHandler = (freeSound, rawAccessTokenData, cb) => {
   const accessTokenData = objectKeysToCamelCase(rawAccessTokenData);
   updateLsAccessToken(accessTokenData);
@@ -78,10 +53,35 @@ const auth = async (freeSound, tokenSuccessCb, tokenFailureCb) => {
         };
         accessTokenSuccessHandler(freeSound, accessTokenData, tokenSuccessCb);
       } catch (e) {
-        tokenFailureCb();
+        if (tokenFailureCb) tokenFailureCb();
       }
     } else if (tokenFailureCb) tokenFailureCb();
   }
+};
+
+/**
+ * Initialize the freesound client with default token auth.
+ * These keys have less priviledge than the access token.
+ */
+export const init = (freeSound) => {
+  const token = "scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp";
+
+  // Token login
+  freeSound.setToken(token);
+
+  // @TODO: Extract this to a build-time step
+  const clientId =
+    process.env.NODE_ENV === "production"
+      ? "K6AocfvMZmY2hWUA35dg"
+      : "DTxOWhQnrVNrKqmllJJ9";
+  // @TODO: Extract this to a build-time step
+  const clientSecret =
+    process.env.NODE_ENV === "production"
+      ? "scxd6vqqUvfCieE3mGnrZbdBFRQc0DB4M7C5Jrbp"
+      : "Sxqu9nDcI3BaBPgVIN2Mh1dmBeVXbDmqQEp34dP6";
+
+  // Set your application's client_id and client_secret
+  freeSound.setClientSecrets(clientId, clientSecret);
 };
 
 export default auth;

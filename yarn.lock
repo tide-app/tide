@@ -5088,10 +5088,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-freesound-client@0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/freesound-client/-/freesound-client-0.1.4.tgz#b0e6bc881fe1dec7ad3b62a6bf048248d3b829a2"
-  integrity sha512-8+Igl4hWA6C9BsL7nKq8D7DuJXXNZliYhJQnY+S/hxjogfRCJGvUQSTKY9i9EwbNI+KhWF2b3ZWD+bhPP9fo4g==
+freesound-client@^0.2.0-2:
+  version "0.2.0-2"
+  resolved "https://registry.yarnpkg.com/freesound-client/-/freesound-client-0.2.0-2.tgz#bd203447e3fe99724010bc9415df49e9807c25c1"
+  integrity sha512-8QMVhcT4plxh0EQ0bzEZFOIhJz7giMKbKQDOABLfC/QXbmuZfWEFvHQ8O6n/BgFBO2gaDanycHiw3+Eq0WqJDw==
   dependencies:
     "@types/node-fetch" "^2.5.7"
     form-data "^3.0.0"

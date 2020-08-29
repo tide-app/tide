@@ -18,6 +18,7 @@ const App = () => {
   const [searchValue, setSearchValue] = useState("note");
   const [isLoggedIn, setLoggedIn] = useState(false);
   init(freeSound);
+  auth(freeSound);
 
   useEffect(() => {
     auth(
@@ -54,12 +55,18 @@ const App = () => {
         <Switch>
           <Route
             path="/sound/:id"
-            render={() => <Sound freeSound={freeSound} />}
+            render={() => (
+              <Sound isLoggedIn={isLoggedIn} freeSound={freeSound} />
+            )}
           />
           <Route
             path={"/freesound-player"}
             render={() => (
-              <Search freeSound={freeSound} searchValue={searchValue} />
+              <Search
+                isLoggedIn={isLoggedIn}
+                freeSound={freeSound}
+                searchValue={searchValue}
+              />
             )}
           />
         </Switch>
