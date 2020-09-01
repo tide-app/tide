@@ -1,4 +1,13 @@
-# Appearance
+# freeesound-player
+
+## Setup
+
+```bash
+git clone https://github.com/amilajack/freesound-player
+cd freesound-player
+yarn
+yarn start
+```
 
 ## Homepage
 
