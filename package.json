@@ -12,7 +12,7 @@
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
-    "freesound-client": "^0.2.0-2",
+    "freesound-client": "^0.2.0",
     "lodash": "4.17.20",
     "peaks.js": "0.21.0",
     "react": "16.13.1",
