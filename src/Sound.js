@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import localForage from "localforage";
 import Waveform from "./Waveform";
 import SoundList from "./SoundList";
 
+// key examples: sound.<soundId>.full
+// key examples: sound.<soundId>.preview
+// key examples: api.search
+// key examples: api.sound.similar
+const memoizeGetSound = async (sound, cacheKey) => {
+  const soundBuffer = await localForage.getItem(cacheKey);
+  if (soundBuffer) return soundBuffer;
+  const newSoundBuffer = await sound.download().then((res) => res.blob());
+  await localForage.setItem(cacheKey, newSoundBuffer);
+  return newSoundBuffer;
+};
+
 const downloadSound = async (soundObject) => {
-  const blob = await soundObject.download().then((res) => res.blob());
+  const cacheKey = `sound.${soundObject.id}.full`;
+  const blob = await memoizeGetSound(soundObject, cacheKey);
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -20,6 +34,7 @@ const downloadSound = async (soundObject) => {
 export default function Sound(props) {
   const { isLoggedIn, freeSound } = props;
   const [sound, setSound] = useState({});
+  const [packSounds, setPackSounds] = useState([]);
   const [similarSounds, setSimilarSounds] = useState([]);
   // 0 => loading
   // 1 => loading succeeded
@@ -34,6 +49,17 @@ export default function Sound(props) {
         const soundResult = await freeSound.getSound(id);
         if (!soundResult.id) throw new Error("Sound not found");
         setSound(soundResult);
+        if (soundResult.pack) {
+          // @TODO @HACK: Remove this, extract this logic to the freesound-client library
+          const packId = new URL(soundResult.pack).pathname
+            .split("/")
+            .find(Number);
+          const packsObj = await freeSound.getPack(packId);
+          const packSoundsList = await packsObj.sounds();
+          if (packSoundsList.results) {
+            setPackSounds(packSoundsList.results);
+          }
+        }
         const {
           results: similarSoundsResults,
         } = await soundResult.getSimilar();
@@ -41,7 +67,8 @@ export default function Sound(props) {
           setSimilarSounds(similarSoundsResults);
         }
         setLoadingState(1);
-      } catch {
+      } catch (e) {
+        console.log(e);
         setLoadingState(2);
       }
     };
@@ -66,6 +93,12 @@ export default function Sound(props) {
         </button>
       )}
       {sound.previews && <Waveform url={sound.previews["preview-lq-mp3"]} />}
+      <SoundList
+        header="Pack"
+        tracks={packSounds}
+        selectedTrack={sound?.id || packSounds[0]?.id || 0}
+        setSelectedTrack={() => {}}
+      />
       <SoundList
         header="Similar"
         tracks={similarSounds}
