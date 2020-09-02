@@ -12,7 +12,7 @@
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
-    "freesound-client": "^0.2.0-2",
+    "freesound-client": "^0.2.0",
     "localforage": "^1.9.0",
     "lodash": "4.17.20",
     "peaks.js": "0.21.0",
@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@testing-library/jest-dom": "^5.11.3",
-    "@testing-library/react": "^10.4.8",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^10.4.9",
     "eslint-config-bliss": "^5.0.0",
     "eslint-plugin-react": "^7.20.6",
     "gh-pages": "^3.1.0"
