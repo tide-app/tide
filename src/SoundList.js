@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SoundList = ({ tracks, header, selectedTrack, setSelectedTrack }) => {
+const SoundList = ({ tracks, header, selectedTrack }) => {
   return (
     <div className="playlist">
       {header && <h1>{header}</h1>}

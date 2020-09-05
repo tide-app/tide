@@ -65,7 +65,7 @@ export default function Waveform({ url }) {
 
     wavesurfer.current.load(url);
 
-    wavesurfer.current.on("ready", function () {
+    wavesurfer.current.on("ready", () => {
       // https://wavesurfer-js.org/docs/methods.html
       // wavesurfer.current.play();
       // setPlay(true);

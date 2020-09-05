@@ -8,30 +8,30 @@
     "react",
     "starter"
   ],
-  "main": "src/index.js",
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
-    "freesound-client": "^0.2.0",
+    "freesound-client": "^0.2.2",
     "localforage": "^1.9.0",
     "lodash": "4.17.20",
-    "peaks.js": "0.21.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",
-    "react-waveform": "0.1.0",
-    "react-wavy-audio": "1.0.3",
-    "sample-editor-view": "1.0.0",
     "wavesurfer.js": "4.0.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^10.4.9",
+    "@testing-library/react": "^11.0.2",
+    "@tsconfig/node12": "^1.0.7",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
     "eslint-config-bliss": "^5.0.0",
     "eslint-plugin-react": "^7.20.6",
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.1.0",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
   },
   "babel": {
     "plugins": [

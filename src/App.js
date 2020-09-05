@@ -5,13 +5,6 @@ import Sound from "./Sound";
 import Search from "./Search";
 import auth, { init } from "./Auth";
 
-// Todolist
-// * Authentication (OAuth) / Downloading sounds
-// * UI design
-// * Dark Mode (React Context)
-// * Accessibility
-// * Offline
-
 const freeSound = new FreeSound();
 
 const App = () => {
