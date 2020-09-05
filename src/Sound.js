@@ -74,7 +74,7 @@ export default function Sound(props) {
       }
     };
     fetchSound();
-  }, [id, props]);
+  }, [id, props, freeSound]);
 
   return (
     <div>
