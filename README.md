@@ -1,5 +1,7 @@
 # freeesound-player
 
+[![Test](https://github.com/amilajack/freesound-player/workflows/Test/badge.svg)](https://github.com/amilajack/freesound-player/actions?query=workflow%3ATest)
+
 ## Homepage
 
 ![freesound-player's homepage as of 7:26 PM PST Thursday, August 13, 2020](https://github.com/amilajack/freesound-player/blob/master/screenshots/current-appearance-of-freesound-player's-homepage-2020-08-13-192528.jpg)
