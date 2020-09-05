@@ -68,6 +68,7 @@ export default function Sound(props) {
         }
         setLoadingState(1);
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.log(e);
         setLoadingState(2);
       }
