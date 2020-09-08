@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import localForage from "localforage";
-import Waveform from "./Waveform";
+import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
 
 // key examples: sound.<soundId>.full
@@ -93,7 +93,16 @@ export default function Sound(props) {
           download
         </button>
       )}
-      {sound.previews && <Waveform url={sound.previews["preview-lq-mp3"]} />}
+      {sound.previews && (
+        <Waveform
+          backgroundColor="black"
+          progressColor="black"
+          cursorColor="white"
+          waveColor="yellow"
+          cursorWidth={3}
+          src={sound.previews["preview-lq-mp3"]}
+        />
+      )}
       <SoundList
         header="Pack"
         tracks={packSounds}
