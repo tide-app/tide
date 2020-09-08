@@ -1,10 +1,30 @@
+:root {
+  --primary-color: #FBDC57;
+  --secondary-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: black;
+    --secondary-color:#FBDC57;
+  }
+}
+
 body {
-  background: #0e0887;
-  color: white;
+  background-color: var(--primary-color);
 }
 
 a {
-  color: white;
+  color: var(--secondary-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+
+}
+
+.Home:hover {
+  color: var(--secondary-color);
 }
 
 .App {
@@ -28,7 +48,7 @@ a {
 }
 
 .playlist-item:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--secondary-color);
 }
 
 .controls {
@@ -37,8 +57,15 @@ a {
 }
 
 .Tag {
-  background: red;
+  background: var(--secondary-color);
+  color: var(--primary-color);
   display: inline-block;
   padding: 10px;
   margin: 10px;
 }
+
+div#waveform {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
