@@ -1,14 +1,25 @@
-body {
-  background: #0e0887;
-  color: white;
+:root {
+  --primary-color: #FBDC57;
+  --secondary-color: black;
 }
 
-a {
-  color: white;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: black;
+    --secondary-color:#FBDC57;
+  }
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+a, h1, h2, h3, h4, h5, h6, p, body {
+  color: var(--secondary-color);
 }
 
 .App {
-  font-family: 'M PLUS 1p', sans-serif;
+  /* font-family: 'M PLUS 1p', sans-serif; */
   text-align: center;
 }
 
@@ -28,7 +39,8 @@ a {
 }
 
 .playlist-item:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .controls {
@@ -37,8 +49,14 @@ a {
 }
 
 .Tag {
-  background: red;
+  background: var(--secondary-color);
+  color: var(--primary-color);
   display: inline-block;
   padding: 10px;
   margin: 10px;
+}
+
+#waveform {
+  color: var(--primary-color);
+  background: var(--secondary-color);
 }
