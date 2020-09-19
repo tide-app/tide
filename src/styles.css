@@ -12,10 +12,15 @@
 
 body {
   background-color: var(--primary-color);
+  font-family: 'M PLUS 1p', sans-serif;
 }
 
 a, h1, h2, h3, h4, h5, h6, p, body {
   color: var(--secondary-color);
+}
+
+h1, h1, h3, h4, h5, h6 {
+  font-weight: bold;
 }
 
 .App {
