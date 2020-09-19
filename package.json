@@ -18,13 +18,13 @@
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",
-    "react-wavesurfer.js": "^0.0.1-5",
-    "wavesurfer.js": "4.0.1"
+    "react-wavesurfer.js": "^0.0.1",
+    "wavesurfer.js": "4.1.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.0.2",
+    "@testing-library/react": "^11.0.4",
     "@tsconfig/node12": "^1.0.7",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
@@ -33,7 +33,7 @@
     "eslint-plugin-react": "^7.20.6",
     "gh-pages": "^3.1.0",
     "ts-jest": "^26.3.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.3"
   },
   "babel": {
     "plugins": [

@@ -96,9 +96,8 @@ export default function Sound(props) {
       {sound.previews && (
         <Waveform
           backgroundColor="black"
-          progressColor="black"
           cursorColor="white"
-          waveColor="yellow"
+          waveColor="#FBDC57"
           cursorWidth={3}
           src={sound.previews["preview-lq-mp3"]}
         />
