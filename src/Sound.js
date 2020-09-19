@@ -79,7 +79,7 @@ export default function Sound(props) {
   return (
     <div>
       <br />
-      <Link to="/freesound-player">Home</Link>
+      <Link to="/">Home</Link>
       <h1>{sound.name}</h1>
       <p>{sound.description}</p>
       {sound.tags?.map((e) => (
@@ -100,6 +100,7 @@ export default function Sound(props) {
           waveColor="#FBDC57"
           cursorWidth={3}
           src={sound.previews["preview-lq-mp3"]}
+          barWidth={3}
         />
       )}
       <SoundList

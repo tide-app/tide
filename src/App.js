@@ -53,7 +53,7 @@ const App = () => {
             )}
           />
           <Route
-            path={"/freesound-player"}
+            path={"/"}
             render={() => (
               <Search
                 isLoggedIn={isLoggedIn}
