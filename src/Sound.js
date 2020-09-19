@@ -98,9 +98,9 @@ export default function Sound(props) {
           backgroundColor="black"
           cursorColor="white"
           waveColor="#FBDC57"
-          cursorWidth={3}
+          cursorWidth={1}
           src={sound.previews["preview-lq-mp3"]}
-          barWidth={3}
+          barWidth={1}
         />
       )}
       <SoundList
