@@ -11,14 +11,17 @@
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
+    "autoprefixer": "^10.0.0",
     "freesound-client": "^0.2.2",
     "localforage": "^1.9.0",
     "lodash": "4.17.20",
+    "postcss-cli": "^7.1.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",
     "react-wavesurfer.js": "^0.0.2",
+    "tailwindcss": "^1.8.10",
     "wavesurfer.js": "4.1.0"
   },
   "devDependencies": {
@@ -42,6 +45,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:style":"tailwind build src/styles.css -o src/tailwind.css",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

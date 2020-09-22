@@ -80,7 +80,7 @@ export default function Sound(props) {
     <div>
       <br />
       <Link to="/">Home</Link>
-      <h1>{sound.name}</h1>
+      <h1 className="text-5xl">{sound.name}</h1>
       <p>{sound.description}</p>
       {sound.tags?.map((e) => (
         <div key={e} className="Tag">

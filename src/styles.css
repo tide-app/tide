@@ -10,6 +10,10 @@
   }
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   background-color: var(--primary-color);
   font-family: 'M PLUS 1p', sans-serif;
@@ -24,8 +28,11 @@ h1, h1, h3, h4, h5, h6 {
 }
 
 .App {
-  /* font-family: 'M PLUS 1p', sans-serif; */
   text-align: center;
+}
+
+.bg-default {
+  @apply bg-secondary text-primary;
 }
 
 .playlist {
