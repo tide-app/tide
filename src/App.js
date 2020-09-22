@@ -32,7 +32,11 @@ const App = () => {
   return (
     <div className="App">
       {!isLoggedIn && (
-        <button type="button" onClick={navigateToLogin}>
+        <button
+          className="bg-default rounded px-4"
+          type="button"
+          onClick={navigateToLogin}
+        >
           Login
         </button>
       )}
