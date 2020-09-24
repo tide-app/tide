@@ -5,7 +5,6 @@ import Sound from "./Sound";
 import Search from "./Search";
 import auth, { init } from "./Auth";
 
-
 const freeSound = new FreeSound();
 
 const App = () => {
