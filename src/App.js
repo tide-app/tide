@@ -5,6 +5,7 @@ import Sound from "./Sound";
 import Search from "./Search";
 import auth, { init } from "./Auth";
 
+
 const freeSound = new FreeSound();
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           placeholder="Search sound..."
           onChange={(e) => setSearchValue(e.target.value)}
         />
+        <ion-icon name="search-sharp"></ion-icon>
       </div>
       <Router>
         <Switch>
