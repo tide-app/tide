@@ -4,11 +4,11 @@
 
 ## Homepage
 
-![freesound-player's homepage as of 7:26 PM PST Thursday, August 13, 2020](https://github.com/amilajack/freesound-player/blob/master/screenshots/current-appearance-of-freesound-player's-homepage-2020-08-13-192528.jpg)
+![freesound-player's homepage as of 7:49 PM PST Tuesday, September 22, 2020](https://github.com/amilajack/freesound-player/blob/master/screenshots/homepage-2020-09-23-at-6.05.05-PM.png)
 
 ## After Selecting Sound
 
-![freesound-player's appearance after selecting a sound as of 7:26 PM PST Thursday, August 13, 2020](https://github.com/amilajack/freesound-player/blob/master/screenshots/appearance-of-freesound-player-after-selecting-sound-2020-08-13-192709.jpg)
+![freesound-player's appearance after selecting a sound as of 7:55 PM PST Tuesday, September 22, 2020](https://github.com/amilajack/freesound-player/blob/master/screenshots/soundpage-2020-09-23-at-6.07.14-PM.png)
 
 ## Setup
 
