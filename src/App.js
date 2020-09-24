@@ -47,6 +47,7 @@ const App = () => {
           placeholder="Search sound..."
           onChange={(e) => setSearchValue(e.target.value)}
         />
+        <ion-icon name="search-sharp"></ion-icon>
       </div>
       <Router>
         <Switch>

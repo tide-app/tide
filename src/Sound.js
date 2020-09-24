@@ -92,7 +92,8 @@ export default function Sound(props) {
         <button onClick={() => downloadSound(sound)} type="button">
           download
         </button>
-      )}
+      )
+      }
       {sound.previews && (
         <Waveform
           backgroundColor="black"
@@ -103,12 +104,16 @@ export default function Sound(props) {
           barWidth={1}
         />
       )}
+      <ion-icon name="play-circle-sharp"></ion-icon>
+      <ion-icon name="crop-sharp"></ion-icon>
+      <ion-icon name="download-sharp"></ion-icon>
       <SoundList
         header="Pack"
         tracks={packSounds}
         selectedTrack={sound?.id || packSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
       />
+      <ion-icon name="time-sharp"></ion-icon>
       <SoundList
         header="Similar"
         tracks={similarSounds}
