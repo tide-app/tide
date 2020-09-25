@@ -8,7 +8,7 @@
 
 ## After Selecting Sound
 
-![freesound-player's appearance after selecting a sound as of 7:55 PM PST Tuesday, September 22, 2020](https://github.com/amilajack/freesound-player/blob/master/screenshots/soundpage-2020-09-23-at-6.07.14-PM.png)
+![freesound-player's appearance after selecting a sound as of 7:55 PM PST Tuesday, September 22, 2020](screenshots/soundpage-2020-09-23-at-6.07.14-PM.png)
 
 ## Setup
 
