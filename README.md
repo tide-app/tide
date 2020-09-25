@@ -4,7 +4,7 @@
 
 ## Homepage
 
-![freesound-player's homepage as of 7:49 PM PST Tuesday, September 22, 2020](https://github.com/amilajack/freesound-player/blob/master/screenshots/homepage-2020-09-23-at-6.05.05-PM.png)
+![freesound-player's homepage as of 7:49 PM PST Tuesday, September 22, 2020](screenshots/homepage-2020-09-23-at-6.05.05-PM.png)
 
 ## After Selecting Sound
 
