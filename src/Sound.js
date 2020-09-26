@@ -35,12 +35,16 @@ export default function Sound(props) {
   const { isLoggedIn, freeSound } = props;
   const [sound, setSound] = useState({});
   const [packSounds, setPackSounds] = useState([]);
+  const [ isPlaying , setIsPlaying ] = useState(false);
   const [similarSounds, setSimilarSounds] = useState([]);
   // 0 => loading
   // 1 => loading succeeded
   // 2 => loading failed
   const [loadingState, setLoadingState] = useState(0);
   const { id } = useParams();
+
+  const handlePlayingAndPausing = () => {
+    setIsPlaying(!isPlaying);           }
 
   useEffect(() => {
     const fetchSound = async () => {
@@ -94,19 +98,18 @@ export default function Sound(props) {
         </button>
       )
       }
-      {sound.previews && (
-        <Waveform
-          backgroundColor="black"
-          cursorColor="white"
-          waveColor="#FBDC57"
-          cursorWidth={1}
-          src={sound.previews["preview-lq-mp3"]}
-          barWidth={1}
-        />
-      )}
-      <ion-icon name="play-circle-sharp"></ion-icon>
+      {sound.previews &&
+        (<Waveform          waveColor="#FBDC57"
+          backgroundColor="black" barWidth={1}
+          cursorColor="white"  cursorWidth={1}
+          onFinish={() => setIsPlaying(false)}
+          playing={isPlaying}
+          src={ sound.previews["preview-lq-mp3"] }/>) }
       <ion-icon name="crop-sharp"></ion-icon>
       <ion-icon name="download-sharp"></ion-icon>
+      <button onClick={handlePlayingAndPausing}>
+        { isPlaying ? "Pause" :
+        <ion-icon name="play-circle-sharp"/> }</button>
       <SoundList
         header="Pack"
         tracks={packSounds}
