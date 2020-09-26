@@ -15,26 +15,28 @@
     "freesound-client": "^0.2.2",
     "localforage": "^1.9.0",
     "lodash": "4.17.20",
-    "postcss-cli": "^7.1.2",
+    "postcss-cli": "^8.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",
     "react-wavesurfer.js": "^0.0.2",
     "tailwindcss": "^1.8.10",
-    "wavesurfer.js": "4.1.0"
+    "wavesurfer.js": "4.1.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "@tsconfig/node12": "^1.0.7",
+    "@types/cypress": "^1.1.3",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
+    "cypress": "^5.2.0",
     "eslint-config-bliss": "^5.0.0",
-    "eslint-plugin-react": "^7.20.6",
-    "ts-jest": "^26.3.0",
+    "eslint-plugin-react": "^7.21.2",
+    "ts-jest": "^26.4.0",
     "typescript": "^4.0.3"
   },
   "babel": {
@@ -45,10 +47,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:style":"tailwind build src/styles.css -o src/tailwind.css",
+    "build:style": "tailwind build src/styles.css -o src/tailwind.css",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e": "cypress run"
   },
   "browserslist": [
     ">0.2%",
