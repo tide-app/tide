@@ -10,9 +10,9 @@
   }
 }
 
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 body {
   background-color: var(--primary-color);
@@ -31,10 +31,13 @@ h1, h1, h3, h4, h5, h6 {
   text-align: center;
 }
 
-.bg-default {
+/* .bg-default {
   @apply bg-secondary text-primary;
-}
+} */
 
+.github-corner {
+  color: var(--secondary-color);
+}
 .playlist {
   text-align: left;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
