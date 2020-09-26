@@ -34,10 +34,10 @@ jobs:
       - name: yarn install
         run: yarn --frozen-lockfile
 
+      - name: yarn build
+        run: yarn build
+
       - name: yarn test
-        env:
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: yarn test
 
       - name: Cypress run
