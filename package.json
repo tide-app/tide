@@ -29,9 +29,11 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "@tsconfig/node12": "^1.0.7",
+    "@types/cypress": "^1.1.3",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
+    "cypress": "^5.2.0",
     "eslint-config-bliss": "^5.0.0",
     "eslint-plugin-react": "^7.20.6",
     "ts-jest": "^26.3.0",
@@ -45,10 +47,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:style":"tailwind build src/styles.css -o src/tailwind.css",
+    "build:style": "tailwind build src/styles.css -o src/tailwind.css",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e": "cypress run"
   },
   "browserslist": [
     ">0.2%",
