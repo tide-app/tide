@@ -35,7 +35,7 @@ export default function Sound(props) {
   const { isLoggedIn, freeSound } = props;
   const [sound, setSound] = useState({});
   const [packSounds, setPackSounds] = useState([]);
-  const [ isPlaying , setIsPlaying ] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [similarSounds, setSimilarSounds] = useState([]);
   // 0 => loading
   // 1 => loading succeeded
@@ -44,7 +44,8 @@ export default function Sound(props) {
   const { id } = useParams();
 
   const handlePlayingAndPausing = () => {
-    setIsPlaying(!isPlaying);           }
+    setIsPlaying(!isPlaying);
+  };
 
   useEffect(() => {
     const fetchSound = async () => {
