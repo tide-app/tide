@@ -111,7 +111,11 @@ export default function Sound(props) {
       <ion-icon name="crop-sharp"></ion-icon>
       <ion-icon name="download-sharp"></ion-icon>
       <button onClick={handlePlayingAndPausing}>
-        {isPlaying ? "Pause" : <ion-icon name="play-circle-sharp" />}
+        {isPlaying ? (
+          <ion-icon name="pause-circle-sharp"></ion-icon>
+        ) : (
+          <ion-icon name="play-circle-sharp" />
+        )}
       </button>
       <SoundList
         header="Pack"
