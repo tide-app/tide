@@ -11,7 +11,7 @@
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
-    "autoprefixer": "^10.0.0",
+    "autoprefixer": "^10.0.1",
     "freesound-client": "^0.2.2",
     "localforage": "^1.9.0",
     "lodash": "4.17.20",
