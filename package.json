@@ -11,7 +11,7 @@
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
-    "autoprefixer": "^10.0.0",
+    "autoprefixer": "^10.0.1",
     "freesound-client": "^0.2.2",
     "localforage": "^1.9.0",
     "lodash": "4.17.20",
@@ -38,7 +38,7 @@
     "eslint-plugin-react": "^7.21.2",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
-    "ts-jest": "^26.4.0",
+    "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
   },
   "babel": {
