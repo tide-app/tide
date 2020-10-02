@@ -1,3 +1,4 @@
+import tinykeys from "tinykeys";
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import localForage from "localforage";
@@ -79,7 +80,19 @@ export default function Sound(props) {
       }
     };
     fetchSound();
-  }, [id, props, freeSound]);
+    const unsubscribe = tinykeys(window, {
+      Space: (event) => {
+        event.preventDefault();
+        setIsPlaying((i) => !i);
+      },
+      d: () => {
+        if (isLoggedIn) downloadSound(sound);
+      },
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [freeSound, id, isLoggedIn, props, sound]);
 
   return (
     <div>
