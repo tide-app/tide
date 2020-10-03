@@ -9,10 +9,10 @@
     --secondary-color:#FBDC57;
   }
 }
-
+/*
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 body {
   background-color: var(--primary-color);
@@ -31,10 +31,9 @@ h1, h1, h3, h4, h5, h6 {
   text-align: center;
 }
 
-.bg-default {
+/* .bg-default {
   @apply bg-secondary text-primary;
-}
-
+} */
 
 .playlist {
   text-align: left;

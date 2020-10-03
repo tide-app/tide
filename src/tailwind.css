@@ -2706,7 +2706,9 @@ video {
 }
 
 .text-5xl {
+  text-align: left;
   font-size: 3rem;
+  margin: 10px 40px 5px;
 }
 
 .text-6xl {
@@ -8577,12 +8579,30 @@ h1, h1, h3, h4, h5, h6 {
 }
 
 .Tag {
-  background: var(--secondary-color);
-  color: var(--primary-color);
+  color: var(--secondary-color);
   display: inline-block;
   padding: 10px;
   margin: 10px;
+  border-style: solid;
+  border-width: thin;
+  border-color: var(--secondary-color);
+  border-radius: 5px;
+  font-size: small;
 }
+
+#description {
+  text-align: left;
+  font-size: 2rem;
+  margin: 10px 40px 5px;
+}
+
+#information {
+  margin: 10px 40px 5px;
+  padding: 50px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
 
 #waveform {
   color: var(--primary-color);
