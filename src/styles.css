@@ -9,10 +9,10 @@
     --secondary-color:#FBDC57;
   }
 }
-
+/*
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 body {
   background-color: var(--primary-color);
