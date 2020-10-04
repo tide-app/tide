@@ -153,7 +153,6 @@ export default function Sound(props) {
         selectedTrack={sound?.id || packSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
       />
-      <ion-icon id="time-button" name="time-sharp"></ion-icon>
       <SoundList
         header="Similar"
         tracks={similarSounds}
