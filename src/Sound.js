@@ -100,8 +100,10 @@ export default function Sound(props) {
       {sound.previews && (
         <Waveform
           waveColor="#FBDC57"
-          backgroundColor="black" barWidth={1}
-          cursorColor="white"  cursorWidth={1}
+          backgroundColor="black"
+          barWidth={1}
+          cursorColor="white"
+          cursorWidth={1}
           onFinish={() => setIsPlaying(false)}
           playing={isPlaying}
           src={sound.previews["preview-lq-mp3"]}
@@ -119,12 +121,12 @@ export default function Sound(props) {
       <h1 id="description">Description</h1>
       <p id="information">{sound.description}</p>
       <SoundList
+        id="pack"
         header="Pack"
         tracks={packSounds}
         selectedTrack={sound?.id || packSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
       />
-      <ion-icon id="time-button" name="time-sharp"></ion-icon>
       <SoundList
         header="Similar"
         tracks={similarSounds}

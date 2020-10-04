@@ -8590,6 +8590,11 @@ h1, h1, h3, h4, h5, h6 {
   font-size: small;
 }
 
+#waveform {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
 #description {
   text-align: left;
   font-size: 2rem;
@@ -8597,16 +8602,11 @@ h1, h1, h3, h4, h5, h6 {
 }
 
 #information {
-  margin: 10px 40px 5px;
-  padding: 50px;
+  margin: 10px 40px 15px;
+  padding: 40px;
+  text-align: left;
   background: var(--secondary-color);
   color: var(--primary-color);
-}
-
-
-#waveform {
-  color: var(--primary-color);
-  background: var(--secondary-color);
 }
 
 @media (min-width: 640px) {
