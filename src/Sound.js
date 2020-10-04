@@ -107,7 +107,7 @@ export default function Sound(props) {
       {loadingState === 2 && <h1>404</h1>}
       {isLoggedIn && loadingState === 1 && (
         <button onClick={() => downloadSound(sound)} type="button">
-          Download
+          {<ion-icon id="download-button" name="download-sharp"></ion-icon>}
         </button>
       )}
       {sound.previews && (
@@ -135,8 +135,7 @@ export default function Sound(props) {
           <p id="information">{sound.description}</p>
         </>
       )}
-      <ion-icon name="crop-sharp"></ion-icon>
-      <ion-icon name="download-sharp"></ion-icon>
+      <ion-icon id= "crop-button" name="crop-sharp"></ion-icon>
       <button onClick={handlePlayingAndPausing}>
         {isPlaying ? (
           <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
