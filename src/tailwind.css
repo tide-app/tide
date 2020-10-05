@@ -8555,11 +8555,11 @@ h1, h1, h3, h4, h5, h6 {
 
 .playlist {
   text-align: left;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 10px 40px 5px;
 }
 
 .playlist-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
   padding: 1em;
 }
@@ -8598,7 +8598,7 @@ h1, h1, h3, h4, h5, h6 {
 #description {
   text-align: left;
   font-size: 2rem;
-  margin: 10px 40px 5px;
+  margin: 10px 40px 10px;
 }
 
 #information {
@@ -8607,6 +8607,14 @@ h1, h1, h3, h4, h5, h6 {
   text-align: left;
   background: var(--secondary-color);
   color: var(--primary-color);
+}
+
+h1#header {
+  text-align: left;
+  font-size: 2rem;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 @media (min-width: 640px) {
