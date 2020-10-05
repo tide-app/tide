@@ -112,24 +112,28 @@ export default function Sound(props) {
         </button>
       )}
       {sound.previews && (
-        <Waveform
-          waveColor="#FBDC57"
-          backgroundColor="black" barWidth={1}
-          cursorColor="white"  cursorWidth={1}
-          onFinish={() => setIsPlaying(false)}
-          playing={isPlaying}
-          src={sound.previews["preview-lq-mp3"]}
-        />
+        <section>
+          <Waveform
+            waveColor="#FBDC57"
+            backgroundColor="black"
+            barWidth={1}
+            cursorColor="white"
+            cursorWidth={1}
+            onFinish={() => setIsPlaying(false)}
+            playing={isPlaying}
+            src={sound.previews["preview-lq-mp3"]}
+          />
+          <ion-icon name="crop-sharp"></ion-icon>
+          <ion-icon name="download-sharp"></ion-icon>
+          <button onClick={handlePlayingAndPausing}>
+            {isPlaying ? (
+              <ion-icon name="pause-circle-sharp"></ion-icon>
+            ) : (
+              <ion-icon name="play-circle-sharp" />
+            )}
+          </button>
+        </section>
       )}
-      <ion-icon name="crop-sharp"></ion-icon>
-      <ion-icon name="download-sharp"></ion-icon>
-      <button onClick={handlePlayingAndPausing}>
-        {isPlaying ? (
-          <ion-icon name="pause-circle-sharp"></ion-icon>
-        ) : (
-          <ion-icon name="play-circle-sharp" />
-        )}
-      </button>
       <SoundList
         header="Pack"
         tracks={packSounds}
