@@ -112,7 +112,7 @@ export default function Sound(props) {
         </button>
       )}
       {sound.previews && (
-        <section>
+        <React.Fragment>
           <Waveform
             waveColor="#FBDC57"
             backgroundColor="black"
@@ -132,7 +132,7 @@ export default function Sound(props) {
               <ion-icon name="play-circle-sharp" />
             )}
           </button>
-        </section>
+        </React.Fragment>
       )}
       <SoundList
         header="Pack"
