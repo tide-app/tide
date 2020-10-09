@@ -99,7 +99,6 @@ export default function Sound(props) {
       <br />
       <Link to="/">Home</Link>
       <h1 className="text-5xl">{sound.name}</h1>
-      <p>{sound.description}</p>
       {sound.tags?.map((e) => (
         <div key={e} className="Tag">
           {e}
@@ -108,7 +107,7 @@ export default function Sound(props) {
       {loadingState === 2 && <h1>404</h1>}
       {isLoggedIn && loadingState === 1 && (
         <button onClick={() => downloadSound(sound)} type="button">
-          download
+          Download
         </button>
       )}
       {sound.previews && (
@@ -127,20 +126,22 @@ export default function Sound(props) {
           <ion-icon name="download-sharp"></ion-icon>
           <button onClick={handlePlayingAndPausing}>
             {isPlaying ? (
-              <ion-icon name="pause-circle-sharp"></ion-icon>
+              <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
             ) : (
-              <ion-icon name="play-circle-sharp" />
+              <ion-icon id="play-button" name="play-circle-sharp" />
             )}
           </button>
+          <h1 id="description">Description</h1>
+          <p id="information">{sound.description}</p>
         </>
       )}
       <SoundList
+        id="pack"
         header="Pack"
         tracks={packSounds}
         selectedTrack={sound?.id || packSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
       />
-      <ion-icon name="time-sharp"></ion-icon>
       <SoundList
         header="Similar"
         tracks={similarSounds}
