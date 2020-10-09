@@ -131,9 +131,9 @@ export default function Sound(props) {
               <ion-icon id="play-button" name="play-circle-sharp" />
             )}
           </button>
+          <h1 id="description">Description</h1>
+          <p id="information">{sound.description}</p>
         </>
-        <h1 id="description">Description</h1>
-        <p id="information">{sound.description}</p>
       )}
       <SoundList
         id="pack"
