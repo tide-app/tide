@@ -11,7 +11,7 @@
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
-    "autoprefixer": "^10.0.0",
+    "autoprefixer": "^10.0.1",
     "freesound-client": "^0.2.2",
     "localforage": "^1.9.0",
     "lodash": "4.17.20",
@@ -22,6 +22,7 @@
     "react-scripts": "3.4.3",
     "react-wavesurfer.js": "^0.0.2",
     "tailwindcss": "^1.8.10",
+    "tinykeys": "^1.1.0",
     "wavesurfer.js": "4.1.1"
   },
   "devDependencies": {
@@ -36,13 +37,25 @@
     "cypress": "^5.2.0",
     "eslint-config-bliss": "^5.0.0",
     "eslint-plugin-react": "^7.21.2",
-    "ts-jest": "^26.4.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
   },
   "babel": {
     "plugins": [
       "@babel/plugin-proposal-class-properties"
     ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint . --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "scripts": {
     "start": "react-scripts start",

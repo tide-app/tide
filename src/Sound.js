@@ -1,3 +1,4 @@
+import tinykeys from "tinykeys";
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import localForage from "localforage";
@@ -79,7 +80,19 @@ export default function Sound(props) {
       }
     };
     fetchSound();
-  }, [id, props, freeSound]);
+    const unsubscribe = tinykeys(window, {
+      Space: (event) => {
+        event.preventDefault();
+        setIsPlaying((i) => !i);
+      },
+      d: () => {
+        if (isLoggedIn) downloadSound(sound);
+      },
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [freeSound, id, isLoggedIn, props, sound]);
 
   return (
     <div>
@@ -98,28 +111,30 @@ export default function Sound(props) {
         </button>
       )}
       {sound.previews && (
-        <Waveform
-          waveColor="#FBDC57"
-          backgroundColor="black"
-          barWidth={1}
-          cursorColor="white"
-          cursorWidth={1}
-          onFinish={() => setIsPlaying(false)}
-          playing={isPlaying}
-          src={sound.previews["preview-lq-mp3"]}
-        />
+        <>
+          <Waveform
+            waveColor="#FBDC57"
+            backgroundColor="black"
+            barWidth={1}
+            cursorColor="white"
+            cursorWidth={1}
+            onFinish={() => setIsPlaying(false)}
+            playing={isPlaying}
+            src={sound.previews["preview-lq-mp3"]}
+          />
+          <ion-icon name="crop-sharp"></ion-icon>
+          <ion-icon name="download-sharp"></ion-icon>
+          <button onClick={handlePlayingAndPausing}>
+            {isPlaying ? (
+              <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
+            ) : (
+              <ion-icon id="play-button" name="play-circle-sharp" />
+            )}
+          </button>
+        </>
+        <h1 id="description">Description</h1>
+        <p id="information">{sound.description}</p>
       )}
-      <ion-icon name="crop-sharp"></ion-icon>
-      <ion-icon name="download-sharp"></ion-icon>
-      <button onClick={handlePlayingAndPausing}>
-        {isPlaying ? (
-          <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
-        ) : (
-          <ion-icon id="play-button" name="play-circle-sharp" />
-        )}
-      </button>
-      <h1 id="description">Description</h1>
-      <p id="information">{sound.description}</p>
       <SoundList
         id="pack"
         header="Pack"
