@@ -23,7 +23,7 @@ const downloadSound = async (soundObject) => {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = soundObject.name;
+  a.download = `${soundObject.name}.${soundObject.type}`;
   a.style.display = "none";
   document.body.appendChild(a);
   a.click();
@@ -53,7 +53,7 @@ export default function Sound(props) {
       try {
         setLoadingState(0);
         const soundResult = await freeSound.getSound(id);
-        if (!soundResult.id) throw new Error("Sound not found");
+        if (soundResult.detail) throw new Error(soundResult.detail);
         setSound(soundResult);
         if (soundResult.pack) {
           // @TODO @HACK: Remove this, extract this logic to the freesound-client library
@@ -75,11 +75,13 @@ export default function Sound(props) {
         setLoadingState(1);
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.log(e);
         setLoadingState(2);
       }
     };
     fetchSound();
+  }, [id, freeSound]);
+
+  useEffect(() => {
     const unsubscribe = tinykeys(window, {
       Space: (event) => {
         event.preventDefault();
@@ -92,7 +94,7 @@ export default function Sound(props) {
     return () => {
       unsubscribe();
     };
-  }, [freeSound, id, isLoggedIn, props, sound]);
+  });
 
   return (
     <div>
@@ -135,28 +137,20 @@ export default function Sound(props) {
           <p id="information">{sound.description}</p>
         </>
       )}
-      <ion-icon id= "crop-button" name="crop-sharp"></ion-icon>
-      <button onClick={handlePlayingAndPausing}>
-        {isPlaying ? (
-          <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
-        ) : (
-          <ion-icon id="play-button" name="play-circle-sharp" />
-        )}
-      </button>
-      <h1 id="description">Description</h1>
-      <p id="information">{sound.description}</p>
       <SoundList
         id="pack"
         header="Pack"
         tracks={packSounds}
         selectedTrack={sound?.id || packSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
+        onSoundClick={() => window.scrollTo(0, 0)}
       />
       <SoundList
         header="Similar"
         tracks={similarSounds}
         selectedTrack={sound?.id || similarSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
+        onSoundClick={() => window.scrollTo(0, 0)}
       />
     </div>
   );

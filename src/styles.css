@@ -9,10 +9,10 @@
     --secondary-color:#FBDC57;
   }
 }
-/*
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 body {
   background-color: var(--primary-color);
@@ -61,14 +61,32 @@ h1, h1, h3, h4, h5, h6 {
 }
 
 .Tag {
-  background: var(--secondary-color);
-  color: var(--primary-color);
+  color: var(--secondary-color);
   display: inline-block;
   padding: 10px;
   margin: 10px;
+  border-style: solid;
+  border-width: thin;
+  border-color: var(--secondary-color);
+  border-radius: 5px;
+  font-size: small;
 }
 
 #waveform {
   color: var(--primary-color);
   background: var(--secondary-color);
+}
+
+#description {
+  text-align: left;
+  font-size: 2rem;
+  margin: 10px 40px 5px;
+}
+
+#information {
+  margin: 10px 40px 15px;
+  padding: 40px;
+  text-align: left;
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
