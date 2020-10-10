@@ -2706,9 +2706,7 @@ video {
 }
 
 .text-5xl {
-  text-align: left;
   font-size: 3rem;
-  margin: 10px 40px 5px;
 }
 
 .text-6xl {
