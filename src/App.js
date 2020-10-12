@@ -26,8 +26,10 @@ const App = () => {
   });
 
   // Navigate the user to the freesound oauth login page
-  const navigateToLogin = () =>
-    window.location.replace(freeSound.getLoginURL());
+  const navigateToLogin = () => {
+    if (window.confirm("This will send you to freesound.org. Is that okay?"))
+      window.location.replace(freeSound.getLoginURL());
+  };
 
   return (
     <div className="App">
