@@ -1,4 +1,4 @@
-# freeesound-player
+# freesound-player
 
 [![Test](https://github.com/amilajack/freesound-player/workflows/Test/badge.svg)](https://github.com/amilajack/freesound-player/actions?query=workflow%3ATest)
 
