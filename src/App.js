@@ -58,7 +58,6 @@ const App = () => {
       {!isLoggedIn && (
         <button
           className="bg-default rounded px-4"
-          type="button"
           onClick={openRedirectDialogModalWindow}
         >
           Login
@@ -74,15 +73,35 @@ const App = () => {
         <ion-icon name="search-sharp"></ion-icon>
       </div>
       <Modal
-        contentLabel="Dialog window confirming visit to Freesound"
+        contentLabel="Window confirming visit to Freesound"
         isOpen={modalIsOpen}
+        onRequestClose={closeModal} // Really important!
+        // The above line appears to be what allows users 
+        // to exit the Modal by simply hitting the Esc key
+        // or clicking anywhere else on the page.
+        // Please keep onRequestClose={closeModal} in here
+        // in future iterations for
+        // an improved user experience.
         style={modalWindowStyles}
       >
         <h1>Redirecting to Freesound</h1> <br />
-        <p>After logging in with Freesound, you'll be sent back here!</p>
+        <p>
+          After logging in with Freesound,
+          you'll be sent back here!
+        </p>
         <br />
-        <button onClick={navigateToLogin}>Send me there!</button> {' '}
-        <button onClick={closeModal}>Maybe Later</button>
+        <button
+          className="bg-default rounded px-4"
+          onClick={navigateToLogin}
+        >
+          Send me there!
+        </button> {' '}
+        <button 
+          className="bg-default rounded px-4"
+          onClick={closeModal}
+        >
+          Maybe Later
+        </button>
       </Modal>
       <Router>
         <Switch>
