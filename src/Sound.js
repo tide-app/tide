@@ -98,6 +98,7 @@ export default function Sound(props) {
         </button>
       )}
       {sound.previews && (
+<<<<<<< Updated upstream
         <Waveform
           waveColor="#FBDC57"
           backgroundColor="black"
@@ -108,6 +109,33 @@ export default function Sound(props) {
           playing={isPlaying}
           src={sound.previews["preview-lq-mp3"]}
         />
+=======
+        <>
+          <Waveform
+            waveColor="#FBDC57"
+            backgroundColor="black"
+            barWidth={1}
+            cursorColor="white"
+            cursorWidth={1}
+            onFinish={() => setIsPlaying(false)}
+            playing={isPlaying}
+            src={sound.previews["preview-lq-mp3"]}
+          />
+          <ion-icon name="crop-sharp"></ion-icon>
+          <ion-icon name="download-sharp"></ion-icon>
+          <button onClick={handlePlayingAndPausing}>
+            {isPlaying ? (
+              <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
+            ) : (
+              <ion-icon id="play-button" name="play-circle-sharp" />
+            )}
+          </button>
+          <h1 className="text-left text-3xl mx-10 pt-24 py-4">Description</h1>
+          <p className="bg-default text-left text-lg mx-10 p-16">
+            {sound.description}
+          </p>
+        </>
+>>>>>>> Stashed changes
       )}
       <ion-icon id= "crop-button" name="crop-sharp"></ion-icon>
       <button onClick={handlePlayingAndPausing}>

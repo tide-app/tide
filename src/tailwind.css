@@ -8596,19 +8596,22 @@ h1, h1, h3, h4, h5, h6 {
   background: var(--secondary-color);
 }
 
+<<<<<<< Updated upstream
 #description {
   text-align: left;
   font-size: 2rem;
   margin: 10px 40px 10px;
 }
+=======
+>>>>>>> Stashed changes
 
-#information {
-  margin: 10px 40px 15px;
-  padding: 40px;
+/* h1#header {
   text-align: left;
-  background: var(--secondary-color);
-  color: var(--primary-color);
-}
+  font-size: 2rem;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+} */
 
 h1#header {
   text-align: left;
