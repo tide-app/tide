@@ -8551,15 +8551,16 @@ h1, h1, h3, h4, h5, h6 {
   color: var(--primary-color);
 }
 
-.playlist {
+/* .playlist {
   text-align: left;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
+} */
 
 .playlist-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
   padding: 1em;
+  padding-left: 55px;
 }
 
 .playlist-item.selected {
@@ -8593,7 +8594,7 @@ h1, h1, h3, h4, h5, h6 {
   background: var(--secondary-color);
 }
 
-#description {
+/* #description {
   text-align: left;
   font-size: 2rem;
   margin: 10px 40px 5px;
@@ -8605,7 +8606,7 @@ h1, h1, h3, h4, h5, h6 {
   text-align: left;
   background: var(--secondary-color);
   color: var(--primary-color);
-}
+} */
 
 @media (min-width: 640px) {
   .sm\:container {
