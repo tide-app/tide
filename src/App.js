@@ -8,17 +8,6 @@ import auth, { init } from "./Auth";
 // Bind modal to our appElement for accessibility
 Modal.setAppElement(document.getElementById('root'));
 
-const modalWindowStyles = {
-  content: {
-    background: 'black',
-    bottom: 'auto',
-    left: '50%',
-    marginRight: '-50%',
-    right: 'auto',
-    top: '50%',
-    transform: 'translate(-50%, -50%)'
-  }
-}
 const freeSound = new FreeSound();
 
 const App = () => {
@@ -73,6 +62,7 @@ const App = () => {
         <ion-icon name="search-sharp"></ion-icon>
       </div>
       <Modal
+        className="bg-primary color-secondary max-w-lg mx-auto my-32 p-8"
         contentLabel="Window confirming visit to Freesound"
         isOpen={modalIsOpen}
         onRequestClose={closeModal} // Really important!
@@ -82,7 +72,6 @@ const App = () => {
         // Please keep onRequestClose={closeModal} in here
         // in future iterations for
         // an improved user experience.
-        style={modalWindowStyles}
       >
         <h1>Redirecting to Freesound</h1> <br />
         <p>
@@ -90,18 +79,20 @@ const App = () => {
           you'll be sent back here!
         </p>
         <br />
-        <button
-          className="bg-default rounded px-4"
-          onClick={navigateToLogin}
-        >
-          Send me there!
-        </button> {' '}
-        <button 
-          className="bg-default rounded px-4"
-          onClick={closeModal}
-        >
-          Maybe Later
-        </button>
+        <span className="ml-12 space-x-12 space-y-4">
+          <button // space-y-4 above adds space between
+            className="bg-default border rounded px-4 py-1"
+            onClick={navigateToLogin} // buttons on mobile.
+          >
+            Send me there!
+          </button>
+          <button 
+            className="border rounded px-4 py-1"
+            onClick={closeModal}
+          >
+            Maybe Later
+          </button>
+        </span>
       </Modal>
       <Router>
         <Switch>
