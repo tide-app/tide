@@ -125,7 +125,6 @@ export default function Sound(props) {
             src={sound.previews["preview-lq-mp3"]}
           />
           <ion-icon name="crop-sharp"></ion-icon>
-          <ion-icon name="download-sharp"></ion-icon>
           <button onClick={handlePlayingAndPausing}>
             {isPlaying ? (
               <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
