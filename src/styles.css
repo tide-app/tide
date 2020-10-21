@@ -35,13 +35,11 @@ h1, h1, h3, h4, h5, h6 {
   @apply bg-secondary text-primary;
 }
 
-/* .playlist {
-  text-align: left;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-} */
-
 .playlist-item {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   cursor: pointer;
   padding: 1em;
   padding-left: 55px;
@@ -77,17 +75,3 @@ h1, h1, h3, h4, h5, h6 {
   color: var(--primary-color);
   background: var(--secondary-color);
 }
-
-/* #description {
-  text-align: left;
-  font-size: 2rem;
-  margin: 10px 40px 5px;
-}
-
-#information {
-  margin: 10px 40px 15px;
-  padding: 40px;
-  text-align: left;
-  background: var(--secondary-color);
-  color: var(--primary-color);
-} */
