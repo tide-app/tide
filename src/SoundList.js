@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 
 const SoundList = ({ tracks, header, selectedTrack, onSoundClick }) => {
   return (
-    <div className="playlist">
-      {header && <h1>{header}</h1>}
+    <div className="text-left px-10 pt-16">
+      {header && (
+        <h1 className="text-3xl m-auto border-b border-bg-default">{header}</h1>
+      )}
       {tracks.map((track) => (
-        <Link key={track.id} to={`/sound/${track.id}`} onClick={() => onSoundClick ? onSoundClick(track) : () => {}}>
+        <Link
+          key={track.id}
+          to={`/sound/${track.id}`}
+          onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
+        >
           <div
             className={
               track.id === selectedTrack?.id
@@ -21,5 +27,4 @@ const SoundList = ({ tracks, header, selectedTrack, onSoundClick }) => {
     </div>
   );
 };
-
 export default SoundList;
