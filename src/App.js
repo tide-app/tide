@@ -62,7 +62,7 @@ const App = () => {
         <ion-icon name="search-sharp"></ion-icon>
       </div>
       <Modal
-        className="bg-primary border-2 color-secondary max-w-xl mx-auto my-24 px-2 py-1"
+        className="bg-primary border-2 border-gold color-secondary max-w-xl mx-auto my-24 px-2 py-1"
         contentLabel="Window confirming visit to Freesound"
         isOpen={modalIsOpen}
         onRequestClose={closeModal} // Really important!
@@ -72,7 +72,7 @@ const App = () => {
         // Please keep onRequestClose={closeModal} in here
         // in future iterations for
         // an improved user experience.
-        overlayClassName="fixed inset-0 z-10"
+        overlayClassName="bg-primary fixed inset-0 Modal z-10"
       >
         <button className="relative float-right" onClick={closeModal}>
           {<ion-icon name="close-sharp" size="large"></ion-icon>}
