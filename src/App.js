@@ -62,7 +62,7 @@ const App = () => {
         <ion-icon name="search-sharp"></ion-icon>
       </div>
       <Modal
-        className="bg-primary border-2 color-secondary max-w-lg mx-auto my-32 p-8"
+        className="bg-primary border-2 color-secondary max-w-xl mx-auto my-24 px-2 py-1"
         contentLabel="Window confirming visit to Freesound"
         isOpen={modalIsOpen}
         onRequestClose={closeModal} // Really important!
@@ -74,26 +74,34 @@ const App = () => {
         // an improved user experience.
         overlayClassName="fixed inset-0 z-10"
       >
-        <h1>Redirecting to Freesound</h1> <br />
-        <button className="absolute right-0 top-0" onClick={closeModal}>
-          {<ion-icon name="close-sharp"></ion-icon>}
+        <button className="relative float-right" onClick={closeModal}>
+          {<ion-icon name="close-sharp" size="large"></ion-icon>}
         </button>
-        <p>
-          After logging in with Freesound, {/* eslint-disable-next-line */}
-          you'll be sent back here!
-        </p>
-        <br />
-        <span className="ml-12 space-x-12 space-y-4">
-          <button // space-y-4 above adds space between
-            className="bg-default border rounded px-4 py-1"
-            onClick={navigateToLogin} // buttons on mobile.
-          >
-            Send me there!
-          </button>
-          <button className="border rounded px-4 py-1" onClick={closeModal}>
-            Maybe Later
-          </button>
-        </span>
+        <section
+          className="ml-6 pb-6 pt-2 text-lg"
+          name="everythingExceptCloseButtonInModalWindow"
+        >
+          <h1 className="pb-4 pt-3 text-2xl">Redirecting to Freesound</h1>
+          <p>
+            After logging in with Freesound, {/* eslint-disable-next-line */}
+            you'll be sent back here!
+          </p>
+          <br />
+          <span className="mx-8 space-x-10 space-y-4">
+            <button // space-y-4 above adds space between
+              className="bg-default border rounded-lg px-8 py-2"
+              onClick={navigateToLogin} // buttons on mobile.
+            >
+              Send me there!
+            </button>
+            <button
+              className="border rounded-lg px-10 py-2"
+              onClick={closeModal}
+            >
+              Maybe Later
+            </button>
+          </span>
+        </section>
       </Modal>
       <Router>
         <Switch>
