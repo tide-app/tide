@@ -62,7 +62,7 @@ const App = () => {
         <ion-icon name="search-sharp"></ion-icon>
       </div>
       <Modal
-        className="bg-primary border-2 border-gold color-secondary max-w-xl mx-auto my-24 px-2 py-1"
+        className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1"
         contentLabel="Window confirming visit to Freesound"
         isOpen={modalIsOpen}
         onRequestClose={closeModal} // Really important!
@@ -74,7 +74,10 @@ const App = () => {
         // an improved user experience.
         overlayClassName="bg-primary fixed inset-0 Modal z-10"
       >
-        <button className="relative float-right" onClick={closeModal}>
+        <button
+          className="float-right ModalButton relative"
+          onClick={closeModal}
+        >
           {<ion-icon name="close-sharp" size="large"></ion-icon>}
         </button>
         <section
@@ -89,13 +92,13 @@ const App = () => {
           <br />
           <span className="mx-8 space-x-10 space-y-4">
             <button // space-y-4 above adds space between
-              className="bg-default border rounded-lg px-8 py-2"
+              className="bg-default border ModalButton px-8 py-2 rounded-lg"
               onClick={navigateToLogin} // buttons on mobile.
             >
               Send me there!
             </button>
             <button
-              className="border rounded-lg px-10 py-2"
+              className="border ModalButton px-10 py-2 rounded-lg"
               onClick={closeModal}
             >
               Maybe Later
