@@ -106,12 +106,6 @@ export default function Sound(props) {
           {e}
         </div>
       ))}
-      {loadingState === 2 && <h1>404</h1>}
-      {isLoggedIn && loadingState === 1 && (
-        <button onClick={() => downloadSound(sound)} type="button">
-          {<ion-icon id="download-button" name="download-sharp"></ion-icon>}
-        </button>
-      )}
       {sound.previews && (
         <>
           <Waveform
@@ -124,15 +118,38 @@ export default function Sound(props) {
             playing={isPlaying}
             src={sound.previews["preview-lq-mp3"]}
           />
-          <ion-icon name="crop-sharp"></ion-icon>
-          <ion-icon name="download-sharp"></ion-icon>
-          <button onClick={handlePlayingAndPausing}>
-            {isPlaying ? (
-              <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
-            ) : (
-              <ion-icon id="play-button" name="play-circle-sharp" />
-            )}
-          </button>
+          {loadingState === 2 && <h1>404</h1>}
+          {isLoggedIn && loadingState === 1 && (
+            <div className="download-container">
+              <button onClick={() => downloadSound(sound)} type="button">
+                <ion-icon id="download-icon" name="download-sharp"></ion-icon>
+                Download
+                <ion-icon
+                  id="download-dropdown"
+                  name="caret-down-sharp"
+                ></ion-icon>
+              </button>
+            </div>
+          )}
+          <div>
+            <button className="edit-container">
+              <ion-icon id="edit-icon" name="crop-sharp"></ion-icon>
+              Edit
+            </button>
+          </div>
+          <div className="stats-container">
+            <ion-icon name="download-sharp"></ion-icon>
+            <button onClick={handlePlayingAndPausing}>
+              {isPlaying ? (
+                <ion-icon
+                  id="pause-button"
+                  name="pause-circle-sharp"
+                ></ion-icon>
+              ) : (
+                <ion-icon id="play-button" name="play-circle-sharp" />
+              )}
+            </button>
+          </div>
           <h1 className="text-left text-3xl mx-10 pt-24 py-4">Description</h1>
           <p className="bg-default text-left text-lg mx-10 p-16">
             {sound.description}

@@ -19,12 +19,8 @@ const SoundList = ({ tracks, header, selectedTrack, onSoundClick }) => {
                   : "list-item"
               }
             >
-              <div className="">
-                <ion-icon
-                  className="inline-flex"
-                  id="play-button"
-                  name="play-circle-sharp"
-                />
+              <div>
+                <ion-icon id="play-button" name="play-circle-sharp" />
                 {track.name}
               </div>
             </div>
