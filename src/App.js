@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { closeSharp, searchSharp } from "ionicons/icons";
 import FreeSound from "freesound-client";
+import { IonIcon } from "@ionic/react";
 import Modal from "react-modal";
+import React, { useState, useEffect } from "react";
+import auth, { init } from "./Auth";
 import Sound from "./Sound";
 import Search from "./Search";
-import auth, { init } from "./Auth";
 // Bind modal to our appElement for accessibility
 Modal.setAppElement(document.getElementById("root"));
 
@@ -59,7 +61,7 @@ const App = () => {
           placeholder="Search sound..."
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <ion-icon name="search-sharp"></ion-icon>
+        <IonIcon icon={searchSharp} />
       </div>
       <Modal
         className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1"
@@ -78,7 +80,7 @@ const App = () => {
           className="float-right ModalButton relative"
           onClick={closeModal}
         >
-          {<ion-icon name="close-sharp" size="large"></ion-icon>}
+          <IonIcon icon={closeSharp} size="large" />
         </button>
         <section
           className="ml-6 pb-6 pt-2 text-lg"

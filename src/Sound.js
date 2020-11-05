@@ -1,7 +1,14 @@
-import tinykeys from "tinykeys";
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import {
+  cropSharp,
+  downloadSharp,
+  pauseCircleSharp,
+  playCircleSharp,
+} from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
+import { Link, useParams } from "react-router-dom";
 import localForage from "localforage";
+import React, { useEffect, useState } from "react";
+import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
 
@@ -109,7 +116,7 @@ export default function Sound(props) {
       {loadingState === 2 && <h1>404</h1>}
       {isLoggedIn && loadingState === 1 && (
         <button onClick={() => downloadSound(sound)} type="button">
-          {<ion-icon id="download-button" name="download-sharp"></ion-icon>}
+          <IonIcon icon={downloadSharp} id="download-button" />
         </button>
       )}
       {sound.previews && (
@@ -124,13 +131,13 @@ export default function Sound(props) {
             playing={isPlaying}
             src={sound.previews["preview-lq-mp3"]}
           />
-          <ion-icon name="crop-sharp"></ion-icon>
-          <ion-icon name="download-sharp"></ion-icon>
+          <IonIcon icon={cropSharp} />
+          <IonIcon icon={downloadSharp} />
           <button onClick={handlePlayingAndPausing}>
             {isPlaying ? (
-              <ion-icon id="pause-button" name="pause-circle-sharp"></ion-icon>
+              <IonIcon icon={pauseCircleSharp} id="pause-button" />
             ) : (
-              <ion-icon id="play-button" name="play-circle-sharp" />
+              <IonIcon icon={playCircleSharp} id="play-button" />
             )}
           </button>
           <h1 className="text-left text-3xl mx-10 pt-24 py-4">Description</h1>
