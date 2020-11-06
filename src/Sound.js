@@ -87,20 +87,22 @@ export default function Sound(props) {
     };
     fetchSound();
   }, [id, freeSound]);
-
+  /* eslint-disable-next-line */
   useEffect(() => {
-    const unsubscribe = tinykeys(window, {
-      Space: (event) => {
-        event.preventDefault();
-        setIsPlaying((i) => !i);
-      },
-      d: () => {
-        if (isLoggedIn) downloadSound(sound);
-      },
-    });
-    return () => {
-      unsubscribe();
-    };
+    if (document.activeElement.id === "body") {
+      const unsubscribe = tinykeys(window, {
+        Space: (event) => {
+          event.preventDefault();
+          setIsPlaying((i) => !i);
+        },
+        d: () => {
+          if (isLoggedIn) downloadSound(sound);
+        },
+      });
+      return () => {
+        unsubscribe();
+      };
+    }
   });
 
   return (
