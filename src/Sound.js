@@ -90,15 +90,17 @@ export default function Sound(props) {
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
       Space: (event) => {
+        // Shortcuts should only work
         if (document.activeElement === document.body) {
-          event.preventDefault();
-          setIsPlaying((i) => !i);
-        }
+          event.preventDefault(); // if we're on the main
+          setIsPlaying((i) => !i); // section of the app,
+        } // and not if, say, we are searching for a sound.
       },
       d: () => {
+        // As stated above, shortcuts should only work
         if (isLoggedIn && document.activeElement === document.body)
-          downloadSound(sound);
-      },
+          downloadSound(sound); // when on the main section of the
+      }, // app, and not, for example, while searching.
     });
     return () => {
       unsubscribe();
