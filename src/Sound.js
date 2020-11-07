@@ -151,7 +151,7 @@ export default function Sound(props) {
             </button>
           </div>
           <h1 className="text-left text-3xl mx-10 pt-24 py-4">Description</h1>
-          <p className="bg-default text-left text-lg mx-10 p-16">
+          <p className="bg-default text-left text-lg mx-10 p-10">
             {sound.description}
           </p>
         </>
