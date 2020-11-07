@@ -8656,6 +8656,23 @@ h1, h1, h3, h4, h5, h6 {
   padding-left: 10px;
 }
 
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  transition: opacity 200ms ease-in-out;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
