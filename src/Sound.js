@@ -87,22 +87,22 @@ export default function Sound(props) {
     };
     fetchSound();
   }, [id, freeSound]);
-  /* eslint-disable-next-line */
   useEffect(() => {
-    if (document.activeElement.id === "body") {
-      const unsubscribe = tinykeys(window, {
-        Space: (event) => {
+    const unsubscribe = tinykeys(window, {
+      Space: (event) => {
+        if (document.activeElement === document.body) {
           event.preventDefault();
           setIsPlaying((i) => !i);
-        },
-        d: () => {
-          if (isLoggedIn) downloadSound(sound);
-        },
-      });
-      return () => {
-        unsubscribe();
-      };
-    }
+        }
+      },
+      d: () => {
+        if (isLoggedIn && document.activeElement === document.body)
+          downloadSound(sound);
+      },
+    });
+    return () => {
+      unsubscribe();
+    };
   });
 
   return (
