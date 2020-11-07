@@ -1,4 +1,5 @@
 import {
+  caretDownSharp,
   cropSharp,
   downloadSharp,
   pauseCircleSharp,
@@ -117,12 +118,6 @@ export default function Sound(props) {
           {e}
         </div>
       ))}
-      {loadingState === 2 && <h1>404</h1>}
-      {isLoggedIn && loadingState === 1 && (
-        <button onClick={() => downloadSound(sound)} type="button">
-          <IonIcon icon={downloadSharp} id="download-button" />
-        </button>
-      )}
       {sound.previews && (
         <>
           <Waveform
@@ -135,17 +130,38 @@ export default function Sound(props) {
             playing={isPlaying}
             src={sound.previews["preview-lq-mp3"]}
           />
-          <IonIcon icon={cropSharp} />
-          <IonIcon icon={downloadSharp} />
-          <button onClick={handlePlayingAndPausing}>
-            {isPlaying ? (
-              <IonIcon icon={pauseCircleSharp} id="pause-button" />
-            ) : (
-              <IonIcon icon={playCircleSharp} id="play-button" />
-            )}
-          </button>
+          {loadingState === 2 && <h1>404</h1>}
+          {isLoggedIn && loadingState === 1 && (
+            <div className="download-container">
+              <button onClick={() => downloadSound(sound)} type="button">
+                <IonIcon icon={downloadSharp} id="download-icon" />
+                Download
+                <IonIcon
+                  icon={caretDownSharp}
+                  id="download-dropdown"
+                  name="caret-down-sharp"
+                />
+              </button>
+            </div>
+          )}
+          <div>
+            <button className="edit-container">
+              <IonIcon icon={cropSharp} id="edit-icon" />
+              Edit
+            </button>
+          </div>
+          <div className="stats-container">
+            <IonIcon icon={downloadSharp} id="download-icon" />
+            <button onClick={handlePlayingAndPausing}>
+              {isPlaying ? (
+                <IonIcon icon={pauseCircleSharp} id="pause-button" />
+              ) : (
+                <IonIcon icon={playCircleSharp} id="play-button" />
+              )}
+            </button>
+          </div>
           <h1 className="text-left text-3xl mx-10 pt-24 py-4">Description</h1>
-          <p className="bg-default text-left text-lg mx-10 p-16">
+          <p className="bg-default text-left text-lg mx-10 p-10">
             {sound.description}
           </p>
         </>

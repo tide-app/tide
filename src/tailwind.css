@@ -8559,19 +8559,18 @@ h1, h1, h3, h4, h5, h6 {
   color: var(--primary-color);
 }
 
-.playlist-item{
-  list-style-type: var(--primary-color);
+.list-item{
+  background: var(--primary-color);
   border: 1px solid var(--secondary-color);
-  cursor: pointer;
-  padding: 1em;
-  padding-left: 55px;
+  border-bottom: none;
+  padding: 20px;
 }
 
-.playlist-item:first-child {
-  border-top: none;
+.list-item-container:last-child {
+  border-bottom: 1px solid var(--secondary-color);
 }
 
-.playlist-item.selected {
+.list-item.selected {
   font-weight: bold;
 }
 
@@ -8600,6 +8599,61 @@ h1, h1, h3, h4, h5, h6 {
 #waveform {
   color: var(--primary-color);
   background: var(--secondary-color);
+}
+
+.download-container {
+  border-radius: 7px;
+  display: flex;
+  width: 150px;
+  float: right;
+  margin: 10px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3px;
+  background-color: var(--secondary-color);
+  color:var(--primary-color);
+  font-size: 15px;
+}
+
+#download-icon{
+  padding-right: 13px;
+}
+
+#download-dropdown {
+  padding-left: 15px;
+}
+
+.edit-container {
+  display: flex;
+  padding: 3px;
+  border-radius: 7px;
+  font-size: 15px;
+  float: right;
+  margin: 10px;
+  width: 80px;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+#edit-icon {
+  padding-right: 7px;
+}
+
+.stats-container {
+  display: flex;
+  float: left;
+  margin: 10px;
+  color: var(--secondary-color);
+}
+
+#play-button {
+  padding-left: 10px;
+}
+
+#pause-button {
+  padding-left: 10px;
 }
 
 @media (min-width: 640px) {
