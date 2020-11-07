@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { playCircleSharp } from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
 
 const SoundList = ({ tracks, header, selectedTrack, onSoundClick }) => {
   return (
@@ -20,7 +22,7 @@ const SoundList = ({ tracks, header, selectedTrack, onSoundClick }) => {
               }
             >
               <div>
-                <ion-icon id="play-button" name="play-circle-sharp" />
+                <IonIcon icon={playCircleSharp} id="play-button" />
                 {track.name}
               </div>
             </div>

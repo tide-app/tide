@@ -1,7 +1,15 @@
-import tinykeys from "tinykeys";
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import {
+  caretDownSharp,
+  cropSharp,
+  downloadSharp,
+  pauseCircleSharp,
+  playCircleSharp,
+} from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
+import { Link, useParams } from "react-router-dom";
 import localForage from "localforage";
+import React, { useEffect, useState } from "react";
+import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
 
@@ -80,16 +88,20 @@ export default function Sound(props) {
     };
     fetchSound();
   }, [id, freeSound]);
-
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
       Space: (event) => {
-        event.preventDefault();
-        setIsPlaying((i) => !i);
+        // Shortcuts should only work
+        if (document.activeElement === document.body) {
+          event.preventDefault(); // if we're on the main
+          setIsPlaying((i) => !i); // section of the app,
+        } // and not if, say, we are searching for a sound.
       },
       d: () => {
-        if (isLoggedIn) downloadSound(sound);
-      },
+        // As stated above, shortcuts should only work
+        if (isLoggedIn && document.activeElement === document.body)
+          downloadSound(sound); // when on the main section of the
+      }, // app, and not, for example, while searching.
     });
     return () => {
       unsubscribe();
@@ -122,31 +134,29 @@ export default function Sound(props) {
           {isLoggedIn && loadingState === 1 && (
             <div className="download-container">
               <button onClick={() => downloadSound(sound)} type="button">
-                <ion-icon id="download-icon" name="download-sharp"></ion-icon>
+                <IonIcon icon={downloadSharp} id="download-icon" />
                 Download
-                <ion-icon
+                <IonIcon
+                  icon={caretDownSharp}
                   id="download-dropdown"
                   name="caret-down-sharp"
-                ></ion-icon>
+                />
               </button>
             </div>
           )}
           <div>
             <button className="edit-container">
-              <ion-icon id="edit-icon" name="crop-sharp"></ion-icon>
+              <IonIcon icon={cropSharp} id="edit-icon" />
               Edit
             </button>
           </div>
           <div className="stats-container">
-            <ion-icon name="download-sharp"></ion-icon>
+            <IonIcon icon={downloadSharp} id="download-icon" />
             <button onClick={handlePlayingAndPausing}>
               {isPlaying ? (
-                <ion-icon
-                  id="pause-button"
-                  name="pause-circle-sharp"
-                ></ion-icon>
+                <IonIcon icon={pauseCircleSharp} id="pause-button" />
               ) : (
-                <ion-icon id="play-button" name="play-circle-sharp" />
+                <IonIcon icon={playCircleSharp} id="play-button" />
               )}
             </button>
           </div>
