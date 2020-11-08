@@ -1,12 +1,13 @@
 :root {
-  --primary-color: #FBDC57;
-  --secondary-color: black;
+  --primary-static-color: #FBDC57;
+  --secondary-static-color: black;
+  --primary-color: var(--primary-static-color);
+  --secondary-color: var(--secondary-static-color);
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: black;
-    --secondary-color:#FBDC57;
+    --primary-color: var(--secondary-static-color);
+    --secondary-color: var(--primary-static-color);
   }
 }
 
@@ -14,128 +15,11 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
 body {
-  background-color: var(--primary-color);
   font-family: 'M PLUS 1p', sans-serif;
-}
-
-a, h1, h2, h3, h4, h5, h6, p, body {
-  color: var(--secondary-color);
-}
-
-h1, h1, h3, h4, h5, h6 {
-  font-weight: bold;
-}
-
-.App {
-  text-align: center;
-}
-
-.Modal {
-  background-color: rgba(0, 0, 0, 0.75);
-}
-
-.ModalButton:focus {
-  outline: none;
-}
-
-.bg-default {
-  @apply bg-secondary text-primary;
-}
-
-.list-item{
-  background: var(--primary-color);
-  border: 1px solid var(--secondary-color);
-  border-bottom: none;
-  padding: 20px;
-}
-
-.list-item-container:last-child {
-  border-bottom: 1px solid var(--secondary-color);
-}
-
-.list-item.selected {
-  font-weight: bold;
-}
-
-.playlist-item:hover {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-}
-
-.controls {
-  text-align: left;
-  padding: 1em;
-}
-
-.Tag {
-  color: var(--secondary-color);
-  display: inline-block;
-  padding: 10px;
-  margin: 10px;
-  border-style: solid;
-  border-width: thin;
-  border-color: var(--secondary-color);
-  border-radius: 5px;
-  font-size: small;
-}
-
-#waveform {
-  color: var(--primary-color);
-  background: var(--secondary-color);
-}
-
-.download-container {
-  border-radius: 7px;
-  display: flex;
-  width: 150px;
-  float: right;
-  margin: 10px;
-  justify-content: space-around;
-  align-items: center;
-  padding: 3px;
-  background-color: var(--secondary-color);
-  color:var(--primary-color);
-  font-size: 15px;
-}
-
-#download-icon{
-  padding-right: 13px;
-}
-
-#download-dropdown {
-  padding-left: 15px;
-}
-
-.edit-container {
-  display: flex;
-  padding: 3px;
-  border-radius: 7px;
-  font-size: 15px;
-  float: right;
-  margin: 10px;
-  width: 80px;
-  justify-content: space-around;
-  align-items: center;
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
-}
-
-#edit-icon {
-  padding-right: 7px;
-}
-
-.stats-container {
-  display: flex;
-  float: left;
-  margin: 10px;
-  color: var(--secondary-color);
-}
-
-#play-button {
-  padding-left: 10px;
-}
-
-#pause-button {
-  padding-left: 10px;
 }

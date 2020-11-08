@@ -1,12 +1,14 @@
 :root {
-  --primary-color: #FBDC57;
-  --secondary-color: black;
+  --primary-static-color: #FBDC57;
+  --secondary-static-color: black;
+  --primary-color: var(--primary-static-color);
+  --secondary-color: var(--secondary-static-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: black;
-    --secondary-color:#FBDC57;
+    --primary-color: var(--secondary-static-color);
+    --secondary-color: var(--primary-static-color);
   }
 }
 
@@ -1150,8 +1152,16 @@ video {
   border-color: var(--primary-color);
 }
 
+.divide-primary-static > :not(template) ~ :not(template) {
+  border-color: var(--primary-static-color);
+}
+
 .divide-secondary > :not(template) ~ :not(template) {
   border-color: var(--secondary-color);
+}
+
+.divide-secondary-static > :not(template) ~ :not(template) {
+  border-color: var(--secondary-static-color);
 }
 
 .divide-solid > :not(template) ~ :not(template) {
@@ -1279,24 +1289,48 @@ video {
   background-color: var(--primary-color);
 }
 
+.bg-primary-static {
+  background-color: var(--primary-static-color);
+}
+
 .bg-secondary {
   background-color: var(--secondary-color);
+}
+
+.bg-secondary-static {
+  background-color: var(--secondary-static-color);
 }
 
 .hover\:bg-primary:hover {
   background-color: var(--primary-color);
 }
 
+.hover\:bg-primary-static:hover {
+  background-color: var(--primary-static-color);
+}
+
 .hover\:bg-secondary:hover {
   background-color: var(--secondary-color);
+}
+
+.hover\:bg-secondary-static:hover {
+  background-color: var(--secondary-static-color);
 }
 
 .focus\:bg-primary:focus {
   background-color: var(--primary-color);
 }
 
+.focus\:bg-primary-static:focus {
+  background-color: var(--primary-static-color);
+}
+
 .focus\:bg-secondary:focus {
   background-color: var(--secondary-color);
+}
+
+.focus\:bg-secondary-static:focus {
+  background-color: var(--secondary-static-color);
 }
 
 .bg-none {
@@ -1340,8 +1374,18 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.from-primary-static {
+  --gradient-from-color: var(--primary-static-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .from-secondary {
   --gradient-from-color: var(--secondary-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.from-secondary-static {
+  --gradient-from-color: var(--secondary-static-color);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -1350,8 +1394,18 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.via-primary-static {
+  --gradient-via-color: var(--primary-static-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .via-secondary {
   --gradient-via-color: var(--secondary-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.via-secondary-static {
+  --gradient-via-color: var(--secondary-static-color);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -1359,12 +1413,25 @@ video {
   --gradient-to-color: var(--primary-color);
 }
 
+.to-primary-static {
+  --gradient-to-color: var(--primary-static-color);
+}
+
 .to-secondary {
   --gradient-to-color: var(--secondary-color);
 }
 
+.to-secondary-static {
+  --gradient-to-color: var(--secondary-static-color);
+}
+
 .hover\:from-primary:hover {
   --gradient-from-color: var(--primary-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.hover\:from-primary-static:hover {
+  --gradient-from-color: var(--primary-static-color);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -1373,8 +1440,18 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.hover\:from-secondary-static:hover {
+  --gradient-from-color: var(--secondary-static-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .hover\:via-primary:hover {
   --gradient-via-color: var(--primary-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.hover\:via-primary-static:hover {
+  --gradient-via-color: var(--primary-static-color);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -1383,16 +1460,34 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.hover\:via-secondary-static:hover {
+  --gradient-via-color: var(--secondary-static-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .hover\:to-primary:hover {
   --gradient-to-color: var(--primary-color);
+}
+
+.hover\:to-primary-static:hover {
+  --gradient-to-color: var(--primary-static-color);
 }
 
 .hover\:to-secondary:hover {
   --gradient-to-color: var(--secondary-color);
 }
 
+.hover\:to-secondary-static:hover {
+  --gradient-to-color: var(--secondary-static-color);
+}
+
 .focus\:from-primary:focus {
   --gradient-from-color: var(--primary-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.focus\:from-primary-static:focus {
+  --gradient-from-color: var(--primary-static-color);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -1401,8 +1496,18 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.focus\:from-secondary-static:focus {
+  --gradient-from-color: var(--secondary-static-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .focus\:via-primary:focus {
   --gradient-via-color: var(--primary-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.focus\:via-primary-static:focus {
+  --gradient-via-color: var(--primary-static-color);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -1411,12 +1516,25 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.focus\:via-secondary-static:focus {
+  --gradient-via-color: var(--secondary-static-color);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .focus\:to-primary:focus {
   --gradient-to-color: var(--primary-color);
 }
 
+.focus\:to-primary-static:focus {
+  --gradient-to-color: var(--primary-static-color);
+}
+
 .focus\:to-secondary:focus {
   --gradient-to-color: var(--secondary-color);
+}
+
+.focus\:to-secondary-static:focus {
+  --gradient-to-color: var(--secondary-static-color);
 }
 
 .bg-opacity-0 {
@@ -1563,24 +1681,48 @@ video {
   border-color: var(--primary-color);
 }
 
+.border-primary-static {
+  border-color: var(--primary-static-color);
+}
+
 .border-secondary {
   border-color: var(--secondary-color);
+}
+
+.border-secondary-static {
+  border-color: var(--secondary-static-color);
 }
 
 .hover\:border-primary:hover {
   border-color: var(--primary-color);
 }
 
+.hover\:border-primary-static:hover {
+  border-color: var(--primary-static-color);
+}
+
 .hover\:border-secondary:hover {
   border-color: var(--secondary-color);
+}
+
+.hover\:border-secondary-static:hover {
+  border-color: var(--secondary-static-color);
 }
 
 .focus\:border-primary:focus {
   border-color: var(--primary-color);
 }
 
+.focus\:border-primary-static:focus {
+  border-color: var(--primary-static-color);
+}
+
 .focus\:border-secondary:focus {
   border-color: var(--secondary-color);
+}
+
+.focus\:border-secondary-static:focus {
+  border-color: var(--secondary-static-color);
 }
 
 .border-opacity-0 {
@@ -1661,6 +1803,18 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .rounded-full {
@@ -1767,6 +1921,66 @@ video {
   border-bottom-left-radius: 0.5rem;
 }
 
+.rounded-t-xl {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.rounded-r-xl {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.rounded-b-xl {
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
+
+.rounded-l-xl {
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
+
+.rounded-t-2xl {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.rounded-r-2xl {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.rounded-b-2xl {
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.rounded-l-2xl {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.rounded-t-3xl {
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+.rounded-r-3xl {
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.rounded-b-3xl {
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.rounded-l-3xl {
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
 .rounded-t-full {
   border-top-left-radius: 9999px;
   border-top-right-radius: 9999px;
@@ -1865,6 +2079,54 @@ video {
 
 .rounded-bl-lg {
   border-bottom-left-radius: 0.5rem;
+}
+
+.rounded-tl-xl {
+  border-top-left-radius: 0.75rem;
+}
+
+.rounded-tr-xl {
+  border-top-right-radius: 0.75rem;
+}
+
+.rounded-br-xl {
+  border-bottom-right-radius: 0.75rem;
+}
+
+.rounded-bl-xl {
+  border-bottom-left-radius: 0.75rem;
+}
+
+.rounded-tl-2xl {
+  border-top-left-radius: 1rem;
+}
+
+.rounded-tr-2xl {
+  border-top-right-radius: 1rem;
+}
+
+.rounded-br-2xl {
+  border-bottom-right-radius: 1rem;
+}
+
+.rounded-bl-2xl {
+  border-bottom-left-radius: 1rem;
+}
+
+.rounded-tl-3xl {
+  border-top-left-radius: 1.5rem;
+}
+
+.rounded-tr-3xl {
+  border-top-right-radius: 1.5rem;
+}
+
+.rounded-br-3xl {
+  border-bottom-right-radius: 1.5rem;
+}
+
+.rounded-bl-3xl {
+  border-bottom-left-radius: 1.5rem;
 }
 
 .rounded-tl-full {
@@ -4138,11 +4400,33 @@ video {
 }
 
 .outline-none {
-  outline: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.outline-white {
+  outline: 2px dotted white;
+  outline-offset: 2px;
+}
+
+.outline-black {
+  outline: 2px dotted black;
+  outline-offset: 2px;
 }
 
 .focus\:outline-none:focus {
-  outline: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:outline-white:focus {
+  outline: 2px dotted white;
+  outline-offset: 2px;
+}
+
+.focus\:outline-black:focus {
+  outline: 2px dotted black;
+  outline-offset: 2px;
 }
 
 .overflow-auto {
@@ -4819,6 +5103,18 @@ video {
   color: var(--primary-color);
 }
 
+.placeholder-primary-static::-webkit-input-placeholder {
+  color: var(--primary-static-color);
+}
+
+.placeholder-primary-static::-ms-input-placeholder {
+  color: var(--primary-static-color);
+}
+
+.placeholder-primary-static::placeholder {
+  color: var(--primary-static-color);
+}
+
 .placeholder-secondary::-webkit-input-placeholder {
   color: var(--secondary-color);
 }
@@ -4829,6 +5125,18 @@ video {
 
 .placeholder-secondary::placeholder {
   color: var(--secondary-color);
+}
+
+.placeholder-secondary-static::-webkit-input-placeholder {
+  color: var(--secondary-static-color);
+}
+
+.placeholder-secondary-static::-ms-input-placeholder {
+  color: var(--secondary-static-color);
+}
+
+.placeholder-secondary-static::placeholder {
+  color: var(--secondary-static-color);
 }
 
 .focus\:placeholder-primary:focus::-webkit-input-placeholder {
@@ -4843,6 +5151,18 @@ video {
   color: var(--primary-color);
 }
 
+.focus\:placeholder-primary-static:focus::-webkit-input-placeholder {
+  color: var(--primary-static-color);
+}
+
+.focus\:placeholder-primary-static:focus::-ms-input-placeholder {
+  color: var(--primary-static-color);
+}
+
+.focus\:placeholder-primary-static:focus::placeholder {
+  color: var(--primary-static-color);
+}
+
 .focus\:placeholder-secondary:focus::-webkit-input-placeholder {
   color: var(--secondary-color);
 }
@@ -4853,6 +5173,18 @@ video {
 
 .focus\:placeholder-secondary:focus::placeholder {
   color: var(--secondary-color);
+}
+
+.focus\:placeholder-secondary-static:focus::-webkit-input-placeholder {
+  color: var(--secondary-static-color);
+}
+
+.focus\:placeholder-secondary-static:focus::-ms-input-placeholder {
+  color: var(--secondary-static-color);
+}
+
+.focus\:placeholder-secondary-static:focus::placeholder {
+  color: var(--secondary-static-color);
 }
 
 .placeholder-opacity-0::-webkit-input-placeholder {
@@ -5254,24 +5586,48 @@ video {
   color: var(--primary-color);
 }
 
+.text-primary-static {
+  color: var(--primary-static-color);
+}
+
 .text-secondary {
   color: var(--secondary-color);
+}
+
+.text-secondary-static {
+  color: var(--secondary-static-color);
 }
 
 .hover\:text-primary:hover {
   color: var(--primary-color);
 }
 
+.hover\:text-primary-static:hover {
+  color: var(--primary-static-color);
+}
+
 .hover\:text-secondary:hover {
   color: var(--secondary-color);
+}
+
+.hover\:text-secondary-static:hover {
+  color: var(--secondary-static-color);
 }
 
 .focus\:text-primary:focus {
   color: var(--primary-color);
 }
 
+.focus\:text-primary-static:focus {
+  color: var(--primary-static-color);
+}
+
 .focus\:text-secondary:focus {
   color: var(--secondary-color);
+}
+
+.focus\:text-secondary-static:focus {
+  color: var(--secondary-static-color);
 }
 
 .text-opacity-0 {
@@ -5550,11 +5906,13 @@ video {
 }
 
 .break-normal {
+  word-wrap: normal;
   overflow-wrap: normal;
   word-break: normal;
 }
 
 .break-words {
+  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
@@ -6369,6 +6727,24 @@ video {
   grid-template-columns: none;
 }
 
+.auto-cols-auto {
+  grid-auto-columns: auto;
+}
+
+.auto-cols-min {
+  grid-auto-columns: -webkit-min-content;
+  grid-auto-columns: min-content;
+}
+
+.auto-cols-max {
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+}
+
+.auto-cols-fr {
+  grid-auto-columns: minmax(0, 1fr);
+}
+
 .col-auto {
   grid-column: auto;
 }
@@ -6419,6 +6795,10 @@ video {
 
 .col-span-12 {
   grid-column: span 12 / span 12;
+}
+
+.col-span-full {
+  grid-column: 1 / -1;
 }
 
 .col-start-1 {
@@ -6561,6 +6941,24 @@ video {
   grid-template-rows: none;
 }
 
+.auto-rows-auto {
+  grid-auto-rows: auto;
+}
+
+.auto-rows-min {
+  grid-auto-rows: -webkit-min-content;
+  grid-auto-rows: min-content;
+}
+
+.auto-rows-max {
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+}
+
+.auto-rows-fr {
+  grid-auto-rows: minmax(0, 1fr);
+}
+
 .row-auto {
   grid-row: auto;
 }
@@ -6587,6 +6985,10 @@ video {
 
 .row-span-6 {
   grid-row: span 6 / span 6;
+}
+
+.row-span-full {
+  grid-row: 1 / -1;
 }
 
 .row-start-1 {
@@ -7098,6 +7500,26 @@ video {
   --transform-rotate: 0;
 }
 
+.rotate-1 {
+  --transform-rotate: 1deg;
+}
+
+.rotate-2 {
+  --transform-rotate: 2deg;
+}
+
+.rotate-3 {
+  --transform-rotate: 3deg;
+}
+
+.rotate-6 {
+  --transform-rotate: 6deg;
+}
+
+.rotate-12 {
+  --transform-rotate: 12deg;
+}
+
 .rotate-45 {
   --transform-rotate: 45deg;
 }
@@ -7122,8 +7544,48 @@ video {
   --transform-rotate: -45deg;
 }
 
+.-rotate-12 {
+  --transform-rotate: -12deg;
+}
+
+.-rotate-6 {
+  --transform-rotate: -6deg;
+}
+
+.-rotate-3 {
+  --transform-rotate: -3deg;
+}
+
+.-rotate-2 {
+  --transform-rotate: -2deg;
+}
+
+.-rotate-1 {
+  --transform-rotate: -1deg;
+}
+
 .hover\:rotate-0:hover {
   --transform-rotate: 0;
+}
+
+.hover\:rotate-1:hover {
+  --transform-rotate: 1deg;
+}
+
+.hover\:rotate-2:hover {
+  --transform-rotate: 2deg;
+}
+
+.hover\:rotate-3:hover {
+  --transform-rotate: 3deg;
+}
+
+.hover\:rotate-6:hover {
+  --transform-rotate: 6deg;
+}
+
+.hover\:rotate-12:hover {
+  --transform-rotate: 12deg;
 }
 
 .hover\:rotate-45:hover {
@@ -7150,8 +7612,48 @@ video {
   --transform-rotate: -45deg;
 }
 
+.hover\:-rotate-12:hover {
+  --transform-rotate: -12deg;
+}
+
+.hover\:-rotate-6:hover {
+  --transform-rotate: -6deg;
+}
+
+.hover\:-rotate-3:hover {
+  --transform-rotate: -3deg;
+}
+
+.hover\:-rotate-2:hover {
+  --transform-rotate: -2deg;
+}
+
+.hover\:-rotate-1:hover {
+  --transform-rotate: -1deg;
+}
+
 .focus\:rotate-0:focus {
   --transform-rotate: 0;
+}
+
+.focus\:rotate-1:focus {
+  --transform-rotate: 1deg;
+}
+
+.focus\:rotate-2:focus {
+  --transform-rotate: 2deg;
+}
+
+.focus\:rotate-3:focus {
+  --transform-rotate: 3deg;
+}
+
+.focus\:rotate-6:focus {
+  --transform-rotate: 6deg;
+}
+
+.focus\:rotate-12:focus {
+  --transform-rotate: 12deg;
 }
 
 .focus\:rotate-45:focus {
@@ -7176,6 +7678,26 @@ video {
 
 .focus\:-rotate-45:focus {
   --transform-rotate: -45deg;
+}
+
+.focus\:-rotate-12:focus {
+  --transform-rotate: -12deg;
+}
+
+.focus\:-rotate-6:focus {
+  --transform-rotate: -6deg;
+}
+
+.focus\:-rotate-3:focus {
+  --transform-rotate: -3deg;
+}
+
+.focus\:-rotate-2:focus {
+  --transform-rotate: -2deg;
+}
+
+.focus\:-rotate-1:focus {
+  --transform-rotate: -1deg;
 }
 
 .translate-x-0 {
@@ -8166,6 +8688,14 @@ video {
   --transform-skew-x: 0;
 }
 
+.skew-x-1 {
+  --transform-skew-x: 1deg;
+}
+
+.skew-x-2 {
+  --transform-skew-x: 2deg;
+}
+
 .skew-x-3 {
   --transform-skew-x: 3deg;
 }
@@ -8190,8 +8720,24 @@ video {
   --transform-skew-x: -3deg;
 }
 
+.-skew-x-2 {
+  --transform-skew-x: -2deg;
+}
+
+.-skew-x-1 {
+  --transform-skew-x: -1deg;
+}
+
 .skew-y-0 {
   --transform-skew-y: 0;
+}
+
+.skew-y-1 {
+  --transform-skew-y: 1deg;
+}
+
+.skew-y-2 {
+  --transform-skew-y: 2deg;
 }
 
 .skew-y-3 {
@@ -8218,8 +8764,24 @@ video {
   --transform-skew-y: -3deg;
 }
 
+.-skew-y-2 {
+  --transform-skew-y: -2deg;
+}
+
+.-skew-y-1 {
+  --transform-skew-y: -1deg;
+}
+
 .hover\:skew-x-0:hover {
   --transform-skew-x: 0;
+}
+
+.hover\:skew-x-1:hover {
+  --transform-skew-x: 1deg;
+}
+
+.hover\:skew-x-2:hover {
+  --transform-skew-x: 2deg;
 }
 
 .hover\:skew-x-3:hover {
@@ -8246,8 +8808,24 @@ video {
   --transform-skew-x: -3deg;
 }
 
+.hover\:-skew-x-2:hover {
+  --transform-skew-x: -2deg;
+}
+
+.hover\:-skew-x-1:hover {
+  --transform-skew-x: -1deg;
+}
+
 .hover\:skew-y-0:hover {
   --transform-skew-y: 0;
+}
+
+.hover\:skew-y-1:hover {
+  --transform-skew-y: 1deg;
+}
+
+.hover\:skew-y-2:hover {
+  --transform-skew-y: 2deg;
 }
 
 .hover\:skew-y-3:hover {
@@ -8274,8 +8852,24 @@ video {
   --transform-skew-y: -3deg;
 }
 
+.hover\:-skew-y-2:hover {
+  --transform-skew-y: -2deg;
+}
+
+.hover\:-skew-y-1:hover {
+  --transform-skew-y: -1deg;
+}
+
 .focus\:skew-x-0:focus {
   --transform-skew-x: 0;
+}
+
+.focus\:skew-x-1:focus {
+  --transform-skew-x: 1deg;
+}
+
+.focus\:skew-x-2:focus {
+  --transform-skew-x: 2deg;
 }
 
 .focus\:skew-x-3:focus {
@@ -8302,8 +8896,24 @@ video {
   --transform-skew-x: -3deg;
 }
 
+.focus\:-skew-x-2:focus {
+  --transform-skew-x: -2deg;
+}
+
+.focus\:-skew-x-1:focus {
+  --transform-skew-x: -1deg;
+}
+
 .focus\:skew-y-0:focus {
   --transform-skew-y: 0;
+}
+
+.focus\:skew-y-1:focus {
+  --transform-skew-y: 1deg;
+}
+
+.focus\:skew-y-2:focus {
+  --transform-skew-y: 2deg;
 }
 
 .focus\:skew-y-3:focus {
@@ -8328,6 +8938,14 @@ video {
 
 .focus\:-skew-y-3:focus {
   --transform-skew-y: -3deg;
+}
+
+.focus\:-skew-y-2:focus {
+  --transform-skew-y: -2deg;
+}
+
+.focus\:-skew-y-1:focus {
+  --transform-skew-y: -1deg;
 }
 
 .transition-none {
@@ -8529,12 +9147,16 @@ video {
           animation: bounce 1s infinite;
 }
 
+::selection {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
 body {
-  background-color: var(--primary-color);
   font-family: 'M PLUS 1p', sans-serif;
 }
 
-a, h1, h2, h3, h4, h5, h6, p, body {
+/* a, h1, h2, h3, h4, h5, h6, p, body {
   color: var(--secondary-color);
 }
 
@@ -8555,8 +9177,7 @@ h1, h1, h3, h4, h5, h6 {
 }
 
 .bg-default {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  @apply bg-secondary text-primary;
 }
 
 .list-item{
@@ -8596,9 +9217,8 @@ h1, h1, h3, h4, h5, h6 {
   font-size: small;
 }
 
-#waveform {
-  color: var(--primary-color);
-  background: var(--secondary-color);
+wave {
+  border: 2px solid var(--secondary-color)
 }
 
 .download-container {
@@ -8654,7 +9274,7 @@ h1, h1, h3, h4, h5, h6 {
 
 #pause-button {
   padding-left: 10px;
-}
+} */
 
 @media (min-width: 640px) {
   .sm\:container {
@@ -9209,8 +9829,16 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .sm\:divide-primary-static > :not(template) ~ :not(template) {
+    border-color: var(--primary-static-color);
+  }
+
   .sm\:divide-secondary > :not(template) ~ :not(template) {
     border-color: var(--secondary-color);
+  }
+
+  .sm\:divide-secondary-static > :not(template) ~ :not(template) {
+    border-color: var(--secondary-static-color);
   }
 
   .sm\:divide-solid > :not(template) ~ :not(template) {
@@ -9338,24 +9966,48 @@ h1, h1, h3, h4, h5, h6 {
     background-color: var(--primary-color);
   }
 
+  .sm\:bg-primary-static {
+    background-color: var(--primary-static-color);
+  }
+
   .sm\:bg-secondary {
     background-color: var(--secondary-color);
+  }
+
+  .sm\:bg-secondary-static {
+    background-color: var(--secondary-static-color);
   }
 
   .sm\:hover\:bg-primary:hover {
     background-color: var(--primary-color);
   }
 
+  .sm\:hover\:bg-primary-static:hover {
+    background-color: var(--primary-static-color);
+  }
+
   .sm\:hover\:bg-secondary:hover {
     background-color: var(--secondary-color);
+  }
+
+  .sm\:hover\:bg-secondary-static:hover {
+    background-color: var(--secondary-static-color);
   }
 
   .sm\:focus\:bg-primary:focus {
     background-color: var(--primary-color);
   }
 
+  .sm\:focus\:bg-primary-static:focus {
+    background-color: var(--primary-static-color);
+  }
+
   .sm\:focus\:bg-secondary:focus {
     background-color: var(--secondary-color);
+  }
+
+  .sm\:focus\:bg-secondary-static:focus {
+    background-color: var(--secondary-static-color);
   }
 
   .sm\:bg-none {
@@ -9399,8 +10051,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:from-primary-static {
+    --gradient-from-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:from-secondary {
     --gradient-from-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:from-secondary-static {
+    --gradient-from-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -9409,8 +10071,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:via-primary-static {
+    --gradient-via-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:via-secondary {
     --gradient-via-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:via-secondary-static {
+    --gradient-via-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -9418,12 +10090,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-to-color: var(--primary-color);
   }
 
+  .sm\:to-primary-static {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .sm\:to-secondary {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .sm\:to-secondary-static {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .sm\:hover\:from-primary:hover {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:hover\:from-primary-static:hover {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -9432,8 +10117,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:hover\:from-secondary-static:hover {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:hover\:via-primary:hover {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:hover\:via-primary-static:hover {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -9442,16 +10137,34 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:hover\:via-secondary-static:hover {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:hover\:to-primary:hover {
     --gradient-to-color: var(--primary-color);
+  }
+
+  .sm\:hover\:to-primary-static:hover {
+    --gradient-to-color: var(--primary-static-color);
   }
 
   .sm\:hover\:to-secondary:hover {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .sm\:hover\:to-secondary-static:hover {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .sm\:focus\:from-primary:focus {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:focus\:from-primary-static:focus {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -9460,8 +10173,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:focus\:from-secondary-static:focus {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:focus\:via-primary:focus {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:focus\:via-primary-static:focus {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -9470,12 +10193,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:focus\:via-secondary-static:focus {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:focus\:to-primary:focus {
     --gradient-to-color: var(--primary-color);
   }
 
+  .sm\:focus\:to-primary-static:focus {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .sm\:focus\:to-secondary:focus {
     --gradient-to-color: var(--secondary-color);
+  }
+
+  .sm\:focus\:to-secondary-static:focus {
+    --gradient-to-color: var(--secondary-static-color);
   }
 
   .sm\:bg-opacity-0 {
@@ -9622,24 +10358,48 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .sm\:border-primary-static {
+    border-color: var(--primary-static-color);
+  }
+
   .sm\:border-secondary {
     border-color: var(--secondary-color);
+  }
+
+  .sm\:border-secondary-static {
+    border-color: var(--secondary-static-color);
   }
 
   .sm\:hover\:border-primary:hover {
     border-color: var(--primary-color);
   }
 
+  .sm\:hover\:border-primary-static:hover {
+    border-color: var(--primary-static-color);
+  }
+
   .sm\:hover\:border-secondary:hover {
     border-color: var(--secondary-color);
+  }
+
+  .sm\:hover\:border-secondary-static:hover {
+    border-color: var(--secondary-static-color);
   }
 
   .sm\:focus\:border-primary:focus {
     border-color: var(--primary-color);
   }
 
+  .sm\:focus\:border-primary-static:focus {
+    border-color: var(--primary-static-color);
+  }
+
   .sm\:focus\:border-secondary:focus {
     border-color: var(--secondary-color);
+  }
+
+  .sm\:focus\:border-secondary-static:focus {
+    border-color: var(--secondary-static-color);
   }
 
   .sm\:border-opacity-0 {
@@ -9720,6 +10480,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:rounded-lg {
     border-radius: 0.5rem;
+  }
+
+  .sm\:rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  .sm\:rounded-2xl {
+    border-radius: 1rem;
+  }
+
+  .sm\:rounded-3xl {
+    border-radius: 1.5rem;
   }
 
   .sm\:rounded-full {
@@ -9826,6 +10598,66 @@ h1, h1, h3, h4, h5, h6 {
     border-bottom-left-radius: 0.5rem;
   }
 
+  .sm\:rounded-t-xl {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  .sm\:rounded-r-xl {
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .sm\:rounded-b-xl {
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .sm\:rounded-l-xl {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .sm\:rounded-t-2xl {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .sm\:rounded-r-2xl {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  .sm\:rounded-b-2xl {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .sm\:rounded-l-2xl {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .sm\:rounded-t-3xl {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+
+  .sm\:rounded-r-3xl {
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .sm\:rounded-b-3xl {
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  .sm\:rounded-l-3xl {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
   .sm\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -9924,6 +10756,54 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:rounded-bl-lg {
     border-bottom-left-radius: 0.5rem;
+  }
+
+  .sm\:rounded-tl-xl {
+    border-top-left-radius: 0.75rem;
+  }
+
+  .sm\:rounded-tr-xl {
+    border-top-right-radius: 0.75rem;
+  }
+
+  .sm\:rounded-br-xl {
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .sm\:rounded-bl-xl {
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .sm\:rounded-tl-2xl {
+    border-top-left-radius: 1rem;
+  }
+
+  .sm\:rounded-tr-2xl {
+    border-top-right-radius: 1rem;
+  }
+
+  .sm\:rounded-br-2xl {
+    border-bottom-right-radius: 1rem;
+  }
+
+  .sm\:rounded-bl-2xl {
+    border-bottom-left-radius: 1rem;
+  }
+
+  .sm\:rounded-tl-3xl {
+    border-top-left-radius: 1.5rem;
+  }
+
+  .sm\:rounded-tr-3xl {
+    border-top-right-radius: 1.5rem;
+  }
+
+  .sm\:rounded-br-3xl {
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .sm\:rounded-bl-3xl {
+    border-bottom-left-radius: 1.5rem;
   }
 
   .sm\:rounded-tl-full {
@@ -12197,11 +13077,33 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .sm\:outline-none {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .sm\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .sm\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .sm\:focus\:outline-none:focus {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .sm\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .sm\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .sm\:overflow-auto {
@@ -12878,6 +13780,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .sm\:placeholder-primary-static::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .sm\:placeholder-primary-static::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .sm\:placeholder-primary-static::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .sm\:placeholder-secondary::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -12888,6 +13802,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:placeholder-secondary::placeholder {
     color: var(--secondary-color);
+  }
+
+  .sm\:placeholder-secondary-static::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .sm\:placeholder-secondary-static::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .sm\:placeholder-secondary-static::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .sm\:focus\:placeholder-primary:focus::-webkit-input-placeholder {
@@ -12902,6 +13828,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .sm\:focus\:placeholder-primary-static:focus::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .sm\:focus\:placeholder-primary-static:focus::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .sm\:focus\:placeholder-primary-static:focus::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .sm\:focus\:placeholder-secondary:focus::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -12912,6 +13850,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:focus\:placeholder-secondary:focus::placeholder {
     color: var(--secondary-color);
+  }
+
+  .sm\:focus\:placeholder-secondary-static:focus::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .sm\:focus\:placeholder-secondary-static:focus::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .sm\:focus\:placeholder-secondary-static:focus::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .sm\:placeholder-opacity-0::-webkit-input-placeholder {
@@ -13313,24 +14263,48 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .sm\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
   .sm\:text-secondary {
     color: var(--secondary-color);
+  }
+
+  .sm\:text-secondary-static {
+    color: var(--secondary-static-color);
   }
 
   .sm\:hover\:text-primary:hover {
     color: var(--primary-color);
   }
 
+  .sm\:hover\:text-primary-static:hover {
+    color: var(--primary-static-color);
+  }
+
   .sm\:hover\:text-secondary:hover {
     color: var(--secondary-color);
+  }
+
+  .sm\:hover\:text-secondary-static:hover {
+    color: var(--secondary-static-color);
   }
 
   .sm\:focus\:text-primary:focus {
     color: var(--primary-color);
   }
 
+  .sm\:focus\:text-primary-static:focus {
+    color: var(--primary-static-color);
+  }
+
   .sm\:focus\:text-secondary:focus {
     color: var(--secondary-color);
+  }
+
+  .sm\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
   }
 
   .sm\:text-opacity-0 {
@@ -13609,11 +14583,13 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .sm\:break-normal {
+    word-wrap: normal;
     overflow-wrap: normal;
     word-break: normal;
   }
 
   .sm\:break-words {
+    word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
@@ -14428,6 +15404,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-columns: none;
   }
 
+  .sm\:auto-cols-auto {
+    grid-auto-columns: auto;
+  }
+
+  .sm\:auto-cols-min {
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content;
+  }
+
+  .sm\:auto-cols-max {
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content;
+  }
+
+  .sm\:auto-cols-fr {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
   .sm\:col-auto {
     grid-column: auto;
   }
@@ -14478,6 +15472,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:col-span-12 {
     grid-column: span 12 / span 12;
+  }
+
+  .sm\:col-span-full {
+    grid-column: 1 / -1;
   }
 
   .sm\:col-start-1 {
@@ -14620,6 +15618,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-rows: none;
   }
 
+  .sm\:auto-rows-auto {
+    grid-auto-rows: auto;
+  }
+
+  .sm\:auto-rows-min {
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content;
+  }
+
+  .sm\:auto-rows-max {
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content;
+  }
+
+  .sm\:auto-rows-fr {
+    grid-auto-rows: minmax(0, 1fr);
+  }
+
   .sm\:row-auto {
     grid-row: auto;
   }
@@ -14646,6 +15662,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:row-span-6 {
     grid-row: span 6 / span 6;
+  }
+
+  .sm\:row-span-full {
+    grid-row: 1 / -1;
   }
 
   .sm\:row-start-1 {
@@ -15157,6 +16177,26 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: 0;
   }
 
+  .sm\:rotate-1 {
+    --transform-rotate: 1deg;
+  }
+
+  .sm\:rotate-2 {
+    --transform-rotate: 2deg;
+  }
+
+  .sm\:rotate-3 {
+    --transform-rotate: 3deg;
+  }
+
+  .sm\:rotate-6 {
+    --transform-rotate: 6deg;
+  }
+
+  .sm\:rotate-12 {
+    --transform-rotate: 12deg;
+  }
+
   .sm\:rotate-45 {
     --transform-rotate: 45deg;
   }
@@ -15181,8 +16221,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .sm\:-rotate-12 {
+    --transform-rotate: -12deg;
+  }
+
+  .sm\:-rotate-6 {
+    --transform-rotate: -6deg;
+  }
+
+  .sm\:-rotate-3 {
+    --transform-rotate: -3deg;
+  }
+
+  .sm\:-rotate-2 {
+    --transform-rotate: -2deg;
+  }
+
+  .sm\:-rotate-1 {
+    --transform-rotate: -1deg;
+  }
+
   .sm\:hover\:rotate-0:hover {
     --transform-rotate: 0;
+  }
+
+  .sm\:hover\:rotate-1:hover {
+    --transform-rotate: 1deg;
+  }
+
+  .sm\:hover\:rotate-2:hover {
+    --transform-rotate: 2deg;
+  }
+
+  .sm\:hover\:rotate-3:hover {
+    --transform-rotate: 3deg;
+  }
+
+  .sm\:hover\:rotate-6:hover {
+    --transform-rotate: 6deg;
+  }
+
+  .sm\:hover\:rotate-12:hover {
+    --transform-rotate: 12deg;
   }
 
   .sm\:hover\:rotate-45:hover {
@@ -15209,8 +16289,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .sm\:hover\:-rotate-12:hover {
+    --transform-rotate: -12deg;
+  }
+
+  .sm\:hover\:-rotate-6:hover {
+    --transform-rotate: -6deg;
+  }
+
+  .sm\:hover\:-rotate-3:hover {
+    --transform-rotate: -3deg;
+  }
+
+  .sm\:hover\:-rotate-2:hover {
+    --transform-rotate: -2deg;
+  }
+
+  .sm\:hover\:-rotate-1:hover {
+    --transform-rotate: -1deg;
+  }
+
   .sm\:focus\:rotate-0:focus {
     --transform-rotate: 0;
+  }
+
+  .sm\:focus\:rotate-1:focus {
+    --transform-rotate: 1deg;
+  }
+
+  .sm\:focus\:rotate-2:focus {
+    --transform-rotate: 2deg;
+  }
+
+  .sm\:focus\:rotate-3:focus {
+    --transform-rotate: 3deg;
+  }
+
+  .sm\:focus\:rotate-6:focus {
+    --transform-rotate: 6deg;
+  }
+
+  .sm\:focus\:rotate-12:focus {
+    --transform-rotate: 12deg;
   }
 
   .sm\:focus\:rotate-45:focus {
@@ -15235,6 +16355,26 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:focus\:-rotate-45:focus {
     --transform-rotate: -45deg;
+  }
+
+  .sm\:focus\:-rotate-12:focus {
+    --transform-rotate: -12deg;
+  }
+
+  .sm\:focus\:-rotate-6:focus {
+    --transform-rotate: -6deg;
+  }
+
+  .sm\:focus\:-rotate-3:focus {
+    --transform-rotate: -3deg;
+  }
+
+  .sm\:focus\:-rotate-2:focus {
+    --transform-rotate: -2deg;
+  }
+
+  .sm\:focus\:-rotate-1:focus {
+    --transform-rotate: -1deg;
   }
 
   .sm\:translate-x-0 {
@@ -16225,6 +17365,14 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: 0;
   }
 
+  .sm\:skew-x-1 {
+    --transform-skew-x: 1deg;
+  }
+
+  .sm\:skew-x-2 {
+    --transform-skew-x: 2deg;
+  }
+
   .sm\:skew-x-3 {
     --transform-skew-x: 3deg;
   }
@@ -16249,8 +17397,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .sm\:-skew-x-2 {
+    --transform-skew-x: -2deg;
+  }
+
+  .sm\:-skew-x-1 {
+    --transform-skew-x: -1deg;
+  }
+
   .sm\:skew-y-0 {
     --transform-skew-y: 0;
+  }
+
+  .sm\:skew-y-1 {
+    --transform-skew-y: 1deg;
+  }
+
+  .sm\:skew-y-2 {
+    --transform-skew-y: 2deg;
   }
 
   .sm\:skew-y-3 {
@@ -16277,8 +17441,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .sm\:-skew-y-2 {
+    --transform-skew-y: -2deg;
+  }
+
+  .sm\:-skew-y-1 {
+    --transform-skew-y: -1deg;
+  }
+
   .sm\:hover\:skew-x-0:hover {
     --transform-skew-x: 0;
+  }
+
+  .sm\:hover\:skew-x-1:hover {
+    --transform-skew-x: 1deg;
+  }
+
+  .sm\:hover\:skew-x-2:hover {
+    --transform-skew-x: 2deg;
   }
 
   .sm\:hover\:skew-x-3:hover {
@@ -16305,8 +17485,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .sm\:hover\:-skew-x-2:hover {
+    --transform-skew-x: -2deg;
+  }
+
+  .sm\:hover\:-skew-x-1:hover {
+    --transform-skew-x: -1deg;
+  }
+
   .sm\:hover\:skew-y-0:hover {
     --transform-skew-y: 0;
+  }
+
+  .sm\:hover\:skew-y-1:hover {
+    --transform-skew-y: 1deg;
+  }
+
+  .sm\:hover\:skew-y-2:hover {
+    --transform-skew-y: 2deg;
   }
 
   .sm\:hover\:skew-y-3:hover {
@@ -16333,8 +17529,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .sm\:hover\:-skew-y-2:hover {
+    --transform-skew-y: -2deg;
+  }
+
+  .sm\:hover\:-skew-y-1:hover {
+    --transform-skew-y: -1deg;
+  }
+
   .sm\:focus\:skew-x-0:focus {
     --transform-skew-x: 0;
+  }
+
+  .sm\:focus\:skew-x-1:focus {
+    --transform-skew-x: 1deg;
+  }
+
+  .sm\:focus\:skew-x-2:focus {
+    --transform-skew-x: 2deg;
   }
 
   .sm\:focus\:skew-x-3:focus {
@@ -16361,8 +17573,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .sm\:focus\:-skew-x-2:focus {
+    --transform-skew-x: -2deg;
+  }
+
+  .sm\:focus\:-skew-x-1:focus {
+    --transform-skew-x: -1deg;
+  }
+
   .sm\:focus\:skew-y-0:focus {
     --transform-skew-y: 0;
+  }
+
+  .sm\:focus\:skew-y-1:focus {
+    --transform-skew-y: 1deg;
+  }
+
+  .sm\:focus\:skew-y-2:focus {
+    --transform-skew-y: 2deg;
   }
 
   .sm\:focus\:skew-y-3:focus {
@@ -16387,6 +17615,14 @@ h1, h1, h3, h4, h5, h6 {
 
   .sm\:focus\:-skew-y-3:focus {
     --transform-skew-y: -3deg;
+  }
+
+  .sm\:focus\:-skew-y-2:focus {
+    --transform-skew-y: -2deg;
+  }
+
+  .sm\:focus\:-skew-y-1:focus {
+    --transform-skew-y: -1deg;
   }
 
   .sm\:transition-none {
@@ -17076,8 +18312,16 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .md\:divide-primary-static > :not(template) ~ :not(template) {
+    border-color: var(--primary-static-color);
+  }
+
   .md\:divide-secondary > :not(template) ~ :not(template) {
     border-color: var(--secondary-color);
+  }
+
+  .md\:divide-secondary-static > :not(template) ~ :not(template) {
+    border-color: var(--secondary-static-color);
   }
 
   .md\:divide-solid > :not(template) ~ :not(template) {
@@ -17205,24 +18449,48 @@ h1, h1, h3, h4, h5, h6 {
     background-color: var(--primary-color);
   }
 
+  .md\:bg-primary-static {
+    background-color: var(--primary-static-color);
+  }
+
   .md\:bg-secondary {
     background-color: var(--secondary-color);
+  }
+
+  .md\:bg-secondary-static {
+    background-color: var(--secondary-static-color);
   }
 
   .md\:hover\:bg-primary:hover {
     background-color: var(--primary-color);
   }
 
+  .md\:hover\:bg-primary-static:hover {
+    background-color: var(--primary-static-color);
+  }
+
   .md\:hover\:bg-secondary:hover {
     background-color: var(--secondary-color);
+  }
+
+  .md\:hover\:bg-secondary-static:hover {
+    background-color: var(--secondary-static-color);
   }
 
   .md\:focus\:bg-primary:focus {
     background-color: var(--primary-color);
   }
 
+  .md\:focus\:bg-primary-static:focus {
+    background-color: var(--primary-static-color);
+  }
+
   .md\:focus\:bg-secondary:focus {
     background-color: var(--secondary-color);
+  }
+
+  .md\:focus\:bg-secondary-static:focus {
+    background-color: var(--secondary-static-color);
   }
 
   .md\:bg-none {
@@ -17266,8 +18534,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:from-primary-static {
+    --gradient-from-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:from-secondary {
     --gradient-from-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:from-secondary-static {
+    --gradient-from-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -17276,8 +18554,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:via-primary-static {
+    --gradient-via-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:via-secondary {
     --gradient-via-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:via-secondary-static {
+    --gradient-via-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -17285,12 +18573,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-to-color: var(--primary-color);
   }
 
+  .md\:to-primary-static {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .md\:to-secondary {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .md\:to-secondary-static {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .md\:hover\:from-primary:hover {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:hover\:from-primary-static:hover {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -17299,8 +18600,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:hover\:from-secondary-static:hover {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:hover\:via-primary:hover {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:hover\:via-primary-static:hover {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -17309,16 +18620,34 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:hover\:via-secondary-static:hover {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:hover\:to-primary:hover {
     --gradient-to-color: var(--primary-color);
+  }
+
+  .md\:hover\:to-primary-static:hover {
+    --gradient-to-color: var(--primary-static-color);
   }
 
   .md\:hover\:to-secondary:hover {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .md\:hover\:to-secondary-static:hover {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .md\:focus\:from-primary:focus {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:focus\:from-primary-static:focus {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -17327,8 +18656,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:focus\:from-secondary-static:focus {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:focus\:via-primary:focus {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:focus\:via-primary-static:focus {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -17337,12 +18676,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:focus\:via-secondary-static:focus {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:focus\:to-primary:focus {
     --gradient-to-color: var(--primary-color);
   }
 
+  .md\:focus\:to-primary-static:focus {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .md\:focus\:to-secondary:focus {
     --gradient-to-color: var(--secondary-color);
+  }
+
+  .md\:focus\:to-secondary-static:focus {
+    --gradient-to-color: var(--secondary-static-color);
   }
 
   .md\:bg-opacity-0 {
@@ -17489,24 +18841,48 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .md\:border-primary-static {
+    border-color: var(--primary-static-color);
+  }
+
   .md\:border-secondary {
     border-color: var(--secondary-color);
+  }
+
+  .md\:border-secondary-static {
+    border-color: var(--secondary-static-color);
   }
 
   .md\:hover\:border-primary:hover {
     border-color: var(--primary-color);
   }
 
+  .md\:hover\:border-primary-static:hover {
+    border-color: var(--primary-static-color);
+  }
+
   .md\:hover\:border-secondary:hover {
     border-color: var(--secondary-color);
+  }
+
+  .md\:hover\:border-secondary-static:hover {
+    border-color: var(--secondary-static-color);
   }
 
   .md\:focus\:border-primary:focus {
     border-color: var(--primary-color);
   }
 
+  .md\:focus\:border-primary-static:focus {
+    border-color: var(--primary-static-color);
+  }
+
   .md\:focus\:border-secondary:focus {
     border-color: var(--secondary-color);
+  }
+
+  .md\:focus\:border-secondary-static:focus {
+    border-color: var(--secondary-static-color);
   }
 
   .md\:border-opacity-0 {
@@ -17587,6 +18963,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:rounded-lg {
     border-radius: 0.5rem;
+  }
+
+  .md\:rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  .md\:rounded-2xl {
+    border-radius: 1rem;
+  }
+
+  .md\:rounded-3xl {
+    border-radius: 1.5rem;
   }
 
   .md\:rounded-full {
@@ -17693,6 +19081,66 @@ h1, h1, h3, h4, h5, h6 {
     border-bottom-left-radius: 0.5rem;
   }
 
+  .md\:rounded-t-xl {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  .md\:rounded-r-xl {
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .md\:rounded-b-xl {
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-l-xl {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-t-2xl {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .md\:rounded-r-2xl {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  .md\:rounded-b-2xl {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .md\:rounded-l-2xl {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .md\:rounded-t-3xl {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+
+  .md\:rounded-r-3xl {
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .md\:rounded-b-3xl {
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  .md\:rounded-l-3xl {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
   .md\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -17791,6 +19239,54 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:rounded-bl-lg {
     border-bottom-left-radius: 0.5rem;
+  }
+
+  .md\:rounded-tl-xl {
+    border-top-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-tr-xl {
+    border-top-right-radius: 0.75rem;
+  }
+
+  .md\:rounded-br-xl {
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .md\:rounded-bl-xl {
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-tl-2xl {
+    border-top-left-radius: 1rem;
+  }
+
+  .md\:rounded-tr-2xl {
+    border-top-right-radius: 1rem;
+  }
+
+  .md\:rounded-br-2xl {
+    border-bottom-right-radius: 1rem;
+  }
+
+  .md\:rounded-bl-2xl {
+    border-bottom-left-radius: 1rem;
+  }
+
+  .md\:rounded-tl-3xl {
+    border-top-left-radius: 1.5rem;
+  }
+
+  .md\:rounded-tr-3xl {
+    border-top-right-radius: 1.5rem;
+  }
+
+  .md\:rounded-br-3xl {
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .md\:rounded-bl-3xl {
+    border-bottom-left-radius: 1.5rem;
   }
 
   .md\:rounded-tl-full {
@@ -20064,11 +21560,33 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .md\:outline-none {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .md\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .md\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .md\:focus\:outline-none:focus {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .md\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .md\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .md\:overflow-auto {
@@ -20745,6 +22263,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .md\:placeholder-primary-static::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .md\:placeholder-primary-static::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .md\:placeholder-primary-static::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .md\:placeholder-secondary::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -20755,6 +22285,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:placeholder-secondary::placeholder {
     color: var(--secondary-color);
+  }
+
+  .md\:placeholder-secondary-static::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .md\:placeholder-secondary-static::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .md\:placeholder-secondary-static::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .md\:focus\:placeholder-primary:focus::-webkit-input-placeholder {
@@ -20769,6 +22311,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .md\:focus\:placeholder-primary-static:focus::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .md\:focus\:placeholder-primary-static:focus::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .md\:focus\:placeholder-primary-static:focus::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .md\:focus\:placeholder-secondary:focus::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -20779,6 +22333,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:focus\:placeholder-secondary:focus::placeholder {
     color: var(--secondary-color);
+  }
+
+  .md\:focus\:placeholder-secondary-static:focus::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .md\:focus\:placeholder-secondary-static:focus::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .md\:focus\:placeholder-secondary-static:focus::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .md\:placeholder-opacity-0::-webkit-input-placeholder {
@@ -21180,24 +22746,48 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .md\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
   .md\:text-secondary {
     color: var(--secondary-color);
+  }
+
+  .md\:text-secondary-static {
+    color: var(--secondary-static-color);
   }
 
   .md\:hover\:text-primary:hover {
     color: var(--primary-color);
   }
 
+  .md\:hover\:text-primary-static:hover {
+    color: var(--primary-static-color);
+  }
+
   .md\:hover\:text-secondary:hover {
     color: var(--secondary-color);
+  }
+
+  .md\:hover\:text-secondary-static:hover {
+    color: var(--secondary-static-color);
   }
 
   .md\:focus\:text-primary:focus {
     color: var(--primary-color);
   }
 
+  .md\:focus\:text-primary-static:focus {
+    color: var(--primary-static-color);
+  }
+
   .md\:focus\:text-secondary:focus {
     color: var(--secondary-color);
+  }
+
+  .md\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
   }
 
   .md\:text-opacity-0 {
@@ -21476,11 +23066,13 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .md\:break-normal {
+    word-wrap: normal;
     overflow-wrap: normal;
     word-break: normal;
   }
 
   .md\:break-words {
+    word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
@@ -22295,6 +23887,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-columns: none;
   }
 
+  .md\:auto-cols-auto {
+    grid-auto-columns: auto;
+  }
+
+  .md\:auto-cols-min {
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content;
+  }
+
+  .md\:auto-cols-max {
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content;
+  }
+
+  .md\:auto-cols-fr {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
   .md\:col-auto {
     grid-column: auto;
   }
@@ -22345,6 +23955,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:col-span-12 {
     grid-column: span 12 / span 12;
+  }
+
+  .md\:col-span-full {
+    grid-column: 1 / -1;
   }
 
   .md\:col-start-1 {
@@ -22487,6 +24101,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-rows: none;
   }
 
+  .md\:auto-rows-auto {
+    grid-auto-rows: auto;
+  }
+
+  .md\:auto-rows-min {
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content;
+  }
+
+  .md\:auto-rows-max {
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content;
+  }
+
+  .md\:auto-rows-fr {
+    grid-auto-rows: minmax(0, 1fr);
+  }
+
   .md\:row-auto {
     grid-row: auto;
   }
@@ -22513,6 +24145,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:row-span-6 {
     grid-row: span 6 / span 6;
+  }
+
+  .md\:row-span-full {
+    grid-row: 1 / -1;
   }
 
   .md\:row-start-1 {
@@ -23024,6 +24660,26 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: 0;
   }
 
+  .md\:rotate-1 {
+    --transform-rotate: 1deg;
+  }
+
+  .md\:rotate-2 {
+    --transform-rotate: 2deg;
+  }
+
+  .md\:rotate-3 {
+    --transform-rotate: 3deg;
+  }
+
+  .md\:rotate-6 {
+    --transform-rotate: 6deg;
+  }
+
+  .md\:rotate-12 {
+    --transform-rotate: 12deg;
+  }
+
   .md\:rotate-45 {
     --transform-rotate: 45deg;
   }
@@ -23048,8 +24704,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .md\:-rotate-12 {
+    --transform-rotate: -12deg;
+  }
+
+  .md\:-rotate-6 {
+    --transform-rotate: -6deg;
+  }
+
+  .md\:-rotate-3 {
+    --transform-rotate: -3deg;
+  }
+
+  .md\:-rotate-2 {
+    --transform-rotate: -2deg;
+  }
+
+  .md\:-rotate-1 {
+    --transform-rotate: -1deg;
+  }
+
   .md\:hover\:rotate-0:hover {
     --transform-rotate: 0;
+  }
+
+  .md\:hover\:rotate-1:hover {
+    --transform-rotate: 1deg;
+  }
+
+  .md\:hover\:rotate-2:hover {
+    --transform-rotate: 2deg;
+  }
+
+  .md\:hover\:rotate-3:hover {
+    --transform-rotate: 3deg;
+  }
+
+  .md\:hover\:rotate-6:hover {
+    --transform-rotate: 6deg;
+  }
+
+  .md\:hover\:rotate-12:hover {
+    --transform-rotate: 12deg;
   }
 
   .md\:hover\:rotate-45:hover {
@@ -23076,8 +24772,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .md\:hover\:-rotate-12:hover {
+    --transform-rotate: -12deg;
+  }
+
+  .md\:hover\:-rotate-6:hover {
+    --transform-rotate: -6deg;
+  }
+
+  .md\:hover\:-rotate-3:hover {
+    --transform-rotate: -3deg;
+  }
+
+  .md\:hover\:-rotate-2:hover {
+    --transform-rotate: -2deg;
+  }
+
+  .md\:hover\:-rotate-1:hover {
+    --transform-rotate: -1deg;
+  }
+
   .md\:focus\:rotate-0:focus {
     --transform-rotate: 0;
+  }
+
+  .md\:focus\:rotate-1:focus {
+    --transform-rotate: 1deg;
+  }
+
+  .md\:focus\:rotate-2:focus {
+    --transform-rotate: 2deg;
+  }
+
+  .md\:focus\:rotate-3:focus {
+    --transform-rotate: 3deg;
+  }
+
+  .md\:focus\:rotate-6:focus {
+    --transform-rotate: 6deg;
+  }
+
+  .md\:focus\:rotate-12:focus {
+    --transform-rotate: 12deg;
   }
 
   .md\:focus\:rotate-45:focus {
@@ -23102,6 +24838,26 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:focus\:-rotate-45:focus {
     --transform-rotate: -45deg;
+  }
+
+  .md\:focus\:-rotate-12:focus {
+    --transform-rotate: -12deg;
+  }
+
+  .md\:focus\:-rotate-6:focus {
+    --transform-rotate: -6deg;
+  }
+
+  .md\:focus\:-rotate-3:focus {
+    --transform-rotate: -3deg;
+  }
+
+  .md\:focus\:-rotate-2:focus {
+    --transform-rotate: -2deg;
+  }
+
+  .md\:focus\:-rotate-1:focus {
+    --transform-rotate: -1deg;
   }
 
   .md\:translate-x-0 {
@@ -24092,6 +25848,14 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: 0;
   }
 
+  .md\:skew-x-1 {
+    --transform-skew-x: 1deg;
+  }
+
+  .md\:skew-x-2 {
+    --transform-skew-x: 2deg;
+  }
+
   .md\:skew-x-3 {
     --transform-skew-x: 3deg;
   }
@@ -24116,8 +25880,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .md\:-skew-x-2 {
+    --transform-skew-x: -2deg;
+  }
+
+  .md\:-skew-x-1 {
+    --transform-skew-x: -1deg;
+  }
+
   .md\:skew-y-0 {
     --transform-skew-y: 0;
+  }
+
+  .md\:skew-y-1 {
+    --transform-skew-y: 1deg;
+  }
+
+  .md\:skew-y-2 {
+    --transform-skew-y: 2deg;
   }
 
   .md\:skew-y-3 {
@@ -24144,8 +25924,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .md\:-skew-y-2 {
+    --transform-skew-y: -2deg;
+  }
+
+  .md\:-skew-y-1 {
+    --transform-skew-y: -1deg;
+  }
+
   .md\:hover\:skew-x-0:hover {
     --transform-skew-x: 0;
+  }
+
+  .md\:hover\:skew-x-1:hover {
+    --transform-skew-x: 1deg;
+  }
+
+  .md\:hover\:skew-x-2:hover {
+    --transform-skew-x: 2deg;
   }
 
   .md\:hover\:skew-x-3:hover {
@@ -24172,8 +25968,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .md\:hover\:-skew-x-2:hover {
+    --transform-skew-x: -2deg;
+  }
+
+  .md\:hover\:-skew-x-1:hover {
+    --transform-skew-x: -1deg;
+  }
+
   .md\:hover\:skew-y-0:hover {
     --transform-skew-y: 0;
+  }
+
+  .md\:hover\:skew-y-1:hover {
+    --transform-skew-y: 1deg;
+  }
+
+  .md\:hover\:skew-y-2:hover {
+    --transform-skew-y: 2deg;
   }
 
   .md\:hover\:skew-y-3:hover {
@@ -24200,8 +26012,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .md\:hover\:-skew-y-2:hover {
+    --transform-skew-y: -2deg;
+  }
+
+  .md\:hover\:-skew-y-1:hover {
+    --transform-skew-y: -1deg;
+  }
+
   .md\:focus\:skew-x-0:focus {
     --transform-skew-x: 0;
+  }
+
+  .md\:focus\:skew-x-1:focus {
+    --transform-skew-x: 1deg;
+  }
+
+  .md\:focus\:skew-x-2:focus {
+    --transform-skew-x: 2deg;
   }
 
   .md\:focus\:skew-x-3:focus {
@@ -24228,8 +26056,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .md\:focus\:-skew-x-2:focus {
+    --transform-skew-x: -2deg;
+  }
+
+  .md\:focus\:-skew-x-1:focus {
+    --transform-skew-x: -1deg;
+  }
+
   .md\:focus\:skew-y-0:focus {
     --transform-skew-y: 0;
+  }
+
+  .md\:focus\:skew-y-1:focus {
+    --transform-skew-y: 1deg;
+  }
+
+  .md\:focus\:skew-y-2:focus {
+    --transform-skew-y: 2deg;
   }
 
   .md\:focus\:skew-y-3:focus {
@@ -24254,6 +26098,14 @@ h1, h1, h3, h4, h5, h6 {
 
   .md\:focus\:-skew-y-3:focus {
     --transform-skew-y: -3deg;
+  }
+
+  .md\:focus\:-skew-y-2:focus {
+    --transform-skew-y: -2deg;
+  }
+
+  .md\:focus\:-skew-y-1:focus {
+    --transform-skew-y: -1deg;
   }
 
   .md\:transition-none {
@@ -24943,8 +26795,16 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .lg\:divide-primary-static > :not(template) ~ :not(template) {
+    border-color: var(--primary-static-color);
+  }
+
   .lg\:divide-secondary > :not(template) ~ :not(template) {
     border-color: var(--secondary-color);
+  }
+
+  .lg\:divide-secondary-static > :not(template) ~ :not(template) {
+    border-color: var(--secondary-static-color);
   }
 
   .lg\:divide-solid > :not(template) ~ :not(template) {
@@ -25072,24 +26932,48 @@ h1, h1, h3, h4, h5, h6 {
     background-color: var(--primary-color);
   }
 
+  .lg\:bg-primary-static {
+    background-color: var(--primary-static-color);
+  }
+
   .lg\:bg-secondary {
     background-color: var(--secondary-color);
+  }
+
+  .lg\:bg-secondary-static {
+    background-color: var(--secondary-static-color);
   }
 
   .lg\:hover\:bg-primary:hover {
     background-color: var(--primary-color);
   }
 
+  .lg\:hover\:bg-primary-static:hover {
+    background-color: var(--primary-static-color);
+  }
+
   .lg\:hover\:bg-secondary:hover {
     background-color: var(--secondary-color);
+  }
+
+  .lg\:hover\:bg-secondary-static:hover {
+    background-color: var(--secondary-static-color);
   }
 
   .lg\:focus\:bg-primary:focus {
     background-color: var(--primary-color);
   }
 
+  .lg\:focus\:bg-primary-static:focus {
+    background-color: var(--primary-static-color);
+  }
+
   .lg\:focus\:bg-secondary:focus {
     background-color: var(--secondary-color);
+  }
+
+  .lg\:focus\:bg-secondary-static:focus {
+    background-color: var(--secondary-static-color);
   }
 
   .lg\:bg-none {
@@ -25133,8 +27017,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:from-primary-static {
+    --gradient-from-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:from-secondary {
     --gradient-from-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:from-secondary-static {
+    --gradient-from-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -25143,8 +27037,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:via-primary-static {
+    --gradient-via-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:via-secondary {
     --gradient-via-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:via-secondary-static {
+    --gradient-via-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -25152,12 +27056,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-to-color: var(--primary-color);
   }
 
+  .lg\:to-primary-static {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .lg\:to-secondary {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .lg\:to-secondary-static {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .lg\:hover\:from-primary:hover {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:hover\:from-primary-static:hover {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -25166,8 +27083,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:hover\:from-secondary-static:hover {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:hover\:via-primary:hover {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:hover\:via-primary-static:hover {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -25176,16 +27103,34 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:hover\:via-secondary-static:hover {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:hover\:to-primary:hover {
     --gradient-to-color: var(--primary-color);
+  }
+
+  .lg\:hover\:to-primary-static:hover {
+    --gradient-to-color: var(--primary-static-color);
   }
 
   .lg\:hover\:to-secondary:hover {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .lg\:hover\:to-secondary-static:hover {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .lg\:focus\:from-primary:focus {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:focus\:from-primary-static:focus {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -25194,8 +27139,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:focus\:from-secondary-static:focus {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:focus\:via-primary:focus {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:focus\:via-primary-static:focus {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -25204,12 +27159,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:focus\:via-secondary-static:focus {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:focus\:to-primary:focus {
     --gradient-to-color: var(--primary-color);
   }
 
+  .lg\:focus\:to-primary-static:focus {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .lg\:focus\:to-secondary:focus {
     --gradient-to-color: var(--secondary-color);
+  }
+
+  .lg\:focus\:to-secondary-static:focus {
+    --gradient-to-color: var(--secondary-static-color);
   }
 
   .lg\:bg-opacity-0 {
@@ -25356,24 +27324,48 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .lg\:border-primary-static {
+    border-color: var(--primary-static-color);
+  }
+
   .lg\:border-secondary {
     border-color: var(--secondary-color);
+  }
+
+  .lg\:border-secondary-static {
+    border-color: var(--secondary-static-color);
   }
 
   .lg\:hover\:border-primary:hover {
     border-color: var(--primary-color);
   }
 
+  .lg\:hover\:border-primary-static:hover {
+    border-color: var(--primary-static-color);
+  }
+
   .lg\:hover\:border-secondary:hover {
     border-color: var(--secondary-color);
+  }
+
+  .lg\:hover\:border-secondary-static:hover {
+    border-color: var(--secondary-static-color);
   }
 
   .lg\:focus\:border-primary:focus {
     border-color: var(--primary-color);
   }
 
+  .lg\:focus\:border-primary-static:focus {
+    border-color: var(--primary-static-color);
+  }
+
   .lg\:focus\:border-secondary:focus {
     border-color: var(--secondary-color);
+  }
+
+  .lg\:focus\:border-secondary-static:focus {
+    border-color: var(--secondary-static-color);
   }
 
   .lg\:border-opacity-0 {
@@ -25454,6 +27446,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:rounded-lg {
     border-radius: 0.5rem;
+  }
+
+  .lg\:rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  .lg\:rounded-2xl {
+    border-radius: 1rem;
+  }
+
+  .lg\:rounded-3xl {
+    border-radius: 1.5rem;
   }
 
   .lg\:rounded-full {
@@ -25560,6 +27564,66 @@ h1, h1, h3, h4, h5, h6 {
     border-bottom-left-radius: 0.5rem;
   }
 
+  .lg\:rounded-t-xl {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  .lg\:rounded-r-xl {
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .lg\:rounded-b-xl {
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .lg\:rounded-l-xl {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .lg\:rounded-t-2xl {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .lg\:rounded-r-2xl {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  .lg\:rounded-b-2xl {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .lg\:rounded-l-2xl {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .lg\:rounded-t-3xl {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+
+  .lg\:rounded-r-3xl {
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .lg\:rounded-b-3xl {
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  .lg\:rounded-l-3xl {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
   .lg\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -25658,6 +27722,54 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:rounded-bl-lg {
     border-bottom-left-radius: 0.5rem;
+  }
+
+  .lg\:rounded-tl-xl {
+    border-top-left-radius: 0.75rem;
+  }
+
+  .lg\:rounded-tr-xl {
+    border-top-right-radius: 0.75rem;
+  }
+
+  .lg\:rounded-br-xl {
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .lg\:rounded-bl-xl {
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .lg\:rounded-tl-2xl {
+    border-top-left-radius: 1rem;
+  }
+
+  .lg\:rounded-tr-2xl {
+    border-top-right-radius: 1rem;
+  }
+
+  .lg\:rounded-br-2xl {
+    border-bottom-right-radius: 1rem;
+  }
+
+  .lg\:rounded-bl-2xl {
+    border-bottom-left-radius: 1rem;
+  }
+
+  .lg\:rounded-tl-3xl {
+    border-top-left-radius: 1.5rem;
+  }
+
+  .lg\:rounded-tr-3xl {
+    border-top-right-radius: 1.5rem;
+  }
+
+  .lg\:rounded-br-3xl {
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .lg\:rounded-bl-3xl {
+    border-bottom-left-radius: 1.5rem;
   }
 
   .lg\:rounded-tl-full {
@@ -27931,11 +30043,33 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .lg\:outline-none {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .lg\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .lg\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .lg\:focus\:outline-none:focus {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .lg\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .lg\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .lg\:overflow-auto {
@@ -28612,6 +30746,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .lg\:placeholder-primary-static::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .lg\:placeholder-primary-static::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .lg\:placeholder-primary-static::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .lg\:placeholder-secondary::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -28622,6 +30768,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:placeholder-secondary::placeholder {
     color: var(--secondary-color);
+  }
+
+  .lg\:placeholder-secondary-static::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .lg\:placeholder-secondary-static::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .lg\:placeholder-secondary-static::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .lg\:focus\:placeholder-primary:focus::-webkit-input-placeholder {
@@ -28636,6 +30794,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .lg\:focus\:placeholder-primary-static:focus::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .lg\:focus\:placeholder-primary-static:focus::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .lg\:focus\:placeholder-primary-static:focus::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .lg\:focus\:placeholder-secondary:focus::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -28646,6 +30816,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:focus\:placeholder-secondary:focus::placeholder {
     color: var(--secondary-color);
+  }
+
+  .lg\:focus\:placeholder-secondary-static:focus::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .lg\:focus\:placeholder-secondary-static:focus::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .lg\:focus\:placeholder-secondary-static:focus::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .lg\:placeholder-opacity-0::-webkit-input-placeholder {
@@ -29047,24 +31229,48 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .lg\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
   .lg\:text-secondary {
     color: var(--secondary-color);
+  }
+
+  .lg\:text-secondary-static {
+    color: var(--secondary-static-color);
   }
 
   .lg\:hover\:text-primary:hover {
     color: var(--primary-color);
   }
 
+  .lg\:hover\:text-primary-static:hover {
+    color: var(--primary-static-color);
+  }
+
   .lg\:hover\:text-secondary:hover {
     color: var(--secondary-color);
+  }
+
+  .lg\:hover\:text-secondary-static:hover {
+    color: var(--secondary-static-color);
   }
 
   .lg\:focus\:text-primary:focus {
     color: var(--primary-color);
   }
 
+  .lg\:focus\:text-primary-static:focus {
+    color: var(--primary-static-color);
+  }
+
   .lg\:focus\:text-secondary:focus {
     color: var(--secondary-color);
+  }
+
+  .lg\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
   }
 
   .lg\:text-opacity-0 {
@@ -29343,11 +31549,13 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .lg\:break-normal {
+    word-wrap: normal;
     overflow-wrap: normal;
     word-break: normal;
   }
 
   .lg\:break-words {
+    word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
@@ -30162,6 +32370,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-columns: none;
   }
 
+  .lg\:auto-cols-auto {
+    grid-auto-columns: auto;
+  }
+
+  .lg\:auto-cols-min {
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content;
+  }
+
+  .lg\:auto-cols-max {
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content;
+  }
+
+  .lg\:auto-cols-fr {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
   .lg\:col-auto {
     grid-column: auto;
   }
@@ -30212,6 +32438,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:col-span-12 {
     grid-column: span 12 / span 12;
+  }
+
+  .lg\:col-span-full {
+    grid-column: 1 / -1;
   }
 
   .lg\:col-start-1 {
@@ -30354,6 +32584,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-rows: none;
   }
 
+  .lg\:auto-rows-auto {
+    grid-auto-rows: auto;
+  }
+
+  .lg\:auto-rows-min {
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content;
+  }
+
+  .lg\:auto-rows-max {
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content;
+  }
+
+  .lg\:auto-rows-fr {
+    grid-auto-rows: minmax(0, 1fr);
+  }
+
   .lg\:row-auto {
     grid-row: auto;
   }
@@ -30380,6 +32628,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:row-span-6 {
     grid-row: span 6 / span 6;
+  }
+
+  .lg\:row-span-full {
+    grid-row: 1 / -1;
   }
 
   .lg\:row-start-1 {
@@ -30891,6 +33143,26 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: 0;
   }
 
+  .lg\:rotate-1 {
+    --transform-rotate: 1deg;
+  }
+
+  .lg\:rotate-2 {
+    --transform-rotate: 2deg;
+  }
+
+  .lg\:rotate-3 {
+    --transform-rotate: 3deg;
+  }
+
+  .lg\:rotate-6 {
+    --transform-rotate: 6deg;
+  }
+
+  .lg\:rotate-12 {
+    --transform-rotate: 12deg;
+  }
+
   .lg\:rotate-45 {
     --transform-rotate: 45deg;
   }
@@ -30915,8 +33187,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .lg\:-rotate-12 {
+    --transform-rotate: -12deg;
+  }
+
+  .lg\:-rotate-6 {
+    --transform-rotate: -6deg;
+  }
+
+  .lg\:-rotate-3 {
+    --transform-rotate: -3deg;
+  }
+
+  .lg\:-rotate-2 {
+    --transform-rotate: -2deg;
+  }
+
+  .lg\:-rotate-1 {
+    --transform-rotate: -1deg;
+  }
+
   .lg\:hover\:rotate-0:hover {
     --transform-rotate: 0;
+  }
+
+  .lg\:hover\:rotate-1:hover {
+    --transform-rotate: 1deg;
+  }
+
+  .lg\:hover\:rotate-2:hover {
+    --transform-rotate: 2deg;
+  }
+
+  .lg\:hover\:rotate-3:hover {
+    --transform-rotate: 3deg;
+  }
+
+  .lg\:hover\:rotate-6:hover {
+    --transform-rotate: 6deg;
+  }
+
+  .lg\:hover\:rotate-12:hover {
+    --transform-rotate: 12deg;
   }
 
   .lg\:hover\:rotate-45:hover {
@@ -30943,8 +33255,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .lg\:hover\:-rotate-12:hover {
+    --transform-rotate: -12deg;
+  }
+
+  .lg\:hover\:-rotate-6:hover {
+    --transform-rotate: -6deg;
+  }
+
+  .lg\:hover\:-rotate-3:hover {
+    --transform-rotate: -3deg;
+  }
+
+  .lg\:hover\:-rotate-2:hover {
+    --transform-rotate: -2deg;
+  }
+
+  .lg\:hover\:-rotate-1:hover {
+    --transform-rotate: -1deg;
+  }
+
   .lg\:focus\:rotate-0:focus {
     --transform-rotate: 0;
+  }
+
+  .lg\:focus\:rotate-1:focus {
+    --transform-rotate: 1deg;
+  }
+
+  .lg\:focus\:rotate-2:focus {
+    --transform-rotate: 2deg;
+  }
+
+  .lg\:focus\:rotate-3:focus {
+    --transform-rotate: 3deg;
+  }
+
+  .lg\:focus\:rotate-6:focus {
+    --transform-rotate: 6deg;
+  }
+
+  .lg\:focus\:rotate-12:focus {
+    --transform-rotate: 12deg;
   }
 
   .lg\:focus\:rotate-45:focus {
@@ -30969,6 +33321,26 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:focus\:-rotate-45:focus {
     --transform-rotate: -45deg;
+  }
+
+  .lg\:focus\:-rotate-12:focus {
+    --transform-rotate: -12deg;
+  }
+
+  .lg\:focus\:-rotate-6:focus {
+    --transform-rotate: -6deg;
+  }
+
+  .lg\:focus\:-rotate-3:focus {
+    --transform-rotate: -3deg;
+  }
+
+  .lg\:focus\:-rotate-2:focus {
+    --transform-rotate: -2deg;
+  }
+
+  .lg\:focus\:-rotate-1:focus {
+    --transform-rotate: -1deg;
   }
 
   .lg\:translate-x-0 {
@@ -31959,6 +34331,14 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: 0;
   }
 
+  .lg\:skew-x-1 {
+    --transform-skew-x: 1deg;
+  }
+
+  .lg\:skew-x-2 {
+    --transform-skew-x: 2deg;
+  }
+
   .lg\:skew-x-3 {
     --transform-skew-x: 3deg;
   }
@@ -31983,8 +34363,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .lg\:-skew-x-2 {
+    --transform-skew-x: -2deg;
+  }
+
+  .lg\:-skew-x-1 {
+    --transform-skew-x: -1deg;
+  }
+
   .lg\:skew-y-0 {
     --transform-skew-y: 0;
+  }
+
+  .lg\:skew-y-1 {
+    --transform-skew-y: 1deg;
+  }
+
+  .lg\:skew-y-2 {
+    --transform-skew-y: 2deg;
   }
 
   .lg\:skew-y-3 {
@@ -32011,8 +34407,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .lg\:-skew-y-2 {
+    --transform-skew-y: -2deg;
+  }
+
+  .lg\:-skew-y-1 {
+    --transform-skew-y: -1deg;
+  }
+
   .lg\:hover\:skew-x-0:hover {
     --transform-skew-x: 0;
+  }
+
+  .lg\:hover\:skew-x-1:hover {
+    --transform-skew-x: 1deg;
+  }
+
+  .lg\:hover\:skew-x-2:hover {
+    --transform-skew-x: 2deg;
   }
 
   .lg\:hover\:skew-x-3:hover {
@@ -32039,8 +34451,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .lg\:hover\:-skew-x-2:hover {
+    --transform-skew-x: -2deg;
+  }
+
+  .lg\:hover\:-skew-x-1:hover {
+    --transform-skew-x: -1deg;
+  }
+
   .lg\:hover\:skew-y-0:hover {
     --transform-skew-y: 0;
+  }
+
+  .lg\:hover\:skew-y-1:hover {
+    --transform-skew-y: 1deg;
+  }
+
+  .lg\:hover\:skew-y-2:hover {
+    --transform-skew-y: 2deg;
   }
 
   .lg\:hover\:skew-y-3:hover {
@@ -32067,8 +34495,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .lg\:hover\:-skew-y-2:hover {
+    --transform-skew-y: -2deg;
+  }
+
+  .lg\:hover\:-skew-y-1:hover {
+    --transform-skew-y: -1deg;
+  }
+
   .lg\:focus\:skew-x-0:focus {
     --transform-skew-x: 0;
+  }
+
+  .lg\:focus\:skew-x-1:focus {
+    --transform-skew-x: 1deg;
+  }
+
+  .lg\:focus\:skew-x-2:focus {
+    --transform-skew-x: 2deg;
   }
 
   .lg\:focus\:skew-x-3:focus {
@@ -32095,8 +34539,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .lg\:focus\:-skew-x-2:focus {
+    --transform-skew-x: -2deg;
+  }
+
+  .lg\:focus\:-skew-x-1:focus {
+    --transform-skew-x: -1deg;
+  }
+
   .lg\:focus\:skew-y-0:focus {
     --transform-skew-y: 0;
+  }
+
+  .lg\:focus\:skew-y-1:focus {
+    --transform-skew-y: 1deg;
+  }
+
+  .lg\:focus\:skew-y-2:focus {
+    --transform-skew-y: 2deg;
   }
 
   .lg\:focus\:skew-y-3:focus {
@@ -32121,6 +34581,14 @@ h1, h1, h3, h4, h5, h6 {
 
   .lg\:focus\:-skew-y-3:focus {
     --transform-skew-y: -3deg;
+  }
+
+  .lg\:focus\:-skew-y-2:focus {
+    --transform-skew-y: -2deg;
+  }
+
+  .lg\:focus\:-skew-y-1:focus {
+    --transform-skew-y: -1deg;
   }
 
   .lg\:transition-none {
@@ -32810,8 +35278,16 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .xl\:divide-primary-static > :not(template) ~ :not(template) {
+    border-color: var(--primary-static-color);
+  }
+
   .xl\:divide-secondary > :not(template) ~ :not(template) {
     border-color: var(--secondary-color);
+  }
+
+  .xl\:divide-secondary-static > :not(template) ~ :not(template) {
+    border-color: var(--secondary-static-color);
   }
 
   .xl\:divide-solid > :not(template) ~ :not(template) {
@@ -32939,24 +35415,48 @@ h1, h1, h3, h4, h5, h6 {
     background-color: var(--primary-color);
   }
 
+  .xl\:bg-primary-static {
+    background-color: var(--primary-static-color);
+  }
+
   .xl\:bg-secondary {
     background-color: var(--secondary-color);
+  }
+
+  .xl\:bg-secondary-static {
+    background-color: var(--secondary-static-color);
   }
 
   .xl\:hover\:bg-primary:hover {
     background-color: var(--primary-color);
   }
 
+  .xl\:hover\:bg-primary-static:hover {
+    background-color: var(--primary-static-color);
+  }
+
   .xl\:hover\:bg-secondary:hover {
     background-color: var(--secondary-color);
+  }
+
+  .xl\:hover\:bg-secondary-static:hover {
+    background-color: var(--secondary-static-color);
   }
 
   .xl\:focus\:bg-primary:focus {
     background-color: var(--primary-color);
   }
 
+  .xl\:focus\:bg-primary-static:focus {
+    background-color: var(--primary-static-color);
+  }
+
   .xl\:focus\:bg-secondary:focus {
     background-color: var(--secondary-color);
+  }
+
+  .xl\:focus\:bg-secondary-static:focus {
+    background-color: var(--secondary-static-color);
   }
 
   .xl\:bg-none {
@@ -33000,8 +35500,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:from-primary-static {
+    --gradient-from-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:from-secondary {
     --gradient-from-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:from-secondary-static {
+    --gradient-from-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -33010,8 +35520,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:via-primary-static {
+    --gradient-via-color: var(--primary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:via-secondary {
     --gradient-via-color: var(--secondary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:via-secondary-static {
+    --gradient-via-color: var(--secondary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -33019,12 +35539,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-to-color: var(--primary-color);
   }
 
+  .xl\:to-primary-static {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .xl\:to-secondary {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .xl\:to-secondary-static {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .xl\:hover\:from-primary:hover {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:hover\:from-primary-static:hover {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -33033,8 +35566,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:hover\:from-secondary-static:hover {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:hover\:via-primary:hover {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:hover\:via-primary-static:hover {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -33043,16 +35586,34 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:hover\:via-secondary-static:hover {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:hover\:to-primary:hover {
     --gradient-to-color: var(--primary-color);
+  }
+
+  .xl\:hover\:to-primary-static:hover {
+    --gradient-to-color: var(--primary-static-color);
   }
 
   .xl\:hover\:to-secondary:hover {
     --gradient-to-color: var(--secondary-color);
   }
 
+  .xl\:hover\:to-secondary-static:hover {
+    --gradient-to-color: var(--secondary-static-color);
+  }
+
   .xl\:focus\:from-primary:focus {
     --gradient-from-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:focus\:from-primary-static:focus {
+    --gradient-from-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -33061,8 +35622,18 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:focus\:from-secondary-static:focus {
+    --gradient-from-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:focus\:via-primary:focus {
     --gradient-via-color: var(--primary-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:focus\:via-primary-static:focus {
+    --gradient-via-color: var(--primary-static-color);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -33071,12 +35642,25 @@ h1, h1, h3, h4, h5, h6 {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:focus\:via-secondary-static:focus {
+    --gradient-via-color: var(--secondary-static-color);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:focus\:to-primary:focus {
     --gradient-to-color: var(--primary-color);
   }
 
+  .xl\:focus\:to-primary-static:focus {
+    --gradient-to-color: var(--primary-static-color);
+  }
+
   .xl\:focus\:to-secondary:focus {
     --gradient-to-color: var(--secondary-color);
+  }
+
+  .xl\:focus\:to-secondary-static:focus {
+    --gradient-to-color: var(--secondary-static-color);
   }
 
   .xl\:bg-opacity-0 {
@@ -33223,24 +35807,48 @@ h1, h1, h3, h4, h5, h6 {
     border-color: var(--primary-color);
   }
 
+  .xl\:border-primary-static {
+    border-color: var(--primary-static-color);
+  }
+
   .xl\:border-secondary {
     border-color: var(--secondary-color);
+  }
+
+  .xl\:border-secondary-static {
+    border-color: var(--secondary-static-color);
   }
 
   .xl\:hover\:border-primary:hover {
     border-color: var(--primary-color);
   }
 
+  .xl\:hover\:border-primary-static:hover {
+    border-color: var(--primary-static-color);
+  }
+
   .xl\:hover\:border-secondary:hover {
     border-color: var(--secondary-color);
+  }
+
+  .xl\:hover\:border-secondary-static:hover {
+    border-color: var(--secondary-static-color);
   }
 
   .xl\:focus\:border-primary:focus {
     border-color: var(--primary-color);
   }
 
+  .xl\:focus\:border-primary-static:focus {
+    border-color: var(--primary-static-color);
+  }
+
   .xl\:focus\:border-secondary:focus {
     border-color: var(--secondary-color);
+  }
+
+  .xl\:focus\:border-secondary-static:focus {
+    border-color: var(--secondary-static-color);
   }
 
   .xl\:border-opacity-0 {
@@ -33321,6 +35929,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:rounded-lg {
     border-radius: 0.5rem;
+  }
+
+  .xl\:rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  .xl\:rounded-2xl {
+    border-radius: 1rem;
+  }
+
+  .xl\:rounded-3xl {
+    border-radius: 1.5rem;
   }
 
   .xl\:rounded-full {
@@ -33427,6 +36047,66 @@ h1, h1, h3, h4, h5, h6 {
     border-bottom-left-radius: 0.5rem;
   }
 
+  .xl\:rounded-t-xl {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  .xl\:rounded-r-xl {
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .xl\:rounded-b-xl {
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .xl\:rounded-l-xl {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .xl\:rounded-t-2xl {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .xl\:rounded-r-2xl {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  .xl\:rounded-b-2xl {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .xl\:rounded-l-2xl {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .xl\:rounded-t-3xl {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+
+  .xl\:rounded-r-3xl {
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .xl\:rounded-b-3xl {
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  .xl\:rounded-l-3xl {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
   .xl\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -33525,6 +36205,54 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:rounded-bl-lg {
     border-bottom-left-radius: 0.5rem;
+  }
+
+  .xl\:rounded-tl-xl {
+    border-top-left-radius: 0.75rem;
+  }
+
+  .xl\:rounded-tr-xl {
+    border-top-right-radius: 0.75rem;
+  }
+
+  .xl\:rounded-br-xl {
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .xl\:rounded-bl-xl {
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .xl\:rounded-tl-2xl {
+    border-top-left-radius: 1rem;
+  }
+
+  .xl\:rounded-tr-2xl {
+    border-top-right-radius: 1rem;
+  }
+
+  .xl\:rounded-br-2xl {
+    border-bottom-right-radius: 1rem;
+  }
+
+  .xl\:rounded-bl-2xl {
+    border-bottom-left-radius: 1rem;
+  }
+
+  .xl\:rounded-tl-3xl {
+    border-top-left-radius: 1.5rem;
+  }
+
+  .xl\:rounded-tr-3xl {
+    border-top-right-radius: 1.5rem;
+  }
+
+  .xl\:rounded-br-3xl {
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  .xl\:rounded-bl-3xl {
+    border-bottom-left-radius: 1.5rem;
   }
 
   .xl\:rounded-tl-full {
@@ -35798,11 +38526,33 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .xl\:outline-none {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .xl\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .xl\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .xl\:focus\:outline-none:focus {
-    outline: 0;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .xl\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .xl\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
   }
 
   .xl\:overflow-auto {
@@ -36479,6 +39229,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .xl\:placeholder-primary-static::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .xl\:placeholder-primary-static::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .xl\:placeholder-primary-static::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .xl\:placeholder-secondary::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -36489,6 +39251,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:placeholder-secondary::placeholder {
     color: var(--secondary-color);
+  }
+
+  .xl\:placeholder-secondary-static::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .xl\:placeholder-secondary-static::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .xl\:placeholder-secondary-static::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .xl\:focus\:placeholder-primary:focus::-webkit-input-placeholder {
@@ -36503,6 +39277,18 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .xl\:focus\:placeholder-primary-static:focus::-webkit-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .xl\:focus\:placeholder-primary-static:focus::-ms-input-placeholder {
+    color: var(--primary-static-color);
+  }
+
+  .xl\:focus\:placeholder-primary-static:focus::placeholder {
+    color: var(--primary-static-color);
+  }
+
   .xl\:focus\:placeholder-secondary:focus::-webkit-input-placeholder {
     color: var(--secondary-color);
   }
@@ -36513,6 +39299,18 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:focus\:placeholder-secondary:focus::placeholder {
     color: var(--secondary-color);
+  }
+
+  .xl\:focus\:placeholder-secondary-static:focus::-webkit-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .xl\:focus\:placeholder-secondary-static:focus::-ms-input-placeholder {
+    color: var(--secondary-static-color);
+  }
+
+  .xl\:focus\:placeholder-secondary-static:focus::placeholder {
+    color: var(--secondary-static-color);
   }
 
   .xl\:placeholder-opacity-0::-webkit-input-placeholder {
@@ -36914,24 +39712,48 @@ h1, h1, h3, h4, h5, h6 {
     color: var(--primary-color);
   }
 
+  .xl\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
   .xl\:text-secondary {
     color: var(--secondary-color);
+  }
+
+  .xl\:text-secondary-static {
+    color: var(--secondary-static-color);
   }
 
   .xl\:hover\:text-primary:hover {
     color: var(--primary-color);
   }
 
+  .xl\:hover\:text-primary-static:hover {
+    color: var(--primary-static-color);
+  }
+
   .xl\:hover\:text-secondary:hover {
     color: var(--secondary-color);
+  }
+
+  .xl\:hover\:text-secondary-static:hover {
+    color: var(--secondary-static-color);
   }
 
   .xl\:focus\:text-primary:focus {
     color: var(--primary-color);
   }
 
+  .xl\:focus\:text-primary-static:focus {
+    color: var(--primary-static-color);
+  }
+
   .xl\:focus\:text-secondary:focus {
     color: var(--secondary-color);
+  }
+
+  .xl\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
   }
 
   .xl\:text-opacity-0 {
@@ -37210,11 +40032,13 @@ h1, h1, h3, h4, h5, h6 {
   }
 
   .xl\:break-normal {
+    word-wrap: normal;
     overflow-wrap: normal;
     word-break: normal;
   }
 
   .xl\:break-words {
+    word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
@@ -38029,6 +40853,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-columns: none;
   }
 
+  .xl\:auto-cols-auto {
+    grid-auto-columns: auto;
+  }
+
+  .xl\:auto-cols-min {
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content;
+  }
+
+  .xl\:auto-cols-max {
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content;
+  }
+
+  .xl\:auto-cols-fr {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
   .xl\:col-auto {
     grid-column: auto;
   }
@@ -38079,6 +40921,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:col-span-12 {
     grid-column: span 12 / span 12;
+  }
+
+  .xl\:col-span-full {
+    grid-column: 1 / -1;
   }
 
   .xl\:col-start-1 {
@@ -38221,6 +41067,24 @@ h1, h1, h3, h4, h5, h6 {
     grid-template-rows: none;
   }
 
+  .xl\:auto-rows-auto {
+    grid-auto-rows: auto;
+  }
+
+  .xl\:auto-rows-min {
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content;
+  }
+
+  .xl\:auto-rows-max {
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content;
+  }
+
+  .xl\:auto-rows-fr {
+    grid-auto-rows: minmax(0, 1fr);
+  }
+
   .xl\:row-auto {
     grid-row: auto;
   }
@@ -38247,6 +41111,10 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:row-span-6 {
     grid-row: span 6 / span 6;
+  }
+
+  .xl\:row-span-full {
+    grid-row: 1 / -1;
   }
 
   .xl\:row-start-1 {
@@ -38758,6 +41626,26 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: 0;
   }
 
+  .xl\:rotate-1 {
+    --transform-rotate: 1deg;
+  }
+
+  .xl\:rotate-2 {
+    --transform-rotate: 2deg;
+  }
+
+  .xl\:rotate-3 {
+    --transform-rotate: 3deg;
+  }
+
+  .xl\:rotate-6 {
+    --transform-rotate: 6deg;
+  }
+
+  .xl\:rotate-12 {
+    --transform-rotate: 12deg;
+  }
+
   .xl\:rotate-45 {
     --transform-rotate: 45deg;
   }
@@ -38782,8 +41670,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .xl\:-rotate-12 {
+    --transform-rotate: -12deg;
+  }
+
+  .xl\:-rotate-6 {
+    --transform-rotate: -6deg;
+  }
+
+  .xl\:-rotate-3 {
+    --transform-rotate: -3deg;
+  }
+
+  .xl\:-rotate-2 {
+    --transform-rotate: -2deg;
+  }
+
+  .xl\:-rotate-1 {
+    --transform-rotate: -1deg;
+  }
+
   .xl\:hover\:rotate-0:hover {
     --transform-rotate: 0;
+  }
+
+  .xl\:hover\:rotate-1:hover {
+    --transform-rotate: 1deg;
+  }
+
+  .xl\:hover\:rotate-2:hover {
+    --transform-rotate: 2deg;
+  }
+
+  .xl\:hover\:rotate-3:hover {
+    --transform-rotate: 3deg;
+  }
+
+  .xl\:hover\:rotate-6:hover {
+    --transform-rotate: 6deg;
+  }
+
+  .xl\:hover\:rotate-12:hover {
+    --transform-rotate: 12deg;
   }
 
   .xl\:hover\:rotate-45:hover {
@@ -38810,8 +41738,48 @@ h1, h1, h3, h4, h5, h6 {
     --transform-rotate: -45deg;
   }
 
+  .xl\:hover\:-rotate-12:hover {
+    --transform-rotate: -12deg;
+  }
+
+  .xl\:hover\:-rotate-6:hover {
+    --transform-rotate: -6deg;
+  }
+
+  .xl\:hover\:-rotate-3:hover {
+    --transform-rotate: -3deg;
+  }
+
+  .xl\:hover\:-rotate-2:hover {
+    --transform-rotate: -2deg;
+  }
+
+  .xl\:hover\:-rotate-1:hover {
+    --transform-rotate: -1deg;
+  }
+
   .xl\:focus\:rotate-0:focus {
     --transform-rotate: 0;
+  }
+
+  .xl\:focus\:rotate-1:focus {
+    --transform-rotate: 1deg;
+  }
+
+  .xl\:focus\:rotate-2:focus {
+    --transform-rotate: 2deg;
+  }
+
+  .xl\:focus\:rotate-3:focus {
+    --transform-rotate: 3deg;
+  }
+
+  .xl\:focus\:rotate-6:focus {
+    --transform-rotate: 6deg;
+  }
+
+  .xl\:focus\:rotate-12:focus {
+    --transform-rotate: 12deg;
   }
 
   .xl\:focus\:rotate-45:focus {
@@ -38836,6 +41804,26 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:focus\:-rotate-45:focus {
     --transform-rotate: -45deg;
+  }
+
+  .xl\:focus\:-rotate-12:focus {
+    --transform-rotate: -12deg;
+  }
+
+  .xl\:focus\:-rotate-6:focus {
+    --transform-rotate: -6deg;
+  }
+
+  .xl\:focus\:-rotate-3:focus {
+    --transform-rotate: -3deg;
+  }
+
+  .xl\:focus\:-rotate-2:focus {
+    --transform-rotate: -2deg;
+  }
+
+  .xl\:focus\:-rotate-1:focus {
+    --transform-rotate: -1deg;
   }
 
   .xl\:translate-x-0 {
@@ -39826,6 +42814,14 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: 0;
   }
 
+  .xl\:skew-x-1 {
+    --transform-skew-x: 1deg;
+  }
+
+  .xl\:skew-x-2 {
+    --transform-skew-x: 2deg;
+  }
+
   .xl\:skew-x-3 {
     --transform-skew-x: 3deg;
   }
@@ -39850,8 +42846,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .xl\:-skew-x-2 {
+    --transform-skew-x: -2deg;
+  }
+
+  .xl\:-skew-x-1 {
+    --transform-skew-x: -1deg;
+  }
+
   .xl\:skew-y-0 {
     --transform-skew-y: 0;
+  }
+
+  .xl\:skew-y-1 {
+    --transform-skew-y: 1deg;
+  }
+
+  .xl\:skew-y-2 {
+    --transform-skew-y: 2deg;
   }
 
   .xl\:skew-y-3 {
@@ -39878,8 +42890,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .xl\:-skew-y-2 {
+    --transform-skew-y: -2deg;
+  }
+
+  .xl\:-skew-y-1 {
+    --transform-skew-y: -1deg;
+  }
+
   .xl\:hover\:skew-x-0:hover {
     --transform-skew-x: 0;
+  }
+
+  .xl\:hover\:skew-x-1:hover {
+    --transform-skew-x: 1deg;
+  }
+
+  .xl\:hover\:skew-x-2:hover {
+    --transform-skew-x: 2deg;
   }
 
   .xl\:hover\:skew-x-3:hover {
@@ -39906,8 +42934,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .xl\:hover\:-skew-x-2:hover {
+    --transform-skew-x: -2deg;
+  }
+
+  .xl\:hover\:-skew-x-1:hover {
+    --transform-skew-x: -1deg;
+  }
+
   .xl\:hover\:skew-y-0:hover {
     --transform-skew-y: 0;
+  }
+
+  .xl\:hover\:skew-y-1:hover {
+    --transform-skew-y: 1deg;
+  }
+
+  .xl\:hover\:skew-y-2:hover {
+    --transform-skew-y: 2deg;
   }
 
   .xl\:hover\:skew-y-3:hover {
@@ -39934,8 +42978,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-y: -3deg;
   }
 
+  .xl\:hover\:-skew-y-2:hover {
+    --transform-skew-y: -2deg;
+  }
+
+  .xl\:hover\:-skew-y-1:hover {
+    --transform-skew-y: -1deg;
+  }
+
   .xl\:focus\:skew-x-0:focus {
     --transform-skew-x: 0;
+  }
+
+  .xl\:focus\:skew-x-1:focus {
+    --transform-skew-x: 1deg;
+  }
+
+  .xl\:focus\:skew-x-2:focus {
+    --transform-skew-x: 2deg;
   }
 
   .xl\:focus\:skew-x-3:focus {
@@ -39962,8 +43022,24 @@ h1, h1, h3, h4, h5, h6 {
     --transform-skew-x: -3deg;
   }
 
+  .xl\:focus\:-skew-x-2:focus {
+    --transform-skew-x: -2deg;
+  }
+
+  .xl\:focus\:-skew-x-1:focus {
+    --transform-skew-x: -1deg;
+  }
+
   .xl\:focus\:skew-y-0:focus {
     --transform-skew-y: 0;
+  }
+
+  .xl\:focus\:skew-y-1:focus {
+    --transform-skew-y: 1deg;
+  }
+
+  .xl\:focus\:skew-y-2:focus {
+    --transform-skew-y: 2deg;
   }
 
   .xl\:focus\:skew-y-3:focus {
@@ -39988,6 +43064,14 @@ h1, h1, h3, h4, h5, h6 {
 
   .xl\:focus\:-skew-y-3:focus {
     --transform-skew-y: -3deg;
+  }
+
+  .xl\:focus\:-skew-y-2:focus {
+    --transform-skew-y: -2deg;
+  }
+
+  .xl\:focus\:-skew-y-1:focus {
+    --transform-skew-y: -1deg;
   }
 
   .xl\:transition-none {
