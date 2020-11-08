@@ -48,7 +48,7 @@ const App = () => {
   return (
     <div className="xl:container xl:mx-auto">
       <Modal
-        className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1"
+        className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1 relative"
         contentLabel="Window confirming visit to Freesound"
         isOpen={modalIsOpen}
         onRequestClose={closeModal} // Really important!
@@ -61,16 +61,10 @@ const App = () => {
         overlayClassName="bg-primary fixed inset-0 Modal z-10"
         closeTimeoutMS={200}
       >
-        <button
-          className="float-right ModalButton relative"
-          onClick={closeModal}
-        >
+        <button className="m-2 absolute top-0 right-0" onClick={closeModal}>
           <IonIcon icon={closeSharp} size="large" />
         </button>
-        <section
-          className="ml-6 pb-6 pt-2 text-lg"
-          name="everythingExceptCloseButtonInModalWindow"
-        >
+        <section className="ml-6 pb-6 pt-2 text-lg">
           <h1 className="pb-4 pt-3 text-2xl">Redirecting to Freesound</h1>
           <p>
             After logging in with Freesound, {/* eslint-disable-next-line */}
@@ -79,13 +73,13 @@ const App = () => {
           <br />
           <span className="mx-8 space-x-10 space-y-4">
             <button // space-y-4 above adds space between
-              className="bg-default border ModalButton px-8 py-2 rounded-lg"
+              className="bg-secondary text-primary border px-8 py-2 rounded-lg"
               onClick={navigateToLogin} // buttons on mobile.
             >
               Send me there!
             </button>
             <button
-              className="border ModalButton px-10 py-2 rounded-lg"
+              className="border px-10 py-2 rounded-lg"
               onClick={closeModal}
             >
               Maybe Later

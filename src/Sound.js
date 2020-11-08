@@ -1,5 +1,5 @@
 import {
-  caretDownSharp,
+  caretDownOutline,
   cropSharp,
   downloadSharp,
   pauseCircleSharp,
@@ -129,7 +129,7 @@ export default function Sound(props) {
             backgroundColor="black"
             barWidth={1}
             cursorColor="var(--secondary-color)"
-            cursorWidth={1}
+            cursorWidth={2}
             onFinish={() => setIsPlaying(false)}
             playing={isPlaying}
             src={sound.previews["preview-lq-mp3"]}
@@ -138,45 +138,33 @@ export default function Sound(props) {
           <div className="flex justfify-between py-3">
             {/* Download and edit buttons */}
             <div className="w-6/12 space-x-3">
-              <IonIcon size="large" icon={downloadSharp} id="download-icon" />
+              <IonIcon size="large" icon={downloadSharp} />
               <button
                 onClick={handlePlayingAndPausing}
                 className="focus:outline-none"
               >
                 {isPlaying ? (
-                  <IonIcon
-                    size="large"
-                    icon={pauseCircleSharp}
-                    id="pause-button"
-                  />
+                  <IonIcon size="large" icon={pauseCircleSharp} />
                 ) : (
-                  <IonIcon
-                    size="large"
-                    icon={playCircleSharp}
-                    id="play-button"
-                  />
+                  <IonIcon size="large" icon={playCircleSharp} />
                 )}
               </button>
             </div>
             {/* Download stats and Play */}
-            <div className="w-6/12 text-right space-x-3">
-              <button className="rounded bg-secondary text-primary p-1">
-                <IonIcon icon={cropSharp} id="edit-icon" />
-                Edit
+            <div className="w-6/12 text-right space-x-3 flex justify-end items-center">
+              <button className="rounded bg-secondary text-primary p-1 px-2 flex items-center space-x-2">
+                <IonIcon icon={cropSharp} />
+                <a>Edit</a>
               </button>
               {isLoggedIn && loadingState === 1 && (
                 <button
                   onClick={() => downloadSound(sound)}
                   type="button"
-                  className="rounded bg-secondary text-primary p-1"
+                  className="rounded bg-secondary text-primary p-1 px-2 flex items-center space-x-2"
                 >
-                  <IonIcon icon={downloadSharp} id="download-icon" />
-                  Download
-                  <IonIcon
-                    icon={caretDownSharp}
-                    id="download-dropdown"
-                    name="caret-down-sharp"
-                  />
+                  <IonIcon icon={downloadSharp} />
+                  <a>Download</a>
+                  <IonIcon icon={caretDownOutline} />
                 </button>
               )}
             </div>
@@ -191,7 +179,6 @@ export default function Sound(props) {
         </>
       )}
       <SoundList
-        id="pack"
         header="Pack"
         tracks={packSounds}
         selectedTrack={sound?.id || packSounds[0]?.id || 0}
