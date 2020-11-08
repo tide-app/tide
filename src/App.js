@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { closeSharp, searchSharp } from "ionicons/icons";
+import { closeSharp } from "ionicons/icons";
 import FreeSound from "freesound-client";
 import { IonIcon } from "@ionic/react";
 import Modal from "react-modal";
@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import auth, { init } from "./Auth";
 import Sound from "./Sound";
 import Search from "./Search";
+import Nav from "./Nav";
 // Bind modal to our appElement for accessibility
 Modal.setAppElement(document.getElementById("root"));
 
@@ -45,24 +46,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      {!isLoggedIn && (
-        <button
-          className="bg-default rounded px-4"
-          onClick={openRedirectDialogModalWindow}
-        >
-          Login
-        </button>
-      )}
-      <div className="Search">
-        <input
-          name="search"
-          type="text"
-          placeholder="Search sound..."
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        <IonIcon icon={searchSharp} />
-      </div>
+    <div className="xl:container xl:mx-auto">
       <Modal
         className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1"
         contentLabel="Window confirming visit to Freesound"
@@ -109,6 +93,10 @@ const App = () => {
         </section>
       </Modal>
       <Router>
+        <Nav
+          setSearchValue={setSearchValue}
+          openRedirectDialogModalWindow={openRedirectDialogModalWindow}
+        />
         <Switch>
           <Route
             path="/sound/:id"
