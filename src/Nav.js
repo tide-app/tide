@@ -13,20 +13,16 @@ export default function Nav({
       <div className="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0">
         <ul className="flex">
           <li className="mr-6">
-            <a className="text-blue-500 hover:text-blue-800" href="/">
-              Explore
-            </a>
+            <a href="/">Explore</a>
           </li>
           <li className="mr-6">
-            <a className="text-blue-500 hover:text-blue-800" href="/featured">
-              Featured
-            </a>
+            <a href="/featured">Featured</a>
           </li>
         </ul>
       </div>
       <div className="md:flex space-x-2 justify-between items-center">
         <Link to="/" className="flex space-x-2 justify-between items-center">
-          <img className="h-10 bg-default" src="/icons/icon.svg" />
+          <img className="h-10" src="/icons/icon.svg" />
           <h1 className="text-lg">Tide</h1>
         </Link>
       </div>
@@ -36,7 +32,7 @@ export default function Nav({
         <input
           name="search"
           type="text"
-          className="appearance-none block placeholder-secondary bg-primary border rounded p-1 leading-tight focus:outline-none focus:bg-white"
+          className="appearance-none block placeholder-secondary bg-primary border rounded p-1 leading-tight focus:outline-none pl-4"
           placeholder="Search sound..."
           onChange={(e) => setSearchValue(e.target.value)}
         />

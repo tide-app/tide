@@ -30,12 +30,16 @@ body {
 
 .ReactModalPortal .ReactModal__Overlay {
   transition: opacity 200ms ease-in-out;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .ReactModalPortal .ReactModal__Overlay--after-open {
   opacity: 1;
 }
 .ReactModalPortal .ReactModal__Overlay--before-close {
-    opacity: 0;
+  opacity: 0;
+}
+
+div > wave {
+  border: 1px solid var(--primary-static-color)
 }
