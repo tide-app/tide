@@ -16,7 +16,7 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
           >
             <div className="hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-3 space-x-2 flex items-center">
               <IonIcon icon={playCircleSharp} size="large" />
-              <a>{track.name}</a>
+              <span>{track.name}</span>
             </div>
           </Link>
         ))}

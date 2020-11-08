@@ -6,8 +6,9 @@ import Modal from "react-modal";
 import React, { useState, useEffect } from "react";
 import auth, { init } from "./Auth";
 import Sound from "./Sound";
-import Search from "./Search";
+import SearchResults from "./SearchResults";
 import Nav from "./Nav";
+
 // Bind modal to our appElement for accessibility
 Modal.setAppElement(document.getElementById("root"));
 
@@ -100,11 +101,19 @@ const App = () => {
             )}
           />
           <Route
+            path="/search"
+            render={() => (
+              <SearchResults
+                fetchSearchResults={(...args) => freeSound.textSearch(...args)}
+                searchValue={searchValue}
+              />
+            )}
+          />
+          <Route
             path={"/"}
             render={() => (
-              <Search
-                isLoggedIn={isLoggedIn}
-                freeSound={freeSound}
+              <SearchResults
+                fetchSearchResults={(...args) => freeSound.textSearch(...args)}
                 searchValue={searchValue}
               />
             )}
