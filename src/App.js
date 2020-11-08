@@ -101,6 +101,15 @@ const App = () => {
             )}
           />
           <Route
+            path="/search"
+            render={() => (
+              <SearchResults
+                fetchSearchResults={(...args) => freeSound.textSearch(...args)}
+                searchValue={searchValue}
+              />
+            )}
+          />
+          <Route
             path={"/"}
             render={() => (
               <SearchResults

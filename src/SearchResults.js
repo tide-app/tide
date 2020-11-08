@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
+import { useLocation } from "react-router-dom";
 import SoundList from "./SoundList";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 export default function Search({ searchValue, fetchSearchResults }) {
   const [searchResults, setSearchResults] = useState([]);
+  const queryParams = useQuery();
+  const searchQuery = queryParams.get("q");
+
   const debouncedSearch = useDebouncedCallback(
-    () => fetchSearchResults(searchValue),
+    () => fetchSearchResults(searchQuery || searchValue),
     300,
     {
       leading: true,
@@ -19,7 +27,7 @@ export default function Search({ searchValue, fetchSearchResults }) {
         setSearchResults(query.results);
       }
     };
-    if (searchValue) {
+    if (searchValue || searchValue) {
       updateSearchResults();
     }
   }, [searchValue]);
