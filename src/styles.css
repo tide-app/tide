@@ -24,6 +24,10 @@ body {
   font-family: 'M PLUS 1p', sans-serif;
 }
 
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
 .ReactModalPortal > div {
   opacity: 0;
 }
