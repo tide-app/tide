@@ -30,7 +30,7 @@ export default function Nav({
       <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
         {/* <IonIcon icon={searchSharp} /> */}
         <input
-          name="search"
+          name="sound-search"
           type="text"
           className="appearance-none block placeholder-secondary bg-primary border rounded p-1 leading-tight focus:outline-none pl-4"
           placeholder="Search sound..."

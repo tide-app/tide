@@ -128,7 +128,7 @@ export default function Sound(props) {
             progressColor="transparent"
             backgroundColor="black"
             barWidth={1}
-            cursorColor="var(--secondary-color)"
+            cursorColor="white"
             cursorWidth={2}
             onFinish={() => setIsPlaying(false)}
             playing={isPlaying}
