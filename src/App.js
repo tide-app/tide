@@ -59,6 +59,7 @@ const App = () => {
         // in future iterations for
         // an improved user experience.
         overlayClassName="bg-primary fixed inset-0 Modal z-10"
+        closeTimeoutMS={200}
       >
         <button
           className="float-right ModalButton relative"
