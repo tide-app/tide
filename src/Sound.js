@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import {
   caretDownOutline,
   cropSharp,
@@ -6,8 +7,8 @@ import {
   playCircleSharp,
 } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
-import { useParams } from "react-router-dom";
 import localForage from "localforage";
+import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
@@ -108,6 +109,10 @@ export default function Sound(props) {
     };
   });
 
+  const sanitizedHTMLFromFreesound = {
+    __html: DOMPurify.sanitize(sound.description),
+  };
+
   return (
     <>
       <h1 className="text-5xl mb-4 text-left">{sound.name}</h1>
@@ -172,9 +177,10 @@ export default function Sound(props) {
           {/* Description */}
           <div className="pb-16">
             <h1 className="text-left text-3xl pt-24 py-4">Description</h1>
-            <p className="bg-secondary-static text-primary-static border border-primary-static text-lg p-10">
-              {sound.description}
-            </p>
+            <p
+              className="bg-secondary-static text-primary-static border border-primary-static text-lg p-10"
+              dangerouslySetInnerHTML={sanitizedHTMLFromFreesound}
+            />
           </div>
         </>
       )}
