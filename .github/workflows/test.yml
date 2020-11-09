@@ -45,3 +45,8 @@ jobs:
         with:
           start: yarn start
           wait-on: 'http://localhost:3000'
+
+      - name: Bundlesize
+        run: yarn bundlesize
+        env:
+          BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
