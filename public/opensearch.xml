@@ -1,7 +1,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Freesound Player</ShortName>
   <Description>A better Freesound UI</Description>
-  <Url type="text/html" method="get" template="https://freesound-player.netlify.app/search?q={searchTerms}"/>
+  <Url type="text/html" method="get" template="https://freesound-player.vercel.app/search?q={searchTerms}"/>
   <InputEncoding>UTF-8</InputEncoding>
   <Image height="32" width="32"type="image/png">/icons/apple-touch-icon.png</Image>
 </OpenSearchDescription>

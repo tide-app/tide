@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "freesound player",
   "license": "MIT",
-  "homepage": "https://freesound-player.netlify.app",
+  "homepage": "https://freesound-player.vercel.app",
   "keywords": [
     "react",
     "starter"
