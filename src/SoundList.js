@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { playCircleSharp } from "ionicons/icons";
+import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 
 const SoundList = ({ tracks, header, onSoundClick }) => {
@@ -16,7 +16,12 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
           >
             <div className="hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-3 space-x-2 flex items-center">
               <IonIcon icon={playCircleSharp} size="large" />
-              <span>{track.name}</span>
+              <span className="flex-grow">{track.name}</span>
+              <div className="flex justify-end items-center space-x-24 mr-24">
+                <IonIcon icon={timeSharp} size="large" />
+                <IonIcon icon={downloadSharp} size="large" />
+                <IonIcon icon={playCircleSharp} size="large" />
+              </div>
             </div>
           </Link>
         ))}
