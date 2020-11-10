@@ -8,6 +8,8 @@ module.exports = {
       "secondary-static": "var(--secondary-static-color)",
     },
   },
-  variants: {},
+  variants: {
+    elementOpacity: ["responsive", "hover", "group-hover"],
+  },
   plugins: [],
 };
