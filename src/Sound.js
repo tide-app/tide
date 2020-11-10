@@ -13,6 +13,7 @@ import React, { useEffect, useState } from "react";
 import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
+import Button from "./components/Button";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -157,20 +158,16 @@ export default function Sound(props) {
             </div>
             {/* Download stats and Play */}
             <div className="w-6/12 text-right space-x-3 flex justify-end items-center">
-              <button className="rounded bg-secondary text-primary p-1 px-2 flex items-center space-x-2">
+              <Button>
                 <IonIcon icon={cropSharp} />
                 <a>Edit</a>
-              </button>
+              </Button>
               {isLoggedIn && loadingState === 1 && (
-                <button
-                  onClick={() => downloadSound(sound)}
-                  type="button"
-                  className="rounded bg-secondary text-primary p-1 px-2 flex items-center space-x-2"
-                >
+                <Button onClick={() => downloadSound(sound)}>
                   <IonIcon icon={downloadSharp} />
                   <a>Download</a>
                   <IonIcon icon={caretDownOutline} />
-                </button>
+                </Button>
               )}
             </div>
           </div>
