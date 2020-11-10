@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "./components/Button";
+import Input from "./components/Input";
 // import { searchSharp } from "ionicons/icons";
 // import { IonIcon } from "@ionic/react";
 
@@ -28,21 +30,13 @@ export default function Nav({
       </div>
 
       <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
-        {/* <IonIcon icon={searchSharp} /> */}
-        <input
+        <Input
           name="sound-search"
-          type="text"
-          className="appearance-none block placeholder-secondary bg-primary border rounded p-1 leading-tight focus:outline-none pl-4"
           placeholder="Search sound..."
           onChange={(e) => setSearchValue(e.target.value)}
         />
         {!isLoggedIn && (
-          <button
-            className="bg-secondary text-primary rounded px-4 py-1"
-            onClick={openRedirectDialogModalWindow}
-          >
-            Login
-          </button>
+          <Button onClick={openRedirectDialogModalWindow}>Login</Button>
         )}
       </div>
     </nav>

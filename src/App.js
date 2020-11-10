@@ -52,7 +52,8 @@ const App = () => {
         className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1 relative"
         contentLabel="Window confirming visit to Freesound"
         isOpen={modalIsOpen}
-        onRequestClose={closeModal} // Really important!
+        onRequestClose={closeModal}
+        // Really important!
         // The above line appears to be what allows users
         // to exit the Modal by simply hitting the Esc key
         // or clicking anywhere else on the page.
@@ -67,15 +68,12 @@ const App = () => {
         </button>
         <section className="ml-6 pb-6 pt-2 text-lg">
           <h1 className="pb-4 pt-3 text-2xl">Redirecting to Freesound</h1>
-          <p>
-            After logging in with Freesound, {/* eslint-disable-next-line */}
-            you'll be sent back here!
-          </p>
+          <p>After logging in with Freesound, you will be sent back here!</p>
           <br />
           <span className="mx-8 space-x-10 space-y-4">
-            <button // space-y-4 above adds space between
+            <button
               className="bg-secondary text-primary border px-8 py-2 rounded-lg"
-              onClick={navigateToLogin} // buttons on mobile.
+              onClick={navigateToLogin}
             >
               Send me there!
             </button>
