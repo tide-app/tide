@@ -14,7 +14,7 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
             to={`/sound/${track.id}`}
             onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
           >
-            <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-3 pr-24 space-x-2 flex items-center">
+            <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-3 pr-12 space-x-2 flex items-center">
               <IonIcon
                 className="opacity-0 group-hover:opacity-100"
                 icon={playCircleSharp}
@@ -26,10 +26,13 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
                   DJ_Beethoven
                 </span>
               </div>
-              <div className="hidden sm:block flex flex-row justify-end items-center space-x-24 mr-24 opacity-50 group-hover:opacity-100 sm:hover:opacity-0">
+              <div className="hidden sm:block flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
                 <IonIcon icon={timeSharp} size="large" />
+                0:13
                 <IonIcon icon={downloadSharp} size="large" />
+                6k
                 <IonIcon icon={playCircleSharp} size="large" />
+                10k
               </div>
             </div>
           </Link>
