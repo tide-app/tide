@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useLocation } from "react-router-dom";
-// import { search } from "ionicons/icons";
 import SoundList from "./SoundList";
 
 function useQuery() {
