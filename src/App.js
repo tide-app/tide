@@ -102,6 +102,7 @@ const App = () => {
             path="/search"
             render={() => (
               <SearchResults
+                showHeader
                 fetchSearchResults={(...args) => freeSound.textSearch(...args)}
                 searchValue={searchValue}
               />

@@ -1,15 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter, useLocation } from "react-router-dom";
 import Button from "./components/Button";
 import Input from "./components/Input";
-// import { searchSharp } from "ionicons/icons";
-// import { IonIcon } from "@ionic/react";
 
-export default function Nav({
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+function Nav({
   isLoggedIn,
   openRedirectDialogModalWindow,
   setSearchValue,
+  history,
 }) {
+  const pushHistory = (searchValue) => {
+    history.push({
+      pathname: "/search",
+      search: `?q=${searchValue}`,
+    });
+  };
+  const queryParams = useQuery();
+  const searchQuery = queryParams.get("q");
   return (
     <nav className="flex justify-between items-center py-4 px-2 md:justify-start md:space-x-10">
       <div className="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0">
@@ -33,7 +43,10 @@ export default function Nav({
         <Input
           name="sound-search"
           placeholder="Search sound..."
-          onChange={(e) => setSearchValue(e.target.value)}
+          defaultValue={searchQuery}
+          onChange={(e) =>
+            pushHistory(e.target.value) && setSearchValue(e.target.value)
+          }
         />
         {!isLoggedIn && (
           <Button onClick={openRedirectDialogModalWindow}>Login</Button>
@@ -42,3 +55,4 @@ export default function Nav({
     </nav>
   );
 }
+export default withRouter(Nav);
