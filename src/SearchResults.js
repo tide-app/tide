@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useLocation } from "react-router-dom";
+// import { search } from "ionicons/icons";
 import SoundList from "./SoundList";
 
 function useQuery() {
@@ -14,7 +15,8 @@ export default function Search({
 }) {
   const [searchResults, setSearchResults] = useState([]);
   const queryParams = useQuery();
-  const searchQuery = queryParams.get("q");
+  const queryValue = queryParams.get("q");
+  const searchQuery = typeof queryValue === "string" ? queryValue : undefined;
 
   const debouncedSearch = useDebouncedCallback(
     () => fetchSearchResults(searchQuery || searchValue),
@@ -26,19 +28,27 @@ export default function Search({
 
   useEffect(() => {
     const updateSearchResults = async () => {
-      const query = await debouncedSearch.callback();
-      if (query?.results) {
-        setSearchResults(query.results);
+      if (searchQuery === "") {
+        setSearchResults([]);
+      } else {
+        const query = await debouncedSearch.callback();
+        if (query?.results) {
+          setSearchResults(query.results);
+        }
       }
     };
-    if (searchValue || searchValue) {
+    if (searchQuery || searchValue) {
       updateSearchResults();
     }
-  }, [searchValue]);
+  }, [searchValue, searchQuery]);
 
   return (
     <SoundList
-      header={showHeader ? `Search results for "${searchValue}"` : undefined}
+      header={
+        showHeader
+          ? `Search results for "${searchQuery || searchValue}"`
+          : undefined
+      }
       tracks={searchResults}
     />
   );
