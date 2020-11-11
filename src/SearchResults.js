@@ -32,5 +32,10 @@ export default function Search({ searchValue, fetchSearchResults }) {
     }
   }, [searchValue]);
 
-  return <SoundList tracks={searchResults} />;
+  return (
+    <SoundList
+      header={`Search results for "${searchValue}"`}
+      tracks={searchResults}
+    />
+  );
 }
