@@ -26,7 +26,7 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
                   DJ_Beethoven
                 </span>
               </div>
-              <div className="flex flex-row justify-end items-center space-x-24 mr-24 opacity-50 group-hover:opacity-100">
+              <div className="hidden sm:block flex flex-row justify-end items-center space-x-24 mr-24 opacity-50 group-hover:opacity-100 sm:hover:opacity-0">
                 <IonIcon icon={timeSharp} size="large" />
                 <IonIcon icon={downloadSharp} size="large" />
                 <IonIcon icon={playCircleSharp} size="large" />
