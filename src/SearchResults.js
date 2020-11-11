@@ -7,7 +7,11 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-export default function Search({ searchValue, fetchSearchResults }) {
+export default function Search({
+  searchValue,
+  fetchSearchResults,
+  showHeader = false,
+}) {
   const [searchResults, setSearchResults] = useState([]);
   const queryParams = useQuery();
   const searchQuery = queryParams.get("q");
@@ -34,7 +38,7 @@ export default function Search({ searchValue, fetchSearchResults }) {
 
   return (
     <SoundList
-      header={`Search results for "${searchValue}"`}
+      header={showHeader ? `Search results for "${searchValue}"` : undefined}
       tracks={searchResults}
     />
   );
