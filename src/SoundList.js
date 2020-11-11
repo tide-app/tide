@@ -20,8 +20,13 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
                 icon={playCircleSharp}
                 size="large"
               />
-              <span className="flex-grow">{track.name}</span>
-              <div className="flex justify-end items-center space-x-24 mr-24 opacity-50 group-hover:opacity-100">
+              <div className="flex flex-col flex-grow">
+                <span>{track.name}</span>
+                <span className="text-left text-xs opacity-50">
+                  DJ_Beethoven
+                </span>
+              </div>
+              <div className="flex flex-row justify-end items-center space-x-24 mr-24 opacity-50 group-hover:opacity-100">
                 <IonIcon icon={timeSharp} size="large" />
                 <IonIcon icon={downloadSharp} size="large" />
                 <IonIcon icon={playCircleSharp} size="large" />
