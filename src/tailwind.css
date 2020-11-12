@@ -4399,6 +4399,26 @@ video {
   opacity: 1;
 }
 
+.group:hover .group-hover\:opacity-0 {
+  opacity: 0;
+}
+
+.group:hover .group-hover\:opacity-25 {
+  opacity: 0.25;
+}
+
+.group:hover .group-hover\:opacity-50 {
+  opacity: 0.5;
+}
+
+.group:hover .group-hover\:opacity-75 {
+  opacity: 0.75;
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -5627,6 +5647,22 @@ video {
 }
 
 .focus\:text-secondary-static:focus {
+  color: var(--secondary-static-color);
+}
+
+.group:hover .group-hover\:text-primary {
+  color: var(--primary-color);
+}
+
+.group:hover .group-hover\:text-primary-static {
+  color: var(--primary-static-color);
+}
+
+.group:hover .group-hover\:text-secondary {
+  color: var(--secondary-color);
+}
+
+.group:hover .group-hover\:text-secondary-static {
   color: var(--secondary-static-color);
 }
 
@@ -12941,6 +12977,26 @@ div > wave {
     opacity: 1;
   }
 
+  .group:hover .sm\:group-hover\:opacity-0 {
+    opacity: 0;
+  }
+
+  .group:hover .sm\:group-hover\:opacity-25 {
+    opacity: 0.25;
+  }
+
+  .group:hover .sm\:group-hover\:opacity-50 {
+    opacity: 0.5;
+  }
+
+  .group:hover .sm\:group-hover\:opacity-75 {
+    opacity: 0.75;
+  }
+
+  .group:hover .sm\:group-hover\:opacity-100 {
+    opacity: 1;
+  }
+
   .sm\:outline-none {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -14169,6 +14225,22 @@ div > wave {
   }
 
   .sm\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
+  }
+
+  .group:hover .sm\:group-hover\:text-primary {
+    color: var(--primary-color);
+  }
+
+  .group:hover .sm\:group-hover\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
+  .group:hover .sm\:group-hover\:text-secondary {
+    color: var(--secondary-color);
+  }
+
+  .group:hover .sm\:group-hover\:text-secondary-static {
     color: var(--secondary-static-color);
   }
 
@@ -21419,6 +21491,26 @@ div > wave {
     opacity: 1;
   }
 
+  .group:hover .md\:group-hover\:opacity-0 {
+    opacity: 0;
+  }
+
+  .group:hover .md\:group-hover\:opacity-25 {
+    opacity: 0.25;
+  }
+
+  .group:hover .md\:group-hover\:opacity-50 {
+    opacity: 0.5;
+  }
+
+  .group:hover .md\:group-hover\:opacity-75 {
+    opacity: 0.75;
+  }
+
+  .group:hover .md\:group-hover\:opacity-100 {
+    opacity: 1;
+  }
+
   .md\:outline-none {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -22647,6 +22739,22 @@ div > wave {
   }
 
   .md\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
+  }
+
+  .group:hover .md\:group-hover\:text-primary {
+    color: var(--primary-color);
+  }
+
+  .group:hover .md\:group-hover\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
+  .group:hover .md\:group-hover\:text-secondary {
+    color: var(--secondary-color);
+  }
+
+  .group:hover .md\:group-hover\:text-secondary-static {
     color: var(--secondary-static-color);
   }
 
@@ -29897,6 +30005,26 @@ div > wave {
     opacity: 1;
   }
 
+  .group:hover .lg\:group-hover\:opacity-0 {
+    opacity: 0;
+  }
+
+  .group:hover .lg\:group-hover\:opacity-25 {
+    opacity: 0.25;
+  }
+
+  .group:hover .lg\:group-hover\:opacity-50 {
+    opacity: 0.5;
+  }
+
+  .group:hover .lg\:group-hover\:opacity-75 {
+    opacity: 0.75;
+  }
+
+  .group:hover .lg\:group-hover\:opacity-100 {
+    opacity: 1;
+  }
+
   .lg\:outline-none {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -31125,6 +31253,22 @@ div > wave {
   }
 
   .lg\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
+  }
+
+  .group:hover .lg\:group-hover\:text-primary {
+    color: var(--primary-color);
+  }
+
+  .group:hover .lg\:group-hover\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
+  .group:hover .lg\:group-hover\:text-secondary {
+    color: var(--secondary-color);
+  }
+
+  .group:hover .lg\:group-hover\:text-secondary-static {
     color: var(--secondary-static-color);
   }
 
@@ -38375,6 +38519,26 @@ div > wave {
     opacity: 1;
   }
 
+  .group:hover .xl\:group-hover\:opacity-0 {
+    opacity: 0;
+  }
+
+  .group:hover .xl\:group-hover\:opacity-25 {
+    opacity: 0.25;
+  }
+
+  .group:hover .xl\:group-hover\:opacity-50 {
+    opacity: 0.5;
+  }
+
+  .group:hover .xl\:group-hover\:opacity-75 {
+    opacity: 0.75;
+  }
+
+  .group:hover .xl\:group-hover\:opacity-100 {
+    opacity: 1;
+  }
+
   .xl\:outline-none {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -39603,6 +39767,22 @@ div > wave {
   }
 
   .xl\:focus\:text-secondary-static:focus {
+    color: var(--secondary-static-color);
+  }
+
+  .group:hover .xl\:group-hover\:text-primary {
+    color: var(--primary-color);
+  }
+
+  .group:hover .xl\:group-hover\:text-primary-static {
+    color: var(--primary-static-color);
+  }
+
+  .group:hover .xl\:group-hover\:text-secondary {
+    color: var(--secondary-color);
+  }
+
+  .group:hover .xl\:group-hover\:text-secondary-static {
     color: var(--secondary-static-color);
   }
 

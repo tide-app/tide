@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { playCircleSharp } from "ionicons/icons";
+import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 
 const SoundList = ({ tracks, header, onSoundClick }) => {
@@ -14,9 +14,26 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
             to={`/sound/${track.id}`}
             onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
           >
-            <div className="hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-3 space-x-2 flex items-center">
-              <IonIcon icon={playCircleSharp} size="large" />
-              <span>{track.name}</span>
+            <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-3 pr-12 space-x-2 flex items-center">
+              <IonIcon
+                className="opacity-0 group-hover:opacity-100"
+                icon={playCircleSharp}
+                size="large"
+              />
+              <div className="flex flex-col flex-grow">
+                <span>{track.name}</span>
+                <span className="text-left text-xs opacity-50">
+                  DJ_Beethoven
+                </span>
+              </div>
+              <div className="hidden sm:block flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
+                <IonIcon icon={timeSharp} size="large" />
+                0:13
+                <IonIcon icon={downloadSharp} size="large" />
+                6k
+                <IonIcon icon={playCircleSharp} size="large" />
+                10k
+              </div>
             </div>
           </Link>
         ))}
