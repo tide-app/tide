@@ -174,11 +174,8 @@ export default function Sound(props) {
           {/* Description */}
           <div className="pb-16">
             <h1 className="text-left text-3xl pt-24 py-4">Description</h1>
-            <div className="Description">
-              <p
-                className="bg-secondary-static text-primary-static overflow-scroll border border-primary-static text-lg p-10"
-                dangerouslySetInnerHTML={sanitizedHTMLFromFreesound}
-              />
+            <div className="Description bg-secondary-static text-primary-static overflow-scroll border border-primary-static text-lg p-10">
+              <p dangerouslySetInnerHTML={sanitizedHTMLFromFreesound} />
             </div>
           </div>
         </>
