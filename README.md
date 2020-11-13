@@ -10,6 +10,7 @@
 
 #### Sound Page 
 ![Sound Page in Day Theme](src/screenshots/sound-page-day.png)
+
 ### Dark Theme
 #### Home Page
 ![Home Page in Dark Theme](src/screenshots/home-page-dark.png)
