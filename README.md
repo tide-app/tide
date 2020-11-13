@@ -6,10 +6,10 @@
 
 ### Day Theme
 #### Home Page
-![Home Page in Day Theme](src/screenshots/home-page-day.png)
+![Home Page in Day Theme](screenshots/home-page-day.png)
 
 #### Sound Page 
-![Sound Page in Day Theme](src/screenshots/sound-page-day.png)
+![Sound Page in Day Theme](screenshots/sound-page-day.png)
 
 ## Related Repositories
 
