@@ -9177,6 +9177,11 @@ div > wave {
   border: 1px solid var(--primary-static-color)
 }
 
+.Description {
+  max-height: 300px;
+  overflow: scroll;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
