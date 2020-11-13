@@ -11,13 +11,6 @@
 #### Sound Page 
 ![Sound Page in Day Theme](src/screenshots/sound-page-day.png)
 
-### Dark Theme
-#### Home Page
-![Home Page in Dark Theme](src/screenshots/home-page-dark.png)
-
-#### Sound Page 
-![Sound Page in Dark Theme](src/screenshots/sound-page-dark.png)
-
 ## Related Repositories
 
 * [`freesound-client`](https://github.com/amilajack/freesound-client)
