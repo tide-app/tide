@@ -26,13 +26,13 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
                   DJ_Beethoven
                 </span>
               </div>
-              <div className="hidden sm:block flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
-                <IonIcon icon={timeSharp} size="large" />
+              <div className="hidden sm:flex flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
+                <IonIcon className="pr-4" icon={timeSharp} size="large" />
                 0:13
-                <IonIcon icon={downloadSharp} size="large" />
-                6k
-                <IonIcon icon={playCircleSharp} size="large" />
-                10k
+                <IonIcon className="pr-4" icon={downloadSharp} size="large" />
+                11k
+                <IonIcon className="pr-4" icon={playCircleSharp} size="large" />
+                23k
               </div>
             </div>
           </Link>
