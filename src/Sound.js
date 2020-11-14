@@ -71,15 +71,19 @@ export default function Sound(props) {
           const packId = new URL(soundResult.pack).pathname
             .split("/")
             .find(Number);
+          // eslint-disable-next-line
           const packsObj = await freeSound.getPack(packId);
-          const packSoundsList = await packsObj.sounds();
+          console.log(packsObj);
+          const packSoundsList = await packsObj.sounds({
+            fields: "id,name,duration,num_downloads,username,num_ratings",
+          });
           if (packSoundsList.results) {
             setPackSounds(packSoundsList.results);
           }
         }
-        const {
-          results: similarSoundsResults,
-        } = await soundResult.getSimilar();
+        const { results: similarSoundsResults } = await soundResult.getSimilar({
+          fields: "id,name,duration,num_downloads,username,num_ratings",
+        });
         if (similarSoundsResults) {
           setSimilarSounds(similarSoundsResults);
         }

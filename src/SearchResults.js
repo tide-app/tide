@@ -18,7 +18,10 @@ export default function Search({
   const searchQuery = typeof queryValue === "string" ? queryValue : undefined;
 
   const debouncedSearch = useDebouncedCallback(
-    () => fetchSearchResults(searchQuery || searchValue),
+    () =>
+      fetchSearchResults(searchQuery || searchValue, {
+        fields: "id,name,duration,num_downloads,username,num_ratings",
+      }),
     300,
     {
       leading: true,
