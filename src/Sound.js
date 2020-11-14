@@ -14,6 +14,7 @@ import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
 import Button from "./components/Button";
+import Description from "./components/Description";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -110,10 +111,6 @@ export default function Sound(props) {
     };
   });
 
-  const sanitizedHTMLFromFreesound = {
-    __html: DOMPurify.sanitize(sound.description),
-  };
-
   return (
     <>
       <h1 className="text-5xl mb-4 text-left">{sound.name}</h1>
@@ -173,10 +170,11 @@ export default function Sound(props) {
           </div>
           {/* Description */}
           <div className="pb-16">
-            <h1 className="text-left text-3xl pt-24 py-4">Description</h1>
-            <div className="Description bg-secondary-static text-primary-static overflow-scroll border border-primary-static text-lg p-10">
-              <p dangerouslySetInnerHTML={sanitizedHTMLFromFreesound} />
-            </div>
+            <Description
+              content={{
+                __html: DOMPurify.sanitize(sound.description),
+              }}
+            />
           </div>
         </>
       )}
