@@ -73,7 +73,6 @@ export default function Sound(props) {
             .find(Number);
           // eslint-disable-next-line
           const packsObj = await freeSound.getPack(packId);
-          console.log(packsObj);
           const packSoundsList = await packsObj.sounds({
             fields: "id,name,duration,num_downloads,username,num_ratings",
           });
