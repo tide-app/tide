@@ -1,7 +1,7 @@
 {
   "name": "freesound-player",
   "version": "1.0.0",
-  "description": "freesound player",
+  "description": "A better freesound UI",
   "license": "MIT",
   "homepage": "https://freesound-player.vercel.app",
   "keywords": [
