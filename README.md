@@ -24,6 +24,9 @@ cd freesound-player
 yarn
 yarn start
 
-# Run storybook
+# Run storybook on your local machine
 yarn storybook
+
+# Deploy storybook to github pages
+yarn deploy-storybook
 ```
