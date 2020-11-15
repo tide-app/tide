@@ -15,6 +15,7 @@ import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
 import Button from "./components/Button";
 import Description from "./components/Description";
+import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -73,16 +74,14 @@ export default function Sound(props) {
             .find(Number);
           // eslint-disable-next-line
           const packsObj = await freeSound.getPack(packId);
-          const packSoundsList = await packsObj.sounds({
-            fields: "id,name,duration,num_downloads,username,num_ratings",
-          });
+          const packSoundsList = await packsObj.sounds(SOUND_LIST_QUERY_PARAMS);
           if (packSoundsList.results) {
             setPackSounds(packSoundsList.results);
           }
         }
-        const { results: similarSoundsResults } = await soundResult.getSimilar({
-          fields: "id,name,duration,num_downloads,username,num_ratings",
-        });
+        const { results: similarSoundsResults } = await soundResult.getSimilar(
+          SOUND_LIST_QUERY_PARAMS
+        );
         if (similarSoundsResults) {
           setSimilarSounds(similarSoundsResults);
         }

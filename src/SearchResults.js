@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useLocation } from "react-router-dom";
 import SoundList from "./SoundList";
+import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -19,9 +20,7 @@ export default function Search({
 
   const debouncedSearch = useDebouncedCallback(
     () =>
-      fetchSearchResults(searchQuery || searchValue, {
-        fields: "id,name,duration,num_downloads,username,num_ratings",
-      }),
+      fetchSearchResults(searchQuery || searchValue, SOUND_LIST_QUERY_PARAMS),
     300,
     {
       leading: true,
