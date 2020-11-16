@@ -28,7 +28,7 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
               </div>
               <div className="hidden sm:flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
                 <IonIcon className="pr-4" icon={timeSharp} size="large" />
-                {track.duration}
+                {Math.round(track.duration)}s
                 <IonIcon className="pr-4" icon={downloadSharp} size="large" />
                 {track.num_downloads}
                 <IonIcon className="pr-4" icon={playCircleSharp} size="large" />
