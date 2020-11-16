@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 
+function timeConvert(minutes) {
+  const min = Math.floor(Math.abs(minutes));
+  const secs = Math.floor((Math.abs(minutes) * 60) % 60);
+  return `${(min < 10 ? "0" : "") + min}:${secs < 10 ? "0" : ""}${secs}`;
+}
+
 const SoundList = ({ tracks, header, onSoundClick }) => {
   return (
     <div className="text-left pb-16">
@@ -28,7 +34,7 @@ const SoundList = ({ tracks, header, onSoundClick }) => {
               </div>
               <div className="hidden sm:flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
                 <IonIcon className="pr-4" icon={timeSharp} size="large" />
-                {track.duration}
+                {timeConvert(track.duration)}
                 <IonIcon className="pr-4" icon={downloadSharp} size="large" />
                 {track.num_downloads}
                 <IonIcon className="pr-4" icon={playCircleSharp} size="large" />
