@@ -47,7 +47,7 @@ const App = () => {
   };
 
   return (
-    <div className="xl:container xl:mx-auto">
+    <div className="xl:container xl:mx-auto px-4">
       <Modal
         className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1 relative"
         contentLabel="Window confirming visit to Freesound"
