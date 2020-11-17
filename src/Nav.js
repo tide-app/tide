@@ -21,7 +21,7 @@ function Nav({
   const queryParams = useQuery();
   const searchQuery = queryParams.get("q");
   return (
-    <nav className="flex justify-between items-center py-4 px-2 md:justify-start md:space-x-10">
+    <nav className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
       <div className="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0">
         <ul className="flex">
           <li className="mr-6">
