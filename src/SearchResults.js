@@ -51,6 +51,7 @@ export default function Search({
           : undefined
       }
       tracks={searchResults}
+      className="py-16"
     />
   );
 }

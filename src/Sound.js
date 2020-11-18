@@ -186,6 +186,7 @@ export default function Sound(props) {
         selectedTrack={sound?.id || packSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
         onSoundClick={() => window.scrollTo(0, 0)}
+        className="pb-16"
       />
       <SoundList
         header="Similar"
@@ -193,6 +194,7 @@ export default function Sound(props) {
         selectedTrack={sound?.id || similarSounds[0]?.id || 0}
         setSelectedTrack={() => {}}
         onSoundClick={() => window.scrollTo(0, 0)}
+        className="pb-16"
       />
     </>
   );
