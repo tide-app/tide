@@ -1,6 +1,5 @@
 {
-  "short_name": "Freesound Player",
-  "name": "A modern take on freesound",
+  "short_name": "Tide",
   "description": "A modern take on freesound",
   "start_url": "https://freesound-player.vercel.app",
   "display": "minimal-ui",
