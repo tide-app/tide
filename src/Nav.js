@@ -34,7 +34,7 @@ function Nav({
       </div>
       <div className="md:flex space-x-2 justify-between items-center">
         <Link to="/" className="flex space-x-2 justify-between items-center">
-          <img className="h-10" src="/icons/icon.svg" />
+          <img className="h-10" src="/icons/light-icon.svg" />
           <h1 className="text-lg">Tide</h1>
         </Link>
       </div>
