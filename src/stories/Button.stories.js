@@ -1,5 +1,5 @@
 import React from "react";
-import "../tailwind.css";
+import "../build.css";
 
 import Button from "../components/Button";
 
