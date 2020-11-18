@@ -69,8 +69,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:style": "tailwind build src/styles.css -o src/tailwind.css",
+    "build": "yarn build:style && react-scripts build",
+    "build:style": "tailwind build src/styles.css -o src/build.css",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
