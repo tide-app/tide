@@ -9,9 +9,9 @@ function timeConvert(minutes) {
   return `${(min < 10 ? "0" : "") + min}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
-const SoundList = ({ tracks, header, onSoundClick }) => {
+const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
   return (
-    <div className="text-left pb-16">
+    <div className={`text-left ${className}`}>
       {header && <h1 className="text-3xl m-auto py-4">{header}</h1>}
       <div className="list-item-container">
         {tracks.map((track) => (
