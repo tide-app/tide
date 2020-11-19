@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  future: {
+    purgeLayersByDefault: true,
+  },
+  purge: ["./public/**/*.html", "./src/**/*.js"],
   theme: {
     colors: {
       primary: "var(--primary-color)",
