@@ -28,7 +28,9 @@ function Nav({
             <a href="/">Explore</a>
           </li>
           <li className="mr-6">
-            <a href="/featured">Featured</a>
+            <a className="hover:opacity-100 opacity-50" href="/featured">
+              Featured
+            </a>
           </li>
         </ul>
       </div>
