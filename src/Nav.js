@@ -36,7 +36,17 @@ function Nav({
       </div>
       <div className="md:flex space-x-2 justify-between items-center">
         <Link to="/" className="flex space-x-2 justify-between items-center">
-          <img className="h-10" src="/icons/light-icon.svg" />
+          <picture>
+            <source
+              srcSet="/icons/light-icon.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <source
+              srcSet="/icons/dark-icon.svg"
+              media="(prefers-color-scheme: light)"
+            />
+            <img src="/icons/light-icon.svg" alt="Tide" className="h-10" />
+          </picture>
           <h1 className="text-lg">Tide</h1>
         </Link>
       </div>
