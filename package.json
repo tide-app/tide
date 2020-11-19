@@ -69,9 +69,9 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "yarn build:style && react-scripts build",
-    "build:style": "tailwind build src/styles.css -o src/build.css",
+    "start": "yarn build:style && react-scripts start",
+    "build": "NODE_ENV=production yarn build:style && react-scripts build",
+    "build:style": "tailwindcss build src/styles.css -o src/build.css",
     "build:icons": "pwa-asset-generator ./public/icons/light-icon.svg public/icons --padding 0px --background '#FBDC57' --index ./public/index.html --path '%PUBLIC_URL%' --manifest public/manifest.json && pwa-asset-generator ./public/icons/dark-icon.svg public/icons --padding 0px --background 'black' --dark-mode --splash-only --index ./public/index.html --path '%PUBLIC_URL%' && prettier 'public/index.html' --write",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "test": "react-scripts test --env=jsdom",
