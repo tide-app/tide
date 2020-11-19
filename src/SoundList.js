@@ -32,13 +32,23 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
                   {track.username}
                 </span>
               </div>
-              <div className="hidden sm:flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
-                <IonIcon className="pr-4" icon={timeSharp} size="large" />
-                {timeConvert(track.duration)}
-                <IonIcon className="pr-4" icon={downloadSharp} size="large" />
-                {track.num_downloads}
-                <IonIcon className="pr-4" icon={playCircleSharp} size="large" />
-                {track.num_ratings}
+              <div className="w-6/12 hidden sm:flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0">
+                <div className="flex justify-start w-2/12 items-center">
+                  <IonIcon className="p-2" icon={timeSharp} size="large" />
+                  {timeConvert(track.duration)}
+                </div>
+                <div className="flex justify-start w-2/12 items-center">
+                  <IonIcon className="p-2" icon={downloadSharp} size="large" />
+                  {track.num_downloads}
+                </div>
+                <div className="flex justify-start w-2/12 items-center">
+                  <IonIcon
+                    className="p-2"
+                    icon={playCircleSharp}
+                    size="large"
+                  />
+                  {track.num_ratings}
+                </div>
               </div>
             </div>
           </Link>
