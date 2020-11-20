@@ -180,7 +180,7 @@ export default function Sound(props) {
           </div>
         </>
       )}
-      {packSounds[0] && (
+      {packSounds.length && (
         <SoundList
           tracks={packSounds}
           selectedTrack={sound?.id || packSounds[0]?.id || 0}
