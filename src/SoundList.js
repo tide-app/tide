@@ -20,7 +20,7 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
             to={`/sound/${track.id}`}
             onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
           >
-            <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-3 pr-12 space-x-2 flex items-center">
+            <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center">
               <IonIcon
                 className="opacity-0 group-hover:opacity-100"
                 icon={playCircleSharp}
@@ -32,13 +32,31 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
                   {track.username}
                 </span>
               </div>
-              <div className="hidden sm:flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0 space-x-12">
-                <IonIcon className="pr-4" icon={timeSharp} size="large" />
-                {timeConvert(track.duration)}
-                <IonIcon className="pr-4" icon={downloadSharp} size="large" />
-                {track.num_downloads}
-                <IonIcon className="pr-4" icon={playCircleSharp} size="large" />
-                {track.num_ratings}
+              <div className="w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0">
+                <div className="flex justify-start w-4/12 items-center">
+                  <IonIcon
+                    className="pl-12 pr-2"
+                    icon={timeSharp}
+                    size="large"
+                  />
+                  {timeConvert(track.duration)}
+                </div>
+                <div className="flex justify-start w-4/12 items-center">
+                  <IonIcon
+                    className="pl-12 pr-2"
+                    icon={downloadSharp}
+                    size="large"
+                  />
+                  {track.num_downloads}
+                </div>
+                <div className="flex justify-start w-4/12 items-center">
+                  <IonIcon
+                    className="pl-8 pr-2"
+                    icon={playCircleSharp}
+                    size="large"
+                  />
+                  <span className="m-1">{track.num_ratings}</span>
+                </div>
               </div>
             </div>
           </Link>
