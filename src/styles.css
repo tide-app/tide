@@ -53,6 +53,6 @@ div > wave {
   overflow: scroll;
 }
 
-.Description {
-  max-height: 20px 0;
+.Description img {
+  padding: 20px 0;
 }
