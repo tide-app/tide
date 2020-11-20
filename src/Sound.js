@@ -180,14 +180,16 @@ export default function Sound(props) {
           </div>
         </>
       )}
-      <SoundList
-        header="Pack"
-        tracks={packSounds}
-        selectedTrack={sound?.id || packSounds[0]?.id || 0}
-        setSelectedTrack={() => {}}
-        onSoundClick={() => window.scrollTo(0, 0)}
-        className="pb-16"
-      />
+      {packSounds[0] && (
+        <SoundList
+          tracks={packSounds}
+          selectedTrack={sound?.id || packSounds[0]?.id || 0}
+          setSelectedTrack={() => {}}
+          onSoundClick={() => window.scrollTo(0, 0)}
+          header="Pack"
+          className="pb-16"
+        />
+      )}
       <SoundList
         header="Similar"
         tracks={similarSounds}
