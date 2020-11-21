@@ -1,9 +1,38 @@
 /* eslint-disable jest/valid-expect, jest/expect-expect */
+function setupServerMocks() {
+  cy.server()
+  cy.route('GET', 'https://freesound.org/apiv2/sounds/462808', 'fixture:sound.json')
+  cy.route('GET', '/people/qfox123/packs/26158', 'fixture:sound.json')
+  cy.route('GET', 'https://freesound.org/apiv2/packs/26158/', 'fixture:pack.json')
+  cy.route('GET', 'https://freesound.org/apiv2/packs/26158/sounds/?fields=id%2Cname%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings', 'fixture:pack-sounds.json')
+  cy.route('GET', 'https://freesound.org/apiv2/sounds/462808/similar/?fields=id%2Cname%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings', 'fixture:similar-sounds.json')
+  cy.route('GET', 'https://freesound.org/data/previews/462/462808_8386274-lq.mp3', 'fixture:sound.mp3')
+}
+
 describe("Home Page", () => {
-  it("should load ", async () => {
-    cy.visit("http://localhost:3000");
-    cy.get(".playlist-item").first().then(($el) => {
-      Cypress.dom.isVisible($el) // true
-    })
+  beforeEach(() => {
+    setupServerMocks()
+  })
+
+  it("should load ", () => {
+    cy.visit("/");
+    cy
+      .get(`[data-e2e-id='SoundList']`)
+      .should('be.visible')
+  });
+});
+
+describe("Sound Page", () => {
+  beforeEach(() => {
+    setupServerMocks()
+  })
+
+  it("should load the page", () => {
+    const testSoundId = '462808';
+    cy.visit(`/sound/${testSoundId}`);
+    cy
+      .get(`[data-e2e-id="sound-title"]`)
+      .should('be.visible')
+      .should('have.text', 'Music note 9')
   });
 });

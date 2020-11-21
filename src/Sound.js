@@ -115,7 +115,9 @@ export default function Sound(props) {
 
   return (
     <>
-      <h1 className="text-5xl mb-4 text-left">{sound.name}</h1>
+      <h1 data-e2e-id="sound-title" className="text-5xl mb-4 text-left">
+        {sound.name}
+      </h1>
       <div className="py-4 text-left mb-4 opacity-50">
         {sound.tags?.map((e) => (
           <div
