@@ -36,3 +36,5 @@ build
 
 .vercel
 src/build.css
+
+cypress/screenshots

@@ -26,7 +26,11 @@ yarn start
 
 # Run storybook on your local machine
 yarn storybook
-
 # Deploy storybook to github pages
 yarn deploy-storybook
+
+# E2E Tests
+yarn start
+# Run this in a separate terminal
+yarn cypress open
 ```
