@@ -4,7 +4,7 @@ import "../build.css";
 import Description from "../components/Description";
 
 export default {
-  title: "Example/Description",
+  title: "Components/Description",
   component: Description,
   argTypes: {
     backgroundColor: { control: "color" },

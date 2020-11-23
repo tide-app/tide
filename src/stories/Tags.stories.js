@@ -1,20 +1,21 @@
 import React from "react";
 import "../build.css";
 
-import Button from "../components/Button";
+import Tags from "../components/Tags";
 
 export default {
-  title: "Components/Button",
-  component: Button,
+  title: "Components/Tags",
+  component: Tags,
   argTypes: {
     backgroundColor: { control: "color" },
   },
 };
 
-const Template = (args) => <Button {...args}>Hello World!</Button>;
+const Template = (args) => <Tags {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  label: "Button",
+  label: "Tags",
+  tags: ["forest", "ambience"],
 };

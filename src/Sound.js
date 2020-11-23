@@ -16,6 +16,7 @@ import SoundList from "./SoundList";
 import Button from "./components/Button";
 import Description from "./components/Description";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
+import Tags from "./components/Tags";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -118,16 +119,7 @@ export default function Sound(props) {
       <h1 data-e2e-id="sound-title" className="text-5xl mb-4 text-left">
         {sound.name}
       </h1>
-      <div className="py-4 text-left mb-4 opacity-50">
-        {sound.tags?.map((e) => (
-          <div
-            key={e}
-            className="inline-block px-3 rounded mr-4 mb-4 border border-solid border-secondary"
-          >
-            {e}
-          </div>
-        ))}
-      </div>
+      <Tags tags={sound.tags} />
       {sound.previews && (
         <>
           <Waveform
