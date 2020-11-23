@@ -4,7 +4,7 @@ import "../build.css";
 import Button from "../components/Button";
 
 export default {
-  title: "Example/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: {
     backgroundColor: { control: "color" },

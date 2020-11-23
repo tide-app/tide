@@ -4,7 +4,7 @@ import "../build.css";
 import Tags from "../components/Tags";
 
 export default {
-  title: "Example/Tags",
+  title: "Components/Tags",
   component: Tags,
   argTypes: {
     backgroundColor: { control: "color" },

@@ -6,7 +6,7 @@ import SoundList from "../SoundList";
 import { results as tracks } from "./similar-sounds.json";
 
 export default {
-  title: "Example/SoundList",
+  title: "Components/SoundList",
   component: SoundList,
 };
 

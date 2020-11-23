@@ -4,7 +4,7 @@ import "../build.css";
 import Modal from "react-modal";
 
 export default {
-  title: "Example/Modal",
+  title: "Components/Modal",
   component: Modal,
 };
 
