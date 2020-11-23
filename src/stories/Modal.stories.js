@@ -5,7 +5,7 @@ import Modal from "react-modal";
 
 export default {
   title: "Example/Modal",
-  component: Modal,
+  component: "react-modal",
 };
 
 const Template = (args) => <Modal {...args}>Hello World!</Modal>;
