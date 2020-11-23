@@ -5,10 +5,10 @@ import Modal from "react-modal";
 
 export default {
   title: "Example/Modal",
-  component: "react-modal",
+  component: Modal,
 };
 
-const Template = (args) => <Modal {...args}>Hello World!</Modal>;
+const Template = (args) => <Modal {...args} />;
 
 export const Primary = Template.bind({});
 
