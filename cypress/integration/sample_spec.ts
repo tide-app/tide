@@ -30,7 +30,7 @@ describe("Search functionality", () => {
   it("checks that search updates the url correctly ", () => {
     cy.visit("/");
     cy
-      .get(`[name="sound-search"]`)
+      .get(`[data-e2e-id="search-input"]`)
       .type('hello')
       .should('have.value', 'hello')
     cy.url().should('include', '/search?q=hello')
