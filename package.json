@@ -11,6 +11,7 @@
   "dependencies": {
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
+    "@headlessui/react": "^0.2.0",
     "@ionic/react": "^5.4.4",
     "@types/lodash": "^4.14.165",
     "autoprefixer": "^10.0.2",
