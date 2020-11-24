@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import {
   caretDownOutline,
-  cropSharp,
+  // cropSharp, // Removing on Tuesday, November 24, 2020
   downloadSharp,
   pauseCircleSharp,
   playCircleSharp,
@@ -137,7 +137,7 @@ export default function Sound(props) {
           <div className="flex justfify-between py-3">
             {/* Download and edit buttons */}
             <div className="w-6/12 space-x-3">
-              <IonIcon size="large" icon={downloadSharp} />
+              {/* <IonIcon size="large" icon={downloadSharp} /> */}
               <button
                 onClick={handlePlayingAndPausing}
                 className="focus:outline-none"
@@ -151,10 +151,10 @@ export default function Sound(props) {
             </div>
             {/* Download stats and Play */}
             <div className="w-6/12 text-right space-x-3 flex justify-end items-center">
-              <Button>
-                <IonIcon icon={cropSharp} />
+              {/* <Button>  // Removing on Tuesday, November 24, 2020, due to
+                <IonIcon icon={cropSharp} />  // lack of functionality - Hamir
                 <a>Edit</a>
-              </Button>
+              </Button> */}
               {isLoggedIn && loadingState === 1 && (
                 <Button onClick={() => downloadSound(sound)}>
                   <IonIcon icon={downloadSharp} />

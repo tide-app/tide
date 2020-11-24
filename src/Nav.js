@@ -24,14 +24,14 @@ function Nav({
     <nav className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
       <div className="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0">
         <ul className="flex">
-          <li className="mr-6">
-            <a href="/">Explore</a>
+          {/* <li className="mr-6"> // Removing on Tuesday, November 24, 2020, due to
+            <a href="/">Explore</a> // lack of functionality - Hamir
           </li>
           <li className="mr-6">
             <a className="hover:opacity-100 opacity-50" href="/featured">
               Featured
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="md:flex space-x-2 justify-between items-center">
