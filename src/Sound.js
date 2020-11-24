@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
 import {
-  caretDownOutline,
+  // caretDownOutline,
   cropSharp,
   downloadSharp,
   pauseCircleSharp,
@@ -17,6 +17,7 @@ import Button from "./components/Button";
 import Description from "./components/Description";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 import Tags from "./components/Tags";
+import Dropdown from "./components/Dropdown";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -156,11 +157,7 @@ export default function Sound(props) {
                 <a>Edit</a>
               </Button>
               {isLoggedIn && loadingState === 1 && (
-                <Button onClick={() => downloadSound(sound)}>
-                  <IonIcon icon={downloadSharp} />
-                  <a>Download</a>
-                  <IonIcon icon={caretDownOutline} />
-                </Button>
+                <Dropdown onClick={() => downloadSound(sound)} />
               )}
             </div>
           </div>
