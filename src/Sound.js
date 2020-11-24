@@ -138,7 +138,7 @@ export default function Sound(props) {
             {/* Download and edit buttons */}
             <div className="w-6/12 space-x-3">
               <IonIcon size="large" icon={downloadSharp} />
-              <button
+              <Button
                 onClick={handlePlayingAndPausing}
                 className="focus:outline-none"
               >
@@ -147,7 +147,7 @@ export default function Sound(props) {
                 ) : (
                   <IonIcon size="large" icon={playCircleSharp} />
                 )}
-              </button>
+              </Button>
             </div>
             {/* Download stats and Play */}
             <div className="w-6/12 text-right space-x-3 flex justify-end items-center">
