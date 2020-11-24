@@ -22,6 +22,21 @@ describe("Home Page", () => {
   });
 });
 
+describe("Search functionality", () => {
+  beforeEach(() => {
+    setupServerMocks()
+  })
+
+  it("checks that search updates the url correctly ", () => {
+    cy.visit("/");
+    cy
+      .get(`[data-e2e-id="search-input"]`)
+      .type('hello')
+      .should('have.value', 'hello')
+    cy.url().should('include', '/search?q=hello')
+  });
+});
+
 describe("Sound Page", () => {
   beforeEach(() => {
     setupServerMocks()
