@@ -90,6 +90,7 @@ const App = () => {
         <Nav
           setSearchValue={setSearchValue}
           openRedirectDialogModalWindow={openRedirectDialogModalWindow}
+          isLoggedIn={isLoggedIn}
         />
         <Switch>
           <Route
