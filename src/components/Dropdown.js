@@ -4,7 +4,7 @@ import { caretDownOutline, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import Button from "./Button";
 
-export default function Dropdown() {
+export default function Dropdown({ onClick = () => {} }) {
   return (
     <div className="flex items-center justify-center">
       <div className="relative inline-block text-left">
@@ -32,34 +32,18 @@ export default function Dropdown() {
               >
                 <Menu.Items
                   static
-                  className="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                  className="absolute right-0 w-56 mt-2 origin-top-right bg-secondary text-primary divide-y divide-gray-100 border shadow-lg outline-none"
                 >
-                  <div className="py-1">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={`${
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700"
-                          } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
-                        >
-                          Export MP3
-                        </a>
-                      )}
+                  <div>
+                    <Menu.Item onClick={onClick}>
+                      <a className="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left">
+                        Export MP3
+                      </a>
                     </Menu.Item>
                     <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={`${
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700"
-                          } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
-                        >
-                          Export OGG
-                        </a>
-                      )}
+                      <a className="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left">
+                        Export OGG
+                      </a>
                     </Menu.Item>
                   </div>
                 </Menu.Items>
