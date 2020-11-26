@@ -4,10 +4,15 @@ import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import PlayButton from "./components/PlayButton";
 
-function timeConvert(minutes) {
-  const min = Math.floor(Math.abs(minutes));
-  const secs = Math.floor((Math.abs(minutes) * 60) % 60);
-  return `${(min < 10 ? "0" : "") + min}:${secs < 10 ? "0" : ""}${secs}`;
+function format(lengthInSeconds) {
+  const addZeroToFrontOf = (number) => `${number < 10 ? "0" : ""}${number}`;
+  if (lengthInSeconds < 60) return `00:${addZeroToFrontOf(lengthInSeconds)}`;
+  let m = Math.floor(lengthInSeconds / 60);
+  const s = lengthInSeconds - m * 60;
+  if (m < 60) return `${addZeroToFrontOf(m)}:${addZeroToFrontOf(s)}`;
+  const h = Math.floor(m / 60);
+  m -= h * 60;
+  return `${addZeroToFrontOf(h)}:${addZeroToFrontOf(m)}:${addZeroToFrontOf(s)}`;
 }
 
 const SoundList = ({
@@ -78,7 +83,7 @@ const SoundList = ({
                     icon={timeSharp}
                     size="large"
                   />
-                  {timeConvert(track.duration)}
+                  {format(Math.round(track.duration))}
                 </div>
                 <div className="flex justify-start w-4/12 items-center">
                   <IonIcon
