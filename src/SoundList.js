@@ -4,15 +4,22 @@ import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import PlayButton from "./components/PlayButton";
 
-function format(lengthInSeconds) {
-  const addZeroToFrontOf = (number) => `${number < 10 ? "0" : ""}${number}`;
-  if (lengthInSeconds < 60) return `00:${addZeroToFrontOf(lengthInSeconds)}`;
-  let m = Math.floor(lengthInSeconds / 60);
-  const s = lengthInSeconds - m * 60;
-  if (m < 60) return `${addZeroToFrontOf(m)}:${addZeroToFrontOf(s)}`;
-  const h = Math.floor(m / 60);
-  m -= h * 60;
-  return `${addZeroToFrontOf(h)}:${addZeroToFrontOf(m)}:${addZeroToFrontOf(s)}`;
+function convertSecondsFromFreesound(durationOfSoundInSeconds) {
+  const prefixWithZeroIfLessThanTen = (nonnegativeIntegerLessThanSixty) =>
+    `${
+      nonnegativeIntegerLessThanSixty < 10 ? "0" : ""
+    }${nonnegativeIntegerLessThanSixty}`;
+
+  const hoursOfSound = Math.floor(durationOfSoundInSeconds / 3600);
+  let secondsOfSound = durationOfSoundInSeconds - 3600 * hoursOfSound;
+  const minutesOfSound = Math.floor(secondsOfSound / 60);
+  secondsOfSound -= 60 * minutesOfSound;
+
+  return `${prefixWithZeroIfLessThanTen(
+    hoursOfSound
+  )}:${prefixWithZeroIfLessThanTen(
+    minutesOfSound
+  )}:${prefixWithZeroIfLessThanTen(secondsOfSound)}`;
 }
 
 const SoundList = ({
@@ -83,9 +90,9 @@ const SoundList = ({
                     icon={timeSharp}
                     size="large"
                   />
-                  {format(Math.round(track.duration))}
+                  {convertSecondsFromFreesound(Math.round(track.duration))}
                 </div>
-                <div className="flex justify-start w-4/12 items-center">
+                <div className="flex justify-start w-3/12 items-center">
                   <IonIcon
                     className="pl-12 pr-2"
                     icon={downloadSharp}
@@ -93,7 +100,7 @@ const SoundList = ({
                   />
                   {track.num_downloads}
                 </div>
-                <div className="flex justify-start w-4/12 items-center">
+                <div className="flex justify-start w-3/12 items-center">
                   <IonIcon
                     className="pl-8 pr-2"
                     icon={playCircleSharp}
