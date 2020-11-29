@@ -4,22 +4,24 @@ import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import PlayButton from "./components/PlayButton";
 
-function convertSecondsFromFreesound(durationOfSoundInSeconds) {
-  const prefixWithZeroIfLessThanTen = (nonnegativeIntegerLessThanSixty) =>
+function convertSecondsInDecimalToHHMMSSFormat(secondsInDecimal) {
+  const hours = Math.floor(secondsInDecimal / 3600);
+  let remainingSeconds = secondsInDecimal - 3600 * hours;
+  const someNonnegativeIntegerNumberOfMinutesLessThanSixty = Math.floor(
+    remainingSeconds / 60
+  );
+  remainingSeconds -= 60 * someNonnegativeIntegerNumberOfMinutesLessThanSixty;
+
+  const prefixWithZeroIfLessThanTen = (
+    someNonnegativeIntegerNumberLessThanSixty
+  ) =>
     `${
-      nonnegativeIntegerLessThanSixty < 10 ? "0" : ""
-    }${nonnegativeIntegerLessThanSixty}`;
+      someNonnegativeIntegerNumberLessThanSixty < 10 ? "0" : ""
+    }${someNonnegativeIntegerNumberLessThanSixty}`;
 
-  const hoursOfSound = Math.floor(durationOfSoundInSeconds / 3600);
-  let secondsOfSound = durationOfSoundInSeconds - 3600 * hoursOfSound;
-  const minutesOfSound = Math.floor(secondsOfSound / 60);
-  secondsOfSound -= 60 * minutesOfSound;
-
-  return `${prefixWithZeroIfLessThanTen(
-    hoursOfSound
-  )}:${prefixWithZeroIfLessThanTen(
-    minutesOfSound
-  )}:${prefixWithZeroIfLessThanTen(secondsOfSound)}`;
+  return `${prefixWithZeroIfLessThanTen(hours)}:${prefixWithZeroIfLessThanTen(
+    someNonnegativeIntegerNumberOfMinutesLessThanSixty
+  )}:${prefixWithZeroIfLessThanTen(remainingSeconds)}`;
 }
 
 const SoundList = ({
@@ -90,7 +92,9 @@ const SoundList = ({
                     icon={timeSharp}
                     size="large"
                   />
-                  {convertSecondsFromFreesound(Math.round(track.duration))}
+                  {convertSecondsInDecimalToHHMMSSFormat(
+                    Math.round(track.duration)
+                  )}
                 </div>
                 <div className="flex justify-start w-3/12 items-center">
                   <IonIcon
