@@ -1,11 +1,5 @@
 import DOMPurify from "dompurify";
-import {
-  caretDownOutline,
-  // cropSharp, // Removing on Tuesday, November 24, 2020
-  downloadSharp,
-  pauseCircleSharp,
-  playCircleSharp,
-} from "ionicons/icons";
+import { pauseCircleSharp, playCircleSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import localForage from "localforage";
 import { useParams } from "react-router-dom";
@@ -13,10 +7,11 @@ import React, { useEffect, useState } from "react";
 import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
-import Button from "./components/Button";
+// import Button from "./components/Button";
 import Description from "./components/Description";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 import Tags from "./components/Tags";
+import Dropdown from "./components/Dropdown";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -156,11 +151,7 @@ export default function Sound(props) {
                 <a>Edit</a>
               </Button> */}
               {isLoggedIn && loadingState === 1 && (
-                <Button onClick={() => downloadSound(sound)}>
-                  <IonIcon icon={downloadSharp} />
-                  <a>Download</a>
-                  <IonIcon icon={caretDownOutline} />
-                </Button>
+                <Dropdown onClick={() => downloadSound(sound)} />
               )}
             </div>
           </div>
