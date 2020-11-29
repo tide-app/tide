@@ -51,6 +51,7 @@ const App = () => {
         onConfirm={navigateToLogin}
         onClose={closeModal}
         isOpen={modalIsOpen}
+        onRequestClose={closeModal}
       ></ModalPrompt>
       <Router>
         <Nav
