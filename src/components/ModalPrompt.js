@@ -12,7 +12,7 @@ export default function ModalPrompt({
 }) {
   return (
     <Modal
-      className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1 relative"
+      className="bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1 relative text-secondary"
       contentLabel="Window confirming visit to Freesound"
       isOpen={isOpen}
       onRequestClose={onRequestClose}

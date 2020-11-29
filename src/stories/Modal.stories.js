@@ -1,18 +1,26 @@
 import React from "react";
 import "../build.css";
 
-import Modal from "react-modal";
+import ModalPrompt from "../components/ModalPrompt";
 
 export default {
-  title: "Components/Modal",
-  component: Modal,
+  title: "Components/ModalPrompt",
+  component: ModalPrompt,
+  argTypes: {
+    backgroundColor: { control: "color" },
+  },
 };
 
-const Template = (args) => <Modal {...args} />;
+const Template = (args) => (
+  <ModalPrompt {...args} isOpen={true}>
+    hahahah
+  </ModalPrompt>
+);
 
 export const Primary = Template.bind({});
 
 Primary.args = {
   primary: true,
-  label: "Modal",
+  label: "ModalPrompt",
+  title: "Example Title Text",
 };
