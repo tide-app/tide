@@ -150,7 +150,7 @@ export default function Sound(props) {
                 <IonIcon icon={cropSharp} />  // lack of functionality - Hamir
                 <a>Edit</a>
               </Button> */}
-              {isLoggedIn && loadingState === 1 && (
+              {isLoggedIn && loadingState !== 2 && (
                 <Dropdown onClick={() => downloadSound(sound)} />
               )}
             </div>
