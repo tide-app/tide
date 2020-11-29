@@ -11,16 +11,13 @@ export default {
   },
 };
 
-const Template = (args) => (
-  <ModalPrompt {...args} isOpen={true}>
-    hahahah
-  </ModalPrompt>
-);
+const Template = (args) => <ModalPrompt {...args} />;
 
 export const Primary = Template.bind({});
 
 Primary.args = {
   primary: true,
+  isOpen: true,
   label: "ModalPrompt",
   title: "Example Title Text",
 };
