@@ -16,6 +16,7 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
       <div className="list-item-container">
         {tracks.map((track) => (
           <Link
+            data-e2e-id="SoundList-track-url"
             key={track.id}
             to={`/sound/${track.id}`}
             onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
@@ -27,7 +28,7 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
                 size="large"
               />
               <div className="flex flex-col flex-grow">
-                <span>{track.name}</span>
+                <span data-e2e-id="SoundList-track-name">{track.name}</span>
                 <span className="text-left text-xs opacity-50">
                   {track.username}
                 </span>

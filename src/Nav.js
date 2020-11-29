@@ -56,6 +56,7 @@ function Nav({
           name="sound-search"
           placeholder="Search sound..."
           defaultValue={searchQuery}
+          data-e2e-id="search-input"
           onChange={(e) =>
             pushHistory(e.target.value) && setSearchValue(e.target.value)
           }
