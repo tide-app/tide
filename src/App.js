@@ -32,6 +32,9 @@ const App = () => {
     );
   });
 
+  function closeModal() {
+    setModalIsOpen(false);
+  }
   function openRedirectDialogModalWindow() {
     setModalIsOpen(true);
   }
@@ -45,7 +48,9 @@ const App = () => {
     <div className="xl:container xl:mx-auto px-4">
       <ModalPrompt
         title="Redirecting to Freesound"
-        onClick={navigateToLogin}
+        onConfirm={navigateToLogin}
+        onClose={closeModal}
+        isOpen={modalIsOpen}
       ></ModalPrompt>
       <Router>
         <Nav
