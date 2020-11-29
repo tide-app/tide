@@ -63,7 +63,11 @@ const App = () => {
           <Route
             path="/sound/:id"
             render={() => (
-              <Sound isLoggedIn={isLoggedIn} freeSound={freeSound} />
+              <Sound
+                setModalIsOpen={setModalIsOpen}
+                isLoggedIn={isLoggedIn}
+                freeSound={freeSound}
+              />
             )}
           />
           <Route

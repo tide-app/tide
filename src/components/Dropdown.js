@@ -4,7 +4,7 @@ import { caretDownOutline, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import Button from "./Button";
 
-export default function Dropdown({ onClick = () => {} }) {
+export default function Dropdown({ onClick = () => {}, disabled = false }) {
   return (
     <div className="flex items-center justify-center">
       <div className="relative inline-block text-left">
@@ -13,7 +13,7 @@ export default function Dropdown({ onClick = () => {} }) {
             <>
               <span className="rounded-md shadow-sm">
                 <Menu.Button className="inline-flex justify-center w-full text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md">
-                  <Button>
+                  <Button disabled={disabled}>
                     <IonIcon icon={downloadSharp} size="small" />
                     <span>Download</span>
                     <IonIcon icon={caretDownOutline} size="small" />
@@ -35,7 +35,9 @@ export default function Dropdown({ onClick = () => {} }) {
                   className="absolute right-0 w-56 mt-2 origin-top-right bg-secondary text-primary divide-y divide-gray-100 border shadow-lg outline-none"
                 >
                   <div>
-                    <Menu.Item onClick={onClick}>
+                    <Menu.Item
+                      onClick={(e) => (disabled ? onClick(e) : () => {})}
+                    >
                       <a className="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left">
                         Export MP3
                       </a>

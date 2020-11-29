@@ -38,3 +38,4 @@ build
 src/build.css
 
 cypress/screenshots
+.eslintcache
