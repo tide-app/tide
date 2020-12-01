@@ -1471,7 +1471,7 @@
     ionicons "^5.1.2"
     tslib "^1.10.0"
 
-"@ionic/react@^5.4.4":
+"@ionic/react@^5.5.1":
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/@ionic/react/-/react-5.5.1.tgz#ee6d9a7918dfa0bfc1b96759a77224c7aa277972"
   integrity sha512-mMk/vgFyn0ire43U4uE0Az2BSQGMDDZRFBQIsorsNohXAc13JYGEi0S6OaRRF4pGbkgnfz9f/hYmeFKyi58tpA==
