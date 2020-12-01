@@ -15,7 +15,7 @@
     "@ionic/react": "^5.4.4",
     "@types/lodash": "^4.14.165",
     "autoprefixer": "^9",
-    "cypress": "6.0.0",
+    "cypress": "6.0.1",
     "dompurify": "^2.2.2",
     "freesound-client": "^0.3.0",
     "ionicons": "^5.2.3",
