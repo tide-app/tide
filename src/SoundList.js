@@ -28,7 +28,12 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
                 size="large"
               />
               <div className="flex flex-col flex-grow">
-                <span data-e2e-id="SoundList-track-name">{track.name}</span>
+                <span
+                  className="overflow-clip"
+                  data-e2e-id="SoundList-track-name"
+                >
+                  {track.name}
+                </span>
                 <span className="text-left text-xs opacity-50">
                   {track.username}
                 </span>
