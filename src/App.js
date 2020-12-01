@@ -52,7 +52,7 @@ const App = () => {
         onClose={closeModal}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-      ></ModalPrompt>
+      />
       <Router>
         <Nav
           setSearchValue={setSearchValue}

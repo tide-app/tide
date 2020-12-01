@@ -3,6 +3,7 @@
   --secondary-static-color: black;
   --primary-color: var(--primary-static-color);
   --secondary-color: var(--secondary-static-color);
+  --ring-color: white;
 }
 @media (prefers-color-scheme: dark) {
   :root {
