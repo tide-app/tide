@@ -5,7 +5,7 @@ export default function Button({ children, ...props }) {
     <button
       {...props}
       type="button"
-      className="rounded bg-secondary text-primary p-1 px-2 flex items-center space-x-2"
+      className="disabled:opacity-50 rounded bg-secondary text-primary p-1 px-2 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
     >
       {children}
     </button>

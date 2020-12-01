@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
-// import Button from "./components/Button";
 import Description from "./components/Description";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 import Tags from "./components/Tags";
@@ -41,7 +40,7 @@ const downloadSound = async (soundObject) => {
 };
 
 export default function Sound(props) {
-  const { isLoggedIn, freeSound } = props;
+  const { isLoggedIn, freeSound, setModalIsOpen } = props;
   const [sound, setSound] = useState({});
   const [packSounds, setPackSounds] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -132,7 +131,6 @@ export default function Sound(props) {
           <div className="flex justfify-between py-3">
             {/* Download and edit buttons */}
             <div className="w-6/12 space-x-3">
-              {/* <IonIcon size="large" icon={downloadSharp} /> */}
               <button
                 onClick={handlePlayingAndPausing}
                 className="focus:outline-none"
@@ -146,12 +144,14 @@ export default function Sound(props) {
             </div>
             {/* Download stats and Play */}
             <div className="w-6/12 text-right space-x-3 flex justify-end items-center">
-              {/* <Button>  // Removing on Tuesday, November 24, 2020, due to
-                <IonIcon icon={cropSharp} />  // lack of functionality - Hamir
-                <a>Edit</a>
-              </Button> */}
-              {isLoggedIn && loadingState === 1 && (
-                <Dropdown onClick={() => downloadSound(sound)} />
+              {loadingState !== 2 && (
+                <Dropdown
+                  disabled={loadingState !== 1}
+                  onClick={() => {
+                    if (!isLoggedIn) setModalIsOpen(true);
+                    else downloadSound(sound);
+                  }}
+                />
               )}
             </div>
           </div>

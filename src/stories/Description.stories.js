@@ -25,7 +25,7 @@ Basic.args = {
 export const HtmlExample = Template.bind({});
 HtmlExample.args = {
   content: {
-    __html: "The world <strong>flat</strong>",
+    __html: "The world is <strong>round</strong>.",
   },
   primary: true,
   label: "Description",
