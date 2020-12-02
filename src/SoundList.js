@@ -9,6 +9,12 @@ function timeConvert(minutes) {
   return `${(min < 10 ? "0" : "") + min}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
+// function highlightSound(track, sound) {
+//   if (track.name === sound.name) {
+//     // bckground color is secondary regardless of hover
+//   }
+// }
+
 const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
   return (
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
