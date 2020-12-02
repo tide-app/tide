@@ -110,7 +110,10 @@ export default function Sound(props) {
 
   return (
     <>
-      <h1 data-e2e-id="sound-title" className="text-5xl mb-4 text-left">
+      <h1
+        data-e2e-id="sound-title"
+        className="text-4xl md:text-5xl mb-4 text-left"
+      >
         {sound.name}
       </h1>
       <Tags tags={sound.tags} />
