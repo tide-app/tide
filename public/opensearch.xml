@@ -1,7 +1,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Tide</ShortName>
-  <Description>A better Freesound UI</Description>
-  <Url type="text/html" method="get" template="https://freesound-player.vercel.app/search?q={searchTerms}"/>
+  <Description>Explore a world of sounds</Description>
+  <Url type="text/html" method="get" template="https://tide-app.vercel.app/search?q={searchTerms}"/>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image height="32" width="32" type="image/png">https://freesound-player.vercel.app/icons/apple-touch-icon.png</Image>
+  <Image height="32" width="32" type="image/png">https://tide-app.vercel.app/icons/apple-touch-icon.png</Image>
 </OpenSearchDescription>

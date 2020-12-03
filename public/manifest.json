@@ -1,7 +1,7 @@
 {
   "short_name": "Tide",
-  "description": "A modern take on freesound",
-  "start_url": "https://freesound-player.vercel.app",
+  "description": "Explore a world of sounds",
+  "start_url": "https://tide-app.vercel.app",
   "display": "minimal-ui",
   "theme_color": "#FBDC57",
   "background_color": "black",

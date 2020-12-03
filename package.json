@@ -1,9 +1,9 @@
 {
-  "name": "freesound-player",
+  "name": "tide",
   "version": "1.0.0",
-  "description": "A better freesound UI",
+  "description": "Explore a world of sounds",
   "license": "MIT",
-  "homepage": "https://freesound-player.vercel.app",
+  "homepage": "https://tide-app.vercel.app",
   "keywords": [
     "react",
     "starter"
