@@ -11,6 +11,14 @@ module.exports = {
       secondary: "var(--secondary-color)",
       "secondary-static": "var(--secondary-static-color)",
     },
+    container: {
+      screens: {
+        sm: "100%",
+        md: "100%",
+        lg: "1024px",
+        xl: "1280px",
+      },
+    },
   },
   variants: {
     textColor: ["responsive", "hover", "focus", "group-hover"],
