@@ -12,7 +12,7 @@ export default function Dropdown({ onClick = () => {}, disabled = false }) {
           {({ open }) => (
             <>
               <span className="rounded-md shadow-sm">
-                <Menu.Button className="inline-flex justify-center w-full text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md">
+                <Menu.Button className="inline-flex justify-center w-full text-sm font-medium leading-5 rounded-md">
                   <Button disabled={disabled}>
                     <IonIcon icon={downloadSharp} size="small" />
                     <span>Download</span>

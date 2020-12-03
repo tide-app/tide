@@ -45,7 +45,7 @@ const App = () => {
   };
 
   return (
-    <div className="xl:container xl:mx-auto px-4">
+    <div className="lg:container lg:mx-auto px-4">
       <ModalPrompt
         title="Redirecting to Freesound"
         onConfirm={navigateToLogin}
