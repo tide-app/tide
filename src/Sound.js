@@ -1,10 +1,11 @@
 import DOMPurify from "dompurify";
-import { pauseCircleSharp, playCircleSharp } from "ionicons/icons";
+import { Helmet } from "react-helmet";
 import { IonIcon } from "@ionic/react";
 import localForage from "localforage";
+import { pauseCircleSharp, playCircleSharp } from "ionicons/icons";
+import tinykeys from "tinykeys";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import tinykeys from "tinykeys";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
 import Description from "./components/Description";
@@ -110,6 +111,10 @@ export default function Sound(props) {
 
   return (
     <>
+      <Helmet>
+        <title>{sound.name}</title>
+        <meta name="description" content="Name of current sound" />
+      </Helmet>
       <h1
         data-e2e-id="sound-title"
         className="text-4xl md:text-5xl mb-4 text-left"
