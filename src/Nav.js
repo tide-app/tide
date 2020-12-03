@@ -1,4 +1,5 @@
-import React from "react";
+import tinykeys from "tinykeys";
+import React, { useEffect } from "react";
 import { Link, withRouter, useLocation } from "react-router-dom";
 import Button from "./components/Button";
 import Input from "./components/Input";
@@ -20,6 +21,20 @@ function Nav({
   };
   const queryParams = useQuery();
   const searchQuery = queryParams.get("q");
+  useEffect(() => {
+    const unsubscribe = tinykeys(window, {
+      Slash: (event) => {
+        // Shortcuts should only work when the document
+        if (document.activeElement === document.body) {
+          event.preventDefault();
+          document.getElementById("searchBar").focus();
+        } // has focus, and not necessarily when the search input has focus.
+      },
+    });
+    return () => {
+      unsubscribe();
+    };
+  });
   return (
     <nav className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
       <div className="md:flex items-center justify-start space-x-8 md:flex-1 lg:w-0">
@@ -53,6 +68,7 @@ function Nav({
 
       <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
         <Input
+          id="searchBar"
           name="sound-search"
           placeholder="Search sound..."
           defaultValue={searchQuery}
