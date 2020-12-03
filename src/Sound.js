@@ -112,8 +112,8 @@ export default function Sound(props) {
   return (
     <>
       <Helmet>
-        <title>{sound.name}</title>
-        <meta name="description" content="Name of current sound" />
+        <title>{sound.name} - Tide</title>
+        <meta name="description" content="A sound from Tide" />
       </Helmet>
       <h1
         data-e2e-id="sound-title"
