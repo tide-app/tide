@@ -1,6 +1,6 @@
-# freesound-player
+# tide
 
-[![Test](https://github.com/amilajack/freesound-player/workflows/Test/badge.svg)](https://github.com/amilajack/freesound-player/actions?query=workflow%3ATest)
+[![Test](https://github.com/amilajack/tide/workflows/Test/badge.svg)](https://github.com/amilajack/tide/actions?query=workflow%3ATest)
 
 ## UI 
 
@@ -19,8 +19,8 @@
 ## Setup
 
 ```bash
-git clone https://github.com/amilajack/freesound-player
-cd freesound-player
+git clone https://github.com/amilajack/tide
+cd tide
 yarn
 yarn start
 
