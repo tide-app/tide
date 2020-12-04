@@ -68,7 +68,7 @@ function Nav({
 
       <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
         <Input
-          id="searchBar"
+          id="search-bar"
           name="sound-search"
           placeholder="Search sound..."
           defaultValue={searchQuery}
