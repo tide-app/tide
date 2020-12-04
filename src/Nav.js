@@ -29,7 +29,7 @@ function Nav({
       } // should only work when the document has focus.
     };
     const unsubscribe = tinykeys(window, {
-      "$mod+KeyK": (event) => focusSearchBar(event),
+      "$mod+KeyK": focusSearchBar,
       Slash: focusSearchBar,
     });
     return () => {
