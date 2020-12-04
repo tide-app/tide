@@ -22,21 +22,15 @@ function Nav({
   const queryParams = useQuery();
   const searchQuery = queryParams.get("q");
   useEffect(() => {
+    const focusSearchBar = (event) => {
+      if (document.activeElement === document.body) {
+        event.preventDefault(); // Search shortcuts
+        document.getElementById("search-bar").focus();
+      } // should only work when the document has focus.
+    };
     const unsubscribe = tinykeys(window, {
-      "$mod+KeyK": (event) => {
-        // Search shortcuts should only work when the
-        if (document.activeElement === document.body) {
-          event.preventDefault(); // document has focus.
-          document.getElementById("search-bar").focus();
-        }
-      },
-      Slash: (event) => {
-        // Search shortcuts should only work when the
-        if (document.activeElement === document.body) {
-          event.preventDefault(); // document has focus.
-          document.getElementById("search-bar").focus();
-        }
-      },
+      "$mod+KeyK": (event) => focusSearchBar(event),
+      Slash: (event) => focusSearchBar(event),
     });
     return () => {
       unsubscribe();
