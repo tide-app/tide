@@ -23,12 +23,19 @@ function Nav({
   const searchQuery = queryParams.get("q");
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
-      Slash: (event) => {
-        // Shortcuts should only work when the document
+      "$mod+KeyK": (event) => {
+        // Search shortcuts should only work when the
         if (document.activeElement === document.body) {
-          event.preventDefault();
-          document.getElementById("searchBar").focus();
-        } // has focus, and not necessarily when the search input has focus.
+          event.preventDefault(); // document has focus.
+          document.getElementById("search-bar").focus();
+        }
+      },
+      Slash: (event) => {
+        // Search shortcuts should only work when the
+        if (document.activeElement === document.body) {
+          event.preventDefault(); // document has focus.
+          document.getElementById("search-bar").focus();
+        }
       },
     });
     return () => {
