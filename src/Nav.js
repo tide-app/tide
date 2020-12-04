@@ -30,7 +30,7 @@ function Nav({
     };
     const unsubscribe = tinykeys(window, {
       "$mod+KeyK": (event) => focusSearchBar(event),
-      Slash: (event) => focusSearchBar(event),
+      Slash: focusSearchBar,
     });
     return () => {
       unsubscribe();
