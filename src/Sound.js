@@ -180,6 +180,7 @@ export default function Sound(props) {
           setSelectedTrack={() => {}}
           onSoundClick={() => window.scrollTo(0, 0)}
           header="Pack"
+          currentTrackId={sound.id}
           className="pb-16"
         />
       )}
@@ -190,6 +191,7 @@ export default function Sound(props) {
           selectedTrack={sound?.id || similarSounds[0]?.id || 0}
           setSelectedTrack={() => {}}
           onSoundClick={() => window.scrollTo(0, 0)}
+          currentTrackId={sound.id}
           className="pb-16"
         />
       )}
