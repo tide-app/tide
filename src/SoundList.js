@@ -9,9 +9,16 @@ function timeConvert(minutes) {
   return `${(min < 10 ? "0" : "") + min}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
+// Psuedo code:
 // function highlightSound(track, sound) {
-//   if (track.name === sound.name) {
-//     // bckground color is secondary regardless of hover
+//   let packSoundArr = pack sounds array;
+//   let similarSoundArr = similar array;
+//   for (i = 0; i<=packSoundArr.length; i++) {
+//     for (j=0; j <= similarSoundArr; j++) {
+//       if (track.name === sound.name) {
+//         keep background color set to secondary color regardless of hover class
+//       }
+//     }
 //   }
 // }
 
