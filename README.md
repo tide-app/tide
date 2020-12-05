@@ -6,10 +6,10 @@
 
 ### Day Theme
 #### Home Page
-![Home Page in Day Theme](screenshots/home-page-day.png)
+![Home Page in Day Theme](https://site-previewer.vercel.app/api/preview?url=https://tide-app.vercel.app)
 
 #### Sound Page 
-![Sound Page in Day Theme](screenshots/sound-page-day.png)
+![Sound Page in Day Theme](https://site-previewer.vercel.app/api/preview?url=https://tide-app.vercel.app/sound/462808)
 
 ## Related Repositories
 
