@@ -112,7 +112,7 @@ export default function Sound(props) {
   return (
     <>
       <Helmet>
-        <title>{`${sound.name} - Tide`}</title>
+        <title>{`${sound.name || "Sound Page"} - Tide`}</title>
         <meta name="description" content="A sound from Tide" />
       </Helmet>
       <h1
