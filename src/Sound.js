@@ -1,8 +1,6 @@
 import DOMPurify from "dompurify";
 import { Helmet } from "react-helmet";
-import { IonIcon } from "@ionic/react";
 import localForage from "localforage";
-import { pauseCircleSharp, playCircleSharp } from "ionicons/icons";
 import tinykeys from "tinykeys";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -12,6 +10,7 @@ import Description from "./components/Description";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 import Tags from "./components/Tags";
 import Dropdown from "./components/Dropdown";
+import PlayButtton from "./components/PlayButton";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -138,18 +137,10 @@ export default function Sound(props) {
           {loadingState === 2 && <h1>404</h1>}
           <div className="flex justfify-between py-3">
             {/* Download and edit buttons */}
-            <div className="w-6/12 space-x-3">
-              <button
-                onClick={handlePlayingAndPausing}
-                className="focus:outline-none"
-              >
-                {isPlaying ? (
-                  <IonIcon size="large" icon={pauseCircleSharp} />
-                ) : (
-                  <IonIcon size="large" icon={playCircleSharp} />
-                )}
-              </button>
-            </div>
+            <PlayButtton
+              onClick={handlePlayingAndPausing}
+              isPlaying={isPlaying}
+            />
             {/* Download stats and Play */}
             <div className="w-6/12 text-right space-x-3 flex justify-end items-center">
               {loadingState !== 2 && (
