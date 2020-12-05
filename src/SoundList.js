@@ -29,14 +29,10 @@ const SoundList = ({
   currentTrackId,
   className = "",
 }) => {
-  const selectedTrackClassName =
-    "group bg-secondary text-primary transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center";
-  const unSelectedTrackClassName =
-    "group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center";
-  const selectedSoundDataClassName =
-    "w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center group-hover:opacity-100 sm:hover:opacity-0";
-  const unselectedSoundDataClassName =
-    "w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center opacity-50 group-hover:opacity-100 sm:hover:opacity-0";
+  const selectedTrackClassName = "bg-secondary text-primary";
+  const unSelectedTrackClassName = "hover:bg-secondary hover:text-primary";
+  const selectedSoundDataIconsClassName = "";
+  const unselectedSoundDataIconsClassName = "opacity-50";
 
   return (
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
@@ -52,8 +48,8 @@ const SoundList = ({
             <div
               className={
                 track.id === currentTrackId
-                  ? selectedTrackClassName
-                  : unSelectedTrackClassName
+                  ? `${selectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
+                  : `${unSelectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
               }
             >
               <IonIcon
@@ -78,8 +74,8 @@ const SoundList = ({
               <div
                 className={
                   track.id === currentTrackId
-                    ? selectedSoundDataClassName
-                    : unselectedSoundDataClassName
+                    ? `${selectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
+                    : `${unselectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
                 }
               >
                 <div className="flex justify-start w-4/12 items-center">
