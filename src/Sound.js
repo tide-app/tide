@@ -187,6 +187,7 @@ export default function Sound(props) {
       {similarSounds[0] && (
         <SoundList
           header="Similar"
+          isSimilarSoundList
           tracks={similarSounds}
           selectedTrack={sound?.id || similarSounds[0]?.id || 0}
           setSelectedTrack={() => {}}
