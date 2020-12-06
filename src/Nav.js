@@ -1,6 +1,7 @@
-import tinykeys from "tinykeys";
+import { searchSharp } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { Link, withRouter, useLocation } from "react-router-dom";
+import tinykeys from "tinykeys";
 import Button from "./components/Button";
 import Input from "./components/Input";
 
@@ -69,14 +70,16 @@ function Nav({
 
       <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
         <Input
+          data-e2e-id="search-input"
+          defaultValue={searchQuery}
+          icon={searchSharp}
           id="search-bar"
           name="sound-search"
-          placeholder="Search sound..."
-          defaultValue={searchQuery}
-          data-e2e-id="search-input"
           onChange={(e) =>
             pushHistory(e.target.value) && setSearchValue(e.target.value)
           }
+          placeholder="Search sound..."
+          // type="search" // This seems appropriate, but adds an X that interferes with the search icon.
         />
         {!isLoggedIn && (
           <Button onClick={openRedirectDialogModalWindow}>Login</Button>

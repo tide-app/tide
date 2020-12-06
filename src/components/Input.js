@@ -1,10 +1,18 @@
 import React from "react";
+import { IonIcon } from "@ionic/react";
 
-export default function Input({ ...props }) {
+export default function Input({ icon, ...props }) {
   return (
-    <input
-      {...props}
-      className="appearance-none block placeholder-secondary text-secondary bg-primary border rounded p-1 leading-tight focus:outline-none pl-4"
-    />
+    <div className="relative">
+      <input
+        {...props} // appearance-none, block and leading-tight don't seem to do anything. Should we remove them?
+        className="appearance-none block bg-primary border focus:outline-none h-10 leading-tight p-1 pl-4 placeholder-secondary rounded"
+      />
+      {icon && (
+        <button type="submit" className="absolute mr-4 mt-3 right-0 top-0">
+          <IonIcon icon={icon} />
+        </button>
+      )}
+    </div>
   );
 }
