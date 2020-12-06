@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
+import PlayButton from "./components/PlayButton";
+import useSound from "./hooks/useSound";
 
 function timeConvert(minutes) {
   const min = Math.floor(Math.abs(minutes));
@@ -10,6 +12,18 @@ function timeConvert(minutes) {
 }
 
 const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
+  const [currentSound, setCurrentSound] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [sound, setSound] = useState("");
+
+  const handlePlayingAndPausing = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    setSound(useSound());
+  }, [currentSound]);
+
   return (
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
       {header && <h1 className="text-3xl m-auto py-4">{header}</h1>}
@@ -22,11 +36,12 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
             onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
           >
             <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center">
-              <IonIcon
-                className="opacity-0 group-hover:opacity-100"
-                icon={playCircleSharp}
-                size="large"
-              />
+              <div className="opacity-0 group-hover:opacity-100">
+                <PlayButton
+                  onClick={handlePlayingAndPausing}
+                  isPlaying={isPlaying}
+                />
+              </div>
               <div className="flex flex-col flex-grow">
                 <span
                   className="overflow-clip"
