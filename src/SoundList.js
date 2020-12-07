@@ -16,11 +16,6 @@ const SoundList = ({
   currentTrackId,
   className = "",
 }) => {
-  const selectedTrackClassName = "bg-secondary text-primary";
-  const unSelectedTrackClassName = "hover:bg-secondary hover:text-primary";
-  const selectedSoundDataIconsClassName = "";
-  const unselectedSoundDataIconsClassName = "opacity-50";
-
   return (
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
       {header && <h1 className="text-3xl m-auto py-4">{header}</h1>}
@@ -33,11 +28,11 @@ const SoundList = ({
             onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
           >
             <div
-              className={
+              className={`group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center ${
                 track.id === currentTrackId
-                  ? `${selectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
-                  : `${unSelectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
-              }
+                  ? "bg-secondary text-primary" // Highlights the current sound
+                  : "hover:bg-secondary hover:text-primary"
+              }`}
             >
               <IonIcon
                 className={
@@ -59,11 +54,9 @@ const SoundList = ({
                 </span>
               </div>
               <div
-                className={
-                  track.id === currentTrackId
-                    ? `${selectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
-                    : `${unselectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
-                }
+                className={`group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center ${
+                  track.id !== currentTrackId && "opacity-50"
+                }`} // Displays the sound data icons at 50% opacity if they do not belong to the current sound
               >
                 <div className="flex justify-start w-4/12 items-center">
                   <IonIcon
