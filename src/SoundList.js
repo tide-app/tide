@@ -11,9 +11,8 @@ function timeConvert(minutes) {
 
 const SoundList = ({
   tracks,
-  header,
-  isSimilarSoundList,
   onSoundClick,
+  header,
   currentTrackId,
   className = "",
 }) => {
@@ -26,77 +25,74 @@ const SoundList = ({
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
       {header && <h1 className="text-3xl m-auto py-4">{header}</h1>}
       <div className="list-item-container">
-        {tracks.map(
-          (track) =>
-            !(isSimilarSoundList && track.id === currentTrackId) && (
-              <Link // We do not want to see the current sound in the Similar <SoundList />.
-                data-e2e-id="SoundList-track-url"
-                key={track.id}
-                to={`/sound/${track.id}`}
-                onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
-              >
-                <div
-                  className={
-                    track.id === currentTrackId
-                      ? `${selectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
-                      : `${unSelectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
-                  }
+        {tracks.map((track) => (
+          <Link
+            data-e2e-id="SoundList-track-url"
+            key={track.id}
+            to={`/sound/${track.id}`}
+            onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
+          >
+            <div
+              className={
+                track.id === currentTrackId
+                  ? `${selectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
+                  : `${unSelectedTrackClassName} group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center`
+              }
+            >
+              <IonIcon
+                className={
+                  track.id !== currentTrackId &&
+                  "opacity-0 group-hover:opacity-100"
+                }
+                icon={playCircleSharp}
+                size="large"
+              />
+              <div className="flex flex-col flex-grow">
+                <span
+                  className="overflow-clip"
+                  data-e2e-id="SoundList-track-name"
                 >
+                  {track.name}
+                </span>
+                <span className="text-left text-xs opacity-50">
+                  {track.username}
+                </span>
+              </div>
+              <div
+                className={
+                  track.id === currentTrackId
+                    ? `${selectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
+                    : `${unselectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
+                }
+              >
+                <div className="flex justify-start w-4/12 items-center">
                   <IonIcon
-                    className={
-                      track.id !== currentTrackId &&
-                      "opacity-0 group-hover:opacity-100"
-                    }
+                    className="pl-12 pr-2"
+                    icon={timeSharp}
+                    size="large"
+                  />
+                  {timeConvert(track.duration)}
+                </div>
+                <div className="flex justify-start w-4/12 items-center">
+                  <IonIcon
+                    className="pl-12 pr-2"
+                    icon={downloadSharp}
+                    size="large"
+                  />
+                  {track.num_downloads}
+                </div>
+                <div className="flex justify-start w-4/12 items-center">
+                  <IonIcon
+                    className="pl-8 pr-2"
                     icon={playCircleSharp}
                     size="large"
                   />
-                  <div className="flex flex-col flex-grow">
-                    <span
-                      className="overflow-clip"
-                      data-e2e-id="SoundList-track-name"
-                    >
-                      {track.name}
-                    </span>
-                    <span className="text-left text-xs opacity-50">
-                      {track.username}
-                    </span>
-                  </div>
-                  <div
-                    className={
-                      track.id === currentTrackId
-                        ? `${selectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
-                        : `${unselectedSoundDataIconsClassName} group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center`
-                    }
-                  >
-                    <div className="flex justify-start w-4/12 items-center">
-                      <IonIcon
-                        className="pl-12 pr-2"
-                        icon={timeSharp}
-                        size="large"
-                      />
-                      {timeConvert(track.duration)}
-                    </div>
-                    <div className="flex justify-start w-4/12 items-center">
-                      <IonIcon
-                        className="pl-12 pr-2"
-                        icon={downloadSharp}
-                        size="large"
-                      />
-                      {track.num_downloads}
-                    </div>
-                    <div className="flex justify-start w-4/12 items-center">
-                      <IonIcon
-                        className="pl-8 pr-2"
-                        icon={playCircleSharp}
-                        size="large"
-                      />
-                      <span className="m-1">{track.num_ratings}</span>
-                    </div>
-                  </div>
+                  <span className="m-1">{track.num_ratings}</span>
                 </div>
-              </Link>
-            )
-        )}
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
