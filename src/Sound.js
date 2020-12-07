@@ -79,8 +79,12 @@ export default function Sound(props) {
           SOUND_LIST_QUERY_PARAMS
         );
         if (similarSoundsResults) {
-          setSimilarSounds(similarSoundsResults);
-        }
+          setSimilarSounds(
+            similarSoundsResults.filter(
+              (similarSoundResult) => similarSoundResult.id !== parseInt(id, 10)
+            )
+          );
+        } // We do not want to see the current sound in the Similar <SoundList />.
         setLoadingState(1);
       } catch (e) {
         // eslint-disable-next-line no-console
@@ -180,6 +184,7 @@ export default function Sound(props) {
           setSelectedTrack={() => {}}
           onSoundClick={() => window.scrollTo(0, 0)}
           header="Pack"
+          currentTrackId={sound.id}
           className="pb-16"
         />
       )}
@@ -190,6 +195,7 @@ export default function Sound(props) {
           selectedTrack={sound?.id || similarSounds[0]?.id || 0}
           setSelectedTrack={() => {}}
           onSoundClick={() => window.scrollTo(0, 0)}
+          currentTrackId={sound.id}
           className="pb-16"
         />
       )}
