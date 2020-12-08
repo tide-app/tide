@@ -87,12 +87,12 @@ const App = () => {
             path={"/"}
             render={() => (
               <>
-                <div className="rounded bg-secondary text-primary text-center p-8 mt-2">
+                <header className="bg-secondary md:text-center mt-2 p-8 rounded text-primary">
                   <h1 className="font-bold text-2xl">
                     Explore A World of Sounds
                   </h1>
                   <p className="text-l pt-2 opacity-50">Explore and Download</p>
-                </div>
+                </header>
                 <SearchResults
                   fetchSearchResults={(...args) =>
                     freeSound.textSearch(...args)
