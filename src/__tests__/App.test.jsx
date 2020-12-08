@@ -1,4 +1,5 @@
 import React from "react";
+import "web-audio-test-api";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import App from "../App";

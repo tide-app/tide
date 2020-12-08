@@ -1,56 +1,35 @@
 import DOMPurify from "dompurify";
 import { Helmet } from "react-helmet";
-import { IonIcon } from "@ionic/react";
-import localForage from "localforage";
-import { pauseCircleSharp, playCircleSharp } from "ionicons/icons";
 import tinykeys from "tinykeys";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Waveform from "react-wavesurfer.js";
 import SoundList from "./SoundList";
 import Description from "./components/Description";
-import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 import Tags from "./components/Tags";
 import Dropdown from "./components/Dropdown";
+import PlayButtton from "./components/PlayButton";
+import useSound from "./hooks/useSound";
 
-// key examples: sound.<soundId>.full
-// key examples: sound.<soundId>.preview
-// key examples: api.search
-// key examples: api.sound.similar
-const memoizeGetSound = async (sound, cacheKey) => {
-  const soundBuffer = await localForage.getItem(cacheKey);
-  if (soundBuffer) return soundBuffer;
-  const newSoundBuffer = await sound.download().then((res) => res.blob());
-  await localForage.setItem(cacheKey, newSoundBuffer);
-  return newSoundBuffer;
-};
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const context = new AudioContext();
 
-const downloadSound = async (soundObject) => {
-  const cacheKey = `sound.${soundObject.id}.full`;
-  const blob = await memoizeGetSound(soundObject, cacheKey);
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `${soundObject.name}.${soundObject.type}`;
-  a.style.display = "none";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  // Revoke the url to free up memory
-  URL.revokeObjectURL(url);
-};
+function playSound(buffer) {
+  const source = context.createBufferSource();
+  source.buffer = buffer;
+  source.connect(context.destination);
+  source.start(0);
+}
 
 export default function Sound(props) {
   const { isLoggedIn, freeSound, setModalIsOpen } = props;
-  const [sound, setSound] = useState({});
-  const [packSounds, setPackSounds] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [similarSounds, setSimilarSounds] = useState([]);
-  // 0 => loading
-  // 1 => loading succeeded
-  // 2 => loading failed
-  const [loadingState, setLoadingState] = useState(0);
   const { id } = useParams();
+  const [previewSound, setPreviewSound] = useState({});
+  const { download, loadingState, pack, similar, sound } = useSound({
+    id,
+    freeSound,
+  });
 
   const handlePlayingAndPausing = () => {
     setIsPlaying(!isPlaying);
@@ -59,44 +38,6 @@ export default function Sound(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
-
-  useEffect(() => {
-    const fetchSound = async () => {
-      try {
-        setLoadingState(0);
-        const soundResult = await freeSound.getSound(id);
-        if (soundResult.detail) throw new Error(soundResult.detail);
-        setSound(soundResult);
-        if (soundResult.pack) {
-          // @TODO @HACK: Remove this, extract this logic to the freesound-client library
-          const packId = new URL(soundResult.pack).pathname
-            .split("/")
-            .find(Number);
-          // eslint-disable-next-line
-          const packsObj = await freeSound.getPack(packId);
-          const packSoundsList = await packsObj.sounds(SOUND_LIST_QUERY_PARAMS);
-          if (packSoundsList.results) {
-            setPackSounds(packSoundsList.results);
-          }
-        }
-        const { results: similarSoundsResults } = await soundResult.getSimilar(
-          SOUND_LIST_QUERY_PARAMS
-        );
-        if (similarSoundsResults) {
-          setSimilarSounds(
-            similarSoundsResults.filter(
-              (similarSoundResult) => similarSoundResult.id !== parseInt(id, 10)
-            )
-          );
-        } // We do not want to see the current sound in the Similar <SoundList />.
-        setLoadingState(1);
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        setLoadingState(2);
-      }
-    };
-    fetchSound();
-  }, [id, freeSound]);
 
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
@@ -109,14 +50,26 @@ export default function Sound(props) {
       },
       d: () => {
         // As stated above, shortcuts should only work
-        if (isLoggedIn && document.activeElement === document.body)
-          downloadSound(sound); // when on the main section of the
+        if (isLoggedIn && document.activeElement === document.body) download(); // when on the main section of the
       }, // app, and not, for example, while searching.
     });
     return () => {
       unsubscribe();
     };
   });
+
+  useEffect(() => {
+    const fetchAndPlay = async () => {
+      if (previewSound.id && previewSound.previews?.["preview-lq-mp3"]) {
+        const item = await fetch(
+          previewSound.previews["preview-lq-mp3"]
+        ).then((res) => res.arrayBuffer());
+        const buffer = await context.decodeAudioData(item);
+        playSound(buffer);
+      }
+    };
+    fetchAndPlay();
+  }, [previewSound.id]);
 
   return (
     <>
@@ -148,16 +101,10 @@ export default function Sound(props) {
           <div className="flex justfify-between py-3">
             {/* Download and edit buttons */}
             <div className="w-6/12 space-x-3">
-              <button
+              <PlayButtton
                 onClick={handlePlayingAndPausing}
-                className="focus:outline-none"
-              >
-                {isPlaying ? (
-                  <IonIcon size="large" icon={pauseCircleSharp} />
-                ) : (
-                  <IonIcon size="large" icon={playCircleSharp} />
-                )}
-              </button>
+                isPlaying={isPlaying}
+              />
             </div>
             {/* Download stats and Play */}
             <div className="w-6/12 text-right space-x-3 flex justify-end items-center">
@@ -166,7 +113,7 @@ export default function Sound(props) {
                   disabled={loadingState !== 1}
                   onClick={() => {
                     if (!isLoggedIn) setModalIsOpen(true);
-                    else downloadSound(sound);
+                    else download();
                   }}
                 />
               )}
@@ -182,21 +129,24 @@ export default function Sound(props) {
           </div>
         </>
       )}
-      {packSounds[0] && (
+      {pack[0] && (
         <SoundList
-          tracks={packSounds}
-          selectedTrack={sound?.id || packSounds[0]?.id || 0}
+          tracks={pack}
           setSelectedTrack={() => {}}
+          selectedTrack={sound?.id || pack[0]?.id || 0}
+          onPlayClick={setPreviewSound}
           header="Pack"
           currentTrackId={sound.id}
           className="pb-16"
         />
       )}
-      {similarSounds[0] && (
+      {similar[0] && (
         <SoundList
-          header="Similar"
-          tracks={similarSounds}
+          tracks={similar}
           setSelectedTrack={() => {}}
+          selectedTrack={sound?.id || similar[0]?.id || 0}
+          onPlayClick={setPreviewSound}
+          header="Similar"
           className="pb-16"
         />
       )}

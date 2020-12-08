@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
+import PlayButton from "./components/PlayButton";
 
 function timeConvert(minutes) {
   const min = Math.floor(Math.abs(minutes));
@@ -10,12 +11,15 @@ function timeConvert(minutes) {
 }
 
 const SoundList = ({
-  tracks,
-  onSoundClick,
-  header,
+  tracks = [],
+  header = "",
+  onSoundClick = () => {},
+  onPlayClick = () => {},
   currentTrackId,
   className = "",
 }) => {
+  const [isPlaying] = useState(false);
+
   return (
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
       {header && <h1 className="text-3xl m-auto py-4">{header}</h1>}
@@ -25,23 +29,22 @@ const SoundList = ({
             data-e2e-id="SoundList-track-url"
             key={track.id}
             to={`/sound/${track.id}`}
-            onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
+            onClick={() => onSoundClick(track)}
           >
             <div
-              className={`group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center ${
-                track.id === currentTrackId
-                  ? "bg-secondary text-primary" // Highlights the current sound
-                  : "hover:bg-secondary hover:text-primary"
+              className={`group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center hover:bg-secondary hover:text-primary ${
+                track.id === currentTrackId ? "bg-secondary text-primary" : ""
               }`}
             >
-              <IonIcon
-                className={
-                  track.id !== currentTrackId &&
-                  "opacity-0 group-hover:opacity-100"
-                }
-                icon={playCircleSharp}
-                size="large"
-              />
+              <div className="opacity-0 group-hover:opacity-100">
+                <PlayButton
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onPlayClick(track);
+                  }}
+                  isPlaying={isPlaying}
+                />
+              </div>
               <div className="flex flex-col flex-grow">
                 <span
                   className="overflow-clip"
