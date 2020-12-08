@@ -19,10 +19,6 @@ const SoundList = ({
 }) => {
   const [isPlaying] = useState(false);
 
-  // useEffect(() => {
-  //   setSound(useSound(tracks));
-  // }, [sound]);
-
   return (
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
       {header && <h1 className="text-3xl m-auto py-4">{header}</h1>}
@@ -37,7 +33,10 @@ const SoundList = ({
             <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center">
               <div className="opacity-0 group-hover:opacity-100">
                 <PlayButton
-                  onClick={() => onPlayClick()}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onPlayClick(track);
+                  }}
                   isPlaying={isPlaying}
                 />
               </div>

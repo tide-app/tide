@@ -11,11 +11,22 @@ import Dropdown from "./components/Dropdown";
 import PlayButtton from "./components/PlayButton";
 import useSound from "./hooks/useSound";
 
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const context = new AudioContext();
+
+function playSound(buffer) {
+  const source = context.createBufferSource();
+  source.buffer = buffer;
+  source.connect(context.destination);
+  source.start(0);
+}
+
 export default function Sound(props) {
   const { isLoggedIn, freeSound, setModalIsOpen } = props;
   const [isPlaying, setIsPlaying] = useState(false);
   const { id } = useParams();
-  const { download, play, loadingState, pack, similar, sound } = useSound({
+  const [previewSound, setPreviewSound] = useState({});
+  const { download, loadingState, pack, similar, sound } = useSound({
     id,
     freeSound,
   });
@@ -42,6 +53,19 @@ export default function Sound(props) {
       unsubscribe();
     };
   });
+
+  useEffect(() => {
+    const fetchAndPlay = async () => {
+      if (previewSound.id && previewSound.previews?.["preview-lq-mp3"]) {
+        const item = await fetch(
+          previewSound.previews["preview-lq-mp3"]
+        ).then((res) => res.arrayBuffer());
+        const buffer = await context.decodeAudioData(item);
+        playSound(buffer);
+      }
+    };
+    fetchAndPlay();
+  }, [previewSound.id]);
 
   return (
     <>
@@ -107,7 +131,7 @@ export default function Sound(props) {
           setSelectedTrack={() => {}}
           selectedTrack={sound?.id || pack[0]?.id || 0}
           onSoundClick={() => window.scrollTo(0, 0)}
-          onPlayClick={play}
+          onPlayClick={setPreviewSound}
           header="Pack"
           className="pb-16"
         />
@@ -118,7 +142,7 @@ export default function Sound(props) {
           setSelectedTrack={() => {}}
           selectedTrack={sound?.id || similar[0]?.id || 0}
           onSoundClick={() => window.scrollTo(0, 0)}
-          onPlayClick={play}
+          onPlayClick={setPreviewSound}
           header="Similar"
           className="pb-16"
         />

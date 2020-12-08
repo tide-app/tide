@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import localForage from "localforage";
-import usePlaySound from "use-sound";
 import { SOUND_LIST_QUERY_PARAMS } from "../constants";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
 // key examples: api.search
 // key examples: api.sound.similar
-const memoizedDownload = async (sound, cacheKey) => {
+const downloadAndMemo = async (sound, cacheKey) => {
   const soundBuffer = await localForage.getItem(cacheKey);
   if (soundBuffer) return soundBuffer;
   const newSoundBuffer = await sound.download().then((res) => res.blob());
@@ -17,7 +16,7 @@ const memoizedDownload = async (sound, cacheKey) => {
 
 const downloadToClient = async (soundObject) => {
   const cacheKey = `sound.${soundObject.id}.full`;
-  const blob = await memoizedDownload(soundObject, cacheKey);
+  const blob = await downloadAndMemo(soundObject, cacheKey);
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -52,14 +51,11 @@ export default function useSound({ id, freeSound }) {
   const play = async () => {
     if (loadingState !== 1)
       throw new Error("Currently loading or loading failed");
-    const cacheKey = `sound.${sound.id}.full`;
-    const blob = await memoizedDownload(sound, cacheKey);
-    const [playMemoizedSound] = usePlaySound(blob);
-    playMemoizedSound();
   };
 
   useEffect(() => {
     const fetchSound = async () => {
+      if (!id) return;
       try {
         setLoadingState(0);
         const soundResult = await freeSound.getSound(id);
@@ -75,7 +71,7 @@ export default function useSound({ id, freeSound }) {
             setPack(packSoundsList.results);
           }
         }
-        const { results: similarSoundsResults } = await sound.getSimilar(
+        const { results: similarSoundsResults } = await soundResult.getSimilar(
           SOUND_LIST_QUERY_PARAMS
         );
         if (similarSoundsResults) {
@@ -83,8 +79,6 @@ export default function useSound({ id, freeSound }) {
         }
         setLoadingState(1);
       } catch (e) {
-        console.log(e);
-        // eslint-disable-next-line no-console
         setLoadingState(2);
       }
     };
