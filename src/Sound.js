@@ -132,8 +132,6 @@ export default function Sound(props) {
       {pack[0] && (
         <SoundList
           tracks={pack}
-          setSelectedTrack={() => {}}
-          selectedTrack={sound?.id || pack[0]?.id || 0}
           onPlayClick={setPreviewSound}
           header="Pack"
           currentTrackId={sound.id}
@@ -142,9 +140,7 @@ export default function Sound(props) {
       )}
       {similar[0] && (
         <SoundList
-          tracks={similar}
-          setSelectedTrack={() => {}}
-          selectedTrack={sound?.id || similar[0]?.id || 0}
+          tracks={similar.filter((_sound) => _sound.id !== sound.id)}
           onPlayClick={setPreviewSound}
           header="Similar"
           className="pb-16"

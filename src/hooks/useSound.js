@@ -58,20 +58,21 @@ export default function useSound({ id, freeSound }) {
       if (!id) return;
       try {
         setLoadingState(0);
-        const soundResult = await freeSound.getSound(id);
-        if (soundResult.detail) throw new Error(soundResult.detail);
-        setSound(soundResult);
-        if (sound.pack) {
+        const fetchedSound = await freeSound.getSound(id);
+        if (fetchedSound.detail) throw new Error(fetchedSound.detail);
+        setSound(fetchedSound);
+        if (fetchedSound.pack) {
           // @TODO @HACK: Remove this, extract this logic to the freesound-client library
-          const packId = new URL(sound.pack).pathname.split("/").find(Number);
-          // eslint-disable-next-line
-            const packsObj = await freeSound.getPack(packId);
+          const packId = new URL(fetchedSound.pack).pathname
+            .split("/")
+            .find(Number);
+          const packsObj = await freeSound.getPack(packId);
           const packSoundsList = await packsObj.sounds(SOUND_LIST_QUERY_PARAMS);
           if (packSoundsList.results) {
             setPack(packSoundsList.results);
           }
         }
-        const { results: similarSoundsResults } = await soundResult.getSimilar(
+        const { results: similarSoundsResults } = await fetchedSound.getSimilar(
           SOUND_LIST_QUERY_PARAMS
         );
         if (similarSoundsResults) {
@@ -88,9 +89,9 @@ export default function useSound({ id, freeSound }) {
   return {
     download,
     loadingState,
-    pack,
     play,
     similar,
+    pack,
     sound,
   };
 }
