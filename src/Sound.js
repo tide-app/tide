@@ -57,6 +57,10 @@ export default function Sound(props) {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  useEffect(() => {
     const fetchSound = async () => {
       try {
         setLoadingState(0);
@@ -93,6 +97,7 @@ export default function Sound(props) {
     };
     fetchSound();
   }, [id, freeSound]);
+
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
       Space: (event) => {
@@ -182,7 +187,6 @@ export default function Sound(props) {
           tracks={packSounds}
           selectedTrack={sound?.id || packSounds[0]?.id || 0}
           setSelectedTrack={() => {}}
-          onSoundClick={() => window.scrollTo(0, 0)}
           header="Pack"
           currentTrackId={sound.id}
           className="pb-16"
@@ -192,10 +196,7 @@ export default function Sound(props) {
         <SoundList
           header="Similar"
           tracks={similarSounds}
-          selectedTrack={sound?.id || similarSounds[0]?.id || 0}
           setSelectedTrack={() => {}}
-          onSoundClick={() => window.scrollTo(0, 0)}
-          currentTrackId={sound.id}
           className="pb-16"
         />
       )}

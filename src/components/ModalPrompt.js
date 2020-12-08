@@ -9,6 +9,9 @@ export default function ModalPrompt({
   onRequestClose,
   onConfirm,
   onClose,
+  confirmMessage,
+  denyMessage,
+  longMessage,
 }) {
   return (
     <Modal
@@ -31,17 +34,17 @@ export default function ModalPrompt({
       </button>
       <section className="ml-6 pb-6 pt-2 text-lg">
         <h1 className="pb-4 pt-3 text-2xl">{title}</h1>
-        <p>After logging in with Freesound, you will be sent back here!</p>
+        <p>{longMessage}</p>
         <br />
         <span className="mx-8 space-x-10 space-y-4">
           <button
             className="bg-secondary text-primary border px-8 py-2 rounded-lg"
             onClick={onConfirm}
           >
-            Send me there!
+            {confirmMessage}
           </button>
           <button className="border px-10 py-2 rounded-lg" onClick={onClose}>
-            Maybe Later
+            {denyMessage}
           </button>
         </span>
       </section>
