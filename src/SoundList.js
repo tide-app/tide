@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import PlayButton from "./components/PlayButton";
-import useSound from "./hooks/useSound";
 
 function timeConvert(minutes) {
   const min = Math.floor(Math.abs(minutes));
@@ -11,18 +10,18 @@ function timeConvert(minutes) {
   return `${(min < 10 ? "0" : "") + min}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
-const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
-  const [currentSound, setCurrentSound] = useState("");
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [sound, setSound] = useState("");
+const SoundList = ({
+  tracks = [],
+  header = "",
+  onSoundClick = () => {},
+  onPlayClick = () => {},
+  className = "",
+}) => {
+  const [isPlaying] = useState(false);
 
-  const handlePlayingAndPausing = () => {
-    setIsPlaying(!isPlaying);
-  };
-
-  useEffect(() => {
-    setSound(useSound());
-  }, [currentSound]);
+  // useEffect(() => {
+  //   setSound(useSound(tracks));
+  // }, [sound]);
 
   return (
     <div data-e2e-id="SoundList" className={`text-left ${className}`}>
@@ -33,12 +32,12 @@ const SoundList = ({ tracks, header, onSoundClick, className = "" }) => {
             data-e2e-id="SoundList-track-url"
             key={track.id}
             to={`/sound/${track.id}`}
-            onClick={() => (onSoundClick ? onSoundClick(track) : () => {})}
+            onClick={() => onSoundClick(track)}
           >
             <div className="group hover:bg-secondary hover:text-primary transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center">
               <div className="opacity-0 group-hover:opacity-100">
                 <PlayButton
-                  onClick={handlePlayingAndPausing}
+                  onClick={() => onPlayClick()}
                   isPlaying={isPlaying}
                 />
               </div>

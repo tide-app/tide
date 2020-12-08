@@ -10,18 +10,12 @@ import Tags from "./components/Tags";
 import Dropdown from "./components/Dropdown";
 import PlayButtton from "./components/PlayButton";
 import useSound from "./hooks/useSound";
-import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 
 export default function Sound(props) {
   const { isLoggedIn, freeSound, setModalIsOpen } = props;
   const [isPlaying, setIsPlaying] = useState(false);
-  const [packSounds, setPackSounds] = useState([]);
-  const [similarSounds, setSimilarSounds] = useState([]);
-  // 0 => loading
-  // 1 => loading succeeded
-  // 2 => loading failed
   const { id } = useParams();
-  const { download, loadingState, sound } = useSound({
+  const { download, play, loadingState, pack, similar, sound } = useSound({
     id,
     freeSound,
   });
@@ -30,27 +24,6 @@ export default function Sound(props) {
     setIsPlaying(!isPlaying);
   };
 
-  useEffect(() => {
-    const fetchSound = async () => {
-      if (sound.pack) {
-        // @TODO @HACK: Remove this, extract this logic to the freesound-client library
-        const packId = new URL(sound.pack).pathname.split("/").find(Number);
-        // eslint-disable-next-line
-          const packsObj = await freeSound.getPack(packId);
-        const packSoundsList = await packsObj.sounds(SOUND_LIST_QUERY_PARAMS);
-        if (packSoundsList.results) {
-          setPackSounds(packSoundsList.results);
-        }
-      }
-      const { results: similarSoundsResults } = await sound.getSimilar(
-        SOUND_LIST_QUERY_PARAMS
-      );
-      if (similarSoundsResults) {
-        setSimilarSounds(similarSoundsResults);
-      }
-    };
-    fetchSound();
-  }, [id, freeSound]);
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
       Space: (event) => {
@@ -128,23 +101,25 @@ export default function Sound(props) {
           </div>
         </>
       )}
-      {packSounds[0] && (
+      {pack[0] && (
         <SoundList
-          tracks={packSounds}
-          selectedTrack={sound?.id || packSounds[0]?.id || 0}
+          tracks={pack}
           setSelectedTrack={() => {}}
+          selectedTrack={sound?.id || pack[0]?.id || 0}
           onSoundClick={() => window.scrollTo(0, 0)}
+          onPlayClick={play}
           header="Pack"
           className="pb-16"
         />
       )}
-      {similarSounds[0] && (
+      {similar[0] && (
         <SoundList
-          header="Similar"
-          tracks={similarSounds}
-          selectedTrack={sound?.id || similarSounds[0]?.id || 0}
+          tracks={similar}
           setSelectedTrack={() => {}}
+          selectedTrack={sound?.id || similar[0]?.id || 0}
           onSoundClick={() => window.scrollTo(0, 0)}
+          onPlayClick={play}
+          header="Similar"
           className="pb-16"
         />
       )}

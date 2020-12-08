@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import localForage from "localforage";
+import usePlaySound from "use-sound";
+import { SOUND_LIST_QUERY_PARAMS } from "../constants";
 
 // key examples: sound.<soundId>.full
 // key examples: sound.<soundId>.preview
@@ -38,10 +40,23 @@ export default function useSound({ id, freeSound }) {
   // 2 => loading failed
   const [loadingState, setLoadingState] = useState(0);
   const [sound, setSound] = useState({});
-  const download = () => {
-    downloadToClient(sound);
+  const [pack, setPack] = useState([]);
+  const [similar, setSimilarSounds] = useState([]);
+
+  const download = async () => {
+    if (loadingState !== 1)
+      throw new Error("Currently loading or loading failed");
+    await downloadToClient(sound);
   };
-  const play = () => {};
+
+  const play = async () => {
+    if (loadingState !== 1)
+      throw new Error("Currently loading or loading failed");
+    const cacheKey = `sound.${sound.id}.full`;
+    const blob = await memoizedDownload(sound, cacheKey);
+    const [playMemoizedSound] = usePlaySound(blob);
+    playMemoizedSound();
+  };
 
   useEffect(() => {
     const fetchSound = async () => {
@@ -50,8 +65,25 @@ export default function useSound({ id, freeSound }) {
         const soundResult = await freeSound.getSound(id);
         if (soundResult.detail) throw new Error(soundResult.detail);
         setSound(soundResult);
+        if (sound.pack) {
+          // @TODO @HACK: Remove this, extract this logic to the freesound-client library
+          const packId = new URL(sound.pack).pathname.split("/").find(Number);
+          // eslint-disable-next-line
+            const packsObj = await freeSound.getPack(packId);
+          const packSoundsList = await packsObj.sounds(SOUND_LIST_QUERY_PARAMS);
+          if (packSoundsList.results) {
+            setPack(packSoundsList.results);
+          }
+        }
+        const { results: similarSoundsResults } = await sound.getSimilar(
+          SOUND_LIST_QUERY_PARAMS
+        );
+        if (similarSoundsResults) {
+          setSimilarSounds(similarSoundsResults);
+        }
         setLoadingState(1);
       } catch (e) {
+        console.log(e);
         // eslint-disable-next-line no-console
         setLoadingState(2);
       }
@@ -62,7 +94,9 @@ export default function useSound({ id, freeSound }) {
   return {
     download,
     loadingState,
+    pack,
     play,
+    similar,
     sound,
   };
 }
