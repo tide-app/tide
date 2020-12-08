@@ -20,4 +20,7 @@ Primary.args = {
   isOpen: true,
   label: "ModalPrompt",
   title: "Example Title Text",
+  denyMessage: "Maybe Later",
+  confirmMessage: "Send me there!",
+  longMessage: "After logging in with Freesound, you'll be sent back here",
 };
