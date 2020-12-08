@@ -48,6 +48,9 @@ const App = () => {
     <div className="lg:container lg:mx-auto px-4">
       <ModalPrompt
         title="Redirecting to Freesound"
+        denyMessage="Maybe Later"
+        confirmMessage="Send me there!"
+        longMessage="After logging in with Freesound, you'll be sent back here"
         onConfirm={navigateToLogin}
         onClose={closeModal}
         isOpen={modalIsOpen}

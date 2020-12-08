@@ -36,6 +36,10 @@ export default function Sound(props) {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  useEffect(() => {
     const unsubscribe = tinykeys(window, {
       Space: (event) => {
         // Shortcuts should only work
@@ -130,9 +134,9 @@ export default function Sound(props) {
           tracks={pack}
           setSelectedTrack={() => {}}
           selectedTrack={sound?.id || pack[0]?.id || 0}
-          onSoundClick={() => window.scrollTo(0, 0)}
           onPlayClick={setPreviewSound}
           header="Pack"
+          currentTrackId={sound.id}
           className="pb-16"
         />
       )}
@@ -141,7 +145,6 @@ export default function Sound(props) {
           tracks={similar}
           setSelectedTrack={() => {}}
           selectedTrack={sound?.id || similar[0]?.id || 0}
-          onSoundClick={() => window.scrollTo(0, 0)}
           onPlayClick={setPreviewSound}
           header="Similar"
           className="pb-16"
