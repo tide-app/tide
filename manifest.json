@@ -1,0 +1,27 @@
+{
+  "short_name": "Tide",
+  "description": "Explore a world of sounds",
+  "start_url": "https://tide-app.vercel.app",
+  "display": "minimal-ui",
+  "theme_color": "#FBDC57",
+  "background_color": "black",
+  "icons": [
+    {
+      "src": "icons/manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
