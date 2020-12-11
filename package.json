@@ -60,25 +60,30 @@
     "postcss": "^7",
     "pwa-asset-generator": "^3.2.3",
     "react-is": "^17.0.1",
+    "react-snap": "^1.23.0",
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.2",
     "web-audio-test-api": "^0.5.2"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint --fix"
-    ]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint --fix"
+    ]
+  },
+  "reactSnap": {
+    "inlineCss": true
+  },
   "scripts": {
     "start": "yarn build:style && react-scripts start",
     "build": "yarn build:style && react-scripts build",
     "build:style": "tailwindcss build src/styles.css -o src/build.css",
     "build:icons": "pwa-asset-generator ./public/icons/light-icon.svg public/icons --padding 0px --background '#FBDC57' --index ./public/index.html --path '%PUBLIC_URL%' --manifest public/manifest.json && pwa-asset-generator ./public/icons/dark-icon.svg public/icons --padding 0px --background 'black' --dark-mode --splash-only --index ./public/index.html --path '%PUBLIC_URL%' && prettier 'public/index.html' --write",
+    "postbuild": "react-snap",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
