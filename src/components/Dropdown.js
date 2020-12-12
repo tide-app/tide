@@ -41,12 +41,12 @@ export default function Dropdown({ onClick = () => {}, disabled = false }) {
                       }}
                     >
                       <a className="flex cursor-pointer justify-between w-full px-4 py-2 text-sm leading-5 text-left">
-                        Export MP3
+                        Download MP3
                       </a>
                     </Menu.Item>
                     <Menu.Item>
                       <a className="flex cursor-pointer justify-between w-full px-4 py-2 text-sm leading-5 text-left">
-                        Export OGG
+                        Download WAV
                       </a>
                     </Menu.Item>
                   </div>
