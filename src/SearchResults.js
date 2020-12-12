@@ -46,7 +46,6 @@ export default function Search({
 
   return (
     <>
-      header=
       {showHeader && (
         <Helmet>
           <title>{`Search results for "${searchQuery || searchValue}"`}</title>
