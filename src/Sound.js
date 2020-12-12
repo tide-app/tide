@@ -26,6 +26,7 @@ export default function Sound(props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const { id } = useParams();
   const [previewSound, setPreviewSound] = useState({});
+  const [previewIsPlaying, setPreviewIsPlaying] = useState(false);
   const { download, loadingState, pack, similar, sound } = useSound({
     id,
     freeSound,
@@ -58,18 +59,22 @@ export default function Sound(props) {
     };
   });
 
+  const fetchAndPlay = async () => {
+    if (previewSound.id && previewSound.previews?.["preview-lq-mp3"]) {
+      const soundBuffer = await fetch(
+        previewSound.previews["preview-lq-mp3"]
+      ).then((res) => res.arrayBuffer());
+      const buffer = await context.decodeAudioData(soundBuffer);
+      playSound(buffer);
+    }
+  };
+
   useEffect(() => {
-    const fetchAndPlay = async () => {
-      if (previewSound.id && previewSound.previews?.["preview-lq-mp3"]) {
-        const item = await fetch(
-          previewSound.previews["preview-lq-mp3"]
-        ).then((res) => res.arrayBuffer());
-        const buffer = await context.decodeAudioData(item);
-        playSound(buffer);
-      }
-    };
-    fetchAndPlay();
-  }, [previewSound.id]);
+    if (previewIsPlaying) {
+      fetchAndPlay();
+      setPreviewIsPlaying(false);
+    }
+  }, [previewIsPlaying]);
 
   return (
     <>
@@ -132,7 +137,10 @@ export default function Sound(props) {
       {pack[0] && (
         <SoundList
           tracks={pack}
-          onPlayClick={setPreviewSound}
+          onPlayClick={(preview) => {
+            setPreviewSound(preview);
+            setPreviewIsPlaying(true);
+          }}
           header="Pack"
           currentTrackId={sound.id}
           className="pb-16"
@@ -141,7 +149,10 @@ export default function Sound(props) {
       {similar[0] && (
         <SoundList
           tracks={similar.filter((_sound) => _sound.id !== sound.id)}
-          onPlayClick={setPreviewSound}
+          onPlayClick={(preview) => {
+            setPreviewSound(preview);
+            setPreviewIsPlaying(true);
+          }}
           header="Similar"
           className="pb-16"
         />
