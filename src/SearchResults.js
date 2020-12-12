@@ -45,19 +45,21 @@ export default function Search({
   }, [searchValue, searchQuery]);
 
   return (
-    <SoundList
-      header={
-        showHeader && (
-          <Helmet>
-            <title>{`Search results for "${
-              searchQuery || searchValue
-            }"`}</title>
-            <meta name="description" content="A sound from Tide" />
-          </Helmet>
-        )
-      }
-      tracks={searchResults}
-      className="py-16"
-    />
+    <>
+      header=
+      {showHeader && (
+        <Helmet>
+          <title>{`Search results for "${searchQuery || searchValue}"`}</title>
+          <meta name="description" content="A sound from Tide" />
+        </Helmet>
+      )}
+      <SoundList
+        header={
+          showHeader && `Search results for "${searchQuery || searchValue}"`
+        }
+        tracks={searchResults}
+        className="py-16"
+      />
+    </>
   );
 }
