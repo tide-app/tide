@@ -50,7 +50,7 @@ export default function Search({
       {showHeader && (
         <Helmet>
           <title>{`Search results for "${searchQuery || searchValue}"`}</title>
-          <meta name="description" content="A sound from Tide" />
+          <meta name="description" content="Search results from Tide" />
         </Helmet>
       )}
       <SoundList
