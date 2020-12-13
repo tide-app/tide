@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import SoundList from "./SoundList";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 
@@ -44,14 +45,20 @@ export default function Search({
   }, [searchValue, searchQuery]);
 
   return (
-    <SoundList
-      header={
-        showHeader
-          ? `Search results for "${searchQuery || searchValue}"`
-          : undefined
-      }
-      tracks={searchResults}
-      className="py-16"
-    />
+    <>
+      {showHeader && (
+        <Helmet>
+          <title>{`Search results for "${searchQuery || searchValue}"`}</title>
+          <meta name="description" content="Search results from Tide" />
+        </Helmet>
+      )}
+      <SoundList
+        header={
+          showHeader && `Search results for "${searchQuery || searchValue}"`
+        }
+        tracks={searchResults}
+        className="py-16"
+      />
+    </>
   );
 }

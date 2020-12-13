@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FreeSound from "freesound-client";
 import Modal from "react-modal";
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import auth, { init } from "./Auth";
 import Sound from "./Sound";
 import SearchResults from "./SearchResults";
@@ -87,6 +88,10 @@ const App = () => {
             path={"/"}
             render={() => (
               <>
+                <Helmet>
+                  <title>Tide - Explore a world of sounds</title>
+                  <meta name="description" content="Homepage of Tide" />
+                </Helmet>
                 <header className="bg-secondary md:text-center mt-2 p-8 rounded text-primary">
                   <h1 className="font-bold text-2xl">
                     Explore A World of Sounds
