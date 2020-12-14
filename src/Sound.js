@@ -4,29 +4,17 @@ import tinykeys from "tinykeys";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Waveform from "react-wavesurfer.js";
-import SoundList from "./SoundList";
 import Description from "./components/Description";
 import Tags from "./components/Tags";
 import Dropdown from "./components/Dropdown";
 import PlayButtton from "./components/PlayButton";
 import useSound from "./hooks/useSound";
-
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-const context = new AudioContext();
-
-function playSound(buffer) {
-  const source = context.createBufferSource();
-  source.buffer = buffer;
-  source.connect(context.destination);
-  source.start(0);
-}
+import SoundListContainer from "./SoundListContainer";
 
 export default function Sound(props) {
   const { isLoggedIn, freeSound, setModalIsOpen } = props;
   const [isPlaying, setIsPlaying] = useState(false);
   const { id } = useParams();
-  const [previewSound, setPreviewSound] = useState({});
-  const [previewIsPlaying, setPreviewIsPlaying] = useState(false);
   const { download, loadingState, pack, similar, sound } = useSound({
     id,
     freeSound,
@@ -58,23 +46,6 @@ export default function Sound(props) {
       unsubscribe();
     };
   });
-
-  const fetchAndPlay = async () => {
-    if (previewSound.id && previewSound.previews?.["preview-lq-mp3"]) {
-      const soundBuffer = await fetch(
-        previewSound.previews["preview-lq-mp3"]
-      ).then((res) => res.arrayBuffer());
-      const buffer = await context.decodeAudioData(soundBuffer);
-      playSound(buffer);
-    }
-  };
-
-  useEffect(() => {
-    if (previewIsPlaying) {
-      fetchAndPlay();
-      setPreviewIsPlaying(false);
-    }
-  }, [previewIsPlaying]);
 
   return (
     <>
@@ -135,24 +106,16 @@ export default function Sound(props) {
         </>
       )}
       {pack[0] && (
-        <SoundList
+        <SoundListContainer
           tracks={pack}
-          onPlayClick={(preview) => {
-            setPreviewSound(preview);
-            setPreviewIsPlaying(true);
-          }}
           header="Pack"
-          currentTrackId={sound.id}
+          selectedTrackId={sound.id}
           className="pb-16"
         />
       )}
       {similar[0] && (
-        <SoundList
+        <SoundListContainer
           tracks={similar.filter((_sound) => _sound.id !== sound.id)}
-          onPlayClick={(preview) => {
-            setPreviewSound(preview);
-            setPreviewIsPlaying(true);
-          }}
           header="Similar"
           className="pb-16"
         />
