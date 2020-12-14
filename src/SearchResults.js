@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import SoundList from "./SoundList";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
+import SoundListContainer from "./SoundListContainer";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -52,7 +52,7 @@ export default function Search({
           <meta name="description" content="Search results from Tide" />
         </Helmet>
       )}
-      <SoundList
+      <SoundListContainer
         header={
           showHeader && `Search results for "${searchQuery || searchValue}"`
         }
