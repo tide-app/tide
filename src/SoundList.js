@@ -4,24 +4,15 @@ import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import PlayButton from "./components/PlayButton";
 
-function convertSecondsInDecimalToHHMMSSFormat(secondsInDecimal) {
-  const hours = Math.floor(secondsInDecimal / 3600);
-  let remainingSeconds = secondsInDecimal - 3600 * hours;
-  const someNonnegativeIntegerNumberOfMinutesLessThanSixty = Math.floor(
-    remainingSeconds / 60
-  );
-  remainingSeconds -= 60 * someNonnegativeIntegerNumberOfMinutesLessThanSixty;
-
-  const prefixWithZeroIfLessThanTen = (
-    someNonnegativeIntegerNumberLessThanSixty
-  ) =>
-    `${
-      someNonnegativeIntegerNumberLessThanSixty < 10 ? "0" : ""
-    }${someNonnegativeIntegerNumberLessThanSixty}`;
-
-  return `${prefixWithZeroIfLessThanTen(hours)}:${prefixWithZeroIfLessThanTen(
-    someNonnegativeIntegerNumberOfMinutesLessThanSixty
-  )}:${prefixWithZeroIfLessThanTen(remainingSeconds)}`;
+function formatTime(secs) {
+  const hrs = Math.floor(secs / 3600);
+  let remainingSecs = secs - 3600 * hrs;
+  const mins = Math.floor(remainingSecs / 60);
+  remainingSecs -= 60 * mins;
+  // Pads a zero in front of a number if it's less than 10
+  const padLeft = (num) => `${num < 10 ? "0" : ""}${num}`;
+  // e.g., 1 => 01, 9 => 09, 10 => 10, 59 => 59
+  return `${padLeft(hrs)}:${padLeft(mins)}:${padLeft(remainingSecs)}`;
 }
 
 const SoundList = ({
@@ -92,9 +83,7 @@ const SoundList = ({
                     icon={timeSharp}
                     size="large"
                   />
-                  {convertSecondsInDecimalToHHMMSSFormat(
-                    Math.round(track.duration)
-                  )}
+                  {formatTime(Math.round(track.duration))}
                 </div>
                 <div className="flex justify-start w-3/12 items-center">
                   <IonIcon
