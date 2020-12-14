@@ -74,7 +74,7 @@ const SoundList = ({
                 </span>
               </div>
               <div
-                className={`group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-4/12 md:space-2 hidden sm:flex flex-row justify-end items-center ${
+                className={`group-hover:opacity-100 sm:hover:opacity-0 w-6/12 md:w-5/12 md:space-2 hidden sm:flex flex-row justify-end items-center ${
                   track.id !== selectedTrackId && "opacity-50"
                 }`} // Displays the sound data icons at 50% opacity if they do not belong to the current sound
               >
