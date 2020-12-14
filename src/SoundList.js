@@ -4,7 +4,7 @@ import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import PlayButton from "./components/PlayButton";
 
-function formatTime(secs) {
+export function formatTime(secs) {
   const hrs = Math.floor(secs / 3600);
   let remainingSecs = secs - 3600 * hrs;
   const mins = Math.floor(remainingSecs / 60);
