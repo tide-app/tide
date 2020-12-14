@@ -12,6 +12,7 @@ export function formatTime(secs) {
   // Pads a zero in front of a number if it's less than 10
   const padLeft = (num) => `${num < 10 ? "0" : ""}${num}`;
   // e.g., 1 => 01, 9 => 09, 10 => 10, 59 => 59
+  if (hrs === 0) return `${padLeft(mins)}:${padLeft(remainingSecs)}`;
   return `${padLeft(hrs)}:${padLeft(mins)}:${padLeft(remainingSecs)}`;
 }
 
@@ -85,7 +86,7 @@ const SoundList = ({
                   />
                   {formatTime(Math.round(track.duration))}
                 </div>
-                <div className="flex justify-start w-3/12 items-center">
+                <div className="flex justify-start w-4/12 items-center">
                   <IonIcon
                     className="pl-12 pr-2"
                     icon={downloadSharp}
