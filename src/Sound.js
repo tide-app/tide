@@ -55,7 +55,7 @@ export default function Sound(props) {
       </Helmet>
       <h1
         data-e2e-id="sound-title"
-        className="text-4xl md:text-5xl mb-4 text-left truncate"
+        className="text-4xl md:text-5xl pb-2 mb-4 text-left truncate"
       >
         {sound.name}
       </h1>
