@@ -75,7 +75,10 @@ const App = () => {
               />
             )}
           />
-          <Route path="/tag/:tag" render={() => <TagsPage />} />
+          <Route
+            path="/tag/:tag"
+            render={() => <TagsPage freeSound={freeSound} />}
+          />
           <Route
             path="/search"
             render={() => (

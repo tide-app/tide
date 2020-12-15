@@ -7576,10 +7576,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-freesound-client@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/freesound-client/-/freesound-client-0.3.0.tgz#f1d50bd60cb904ab7d7a031df93d6b823cb121ef"
-  integrity sha512-hrNBObnOxwtk7c+18rABfmNeRg+YR/uPeAeprbg8awctvsKRcTPfzNCVuQaiCwvu31UF05dewrO8JrdfasT8Jg==
+freesound-client@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/freesound-client/-/freesound-client-0.4.1.tgz#9001760fd74c5a11976b6faa5b4cd7ca9e6ec6e1"
+  integrity sha512-SY6woMDmX9HE/V74lRFccPBQlNTlvO/skWU5auMIzTZjlN/EJXoQbK6AXaqSsYGXvi8AY5Q9dGdsmoiOer4WDQ==
   dependencies:
     "@types/node-fetch" "^2.5.7"
     form-data "^3.0.0"
