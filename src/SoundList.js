@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { playCircleSharp, timeSharp, downloadSharp } from "ionicons/icons";
+import { starHalfSharp, timeSharp, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import PlayButton from "./components/PlayButton";
 
@@ -100,7 +100,7 @@ const SoundList = ({
                 <div className="flex justify-start w-3/12 items-center">
                   <IonIcon
                     className="pl-8 pr-2"
-                    icon={playCircleSharp}
+                    icon={starHalfSharp}
                     size="large"
                   />
                   <span className="m-1">{track.num_ratings}</span>
