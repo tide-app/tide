@@ -5,21 +5,31 @@ export default function SoundListContainer(props) {
   const [previewSound, setPreviewSound] = useState({});
   const [previewIsPlaying, setPreviewIsPlaying] = useState(false);
   const [context, setContext] = useState();
+  const [source, setSource] = useState();
 
   const AudioContext = window.AudioContext || window.webkitAudioContext;
 
-  function playSound(buffer) {
-    const source = context.createBufferSource();
-    source.buffer = buffer;
-    source.connect(context.destination);
-    if (previewIsPlaying) source.stop();
+  function play(buffer) {
+    const newSource = context.createBufferSource();
+    setSource(newSource);
+    newSource.buffer = buffer;
+    newSource.connect(context.destination);
+    if (previewIsPlaying) newSource.stop();
     setPreviewIsPlaying(true);
-    source.start(0);
-    source.stop(context.currentTime + buffer.duration);
-    source.onended = () => {
+    newSource.start(0);
+    newSource.stop(context.currentTime + buffer.duration);
+    newSource.onended = () => {
       setPreviewIsPlaying(false);
       setPreviewSound(undefined);
     };
+  }
+
+  function onPauseClick() {
+    if (!previewIsPlaying) return;
+    source.stop(context.currentTime);
+    setPreviewSound({});
+    setSource(undefined);
+    setPreviewIsPlaying(false);
   }
 
   useEffect(() => {
@@ -35,7 +45,7 @@ export default function SoundListContainer(props) {
         previewSound.previews["preview-lq-mp3"]
       ).then((res) => res.arrayBuffer());
       const buffer = await context.decodeAudioData(soundBuffer);
-      playSound(buffer);
+      play(buffer);
     }
   };
 
@@ -50,6 +60,7 @@ export default function SoundListContainer(props) {
       onPlayClick={(preview) => {
         setPreviewSound(preview);
       }}
+      onPauseClick={onPauseClick}
       isPlaying={previewIsPlaying}
       playingTrackId={previewSound?.id}
       {...props}
