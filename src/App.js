@@ -8,6 +8,7 @@ import Sound from "./Sound";
 import SearchResults from "./SearchResults";
 import Nav from "./Nav";
 import ModalPrompt from "./components/ModalPrompt";
+import TagsPage from "./TagsPage";
 
 // Bind modal to our appElement for accessibility
 Modal.setAppElement(document.getElementById("root"));
@@ -73,6 +74,10 @@ const App = () => {
                 freeSound={freeSound}
               />
             )}
+          />
+          <Route
+            path="/tag/:tag"
+            render={() => <TagsPage freeSound={freeSound} />}
           />
           <Route
             path="/search"

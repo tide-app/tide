@@ -17,7 +17,7 @@
     "autoprefixer": "^9",
     "cypress": "6.0.0",
     "dompurify": "^2.2.2",
-    "freesound-client": "^0.3.0",
+    "freesound-client": "^0.4.1",
     "ionicons": "^5.2.3",
     "localforage": "^1.9.0",
     "lodash": "^4.17.20",
