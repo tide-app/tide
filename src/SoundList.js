@@ -41,12 +41,14 @@ const SoundList = ({
           >
             <div
               className={`group transition duration-150 ease-in-out border border-solid border-secondary p-2 space-x-2 flex items-center hover:bg-secondary hover:text-primary ${
-                track.id === selectedTrackId ? "bg-secondary text-primary" : ""
+                track.id === selectedTrackId || track.id === playingTrackId
+                  ? "bg-secondary text-primary"
+                  : ""
               }`}
             >
               <div
                 className={
-                  track.id === selectedTrackId
+                  track.id === selectedTrackId || track.id === playingTrackId
                     ? ""
                     : "opacity-0 group-hover:opacity-100"
                 }
