@@ -65,7 +65,7 @@ const SoundList = ({
                   isPlaying={track.id === playingTrackId && isPlaying}
                 />
               </div>
-              <div className="flex flex-col flex-grow">
+              <div className="flex flex-col justify-start w-9/12">
                 <span
                   className="overflow-clip"
                   data-e2e-id="SoundList-track-name"
@@ -82,27 +82,15 @@ const SoundList = ({
                 }`} // Displays the sound data icons at 50% opacity if they do not belong to the current sound
               >
                 <div className="flex justify-start w-5/12 lg:w-4/12 items-center">
-                  <IonIcon
-                    className="pl-12 pr-2"
-                    icon={timeSharp}
-                    size="large"
-                  />
+                  <IonIcon icon={timeSharp} size="large" />
                   {formatTime(Math.round(track.duration))}
                 </div>
-                <div className="flex justify-start w-5/12 lg:w-4/12 items-center">
-                  <IonIcon
-                    className="pl-12 pr-2"
-                    icon={downloadSharp}
-                    size="large"
-                  />
+                <div className="flex justify-start w-4/12 lg:w-3/12 items-center">
+                  <IonIcon icon={downloadSharp} size="large" />
                   {track.num_downloads}
                 </div>
                 <div className="flex justify-start w-4/12 lg:w-3/12 items-center">
-                  <IonIcon
-                    className="pl-8 pr-2"
-                    icon={starHalfSharp}
-                    size="large"
-                  />
+                  <IonIcon icon={starHalfSharp} size="large" />
                   <span className="m-1">{track.num_ratings}</span>
                 </div>
               </div>
