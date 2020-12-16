@@ -13,6 +13,8 @@
     "@colormap/presets": "0.2.0",
     "@headlessui/react": "^0.2.0",
     "@ionic/react": "^5.4.4",
+    "@sentry/react": "^5.29.0",
+    "@sentry/tracing": "^5.29.0",
     "@types/lodash": "^4.14.165",
     "autoprefixer": "^9",
     "cypress": "6.0.0",
