@@ -81,7 +81,7 @@ const SoundList = ({
                   track.id !== selectedTrackId && "opacity-50"
                 }`} // Displays the sound data icons at 50% opacity if they do not belong to the current sound
               >
-                <div className="flex justify-start w-4/12 items-center">
+                <div className="flex justify-start w-5/12 lg:w-4/12 items-center">
                   <IonIcon
                     className="pl-12 pr-2"
                     icon={timeSharp}
@@ -89,7 +89,7 @@ const SoundList = ({
                   />
                   {formatTime(Math.round(track.duration))}
                 </div>
-                <div className="flex justify-start w-4/12 items-center">
+                <div className="flex justify-start w-5/12 lg:w-4/12 items-center">
                   <IonIcon
                     className="pl-12 pr-2"
                     icon={downloadSharp}
@@ -97,7 +97,7 @@ const SoundList = ({
                   />
                   {track.num_downloads}
                 </div>
-                <div className="flex justify-start w-3/12 items-center">
+                <div className="flex justify-start w-4/12 lg:w-3/12 items-center">
                   <IonIcon
                     className="pl-8 pr-2"
                     icon={starHalfSharp}
