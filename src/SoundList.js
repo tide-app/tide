@@ -83,11 +83,13 @@ const SoundList = ({
               >
                 <div className="flex justify-start w-5/12 lg:w-4/12 items-center">
                   <IonIcon icon={timeSharp} size="large" />
-                  {formatTime(Math.round(track.duration))}
+                  <span className="m-1">
+                    {formatTime(Math.round(track.duration))}
+                  </span>
                 </div>
-                <div className="flex justify-start w-4/12 lg:w-3/12 items-center">
+                <div className="flex justify-start w-5/12 lg:w-4/12 items-center">
                   <IonIcon icon={downloadSharp} size="large" />
-                  {track.num_downloads}
+                  <span className="m-1">{track.num_downloads}</span>
                 </div>
                 <div className="flex justify-start w-4/12 lg:w-3/12 items-center">
                   <IonIcon icon={starHalfSharp} size="large" />
