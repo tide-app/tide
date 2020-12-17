@@ -84,6 +84,8 @@ function Nav({
         {!isLoggedIn && (
           <Button onClick={openRedirectDialogModalWindow}>Login</Button>
         )}
+        {/* @TO-DO: else statement that says that if the user IS logged in, then their profile picture should show up
+        in the top right hand corner with a dropdown menu. */}
       </div>
     </nav>
   );
