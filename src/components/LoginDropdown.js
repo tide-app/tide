@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { personCircleSharp } from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
 import Button from "./Button";
 
 export default function Dropdown({ onClick = () => {} }) {
@@ -11,7 +13,9 @@ export default function Dropdown({ onClick = () => {} }) {
             <>
               <span className="rounded-md shadow-sm">
                 <Menu.Button className="inline-flex justify-center w-full text-sm font-medium leading-5 rounded-md">
-                  <Button onClick={onClick}>PROFILE ICON</Button>
+                  <Button onClick={onClick}>
+                    <IonIcon icon={personCircleSharp} size="small"></IonIcon>
+                  </Button>
                 </Menu.Button>
               </span>
 
@@ -30,14 +34,17 @@ export default function Dropdown({ onClick = () => {} }) {
                 >
                   <div>
                     <Menu.Item>
-                      <a className="flex cursor-pointer justify-between w-full px-4 py-2 text-sm leading-5 text-left">
-                        Logged in as DJ Beethoven
+                      <a className="flex cursor-pointer justify-between w-full px-4 py-2 text-sm font-bold leading-5 text-left">
+                        Logged in as ___.
                       </a>
                     </Menu.Item>
                     <Menu.Item>
                       <a className="flex cursor-pointer justify-between w-full px-4 py-2 text-sm leading-5 text-left">
-                        Profile
+                        My Profile
                       </a>
+                    </Menu.Item>
+                    <Menu.Item className="flex cursor-pointer justify-start w-full px-4 py-2 text-sm leading-5 text-left">
+                      <span>Settings</span>
                     </Menu.Item>
                     <Menu.Item>
                       <a className="flex cursor-pointer justify-between w-full px-4 py-2 text-sm leading-5 text-left">
