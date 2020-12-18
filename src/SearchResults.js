@@ -16,7 +16,7 @@ export default function Search({
   showHeader = false,
 }) {
   // eslint-disable-next-line camelcase
-  const page_size = 5;
+  const page_size = 10;
   const [
     searchOptionsForSearchResults,
     setSearchOptionsForSearchResults,
