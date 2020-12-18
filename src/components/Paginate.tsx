@@ -31,7 +31,7 @@ export default function Paginate({
     <>
       {children}
       {/* <!-- This example requires Tailwind CSS v2.0+ --> */}
-      <div className="bg-primary px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+      <div className="bg-primary px-4 py-3 flex items-center justify-between border-gray-200 sm:px-6">
         <div className="flex-1 flex justify-between sm:hidden">
           {currentPage !== 1 && (
             <button
