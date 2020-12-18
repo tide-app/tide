@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const findNumberOfPages = (
+const getPageCount = (
   numberOfResults: number,
   numberOfResultsPerPage: number
 ): number => Math.ceil(numberOfResults / numberOfResultsPerPage);
@@ -21,7 +21,7 @@ export default function Paginate({
   totalResults,
 }: paginateProps) {
   const [currentPage, setCurrentPage] = useState(page);
-  const numberOfPages: number = findNumberOfPages(totalResults, limit);
+  const numberOfPages: number = getPageCount(totalResults, limit);
 
   useEffect(() => {
     onPageClick(currentPage);
