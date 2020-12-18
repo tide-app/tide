@@ -15,14 +15,13 @@ export default function Search({
   fetchSearchResults,
   showHeader = false,
 }) {
-  // eslint-disable-next-line camelcase
-  const page_size = 10;
+  const limit = 10;
   const [
     searchOptionsForSearchResults,
     setSearchOptionsForSearchResults,
   ] = useState({
     ...SOUND_LIST_QUERY_PARAMS,
-    page_size,
+    page_size: limit,
   });
   const [searchResults, setSearchResults] = useState([]);
   const [totalNumberOfSearchResults, setTotalNumberOfSearchResults] = useState(
@@ -70,8 +69,7 @@ export default function Search({
         </Helmet>
       )}
       <Paginate
-        // eslint-disable-next-line camelcase
-        limit={page_size}
+        limit={limit}
         onPageClick={(page) =>
           setSearchOptionsForSearchResults((previousSearchOptions) => {
             return {
