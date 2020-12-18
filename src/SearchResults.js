@@ -88,7 +88,7 @@ export default function Search({
             showHeader && `Search results for "${searchQuery || searchValue}"`
           }
           tracks={searchResults}
-          className="py-16"
+          className="pt-16"
         />
       </Paginate>
     </>
