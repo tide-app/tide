@@ -9,12 +9,7 @@ import LoginDropdown from "./components/LoginDropdown";
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-function Nav({
-  isLoggedIn,
-  openRedirectDialogModalWindow,
-  setSearchValue,
-  history,
-}) {
+function Nav({ isLoggedIn, openModal, setSearchValue, history }) {
   const pushHistory = (searchValue) => {
     history.push({
       pathname: "/search",
@@ -85,13 +80,8 @@ function Nav({
         {isLoggedIn ? (
           <LoginDropdown />
         ) : (
-          <Button onClick={openRedirectDialogModalWindow}>Login</Button>
+          <Button onClick={openModal}>Login</Button>
         )}
-        {/* {!isLoggedIn && (
-          <Button onClick={openRedirectDialogModalWindow}>Login</Button>
-        )} */}
-        {/* @TO-DO: else statement that says that if the user IS logged in, then their profile picture should show up
-        in the top right hand corner with a dropdown menu. */}
       </div>
     </nav>
   );
