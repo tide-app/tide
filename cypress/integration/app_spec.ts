@@ -29,14 +29,20 @@ function setupServerMocks() {
       fixture: "search-results.json",
     }
   );
-
+  cy.intercept(
+    "GET",
+    "https://freesound.org/apiv2/search/text/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings&page_size=10&page=1&query=hello",
+    {
+      fixture: "search-results.json",
+    }
+  );
   cy.intercept(
     "GET",
     "https://freesound.org/apiv2/search/text/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings&page_size=10&page=2&query=hello",
     {
       fixture: "search-results-page-2.json",
     }
-  );
+  ).as("searchResultsPage2");
 }
 
 describe("Home Page", () => {
@@ -60,21 +66,19 @@ describe("Pagination", () => {
     cy.get(`[data-e2e-id="SoundList-track-name"]`)
       .first()
       .should("be.visible")
-      .should("have.text", "hello");
+      .should("have.text", "hello mr. foo");
     cy.get(`[data-e2e-id="SoundList-track-url"]`)
       .first()
       .should("be.visible")
       .should("have.attr", "href", "/sound/123");
     cy.get(`[data-e2e-id="first-page-button"]`).should("be.visible");
-    cy.get(`[data-e2e-id="next-page-button"]`).should("be.visible").click();
-    cy.get(`[data-e2e-id="SoundList-track-name"]`).should(
-      "have.text",
-      `hello.wavHello #3.MP3Hello.wavHello #2.MP3Me Saying "Hello"Hello Scream Male LoudHello #1.MP3hello.wavhello.wavhello.wav`
-    ); // This block makes sure the second page of search results has actually rendered before testing it.
+    cy.get(`[data-e2e-id="next-page-button"]`).click();
+    cy.wait("@searchResultsPage2");
     cy.get(`[data-e2e-id="SoundList-track-name"]`)
       .first()
       .should("be.visible")
-      .should("have.text", "hello.wav");
+      .should("have.text", "hello123");
+
     cy.get(`[data-e2e-id="SoundList-track-url"]`)
       .first()
       .should("be.visible")
@@ -93,7 +97,7 @@ describe("Search functionality", () => {
     cy.get(`[data-e2e-id="SoundList-track-name"]`)
       .first()
       .should("be.visible")
-      .should("have.text", "hello");
+      .should("have.text", "hello mr. foo");
     cy.get(`[data-e2e-id="SoundList-track-url"]`)
       .first()
       .should("be.visible")

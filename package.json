@@ -54,6 +54,7 @@
     "@types/react-router-dom": "^5.1.6",
     "bundlesize": "^0.18.0",
     "eslint-config-bliss": "^5.0.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
@@ -103,7 +104,8 @@
     },
     "extends": [
       "bliss",
-      "plugin:react/recommended"
+      "plugin:react/recommended",
+      "plugin:cypress/recommended"
     ],
     "rules": {
       "react/prop-types": "off"
