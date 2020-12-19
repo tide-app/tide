@@ -50,7 +50,7 @@ describe("Home Page", () => {
   });
 });
 
-describe("Pagination element functionality", () => {
+describe("Pagination", () => {
   beforeEach(() => {
     setupServerMocks();
   });
