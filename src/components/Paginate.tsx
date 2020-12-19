@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 
 const getPageCount = (
   numberOfResults: number,
@@ -6,7 +6,7 @@ const getPageCount = (
 ): number => Math.ceil(numberOfResults / numberOfResultsPerPage);
 
 interface PaginateProps {
-  children: any; // children: component?
+  children: FunctionComponent;
   limit: number;
   onPageClick: Function;
   page: number;
