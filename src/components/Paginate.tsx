@@ -102,6 +102,7 @@ export default function Paginate({
               )}
               <button
                 onClick={() => setCurrentPage(1)}
+                data-e2e-id="first-page-button"
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
                   currentPage === 1 // Are we on the first page? If so, make the lefthand size of
                     ? "bg-secondary border-secondary rounded-l-md text-primary" // the first page's button rounded.
@@ -171,6 +172,7 @@ export default function Paginate({
               </button>
               {currentPage !== numberOfPages && (
                 <button // Only show the next page button if we're not on the last page.
+                  data-e2e-id="next-page-button"
                   className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-primary text-sm font-medium text-gray-500 hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
