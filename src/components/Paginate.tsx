@@ -5,7 +5,7 @@ const getPageCount = (
   numberOfResultsPerPage: number
 ): number => Math.ceil(numberOfResults / numberOfResultsPerPage);
 
-interface paginateProps {
+interface PaginateProps {
   children: any; // children: component?
   limit: number;
   onPageClick: Function;
@@ -19,7 +19,7 @@ export default function Paginate({
   onPageClick,
   page,
   totalResults,
-}: paginateProps) {
+}: PaginateProps) {
   const [currentPage, setCurrentPage] = useState(page);
   const numberOfPages: number = getPageCount(totalResults, limit);
 
