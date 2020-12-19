@@ -16,10 +16,7 @@ export default function Search({
   showHeader = false,
 }) {
   const limit = 10;
-  const [
-    searchOptionsForSearchResults,
-    setSearchOptionsForSearchResults,
-  ] = useState({
+  const [searchOpts, setSearchOpts] = useState({
     ...SOUND_LIST_QUERY_PARAMS,
     page_size: limit,
   });
@@ -32,11 +29,7 @@ export default function Search({
   const searchQuery = typeof queryValue === "string" ? queryValue : undefined;
 
   const debouncedSearch = useDebouncedCallback(
-    () =>
-      fetchSearchResults(
-        searchQuery || searchValue,
-        searchOptionsForSearchResults
-      ),
+    () => fetchSearchResults(searchQuery || searchValue, searchOpts),
     300,
     {
       leading: true,
@@ -58,7 +51,7 @@ export default function Search({
     if (searchQuery || searchValue) {
       updateSearchResults();
     }
-  }, [searchValue, searchOptionsForSearchResults, searchQuery]);
+  }, [searchValue, searchOpts, searchQuery]);
 
   return (
     <>
@@ -71,7 +64,7 @@ export default function Search({
       <Paginate
         limit={limit}
         onPageClick={(page) =>
-          setSearchOptionsForSearchResults((previousSearchOptions) => {
+          setSearchOpts((previousSearchOptions) => {
             return {
               ...previousSearchOptions,
               page,
