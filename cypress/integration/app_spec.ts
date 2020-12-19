@@ -55,7 +55,7 @@ describe("Pagination", () => {
     setupServerMocks();
   });
 
-  it("checks if next page button shows next page of results", () => {
+  it("should show the second page of search results", () => {
     cy.visit("/search?q=hello");
     cy.get(`[data-e2e-id="SoundList-track-name"]`)
       .first()
