@@ -80,7 +80,9 @@ function Nav({ isLoggedIn, openModal, setSearchValue, history }) {
         {isLoggedIn ? (
           <LoginDropdown />
         ) : (
-          <Button onClick={openModal}>Login</Button>
+          <Button data-e2e-id="Login-button" onClick={openModal}>
+            Login
+          </Button>
         )}
       </div>
     </nav>

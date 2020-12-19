@@ -37,7 +37,7 @@ const App = () => {
   function closeModal() {
     setModalIsOpen(false);
   }
-  function openRedirectDialogModalWindow() {
+  function openModal() {
     setModalIsOpen(true);
   }
 
@@ -61,7 +61,7 @@ const App = () => {
       <Router>
         <Nav
           setSearchValue={setSearchValue}
-          openRedirectDialogModalWindow={openRedirectDialogModalWindow}
+          openModal={openModal}
           isLoggedIn={isLoggedIn}
         />
         <Switch>
