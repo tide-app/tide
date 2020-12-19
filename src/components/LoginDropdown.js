@@ -4,6 +4,8 @@ import { personCircleSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import Button from "./Button";
 
+// Once the dropdown component is reusable, this file will eventually be deleted.
+
 export default function Dropdown({ onClick = () => {} }) {
   return (
     <div className="flex items-center justify-center">

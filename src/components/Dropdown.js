@@ -4,6 +4,8 @@ import { caretDownOutline, downloadSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import Button from "./Button";
 
+// Make this component reusable by removing anything that has to do with the download dropdown menu.
+
 export default function Dropdown({ onClick = () => {}, disabled = false }) {
   return (
     <div className="flex items-center justify-center">
