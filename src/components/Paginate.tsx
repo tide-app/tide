@@ -8,7 +8,7 @@ const getPageCount = (
 interface PaginateProps {
   children: FunctionComponent;
   limit: number;
-  onPageClick: Function;
+  onPageClick: (page: number) => void;
   page: number;
   totalResults: number;
 }
