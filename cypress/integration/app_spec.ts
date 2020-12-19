@@ -67,7 +67,10 @@ describe("Pagination element functionality", () => {
       .should("have.attr", "href", "/sound/123");
     cy.get(`[data-e2e-id="first-page-button"]`).should("be.visible");
     cy.get(`[data-e2e-id="next-page-button"]`).should("be.visible").click();
-    cy.wait(30000); // This is necessary to give enough time to re-render.
+    cy.get(`[data-e2e-id="SoundList-track-name"]`).should(
+      "have.text",
+      `hello.wavHello #3.MP3Hello.wavHello #2.MP3Me Saying "Hello"Hello Scream Male LoudHello #1.MP3hello.wavhello.wavhello.wav`
+    ); // This block makes sure the second page of search results has actually rendered before testing it.
     cy.get(`[data-e2e-id="SoundList-track-name"]`)
       .first()
       .should("be.visible")
