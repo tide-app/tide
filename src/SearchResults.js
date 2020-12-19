@@ -20,10 +20,8 @@ export default function Search({
     ...SOUND_LIST_QUERY_PARAMS,
     page_size: limit,
   });
+  const [numResults, setNumResults] = useState(0);
   const [searchResults, setSearchResults] = useState([]);
-  const [totalNumberOfSearchResults, setTotalNumberOfSearchResults] = useState(
-    0
-  );
   const queryParams = useQuery();
   const queryValue = queryParams.get("q");
   const searchQuery = typeof queryValue === "string" ? queryValue : undefined;
@@ -43,8 +41,8 @@ export default function Search({
       } else {
         const query = await debouncedSearch.callback();
         if (query?.results) {
+          setNumResults(query.count);
           setSearchResults(query.results);
-          setTotalNumberOfSearchResults(query.count);
         }
       }
     };
@@ -72,7 +70,7 @@ export default function Search({
           })
         }
         page={1}
-        totalResults={totalNumberOfSearchResults}
+        totalResults={numResults}
       >
         <SoundListContainer
           header={
