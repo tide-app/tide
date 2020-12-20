@@ -104,9 +104,8 @@ export default function Paginate({
                 onClick={() => setCurrentPage(1)}
                 data-e2e-id="first-page-button"
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === 1 // Are we on the first page? If so, make the lefthand size of
-                    ? "bg-secondary border-secondary rounded-l-md text-primary" // the first page's button rounded.
-                    : "bg-primary text-secondary"
+                  currentPage === 1 && // Are we on the first page? If so, make the lefthand size of
+                  "bg-secondary border-secondary rounded-l-md text-primary" // the first page's button rounded.
                 }`}
               >
                 1
@@ -116,9 +115,8 @@ export default function Paginate({
                   setCurrentPage(2);
                 }}
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === 2
-                    ? "bg-secondary border-secondary text-primary"
-                    : "bg-primary text-secondary"
+                  currentPage === 2 &&
+                  "bg-secondary border-secondary text-primary"
                 }`}
               >
                 2
@@ -126,9 +124,8 @@ export default function Paginate({
               <button
                 onClick={() => setCurrentPage(3)}
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === 3
-                    ? "bg-secondary border-secondary text-primary"
-                    : "bg-primary text-secondary"
+                  currentPage === 3 &&
+                  "bg-secondary border-secondary text-primary"
                 }`}
               >
                 3
@@ -143,9 +140,8 @@ export default function Paginate({
               <button
                 onClick={() => setCurrentPage(numberOfPages - 2)}
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === numberOfPages - 2
-                    ? "bg-secondary border-secondary text-primary"
-                    : "bg-primary text-secondary"
+                  currentPage === numberOfPages - 2 &&
+                  "bg-secondary border-secondary text-primary"
                 }`}
               >
                 {numberOfPages - 2}
@@ -153,9 +149,8 @@ export default function Paginate({
               <button
                 onClick={() => setCurrentPage(numberOfPages - 1)}
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === numberOfPages - 1
-                    ? "bg-secondary border-secondary text-primary"
-                    : "bg-primary text-secondary"
+                  currentPage === numberOfPages - 1 &&
+                  "bg-secondary border-secondary text-primary"
                 }`}
               >
                 {numberOfPages - 1}
@@ -163,9 +158,8 @@ export default function Paginate({
               <button
                 onClick={() => setCurrentPage(numberOfPages)}
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === numberOfPages // Are we on the first page? If so, make the righthand size of
-                    ? "bg-secondary border-secondary rounded-r-md text-primary" // the last page's button rounded.
-                    : "bg-primary text-secondary"
+                  currentPage === numberOfPages && // Are we on the first page? If so, make the righthand size of
+                  "bg-secondary border-secondary rounded-r-md text-primary" // the last page's button rounded.
                 }`}
               >
                 {numberOfPages}
