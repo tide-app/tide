@@ -158,7 +158,7 @@ export default function Paginate({
               <button
                 onClick={() => setCurrentPage(numberOfPages)}
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === numberOfPages && // Are we on the first page? If so, make the righthand size of
+                  currentPage === numberOfPages && // Are we on the last page? If so, make the righthand size of
                   "bg-secondary border-secondary rounded-r-md text-primary" // the last page's button rounded.
                 }`}
               >
