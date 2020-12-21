@@ -104,7 +104,7 @@ export default function Paginate({
                 onClick={() => setCurrentPage(1)}
                 data-e2e-id="first-page-button"
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === 1 && // Are we on the first page? If so, make the lefthand side of
+                  currentPage === 1 && // If we're on the first page, make the lefthand side of
                   "bg-secondary border-secondary rounded-l-md text-primary" // the first page's button rounded.
                 }`}
               >
@@ -158,7 +158,7 @@ export default function Paginate({
               <button
                 onClick={() => setCurrentPage(numberOfPages)}
                 className={`border duration-150 ease-in-out font-medium hover:bg-secondary hover:border-secondary hover:text-primary inline-flex items-center px-4 py-2 relative text-sm transition ${
-                  currentPage === numberOfPages && // Are we on the last page? If so, make the righthand side of
+                  currentPage === numberOfPages && // If we're on the last page, make the righthand side of
                   "bg-secondary border-secondary rounded-r-md text-primary" // the last page's button rounded.
                 }`}
               >
