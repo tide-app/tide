@@ -31,11 +31,11 @@ export default function Paginate({
     <>
       {children}
       {/* <!-- This example requires Tailwind CSS v2.0+ --> */}
-      <div className="bg-primary px-4 py-3 flex items-center justify-between border-gray-200 sm:px-6">
+      <div className="bg-primary px-4 py-3 flex items-center justify-between sm:px-6">
         <div className="flex-1 flex justify-between sm:hidden">
           {currentPage !== 1 && (
             <button
-              className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-primary hover:text-gray-500"
+              className="relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-700 bg-primary hover:text-gray-500"
               onClick={() => setCurrentPage(currentPage - 1)}
             >
               Previous
@@ -43,7 +43,7 @@ export default function Paginate({
           )}
           {currentPage !== numberOfPages && (
             <button
-              className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-primary hover:text-gray-500"
+              className="ml-3 relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-700 bg-primary hover:text-gray-500"
               onClick={() => setCurrentPage(currentPage + 1)}
             >
               Next
@@ -80,7 +80,7 @@ export default function Paginate({
             >
               {currentPage !== 1 && (
                 <button // Only show the previous page button if we're not on the first page.
-                  className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-primary text-sm font-medium text-gray-500 hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
+                  className="relative inline-flex items-center px-2 py-2 rounded-l-md border bg-primary text-sm font-medium text-gray-500 hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
                   <span className="sr-only">Previous</span>
@@ -167,7 +167,7 @@ export default function Paginate({
               {currentPage !== numberOfPages && (
                 <button // Only show the next page button if we're not on the last page.
                   data-e2e-id="next-page-button"
-                  className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-primary text-sm font-medium text-gray-500 hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
+                  className="relative inline-flex items-center px-2 py-2 rounded-r-md border bg-primary text-sm font-medium text-gray-500 hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
                   <span className="sr-only">Next</span>
