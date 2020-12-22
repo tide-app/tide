@@ -1,7 +1,11 @@
 import React from "react";
 import { IonIcon } from "@ionic/react";
 
-export default function Input({ icon, ...props }) {
+interface Props {
+  icon: string;
+}
+
+export default function Input({ icon, ...props }: Props) {
   return (
     <div className="relative">
       <input

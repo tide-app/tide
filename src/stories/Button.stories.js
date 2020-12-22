@@ -1,6 +1,6 @@
 import React from "react";
 import "../build.css";
-import Button from "../components/Button";
+import Button from "../components/Button.tsx";
 import PlayButton from "../components/PlayButton";
 
 export default {
