@@ -74,6 +74,7 @@ function Nav({ isLoggedIn, openModal, setSearchValue, history }) {
           onChange={(e) =>
             pushHistory(e.target.value) && setSearchValue(e.target.value)
           }
+          autoComplete="off"
           placeholder="Search sound..."
           // type="search" // This seems appropriate, but adds an X that interferes with the search icon.
         />
