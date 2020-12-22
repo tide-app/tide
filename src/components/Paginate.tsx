@@ -124,9 +124,7 @@ export default function Paginate({
             >
               3
             </button>
-            <span className={"border inline-flex px-4 py-2 text-secondary"}>
-              ...
-            </span>
+            <span className={"border inline-flex px-4 py-2"}>...</span>
             <button
               onClick={() => setCurrentPage(numberOfPages - 2)}
               className={`border duration-150 ease-in-out hover:bg-secondary hover:border-secondary hover:text-primary inline-flex px-4 py-2 transition ${
