@@ -66,7 +66,7 @@ export default function Paginate({
             </span>
             of
             <span> {totalResults} </span>
-            results
+            {totalResults === 1 ? "result" : "results"}
           </p>
           <nav
             className="z-0 inline-flex shadow-sm -space-x-px text-sm"
