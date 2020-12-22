@@ -51,25 +51,23 @@ export default function Paginate({
           )}
         </div>
         <div className="hidden sm:flex-1 sm:flex sm:justify-between">
-          <div>
-            <p className="text-sm">
-              Showing
-              <span> {currentPage * limit - (limit - 1)} </span>
-              to
-              <span>
-                {" " /* Are we on the last page, and... */}
-                {currentPage === numberOfPages && totalResults % limit !== 0
-                  ? (totalResults % limit) - // does the number of results
-                    1 + // per page divide the total number of results evenly?
-                    currentPage * limit -
-                    (limit - 1)
-                  : currentPage * limit}{" "}
-              </span>
-              of
-              <span> {totalResults} </span>
-              results
-            </p>
-          </div>
+          <p className="text-sm">
+            Showing
+            <span> {currentPage * limit - (limit - 1)} </span>
+            to
+            <span>
+              {" " /* Are we on the last page, and... */}
+              {currentPage === numberOfPages && totalResults % limit !== 0
+                ? (totalResults % limit) - // does the number of results
+                  1 + // per page divide the total number of results evenly?
+                  currentPage * limit -
+                  (limit - 1)
+                : currentPage * limit}{" "}
+            </span>
+            of
+            <span> {totalResults} </span>
+            results
+          </p>
           <nav
             className="z-0 inline-flex shadow-sm -space-x-px text-sm"
             aria-label="Pagination"
