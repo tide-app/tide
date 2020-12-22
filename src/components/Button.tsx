@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function Button({ children, ...props }) {
+interface Props {
+  children: Element;
+}
+
+export default function Button({ children, ...props }: Props) {
   return (
     <button
       {...props}

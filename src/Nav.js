@@ -2,7 +2,7 @@ import { searchSharp } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { Link, withRouter, useLocation } from "react-router-dom";
 import tinykeys from "tinykeys";
-import Button from "./components/Button";
+import Button from "./components/Button.tsx";
 import Input from "./components/Input";
 import LoginDropdown from "./components/LoginDropdown";
 

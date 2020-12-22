@@ -2,7 +2,7 @@ import * as React from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { personCircleSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
-import Button from "./Button";
+import Button from "./Button.tsx";
 
 export default function Dropdown({ onClick = () => {} }) {
   return (
