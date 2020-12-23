@@ -60,8 +60,8 @@ export default function Paginate({
             <span>
               {" " /* Are we on the last page, and... */}
               {currentPage === numberOfPages && totalResults % limit !== 0
-                ? (totalResults % limit) - // does the number of results
-                  1 + // per page divide the total number of results evenly?
+                ? (totalResults % limit) - // does the number of results per
+                  1 + // page not divide the total number of results evenly?
                   currentPage * limit -
                   (limit - 1)
                 : currentPage * limit}{" "}
