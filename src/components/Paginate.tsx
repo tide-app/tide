@@ -23,6 +23,19 @@ export default function Paginate({
   const [currentPage, setCurrentPage] = useState(page);
   const numberOfPages: number = getPageCount(totalResults, limit);
 
+  const displayLastResultsNumberProperly = (): string => {
+    if (totalResults === 0) return " 0 ";
+
+    let lastResultsNumber: number = currentPage * limit;
+    const firstResultsNumber: number = lastResultsNumber - (limit - 1);
+    const leftoverResults: number = totalResults % limit;
+    // If the results per page does not evenly divide totalResults...
+    if (currentPage === numberOfPages && leftoverResults !== 0)
+      lastResultsNumber = firstResultsNumber + leftoverResults - 1;
+
+    return ` ${lastResultsNumber.toString()} `;
+  };
+
   useEffect(() => {
     onPageClick(currentPage);
   }, [currentPage]);
@@ -55,17 +68,14 @@ export default function Paginate({
         <div className="hidden sm:flex-1 sm:flex sm:justify-between">
           <p className="text-sm">
             Showing
-            <span> {currentPage * limit - (limit - 1)} </span>
-            to
             <span>
-              {" " /* Are we on the last page, and... */}
-              {currentPage === numberOfPages && totalResults % limit !== 0
-                ? (totalResults % limit) - // does the number of results per
-                  1 + // page not divide the total number of results evenly?
-                  currentPage * limit -
-                  (limit - 1)
-                : currentPage * limit}{" "}
+              {" "}
+              {totalResults === 0
+                ? "0"
+                : currentPage * limit - (limit - 1)}{" "}
             </span>
+            to
+            <span>{displayLastResultsNumberProperly()}</span>
             of
             <span> {totalResults} </span>
             {totalResults === 1 ? "result" : "results"}
