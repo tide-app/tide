@@ -33,7 +33,9 @@ export default function Paginate({
       {/* <!-- This example requires Tailwind CSS v2.0+ --> */}
       <div className="px-4 py-3 flex justify-between sm:px-6">
         <div className="flex-1 flex justify-between sm:hidden">
-          {currentPage !== 1 && (
+          {currentPage === 1 ? (
+            <span></span>
+          ) : (
             <button
               className="inline-flex px-4 py-2 border rounded-md"
               onClick={() => setCurrentPage(currentPage - 1)}
