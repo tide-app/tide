@@ -32,7 +32,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: yarn install
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
 
       - name: yarn build
         run: yarn build
@@ -41,6 +41,7 @@ jobs:
         run: yarn test
 
       - name: Cypress run
+        install-command: yarn --immutable
         uses: cypress-io/github-action@v2
         with:
           start: yarn start
