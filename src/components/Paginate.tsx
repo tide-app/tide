@@ -2,10 +2,8 @@ import { chevronBackSharp, chevronForwardSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import React, { FunctionComponent, useEffect, useState } from "react";
 
-const getPageCount = (
-  numberOfResults: number,
-  resultsPerPage: number
-): number => Math.ceil(numberOfResults / resultsPerPage);
+const getNumPages = (numResults: number, resultsPerPage: number): number =>
+  Math.ceil(numResults / resultsPerPage);
 
 interface PaginateProps {
   children: FunctionComponent;
@@ -23,7 +21,7 @@ export default function Paginate({
   totalResults,
 }: PaginateProps) {
   const [currentPage, setCurrentPage] = useState(page);
-  const numberOfPages: number = getPageCount(totalResults, limit);
+  const numberOfPages: number = getNumPages(totalResults, limit);
 
   const displayLastResultsNumber = (): string => {
     if (totalResults === 0) return " 0 ";
