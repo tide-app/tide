@@ -86,7 +86,7 @@ describe("Pagination", () => {
   });
 });
 
-describe("Search functionality", () => {
+describe("Search", () => {
   beforeEach(() => {
     setupServerMocks();
   });
