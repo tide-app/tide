@@ -1,10 +1,10 @@
-import { IonIcon } from "@ionic/react";
 import {
-  playBackSharp,
-  playForwardSharp,
-  playSkipBackSharp,
-  playSkipForwardSharp,
+  chevronBackCircleSharp,
+  chevronBackSharp,
+  chevronForwardCircleSharp,
+  chevronForwardSharp,
 } from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
 import React, { FunctionComponent, useEffect, useState } from "react";
 
 const getPageCount = (
@@ -98,7 +98,7 @@ export default function Paginate({
                   onClick={() => setCurrentPage(1)}
                 >
                   <span className="sr-only">Jump to page 1!</span>
-                  <IonIcon className="h-5 w-5" icon={playSkipBackSharp} />
+                  <IonIcon className="h-5 w-5" icon={chevronBackCircleSharp} />
                 </button>
               )}
               {currentPage !== 1 && (
@@ -107,7 +107,7 @@ export default function Paginate({
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
                   <span className="sr-only">Previous</span>
-                  <IonIcon className="h-5 w-5" icon={playBackSharp} />
+                  <IonIcon className="h-5 w-5" icon={chevronBackSharp} />
                 </button>
               )}
               <button
@@ -175,7 +175,7 @@ export default function Paginate({
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
                   <span className="sr-only">Next</span>
-                  <IonIcon className="h-5 w-5" icon={playForwardSharp} />
+                  <IonIcon className="h-5 w-5" icon={chevronForwardSharp} />
                 </button>
               )}
               {currentPage !== numberOfPages && (
@@ -185,7 +185,10 @@ export default function Paginate({
                   onClick={() => setCurrentPage(numberOfPages)}
                 >
                   <span className="sr-only">Jump to last page!</span>
-                  <IonIcon className="h-5 w-5" icon={playSkipForwardSharp} />
+                  <IonIcon
+                    className="h-5 w-5"
+                    icon={chevronForwardCircleSharp}
+                  />
                 </button>
               )}
             </nav>
