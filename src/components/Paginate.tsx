@@ -25,7 +25,7 @@ export default function Paginate({
   const [currentPage, setCurrentPage] = useState(page);
   const numberOfPages: number = getPageCount(totalResults, limit);
 
-  const displayLastResultsNumberProperly = (): string => {
+  const displayLastResultsNumber = (): string => {
     if (totalResults === 0) return " 0 ";
 
     let lastResultsNumber: number = currentPage * limit;
@@ -77,7 +77,7 @@ export default function Paginate({
                 : currentPage * limit - (limit - 1)}{" "}
             </span>
             to
-            <span>{displayLastResultsNumberProperly()}</span>
+            <span>{displayLastResultsNumber()}</span>
             of
             <span> {totalResults} </span>
             {totalResults === 1 ? "result" : "results"}
