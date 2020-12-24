@@ -55,7 +55,7 @@ export default function Paginate({
               className="inline-flex px-4 py-2 border rounded-md"
               onClick={() => setCurrentPage(currentPage - 1)}
             >
-              Previous
+              Previous <span className="sr-only">page</span>
             </button>
           )}
           {currentPage !== numberOfPages && (
@@ -63,7 +63,7 @@ export default function Paginate({
               className="ml-3 inline-flex px-4 py-2 border rounded-md"
               onClick={() => setCurrentPage(currentPage + 1)}
             >
-              Next
+              Next <span className="sr-only">page</span>
             </button>
           )}
         </div>
@@ -92,7 +92,7 @@ export default function Paginate({
                   className="inline-flex px-2 py-2 rounded-l-md border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
-                  <span className="sr-only">Previous</span>
+                  <span className="sr-only">Previous page</span>
                   <IonIcon className="h-5 w-5" icon={chevronBackSharp} />
                 </button>
               )}
@@ -104,6 +104,11 @@ export default function Paginate({
                   "bg-secondary border-secondary rounded-l-md text-primary" // the first page's button rounded.
                 }`}
               >
+                {currentPage === 1 ? (
+                  <span className="sr-only">You are on page</span>
+                ) : (
+                  <span className="sr-only">Jump to page</span>
+                )}
                 1
               </button>
               <button
@@ -115,6 +120,11 @@ export default function Paginate({
                   "bg-secondary border-secondary text-primary"
                 }`}
               >
+                {currentPage === 2 ? (
+                  <span className="sr-only">You are on page</span>
+                ) : (
+                  <span className="sr-only">Jump to page</span>
+                )}
                 2
               </button>
               <button
@@ -124,6 +134,11 @@ export default function Paginate({
                   "bg-secondary border-secondary text-primary"
                 }`}
               >
+                {currentPage === 3 ? (
+                  <span className="sr-only">You are on page</span>
+                ) : (
+                  <span className="sr-only">Jump to page</span>
+                )}
                 3
               </button>
               <span className={"border inline-flex px-4 py-2"}>...</span>
@@ -134,6 +149,15 @@ export default function Paginate({
                   "bg-secondary border-secondary text-primary"
                 }`}
               >
+                {currentPage === numberOfPages - 2 ? (
+                  <span className="sr-only">
+                    You are on the third-to-last page, page
+                  </span>
+                ) : (
+                  <span className="sr-only">
+                    Jump to the third-to-last page, page
+                  </span>
+                )}
                 {numberOfPages - 2}
               </button>
               <button
@@ -143,6 +167,15 @@ export default function Paginate({
                   "bg-secondary border-secondary text-primary"
                 }`}
               >
+                {currentPage === numberOfPages - 1 ? (
+                  <span className="sr-only">
+                    You are on the second-to-last page, page
+                  </span>
+                ) : (
+                  <span className="sr-only">
+                    Jump to the second-to-last page, page
+                  </span>
+                )}
                 {numberOfPages - 1}
               </button>
               <button
@@ -152,6 +185,13 @@ export default function Paginate({
                   "bg-secondary border-secondary rounded-r-md text-primary" // the last page's button rounded.
                 }`}
               >
+                {currentPage === numberOfPages ? (
+                  <span className="sr-only">
+                    You are on the last page, page
+                  </span>
+                ) : (
+                  <span className="sr-only">Jump to the last page, page</span>
+                )}
                 {numberOfPages}
               </button>
               {currentPage !== numberOfPages && (
@@ -160,7 +200,7 @@ export default function Paginate({
                   className="inline-flex px-2 py-2 rounded-r-md border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
-                  <span className="sr-only">Next</span>
+                  <span className="sr-only">Next page</span>
                   <IonIcon className="h-5 w-5" icon={chevronForwardSharp} />
                 </button>
               )}
