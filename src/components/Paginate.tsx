@@ -1,9 +1,4 @@
-import {
-  chevronBackCircleSharp,
-  chevronBackSharp,
-  chevronForwardCircleSharp,
-  chevronForwardSharp,
-} from "ionicons/icons";
+import { chevronBackSharp, chevronForwardSharp } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import React, { FunctionComponent, useEffect, useState } from "react";
 
@@ -93,17 +88,8 @@ export default function Paginate({
               aria-label="Pagination"
             >
               {currentPage !== 1 && (
-                <button // Only show the jump to first page button if we're not on the first page.
-                  className="inline-flex px-2 py-2 rounded-l-md border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
-                  onClick={() => setCurrentPage(1)}
-                >
-                  <span className="sr-only">Jump to page 1!</span>
-                  <IonIcon className="h-5 w-5" icon={chevronBackCircleSharp} />
-                </button>
-              )}
-              {currentPage !== 1 && (
                 <button // Only show the previous page button if we're not on the first page.
-                  className="border duration-150 ease-in-out hover:bg-secondary hover:border-secondary hover:text-primary inline-flex px-2 py-2 transition"
+                  className="inline-flex px-2 py-2 rounded-l-md border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
                   <span className="sr-only">Previous</span>
@@ -171,24 +157,11 @@ export default function Paginate({
               {currentPage !== numberOfPages && (
                 <button // Only show the next page button if we're not on the last page.
                   data-e2e-id="next-page-button"
-                  className="inline-flex px-2 py-2 border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
+                  className="inline-flex px-2 py-2 rounded-r-md border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage + 1)}
                 >
                   <span className="sr-only">Next</span>
                   <IonIcon className="h-5 w-5" icon={chevronForwardSharp} />
-                </button>
-              )}
-              {currentPage !== numberOfPages && (
-                <button // Only show the jump to last page button if we're not on the last page.
-                  data-e2e-id="next-page-button"
-                  className="border duration-150 ease-in-out hover:bg-secondary hover:border-secondary hover:text-primary inline-flex px-2 py-2 rounded-r-md transition"
-                  onClick={() => setCurrentPage(numberOfPages)}
-                >
-                  <span className="sr-only">Jump to last page!</span>
-                  <IonIcon
-                    className="h-5 w-5"
-                    icon={chevronForwardCircleSharp}
-                  />
                 </button>
               )}
             </nav>
