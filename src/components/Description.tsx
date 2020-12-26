@@ -1,6 +1,16 @@
 import React from "react";
 
-export default function Description({ content: sanitizedHTMLFromFreesound }) {
+const propsObject: { __html: string } = {
+  __html: "",
+};
+
+interface Props {
+  content: typeof propsObject;
+}
+
+export default function Description({
+  content: sanitizedHTMLFromFreesound,
+}: Props) {
   return (
     <>
       <h1 className="text-left text-3xl pt-24 py-4">Description</h1>

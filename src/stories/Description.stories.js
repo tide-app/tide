@@ -1,7 +1,7 @@
 import React from "react";
 import "../build.css";
 
-import Description from "../components/Description";
+import Description from "../components/Description.tsx";
 
 export default {
   title: "Components/Description",
