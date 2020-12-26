@@ -3,6 +3,17 @@ import Modal from "react-modal";
 import { IonIcon } from "@ionic/react";
 import { closeSharp } from "ionicons/icons";
 
+interface Props {
+  title: string;
+  isOpen: boolean;
+  confirmMessage: string;
+  denyMessage: string;
+  longMessage: string;
+  onClose: any;
+  onRequestClose: any;
+  onConfirm: any;
+}
+
 export default function ModalPrompt({
   title,
   isOpen = false,

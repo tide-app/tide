@@ -1,11 +1,7 @@
 import React from "react";
 
-const propsObject: { __html: string } = {
-  __html: "",
-};
-
 interface Props {
-  content: typeof propsObject;
+  content: { __html: string };
 }
 
 export default function Description({
