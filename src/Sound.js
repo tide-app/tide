@@ -4,7 +4,7 @@ import tinykeys from "tinykeys";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Waveform from "react-wavesurfer.js";
-import Description from "./components/Description";
+import Description from "./components/Description.tsx";
 import Tags from "./components/Tags";
 import Dropdown from "./components/Dropdown";
 import PlayButtton from "./components/PlayButton";

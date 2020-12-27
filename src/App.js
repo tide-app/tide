@@ -7,7 +7,7 @@ import auth, { init } from "./Auth";
 import Sound from "./Sound";
 import SearchResults from "./SearchResults";
 import Nav from "./Nav";
-import ModalPrompt from "./components/ModalPrompt";
+import ModalPrompt from "./components/ModalPrompt.tsx";
 import TagsPage from "./TagsPage";
 
 // Bind modal to our appElement for accessibility

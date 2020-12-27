@@ -1,7 +1,6 @@
 import React from "react";
+import ModalPrompt from "../components/ModalPrompt.tsx";
 import "../build.css";
-
-import ModalPrompt from "../components/ModalPrompt";
 
 export default {
   title: "Components/ModalPrompt",

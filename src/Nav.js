@@ -2,8 +2,8 @@ import { searchSharp } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { Link, withRouter, useLocation } from "react-router-dom";
 import tinykeys from "tinykeys";
-import Button from "./components/Button";
-import Input from "./components/Input";
+import Button from "./components/Button.tsx";
+import Input from "./components/Input.tsx";
 import LoginDropdown from "./components/LoginDropdown";
 
 function useQuery() {
