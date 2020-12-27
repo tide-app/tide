@@ -45,13 +45,25 @@ function setupServerMocks() {
   ).as("searchResultsPage2");
 }
 
+describe("Authentication", () => {
+  beforeEach(() => {
+    setupServerMocks();
+    cy.visit("/");
+  });
+
+  it("should open a modal window after clicking the login button", () => {
+    cy.get(`[data-e2e-id="Login-button"]`).should("be.visible").click();
+    cy.get(".Modal").should("be.visible");
+  });
+});
+
 describe("Home Page", () => {
   beforeEach(() => {
     setupServerMocks();
+    cy.visit("/");
   });
 
   it("should load the home page", () => {
-    cy.visit("/");
     cy.get(`[data-e2e-id='SoundList']`).should("be.visible");
   });
 });
@@ -116,11 +128,11 @@ describe("Search", () => {
 describe("Sound Page", () => {
   beforeEach(() => {
     setupServerMocks();
+    const testSoundId = "462808";
+    cy.visit(`/sound/${testSoundId}`);
   });
 
   it("should load the page", () => {
-    const testSoundId = "462808";
-    cy.visit(`/sound/${testSoundId}`);
     cy.get(`[data-e2e-id="sound-title"]`)
       .should("be.visible")
       .should("have.text", "Music note 9");

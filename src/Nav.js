@@ -4,16 +4,12 @@ import { Link, withRouter, useLocation } from "react-router-dom";
 import tinykeys from "tinykeys";
 import Button from "./components/Button";
 import Input from "./components/Input";
+import LoginDropdown from "./components/LoginDropdown";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-function Nav({
-  isLoggedIn,
-  openRedirectDialogModalWindow,
-  setSearchValue,
-  history,
-}) {
+function Nav({ isLoggedIn, openModal, setSearchValue, history }) {
   const pushHistory = (searchValue) => {
     history.push({
       pathname: "/search",
@@ -78,11 +74,16 @@ function Nav({
           onChange={(e) =>
             pushHistory(e.target.value) && setSearchValue(e.target.value)
           }
+          autoComplete="off"
           placeholder="Search sound..."
           // type="search" // This seems appropriate, but adds an X that interferes with the search icon.
         />
-        {!isLoggedIn && (
-          <Button onClick={openRedirectDialogModalWindow}>Login</Button>
+        {isLoggedIn ? (
+          <LoginDropdown />
+        ) : (
+          <Button data-e2e-id="Login-button" onClick={openModal}>
+            Login
+          </Button>
         )}
       </div>
     </nav>
