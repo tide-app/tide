@@ -1,0 +1,147 @@
+{
+  "count": 822,
+  "next": "http://freesound.org/apiv2/search/text/?&query=hello&page=3&page_size=10&fields=id,name,previews,duration,num_downloads,username,num_ratings",
+  "results": [
+    {
+      "id": 343161,
+      "name": "hello123",
+      "duration": 1.99669,
+      "username": "theatertech455",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/343/343161_6071037-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/343/343161_6071037-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/343/343161_6071037-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/343/343161_6071037-hq.mp3"
+      },
+      "num_downloads": 255,
+      "num_ratings": 4
+    },
+    {
+      "id": 399639,
+      "name": "Hello #3.MP3",
+      "duration": 1.86882,
+      "username": "SoundsForHim",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/399/399639_7386498-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/399/399639_7386498-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/399/399639_7386498-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/399/399639_7386498-hq.mp3"
+      },
+      "num_downloads": 264,
+      "num_ratings": 1
+    },
+    {
+      "id": 245050,
+      "name": "Hello.wav",
+      "duration": 3.87567,
+      "username": "rjsaqibsheikh",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/245/245050_4489489-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/245/245050_4489489-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/245/245050_4489489-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/245/245050_4489489-hq.mp3"
+      },
+      "num_downloads": 203,
+      "num_ratings": 4
+    },
+    {
+      "id": 399640,
+      "name": "Hello #2.MP3",
+      "duration": 2.57413,
+      "username": "SoundsForHim",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/399/399640_7386498-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/399/399640_7386498-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/399/399640_7386498-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/399/399640_7386498-hq.mp3"
+      },
+      "num_downloads": 91,
+      "num_ratings": 1
+    },
+    {
+      "id": 458002,
+      "name": "Me Saying \"Hello\"",
+      "duration": 2.50942,
+      "username": "Fabrizio84",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/458/458002_2841496-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/458/458002_2841496-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/458/458002_2841496-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/458/458002_2841496-hq.mp3"
+      },
+      "num_downloads": 365,
+      "num_ratings": 3
+    },
+    {
+      "id": 435851,
+      "name": "Hello Scream Male Loud",
+      "duration": 0.731429,
+      "username": "dersuperanton",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/435/435851_1992856-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/435/435851_1992856-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/435/435851_1992856-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/435/435851_1992856-hq.mp3"
+      },
+      "num_downloads": 1126,
+      "num_ratings": 7
+    },
+    {
+      "id": 399636,
+      "name": "Hello #1.MP3",
+      "duration": 2.548,
+      "username": "SoundsForHim",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/399/399636_7386498-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/399/399636_7386498-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/399/399636_7386498-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/399/399636_7386498-hq.mp3"
+      },
+      "num_downloads": 709,
+      "num_ratings": 3
+    },
+    {
+      "id": 123346,
+      "name": "hello.wav",
+      "duration": 1.674,
+      "username": "MatteusNova",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/123/123346_495253-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/123/123346_495253-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/123/123346_495253-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/123/123346_495253-hq.mp3"
+      },
+      "num_downloads": 3299,
+      "num_ratings": 13
+    },
+    {
+      "id": 177110,
+      "name": "hello.wav",
+      "duration": 10.33,
+      "username": "jleathers292",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/177/177110_3272682-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/177/177110_3272682-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/177/177110_3272682-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/177/177110_3272682-hq.mp3"
+      },
+      "num_downloads": 818,
+      "num_ratings": 10
+    },
+    {
+      "id": 339157,
+      "name": "hello.wav",
+      "duration": 2.46712,
+      "username": "girlhurl",
+      "previews": {
+        "preview-lq-ogg": "https://freesound.org/data/previews/339/339157_5938465-lq.ogg",
+        "preview-lq-mp3": "https://freesound.org/data/previews/339/339157_5938465-lq.mp3",
+        "preview-hq-ogg": "https://freesound.org/data/previews/339/339157_5938465-hq.ogg",
+        "preview-hq-mp3": "https://freesound.org/data/previews/339/339157_5938465-hq.mp3"
+      },
+      "num_downloads": 2502,
+      "num_ratings": 21
+    }
+  ],
+  "previous": "http://freesound.org/apiv2/search/text/?&query=hello&page=1&page_size=10&fields=id,name,previews,duration,num_downloads,username,num_ratings"
+}

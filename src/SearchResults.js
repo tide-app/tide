@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { SOUND_LIST_QUERY_PARAMS } from "./constants";
 import SoundListContainer from "./SoundListContainer";
+import Paginate from "./components/Paginate.tsx";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -14,14 +15,19 @@ export default function Search({
   fetchSearchResults,
   showHeader = false,
 }) {
+  const limit = 10;
+  const [searchOpts, setSearchOpts] = useState({
+    ...SOUND_LIST_QUERY_PARAMS,
+    page_size: limit,
+  });
+  const [numResults, setNumResults] = useState(0);
   const [searchResults, setSearchResults] = useState([]);
   const queryParams = useQuery();
   const queryValue = queryParams.get("q");
   const searchQuery = typeof queryValue === "string" ? queryValue : undefined;
 
   const debouncedSearch = useDebouncedCallback(
-    () =>
-      fetchSearchResults(searchQuery || searchValue, SOUND_LIST_QUERY_PARAMS),
+    () => fetchSearchResults(searchQuery || searchValue, searchOpts),
     300,
     {
       leading: true,
@@ -35,6 +41,7 @@ export default function Search({
       } else {
         const query = await debouncedSearch.callback();
         if (query?.results) {
+          setNumResults(query.count);
           setSearchResults(query.results);
         }
       }
@@ -42,7 +49,7 @@ export default function Search({
     if (searchQuery || searchValue) {
       updateSearchResults();
     }
-  }, [searchValue, searchQuery]);
+  }, [searchValue, searchOpts, searchQuery]);
 
   return (
     <>
@@ -52,13 +59,27 @@ export default function Search({
           <meta name="description" content="Search results from Tide" />
         </Helmet>
       )}
-      <SoundListContainer
-        header={
-          showHeader && `Search results for "${searchQuery || searchValue}"`
+      <Paginate
+        limit={limit}
+        onPageClick={(page) =>
+          setSearchOpts((previousSearchOptions) => {
+            return {
+              ...previousSearchOptions,
+              page,
+            };
+          })
         }
-        tracks={searchResults}
-        className="py-16"
-      />
+        page={1}
+        totalResults={numResults}
+      >
+        <SoundListContainer
+          header={
+            showHeader && `Search results for "${searchQuery || searchValue}"`
+          }
+          tracks={searchResults}
+          className="pt-16"
+        />
+      </Paginate>
     </>
   );
 }

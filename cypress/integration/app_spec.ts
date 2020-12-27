@@ -22,9 +22,27 @@ function setupServerMocks() {
     "https://freesound.org/data/previews/462/462808_8386274-lq.mp3",
     { fixture: "sound.mp3" }
   );
-  cy.intercept("GET", "https://freesound.org/apiv2/search/text/*", {
-    fixture: "search-results.json",
-  });
+  cy.intercept(
+    "GET",
+    "https://freesound.org/apiv2/search/text/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings&page_size=10&query=hello",
+    {
+      fixture: "search-results.json",
+    }
+  );
+  cy.intercept(
+    "GET",
+    "https://freesound.org/apiv2/search/text/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings&page_size=10&page=1&query=hello",
+    {
+      fixture: "search-results.json",
+    }
+  );
+  cy.intercept(
+    "GET",
+    "https://freesound.org/apiv2/search/text/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings&page_size=10&page=2&query=hello",
+    {
+      fixture: "search-results-page-2.json",
+    }
+  ).as("searchResultsPage2");
 }
 
 describe("Authentication", () => {
@@ -50,7 +68,37 @@ describe("Home Page", () => {
   });
 });
 
-describe("Search functionality", () => {
+describe("Pagination", () => {
+  beforeEach(() => {
+    setupServerMocks();
+  });
+
+  it.skip("should show the second page of search results", () => {
+    cy.visit("/search?q=hello");
+    cy.get(`[data-e2e-id="SoundList-track-name"]`)
+      .first()
+      .should("be.visible")
+      .should("have.text", "hello mr. foo");
+    cy.get(`[data-e2e-id="SoundList-track-url"]`)
+      .first()
+      .should("be.visible")
+      .should("have.attr", "href", "/sound/123");
+    cy.get(`[data-e2e-id="first-page-button"]`).should("be.visible");
+    cy.get(`[data-e2e-id="next-page-button"]`).click();
+    cy.wait("@searchResultsPage2");
+    cy.get(`[data-e2e-id="SoundList-track-name"]`)
+      .first()
+      .should("be.visible")
+      .should("have.text", "hello123");
+
+    cy.get(`[data-e2e-id="SoundList-track-url"]`)
+      .first()
+      .should("be.visible")
+      .should("have.attr", "href", "/sound/343161");
+  });
+});
+
+describe("Search", () => {
   beforeEach(() => {
     setupServerMocks();
   });
@@ -61,7 +109,7 @@ describe("Search functionality", () => {
     cy.get(`[data-e2e-id="SoundList-track-name"]`)
       .first()
       .should("be.visible")
-      .should("have.text", "hello");
+      .should("have.text", "hello mr. foo");
     cy.get(`[data-e2e-id="SoundList-track-url"]`)
       .first()
       .should("be.visible")
