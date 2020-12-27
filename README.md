@@ -1,6 +1,6 @@
 # tide
 
-[![Test](https://github.com/amilajack/tide/workflows/Test/badge.svg)](https://github.com/amilajack/tide/actions?query=workflow%3ATest)
+[![Test](https://github.com/tide-app/tide/workflows/Test/badge.svg)](https://github.com/tide-app/tide/actions?query=workflow%3ATest)
 
 ## UI 
 
@@ -19,7 +19,7 @@
 ## Setup
 
 ```bash
-git clone https://github.com/amilajack/tide
+git clone https://github.com/tide-app/tide
 cd tide
 yarn
 yarn start
