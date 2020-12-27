@@ -3893,6 +3893,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-modal@npm:^3.10.6":
+  version: 3.10.6
+  resolution: "@types/react-modal@npm:3.10.6"
+  dependencies:
+    "@types/react": "*"
+  checksum: 290caa018e0e26e9c684a4685eccb763195634a2f7afd50211fd20cff1fe411d617c66a0f31094238c537772eff3836a4003e4ce8ffffadcb14918bb8e9336fc
+  languageName: node
+  linkType: hard
+
 "@types/react-router-dom@npm:^5.1.6":
   version: 5.1.6
   resolution: "@types/react-router-dom@npm:5.1.6"
@@ -20043,6 +20052,7 @@ resolve@1.18.1:
     "@types/lodash": ^4.14.165
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
+    "@types/react-modal": ^3.10.6
     "@types/react-router-dom": ^5.1.6
     autoprefixer: ^9
     bundlesize: ^0.18.0
