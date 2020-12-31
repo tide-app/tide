@@ -98,7 +98,7 @@ export default function Paginate({
     for (
       let index = numberOfPages - NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS - 1;
       index < numberOfPages; // We always show the page before the current
-      index++ // one; this is why we substract one from the starting index.
+      index++ // one; this is why we subtract one from the starting index.
     )
       remainingPageButtons.push(buttonForPageNumber(index));
     // We stop before the last page, because that will always be present.
