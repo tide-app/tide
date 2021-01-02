@@ -31,7 +31,7 @@ export default function Paginate({
     let lastResultsNumber: number = currentPage * limit;
     const firstResultsNumber: number = lastResultsNumber - (limit - 1);
     const leftoverResults: number = totalResults % limit;
-    // If the results per page does not evenly divide totalResults...
+    // If the results per page does not evenly divide # results
     if (currentPage === numberOfPages && leftoverResults !== 0)
       lastResultsNumber = firstResultsNumber + leftoverResults - 1;
 
@@ -39,8 +39,8 @@ export default function Paginate({
   };
 
   const displayRemainingPageButtons = (): Array<JSX.Element> => {
-    if (numberOfPages < 3) return []; // First/last pages always there
-
+    if (numberOfPages < 3) return [];
+    // First, last pages always present, so only continue if # pgs > 2
     const buttonForPageNumber = (pageNumber: number): JSX.Element => (
       <button
         className={`border duration-150 ease-in-out hover:bg-secondary hover:border-secondary hover:text-primary inline-flex px-4 py-2 transition ${
@@ -61,10 +61,10 @@ export default function Paginate({
     const ELLIPSIS: JSX.Element = (
       <span className={"border inline-flex px-4 py-2"}>...</span>
     );
-
-    const MAX_NUMBER_OF_PAGE_BUTTONS: number = 7; // No "magic numbers"!
-    const NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS: number = 3; // First, last
-    const remainingPageButtons: Array<JSX.Element> = []; // and ... buttons
+    // First, ..., prev, current, next, ..., last
+    const MAX_NUMBER_OF_PAGE_BUTTONS: number = 7;
+    const NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS: number = 3;
+    const remainingPageButtons: Array<JSX.Element> = [];
 
     if (numberOfPages <= MAX_NUMBER_OF_PAGE_BUTTONS) {
       for (let index = 2; index < numberOfPages; index++)
@@ -72,9 +72,9 @@ export default function Paginate({
       // If we're in this case, we can fit every page's button
       return remainingPageButtons;
     }
-
+    // If we can't fit every button and are on the first few pages, then
     if (
-      currentPage <= // If we're on one of the first few pages, then...
+      currentPage <=
       MAX_NUMBER_OF_PAGE_BUTTONS - NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS
     ) {
       for (let index = 2; index < MAX_NUMBER_OF_PAGE_BUTTONS - 1; index++)
@@ -83,25 +83,25 @@ export default function Paginate({
       remainingPageButtons.push(ELLIPSIS);
       return remainingPageButtons;
     }
-
+    // If we can't fit every page button and are somewhere in the middle, then
     if (currentPage < numberOfPages - NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS) {
-      remainingPageButtons.push(ELLIPSIS); // If we're in the middle, we show
+      remainingPageButtons.push(ELLIPSIS);
       remainingPageButtons.push(buttonForPageNumber(currentPage - 1));
-      remainingPageButtons.push(buttonForPageNumber(currentPage)); // the
+      remainingPageButtons.push(buttonForPageNumber(currentPage));
       remainingPageButtons.push(buttonForPageNumber(currentPage + 1));
-      remainingPageButtons.push(ELLIPSIS); // previous, current and next pages
-      // Then, we can exit, because we always show the first and last pages.
+      remainingPageButtons.push(ELLIPSIS);
+      // Then, we can exit because we always show first and last pages
       return remainingPageButtons;
     }
-
-    remainingPageButtons.push(ELLIPSIS); // If we're on the last few pages,
+    // If here, we're on last few pages.
+    remainingPageButtons.push(ELLIPSIS);
     for (
       let index = numberOfPages - NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS - 1;
-      index < numberOfPages; // We always show the page before the current
-      index++ // one; this is why we substract one from the starting index.
+      index < numberOfPages;
+      index++
     )
       remainingPageButtons.push(buttonForPageNumber(index));
-    // We stop before the last page, because that will always be present.
+    // Stop before last page, because that is always present
     return remainingPageButtons;
   };
 
@@ -154,8 +154,9 @@ export default function Paginate({
               className="z-0 inline-flex shadow-sm -space-x-px text-sm"
               aria-label="Pagination"
             >
+              {/* Only show previous page button if not on first page */}
               {currentPage !== 1 && (
-                <button // Only show the previous page button if we're not on the first page.
+                <button
                   className="inline-flex px-2 py-2 rounded-l-md border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage - 1)}
                 >
@@ -163,12 +164,13 @@ export default function Paginate({
                   <IonIcon className="h-5 w-5" icon={chevronBackSharp} />
                 </button>
               )}
+              {/* If on first page, give first page button special styling */}
               <button
                 onClick={() => setCurrentPage(1)}
                 data-e2e-id="first-page-button"
                 className={`border duration-150 ease-in-out hover:bg-secondary hover:border-secondary hover:text-primary inline-flex px-4 py-2 transition ${
-                  currentPage === 1 && // If we're on the first page, make the lefthand side of
-                  "bg-secondary border-secondary rounded-l-md text-primary" // the first page's button rounded.
+                  currentPage === 1 &&
+                  "bg-secondary border-secondary rounded-l-md text-primary"
                 }`}
               >
                 {currentPage === 1 ? (
@@ -179,11 +181,12 @@ export default function Paginate({
                 1
               </button>
               {displayRemainingPageButtons()}
+              {/* If on last page, give last page button special styling */}
               <button
                 onClick={() => setCurrentPage(numberOfPages)}
                 className={`border duration-150 ease-in-out hover:bg-secondary hover:border-secondary hover:text-primary inline-flex px-4 py-2 transition ${
-                  currentPage === numberOfPages && // If we're on the last page, make the righthand side of
-                  "bg-secondary border-secondary rounded-r-md text-primary" // the last page's button rounded.
+                  currentPage === numberOfPages &&
+                  "bg-secondary border-secondary rounded-r-md text-primary"
                 }`}
               >
                 {currentPage === numberOfPages ? (
@@ -195,8 +198,9 @@ export default function Paginate({
                 )}
                 {numberOfPages}
               </button>
+              {/* Only show next page button if not on last page */}
               {currentPage !== numberOfPages && (
-                <button // Only show the next page button if we're not on the last page.
+                <button
                   data-e2e-id="next-page-button"
                   className="inline-flex px-2 py-2 rounded-r-md border hover:bg-secondary hover:border-secondary hover:text-primary transition duration-150 ease-in-out"
                   onClick={() => setCurrentPage(currentPage + 1)}
