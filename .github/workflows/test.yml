@@ -32,7 +32,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: yarn install
-        run: yarn --immutable
+        run: yarn
 
       - name: yarn build
         run: yarn build
@@ -41,13 +41,13 @@ jobs:
         run: yarn test
 
       - name: Cypress run
-        install-command: yarn --immutable
         uses: cypress-io/github-action@v2
         with:
           start: yarn start
+          install-command: yarn
           wait-on: 'http://localhost:3000'
 
-      - name: Bundlesize
-        run: yarn bundlesize
+      - name: Bundlewatch
+        run: yarn bundlewatch
         env:
-          BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
+          BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
