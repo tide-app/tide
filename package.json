@@ -22,7 +22,7 @@
     "freesound-client": "^0.4.1",
     "ionicons": "^5.2.3",
     "localforage": "^1.9.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "postcss-cli": "^8.3.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
