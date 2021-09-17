@@ -2,19 +2,22 @@
 
 [![Test](https://github.com/tide-app/tide/workflows/Test/badge.svg)](https://github.com/tide-app/tide/actions?query=workflow%3ATest)
 
-## UI 
+## UI
 
 ### Day Theme
+
 #### Home Page
+
 ![Home Page in Day Theme](https://site-previewer.vercel.app/api/preview?url=https://tide-app.vercel.app)
 
-#### Sound Page 
+#### Sound Page
+
 ![Sound Page in Day Theme](https://site-previewer.vercel.app/api/preview?url=https://tide-app.vercel.app/sound/462808)
 
 ## Related Repositories
 
-* [`freesound-client`](https://github.com/amilajack/freesound-client)
-* [`react-wavesurfer.js`](https://github.com/amilajack/react-wavesurfer.js)
+- [`freesound-client`](https://github.com/amilajack/freesound-client)
+- [`react-wavesurfer.js`](https://github.com/amilajack/react-wavesurfer.js)
 
 ## Setup
 
