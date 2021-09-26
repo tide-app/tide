@@ -4,12 +4,12 @@ function setupServerMocks() {
     fixture: "sound.json",
   });
   cy.intercept("GET", "/people/qfox123/packs/26158", { fixture: "sound.json" });
-  cy.intercept("GET", "https://freesound.org/apiv2/packs/26158/", {
+  cy.intercept("GET", "https://freesound.org/apiv2/packs/26158/?", {
     fixture: "pack.json",
   });
   cy.intercept(
     "GET",
-    "https://freesound.org/apiv2/packs/26158/sounds/?fields=id%2Cname%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings",
+    "https://freesound.org/apiv2/packs/26158/sounds/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings",
     { fixture: "pack-sounds.json" }
   );
   cy.intercept(
@@ -36,6 +36,15 @@ function setupServerMocks() {
       fixture: "search-results-page-2.json",
     }
   ).as("searchResultsPage2");
+  // used to make sure sounds without a pack do not display a pack soundlist
+  cy.intercept("GET", "https://freesound.org/apiv2/sounds/64314/?", {
+    fixture: "packless-sound-fixture/packless-sound.json",
+  });
+  cy.intercept(
+    "GET",
+    "https://freesound.org/apiv2/sounds/64314/similar/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings",
+    { fixture: "packless-sound-fixture/packless-sound-similar-sounds.json" }
+  );
 }
 
 describe("Authentication", () => {
@@ -129,5 +138,32 @@ describe("Sound Page", () => {
     cy.get(`[data-e2e-id="sound-title"]`)
       .should("be.visible")
       .should("have.text", "Music note 9");
+  });
+
+  it("should load pack sounds", () => {
+    cy.get(`[data-e2e-id="Pack-SoundList"]`)
+      .should("be.visible")
+      .should("contain.text", "Pack");
+  });
+});
+
+describe("Sound Page for a sound without a pack", () => {
+  beforeEach(() => {
+    setupServerMocks();
+    const PACKLESS_SOUND_ID = "64314";
+    cy.visit(`/sound/${PACKLESS_SOUND_ID}`);
+  });
+
+  it("should NOT show pack sounds for a sound that does NOT have a pack", () => {
+    cy.get(`[data-e2e-id="SoundList"]`).should("be.visible");
+    cy.get(`[data-e2e-id="SoundList-track-name"]`)
+      .first()
+      .should("be.visible")
+      .should("have.text", "HOAN Snare.wav");
+    cy.get(`[data-e2e-id="SoundList-track-url"]`)
+      .first()
+      .should("be.visible")
+      .should("have.attr", "href", "/sound/463001");
+    cy.get(`[data-e2e-id="Pack-SoundList"]`).should("not.exist");
   });
 });

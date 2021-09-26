@@ -29,7 +29,10 @@ const SoundList = ({
   className = "",
 }) => {
   return (
-    <div data-e2e-id="SoundList" className={`text-left ${className}`}>
+    <div
+      data-e2e-id={header === "Pack" ? "Pack-SoundList" : "SoundList"}
+      className={`text-left ${className}`}
+    >
       {header && <h1 className="text-3xl m-auto py-4">{header}</h1>}
       <div className="list-item-container">
         {tracks.map((track) => (

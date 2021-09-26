@@ -1,0 +1,232 @@
+{
+  "count": 483110,
+  "next": "https://freesound.org/apiv2/sounds/64314/similar/?&target=64314&page=2&fields=id,name,previews,duration,num_downloads,username,num_ratings",
+  "results": [
+      {
+          "id": 64314,
+          "name": "Zoom Lens.wav",
+          "duration": 4.5356,
+          "username": "Pogotron",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/64/64314_783757-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/64/64314_783757-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/64/64314_783757-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/64/64314_783757-hq.mp3"
+          },
+          "num_downloads": 3622,
+          "num_ratings": 26,
+          "distance_to_target": 0
+      },
+      {
+          "id": 463001,
+          "name": "HOAN Snare.wav",
+          "duration": 0.540181,
+          "username": "Obvsly",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/463/463001_8967372-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/463/463001_8967372-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/463/463001_8967372-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/463/463001_8967372-hq.mp3"
+          },
+          "num_downloads": 10,
+          "num_ratings": 1,
+          "distance_to_target": 1.1709234714508057
+      },
+      {
+          "id": 65500,
+          "name": "Servo Motor #2.wav",
+          "duration": 11.6329,
+          "username": "Pogotron",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/65/65500_783757-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/65/65500_783757-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/65/65500_783757-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/65/65500_783757-hq.mp3"
+          },
+          "num_downloads": 1156,
+          "num_ratings": 11,
+          "distance_to_target": 1.2251921892166138
+      },
+      {
+          "id": 72587,
+          "name": "if_zombie_movement_stereo.wav",
+          "duration": 2.20585,
+          "username": "jivatma07",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/72/72587_1074082-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/72/72587_1074082-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/72/72587_1074082-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/72/72587_1074082-hq.mp3"
+          },
+          "num_downloads": 363,
+          "num_ratings": 6,
+          "distance_to_target": 1.249341368675232
+      },
+      {
+          "id": 72586,
+          "name": "if_zombie_movement_mono.wav",
+          "duration": 2.30937,
+          "username": "jivatma07",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/72/72586_1074082-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/72/72586_1074082-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/72/72586_1074082-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/72/72586_1074082-hq.mp3"
+          },
+          "num_downloads": 269,
+          "num_ratings": 0,
+          "distance_to_target": 1.2632108926773071
+      },
+      {
+          "id": 60831,
+          "name": "Flipping Coin Can.wav",
+          "duration": 19.7799,
+          "username": "Pogotron",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/60/60831_783757-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/60/60831_783757-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/60/60831_783757-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/60/60831_783757-hq.mp3"
+          },
+          "num_downloads": 210,
+          "num_ratings": 3,
+          "distance_to_target": 1.2652074098587036
+      },
+      {
+          "id": 348702,
+          "name": "Goblin_G_2.wav",
+          "duration": 0.944312,
+          "username": "Deganoth",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/348/348702_1445941-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/348/348702_1445941-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/348/348702_1445941-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/348/348702_1445941-hq.mp3"
+          },
+          "num_downloads": 16,
+          "num_ratings": 1,
+          "distance_to_target": 1.3005670309066772
+      },
+      {
+          "id": 348699,
+          "name": "Goblin_G_3.wav",
+          "duration": 0.944312,
+          "username": "Deganoth",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/348/348699_1445941-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/348/348699_1445941-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/348/348699_1445941-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/348/348699_1445941-hq.mp3"
+          },
+          "num_downloads": 58,
+          "num_ratings": 1,
+          "distance_to_target": 1.308280110359192
+      },
+      {
+          "id": 464706,
+          "name": "Snare ConstRuct.wav",
+          "duration": 0.428571,
+          "username": "Obvsly",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/464/464706_8967372-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/464/464706_8967372-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/464/464706_8967372-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/464/464706_8967372-hq.mp3"
+          },
+          "num_downloads": 3,
+          "num_ratings": 0,
+          "distance_to_target": 1.31908118724823
+      },
+      {
+          "id": 160885,
+          "name": "switch_crack.flac",
+          "duration": 1.27521,
+          "username": "chadwellAK",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/160/160885_2895933-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/160/160885_2895933-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/160/160885_2895933-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/160/160885_2895933-hq.mp3"
+          },
+          "num_downloads": 3248,
+          "num_ratings": 16,
+          "distance_to_target": 1.3309823274612427
+      },
+      {
+          "id": 496665,
+          "name": "SNARE DJ SoMaR 67",
+          "duration": 0.682667,
+          "username": "DJ_SoMaR",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/496/496665_5114235-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/496/496665_5114235-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/496/496665_5114235-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/496/496665_5114235-hq.mp3"
+          },
+          "num_downloads": 10,
+          "num_ratings": 0,
+          "distance_to_target": 1.3312052488327026
+      },
+      {
+          "id": 377394,
+          "name": "Clap_08.wav",
+          "duration": 0.4,
+          "username": "SBAudio",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/377/377394_6996670-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/377/377394_6996670-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/377/377394_6996670-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/377/377394_6996670-hq.mp3"
+          },
+          "num_downloads": 4,
+          "num_ratings": 0,
+          "distance_to_target": 1.3526029586791992
+      },
+      {
+          "id": 160887,
+          "name": "whip_crack.flac",
+          "duration": 1.89264,
+          "username": "chadwellAK",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/160/160887_2895933-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/160/160887_2895933-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/160/160887_2895933-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/160/160887_2895933-hq.mp3"
+          },
+          "num_downloads": 3614,
+          "num_ratings": 18,
+          "distance_to_target": 1.3657644987106323
+      },
+      {
+          "id": 125024,
+          "name": "_Hi Hat Open Normal Hit Brushes.wav",
+          "duration": 1.62937,
+          "username": "captain k man",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/125/125024_2272910-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/125/125024_2272910-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/125/125024_2272910-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/125/125024_2272910-hq.mp3"
+          },
+          "num_downloads": 56,
+          "num_ratings": 0,
+          "distance_to_target": 1.3670048713684082
+      },
+      {
+          "id": 464708,
+          "name": "Snare Hit No 39.wav",
+          "duration": 0.428571,
+          "username": "Obvsly",
+          "previews": {
+              "preview-lq-ogg": "https://freesound.org/data/previews/464/464708_8967372-lq.ogg",
+              "preview-lq-mp3": "https://freesound.org/data/previews/464/464708_8967372-lq.mp3",
+              "preview-hq-ogg": "https://freesound.org/data/previews/464/464708_8967372-hq.ogg",
+              "preview-hq-mp3": "https://freesound.org/data/previews/464/464708_8967372-hq.mp3"
+          },
+          "num_downloads": 3,
+          "num_ratings": 0,
+          "distance_to_target": 1.3811008930206299
+      }
+  ],
+  "previous": null
+}
