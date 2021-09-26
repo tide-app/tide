@@ -31,13 +31,6 @@ function setupServerMocks() {
   );
   cy.intercept(
     "GET",
-    "https://freesound.org/apiv2/search/text/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings&page_size=10&page=1&query=hello",
-    {
-      fixture: "search-results.json",
-    }
-  );
-  cy.intercept(
-    "GET",
     "https://freesound.org/apiv2/search/text/?fields=id%2Cname%2Cpreviews%2Cduration%2Cnum_downloads%2Cusername%2Cnum_ratings&page_size=10&page=2&query=hello",
     {
       fixture: "search-results-page-2.json",
