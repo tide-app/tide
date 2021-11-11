@@ -20,7 +20,8 @@
     "jsx": "react-jsx",
     "types": [
       "cypress"
-    ]
+    ],
+    "isolatedModules": true
   },
   "include": [
     "src",
