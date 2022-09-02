@@ -2,43 +2,69 @@
   "name": "tide",
   "version": "1.0.0",
   "description": "Explore a world of sounds",
-  "license": "MIT",
-  "homepage": "https://tide-app.vercel.app",
   "keywords": [
     "react",
     "starter"
   ],
+  "homepage": "https://tide-app.vercel.app",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:style && react-scripts build",
+    "build-storybook": "build-storybook -s public --no-dll",
+    "build:icons": "pwa-asset-generator ./public/icons/light-icon.svg public/icons --padding 0px --background '#FBDC57' --index ./public/index.html --path '%PUBLIC_URL%' --manifest public/manifest.json && pwa-asset-generator ./public/icons/dark-icon.svg public/icons --padding 0px --background 'black' --dark-mode --splash-only --index ./public/index.html --path '%PUBLIC_URL%' && prettier 'public/index.html' --write",
+    "build:style": "tailwindcss build src/styles.css -o src/build.css",
+    "deploy-storybook": "storybook-to-ghpages",
+    "e2e": "cypress run",
+    "eject": "react-scripts eject",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "start": "npm run build:style && react-scripts start",
+    "storybook": "start-storybook -p 6006 -s public --no-dll",
+    "test": "react-scripts test --env=jsdom"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint --fix"
+    ]
+  },
+  "browserslist": [
+    "last 2 chrome versions"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "extends": [
+      "bliss",
+      "plugin:react/recommended",
+      "plugin:cypress/recommended"
+    ],
+    "rules": {
+      "react/prop-types": "off"
+    }
+  },
+  "resolutions": {
+    "babel-loader": "8.1.0"
+  },
   "dependencies": {
+    "@babel/core": "^7.12.10",
     "@colormap/core": "0.2.0",
     "@colormap/presets": "0.2.0",
     "@headlessui/react": "^0.2.0",
     "@ionic/react": "^5.5.2",
+    "@palette.dev/browser": "^1.5.3",
+    "@palette.dev/webpack-plugin": "^1.1.4",
     "@sentry/react": "^5.29.2",
     "@sentry/tracing": "^6.14.1",
-    "@types/lodash": "^4.14.166",
-    "autoprefixer": "^9",
-    "cypress": "6.2.0",
-    "dompurify": "^2.2.6",
-    "freesound-client": "^0.4.1",
-    "ionicons": "^5.2.3",
-    "localforage": "^1.9.0",
-    "lodash": "^4.17.20",
-    "postcss-cli": "^8.3.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-helmet": "^6.1.0",
-    "react-modal": "^3.12.1",
-    "react-router-dom": "5.2.0",
-    "react-scripts": "^4.0.1",
-    "react-wavesurfer.js": "^0.0.2",
-    "tailwindcss": "^2.2.19",
-    "tinykeys": "^1.1.1",
-    "use-debounce": "^5.2.0",
-    "wavesurfer.js": "4.3.0",
-    "yarn": "^1.22.10"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.10",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
@@ -50,77 +76,48 @@
     "@testing-library/react": "^11.2.2",
     "@tsconfig/node12": "^1.0.7",
     "@types/cypress": "^1.1.3",
+    "@types/lodash": "^4.14.166",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-modal": "^3.10.6",
     "@types/react-router-dom": "^5.1.6",
+    "autoprefixer": "^9",
     "bundlewatch": "^0.3.1",
+    "cypress": "6.2.0",
+    "dompurify": "^2.2.6",
     "eslint": "^7.16.0",
     "eslint-config-bliss": "^5.0.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
+    "freesound-client": "^0.5.0",
     "husky": "^4.3.6",
+    "ionicons": "^5.2.3",
     "levenary": "^1.1.1",
     "lint-staged": "^10.5.3",
+    "localforage": "^1.9.0",
+    "lodash": "^4.17.20",
     "postcss": "8.x.x",
+    "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "pwa-asset-generator": "^4.0.2",
+    "react": "18.x.x",
+    "react-dom": "18.x.x",
+    "react-helmet": "^6.1.0",
     "react-is": "^17.0.1",
+    "react-modal": "^3.12.1",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "^5.0.1",
+    "react-wavesurfer.js": "^0.0.2",
+    "tailwindcss": "^2.2.19",
+    "tinykeys": "^1.1.1",
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.3",
+    "use-debounce": "^5.2.0",
+    "wavesurfer.js": "4.3.0",
     "web-audio-test-api": "^0.5.2"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint --fix"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "scripts": {
-    "start": "yarn build:style && react-scripts start",
-    "build": "yarn build:style && react-scripts build",
-    "build:style": "tailwindcss build src/styles.css -o src/build.css",
-    "build:icons": "pwa-asset-generator ./public/icons/light-icon.svg public/icons --padding 0px --background '#FBDC57' --index ./public/index.html --path '%PUBLIC_URL%' --manifest public/manifest.json && pwa-asset-generator ./public/icons/dark-icon.svg public/icons --padding 0px --background 'black' --dark-mode --splash-only --index ./public/index.html --path '%PUBLIC_URL%' && prettier 'public/index.html' --write",
-    "lint": "eslint . --fix --ignore-path .gitignore",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "e2e": "cypress run",
-    "storybook": "start-storybook -p 6006 -s public --no-dll",
-    "build-storybook": "build-storybook -s public --no-dll",
-    "deploy-storybook": "storybook-to-ghpages"
-  },
-  "browserslist": [
-    "last 2 chrome versions"
-  ],
-  "renovate": {
-    "extends": [
-      "bliss"
-    ]
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": true
-    },
-    "extends": [
-      "bliss",
-      "plugin:react/recommended",
-      "plugin:cypress/recommended"
-    ],
-    "rules": {
-      "react/prop-types": "off"
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    }
   },
   "bundlewatch": [
     {
@@ -128,7 +125,9 @@
       "maxSize": "10 kB"
     }
   ],
-  "resolutions": {
-    "babel-loader": "8.1.0"
+  "renovate": {
+    "extends": [
+      "bliss"
+    ]
   }
 }

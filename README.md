@@ -24,13 +24,13 @@
 ```bash
 git clone https://github.com/tide-app/tide
 cd tide
-yarn
-yarn start
+npm install
+npm start
 
 # E2E Tests
-yarn start
+npm start
 # Run this in a separate terminal
-yarn cypress open
+npm run cypress open
 ```
 
 ## Storybook
@@ -39,7 +39,7 @@ https://tide-app.github.io/tide/
 
 ```bash
 # Run storybook on your local machine
-yarn storybook
+npm run storybook
 # Deploy storybook to github pages
-yarn deploy-storybook
+npm run deploy-storybook
 ```

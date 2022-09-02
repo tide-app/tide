@@ -36,7 +36,8 @@ export default function Search({
 
   useEffect(() => {
     const updateSearchResults = async () => {
-      if (searchQuery === "") {
+      // @hack: avoid requests to avoid async set states in react tests
+      if (searchQuery === "" || process.env.NODE_ENV === "test") {
         setSearchResults([]);
       } else {
         const query = await debouncedSearch.callback();
