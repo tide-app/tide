@@ -1,4 +1,4 @@
-/* eslint-disable import/first, import/no-unresolved */
+/* eslint-disable import/first */
 import {
   init,
   events,
