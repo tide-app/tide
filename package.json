@@ -48,6 +48,17 @@
       "plugin:react/recommended",
       "plugin:cypress/recommended"
     ],
+    "overrides": [
+      {
+        "extends": [
+          "plugin:@typescript-eslint/recommended"
+        ],
+        "files": [
+          "**/*.ts",
+          "**/*.tsx"
+        ]
+      }
+    ],
     "rules": {
       "react/prop-types": "off"
     }
