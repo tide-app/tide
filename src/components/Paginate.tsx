@@ -62,8 +62,8 @@ export default function Paginate({
       <span className={"border inline-flex px-4 py-2"}>...</span>
     );
     // First, ..., prev, current, next, ..., last
-    const MAX_NUMBER_OF_PAGE_BUTTONS: number = 7;
-    const NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS: number = 3;
+    const MAX_NUMBER_OF_PAGE_BUTTONS = 7;
+    const NUMBER_OF_ALWAYS_PRESENT_PAGE_BUTTONS = 3;
     const remainingPageButtons: Array<JSX.Element> = [];
 
     if (numberOfPages <= MAX_NUMBER_OF_PAGE_BUTTONS) {
