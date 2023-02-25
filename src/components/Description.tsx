@@ -6,7 +6,7 @@ interface Props {
 
 export default function Description({
   content: sanitizedHTMLFromFreesound,
-}: Props) {
+}: Props): JSX.Element {
   return (
     <>
       <h1 className="text-left text-3xl pt-24 py-4">Description</h1>

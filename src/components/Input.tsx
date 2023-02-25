@@ -5,7 +5,7 @@ interface Props {
   icon: string;
 }
 
-export default function Input({ icon, ...props }: Props) {
+export default function Input({ icon, ...props }: Props): JSX.Element {
   return (
     <div className="relative">
       <input

@@ -21,7 +21,7 @@ export default function Paginate({
   onPageClick,
   page,
   totalResults,
-}: PaginateProps) {
+}: PaginateProps): JSX.Element {
   const [currentPage, setCurrentPage] = useState(page);
   const numberOfPages: number = getNumPages(totalResults, limit);
 
