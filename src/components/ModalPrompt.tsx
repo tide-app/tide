@@ -23,7 +23,7 @@ export default function ModalPrompt({
   confirmMessage,
   denyMessage,
   longMessage,
-}: Props) {
+}: Props): JSX.Element {
   return (
     <Modal
       className="Modal bg-primary border-2 border-secondary color-secondary max-w-xl mx-auto my-48 outline-none px-2 py-1 relative text-secondary"

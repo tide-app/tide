@@ -4,7 +4,7 @@ interface Props {
   children: Element;
 }
 
-export default function Button({ children, ...props }: Props) {
+export default function Button({ children, ...props }: Props): JSX.Element {
   return (
     <button
       {...props}
