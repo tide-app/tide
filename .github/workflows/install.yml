@@ -1,0 +1,26 @@
+name: Install
+
+on: push
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js, NPM
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Make sure `npm install` works correctly
+        run: npm install
+
+      - name: Clear dependencies for a clean slate.
+        run: rm -rf node_modules/
+
+      - name: Make sure `yarn install` works properly.
+        run: yarn install
