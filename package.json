@@ -27,7 +27,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "which eslint"
+      "eslint --fix"
     ]
   },
   "browserslist": [
