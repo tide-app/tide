@@ -1,7 +1,6 @@
 import { searchSharp } from "ionicons/icons";
-import React, { useEffect } from "react";
-import { Link, withRouter, useLocation } from "react-router-dom";
-import tinykeys from "tinykeys";
+import React from "react";
+import { Link, useLocation, withRouter } from "react-router-dom";
 import Button from "./components/Button.tsx";
 import Input from "./components/Input.tsx";
 import LoginDropdown from "./components/LoginDropdown";
@@ -18,20 +17,21 @@ function Nav({ isLoggedIn, openModal, setSearchValue, history }) {
   };
   const queryParams = useQuery();
   const searchQuery = queryParams.get("q");
-  useEffect(() => {
+  React.useEffect(() => {
     const focusSearchBar = (event) => {
-      if (document.activeElement === document.body) {
-        event.preventDefault(); // Search shortcuts
+      // Ignore shortcuts if the search bar is already focused,
+      // or if the pressed key(s) don't match this keyboard shortcut.
+      if (
+        document.activeElement !== document.getElementById("search-bar") &&
+        (event.key === "/" || (event.key === "k" && event.ctrlKey))
+      ) {
+        event.preventDefault();
         document.getElementById("search-bar").focus();
-      } // should only work when the document has focus.
+      }
     };
-    const unsubscribe = tinykeys(window, {
-      "$mod+KeyK": focusSearchBar,
-      Slash: focusSearchBar,
-    });
-    return () => {
-      unsubscribe();
-    };
+    // https://devtrium.com/posts/how-keyboard-shortcut#the-code
+    document.addEventListener("keydown", focusSearchBar);
+    return () => document.getElementById("keydown", focusSearchBar);
   });
   return (
     <nav className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
