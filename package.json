@@ -94,7 +94,7 @@
     "@palette.dev/webpack-plugin": "^1.1.4",
     "@sentry/react": "^7.38.0",
     "@sentry/tracing": "^6.14.1",
-    "@storybook/react": "^6.5.16",
+    "@storybook/react": "^7.0.6",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
