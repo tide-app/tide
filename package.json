@@ -127,7 +127,7 @@
     "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
-    "pwa-asset-generator": "^4.0.2",
+    "pwa-asset-generator": "^4.3.9",
     "react": "18.x.x",
     "react-dom": "18.x.x",
     "react-helmet": "^6.1.0",

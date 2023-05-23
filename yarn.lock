@@ -13100,9 +13100,9 @@ purgecss@^4.0.3:
     postcss "^8.3.5"
     postcss-selector-parser "^6.0.6"
 
-pwa-asset-generator@^4.0.2:
+pwa-asset-generator@^4.3.9:
   version "4.3.9"
-  resolved "https://registry.npmjs.org/pwa-asset-generator/-/pwa-asset-generator-4.3.9.tgz"
+  resolved "https://registry.yarnpkg.com/pwa-asset-generator/-/pwa-asset-generator-4.3.9.tgz#5c4b94fc1a1fdb18052b9e9daeb924e96c41f0cc"
   integrity sha512-axpKPPR3DC7uusVsgbG+xSYkDtIcNA9Aum7CTdjpvuKMIjR4af8/QEpWJ/GiAXNFtwyUTy2xcoqroai9ghraLQ==
   dependencies:
     chalk "4.1.2"
