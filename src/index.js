@@ -1,11 +1,11 @@
 /* eslint-disable import/first */
 import {
-  init,
   events,
-  vitals,
+  init,
   measure,
   network,
   profiler,
+  vitals,
 } from "@palette.dev/browser";
 
 init({
@@ -23,13 +23,13 @@ window.addEventListener("load", () => {
   profiler.stop();
 });
 
-import React from "react";
-import ReactDOM from "react-dom";
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
+import React from "react";
+import { createRoot } from "react-dom/client";
 import App from "./App";
-import { register } from "./serviceWorker";
 import "./build.css";
+import { register } from "./serviceWorker";
 
 if (process.env.NODE_ENV === "production") {
   Sentry.init({
@@ -41,11 +41,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(
+const root = createRoot(rootElement);
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  rootElement
+  </React.StrictMode>
 );
 
 register();
