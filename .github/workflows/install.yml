@@ -1,4 +1,4 @@
-name: Install
+name: Run
 
 on: push
 
@@ -24,3 +24,6 @@ jobs:
 
       - name: Make sure `yarn install` works properly.
         run: yarn install
+
+      - name: Make sure we can start the app.
+        run: yarn start
