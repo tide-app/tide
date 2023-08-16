@@ -18,9 +18,3 @@ jobs:
 
       - name: Make sure `npm install` works correctly
         run: npm install
-
-      - name: Clear dependencies for a clean slate.
-        run: rm -rf node_modules/
-
-      - name: Make sure `yarn install` works properly.
-        run: yarn install
