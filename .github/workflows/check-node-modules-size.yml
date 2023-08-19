@@ -1,0 +1,79 @@
+name: Check changes in `node_modules/`'s size.'
+
+# https://stackoverflow.com/questions/68737385/how-to-trigger-github-actions-on-push-of-current-branch/68737519#68737519
+on: [push]
+
+jobs:
+  analyze-size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Get the size of `node_modules/` on the current branch.
+        id: current_size
+        run: echo "CURRENT_SIZE=$(du -sh node_modules | awk '{print $1}')" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Checkout the main branch and get the size of its `node_modules/` directory.
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Remove `node_modules/` for a clean slate.
+        run: rm -rf node_modules/
+      - name: Reinstall dependencies so we can check the size of `node_modules/`.
+        run: npm install
+      - name: Get the size of `node_modules/`.
+        id: main_size
+        run: echo "MAIN_SIZE=$(du -sh node_modules | awk '{print $1}')" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print sizes
+        run: |
+          echo "Main branch size: $MAIN_SIZE"
+          echo "Current branch size: $CURRENT_SIZE"
+
+      - name: Add a comment to the pull request if `node_modules/` changed in size.
+        if: ${{ env.CURRENT_SIZE != env.MAIN_SIZE }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const body = `\`node_modules/\` has changed in size.\n
+            Main branch size: ${process.env.MAIN_SIZE}\n
+            Current branch size: ${process.env.CURRENT_SIZE}`
+
+            const { owner, repo } = context.repo;
+            const commit_sha = context.sha;
+            console.log('commit_sha:', commit_sha);
+            console.log('owner:', owner);
+            console.log('repo:', repo);
+            const { data } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              commit_sha,
+              owner,
+              repo,
+            });
+            if (data[0]) {
+              const issue_number = data[0].number;
+              console.log('issue_number is', issue_number);
+              // https://stackoverflow.com/questions/58066966/commenting-a-pull-request-in-a-github-action/76215842#76215842
+              github.rest.issues.createComment({
+                body,
+                issue_number,
+                owner,
+                repo,
+              });
+            } else {
+              console.warn('No pull request found for commit_sha', commit_sha);
+            }
