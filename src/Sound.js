@@ -1,19 +1,19 @@
 import DOMPurify from "dompurify";
+import React from "react";
 import { Helmet } from "react-helmet";
-import tinykeys from "tinykeys";
 import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
 import Waveform from "react-wavesurfer.js";
+import tinykeys from "tinykeys";
+import SoundListContainer from "./SoundListContainer";
 import Description from "./components/Description.tsx";
-import Tags from "./components/Tags";
 import Dropdown from "./components/Dropdown";
 import PlayButtton from "./components/PlayButton";
+import Tags from "./components/Tags";
 import useSound from "./hooks/useSound";
-import SoundListContainer from "./SoundListContainer";
 
 export default function Sound(props) {
   const { isLoggedIn, freeSound, setModalIsOpen } = props;
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = React.useState(false);
   const { id } = useParams();
   const { download, loadingState, pack, similar, sound } = useSound({
     id,
@@ -24,11 +24,11 @@ export default function Sound(props) {
     setIsPlaying(!isPlaying);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const unsubscribe = tinykeys(window, {
       Space: (event) => {
         // Shortcuts should only work
